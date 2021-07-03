@@ -15,16 +15,12 @@ import { setGlobals } from "./state/reducers/globals";
 import { getGlobals } from "./services/globals";
 import * as ROUTES from "./constants/routes";
 
-const Wrapper = styled.div`
-  color: #29252a;
-`;
-
-const ContentWrapper = styled.div`
+const StyledApp = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  min-height: 83.2vh;
+  justify-content: center;
+  align-items: center;
 `;
 
 const App: React.FC = () => {
@@ -51,24 +47,20 @@ const App: React.FC = () => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Wrapper>
-        <GlobalStyle />
-        <Router>
+      <GlobalStyle />
+      <Router>
+        <StyledApp>
           <Navbar />
-
-          <ContentWrapper>
-            <Switch>
-              <Route exact path={`${ROUTES.WAIFU}/:id`} />
-              <Route path={ROUTES.PROVENANCE} component={ProvenancePage} />
-              <Route exact path={ROUTES.HOME} component={HomePage} />
-              <Route exact path={ROUTES.ARCADE} component={V2Page} />
-              <Route path="*" component={NotFoundPage} />
-            </Switch>
-          </ContentWrapper>
-
+          <Switch>
+            <Route exact path={`${ROUTES.WAIFU}/:id`} />
+            <Route path={ROUTES.PROVENANCE} component={ProvenancePage} />
+            <Route exact path={ROUTES.HOME} component={HomePage} />
+            <Route exact path={ROUTES.ARCADE} component={V2Page} />
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
           <Footer />
-        </Router>
-      </Wrapper>
+        </StyledApp>
+      </Router>
     </Suspense>
   );
 };
