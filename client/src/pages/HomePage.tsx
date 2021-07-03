@@ -10,9 +10,11 @@ import i06 from "../assets/v2/06.png";
 import i07 from "../assets/v2/07.png";
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 `;
 
 const Home: React.FC = () => {
