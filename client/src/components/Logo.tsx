@@ -33,8 +33,7 @@ const Logo: React.FC = () => {
       onMouseEnter={() => setLogoHoverActive(true)}
       onMouseLeave={() => setLogoHoverActive(false)}
     >
-      <Image src={LogoMaskImg} />
-      <Image src={LogoImg} hide={!logoHoverActive} />
+      New Logo
     </StyledLogo>
   );
 };
