@@ -77,7 +77,6 @@ const Navbar: React.FC = () => {
           content={<NavItems />}
         />
       </Container>
-      <Underline />
     </StyledNavbar>
   );
 };
