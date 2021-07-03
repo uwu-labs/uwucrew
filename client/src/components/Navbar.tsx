@@ -21,7 +21,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 10px 32px;
+  padding: 1rem 4rem;
 
   @media (max-width: 768px) {
     padding: 10px 20px;
