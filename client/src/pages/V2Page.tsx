@@ -144,7 +144,7 @@ const Button = styled.button`
   }
 `;
 
-const V2Page = () => {
+const V2Page = (): JSX.Element => {
   const [email, setEmail] = useState();
 
   const [now, setNow] = useState(new Date());
