@@ -2,10 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
-import {
-  selectWetBurnPrice,
-  selectWetTradeLink,
-} from "../state/reducers/globals";
+import { selectWetBurnPrice } from "../state/reducers/globals";
 import Button from "./Button";
 
 const rotate = keyframes`
@@ -83,7 +80,6 @@ const Item = styled.li`
 
 const WetSlide: React.FC = () => {
   const [t] = useTranslation();
-  const wetTradeLink = useSelector(selectWetTradeLink);
   const wetBurnPrice = useSelector(selectWetBurnPrice);
 
   const wetDetail = t("wet.detail").replace("[[WET_BURN_PRICE]]", wetBurnPrice);
@@ -106,7 +102,7 @@ const WetSlide: React.FC = () => {
         <Button
           secondary
           onClick={() => {
-            (window as any).open(wetTradeLink, "_blank").focus();
+            (window as any).open("", "_blank").focus();
           }}
         >
           {t("buttons.getWet")}

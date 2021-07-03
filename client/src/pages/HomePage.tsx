@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Head from "../components/Head";
-import Landing from "../components/Landing";
-import Preview from "../components/Preview";
-import WetSlide from "../components/WetSlide";
+import Slide from "../components/Slide";
 
 const Container = styled.div`
   width: 100%;
@@ -14,10 +11,7 @@ const Container = styled.div`
 const Home: React.FC = () => {
   return (
     <Container>
-      <Head title="Anime Ethereum NFT Collectibles" />
-      <Landing />
-      <WetSlide />
-      <Preview />
+      <Slide color="red" />
     </Container>
   );
 };
