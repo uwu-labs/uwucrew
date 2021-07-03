@@ -1,2 +1,10 @@
+# Client
 /client/node_modules
 /client/build
+
+# Contracts
+/contracts/secrets.js
+/contracts/node_modules
+
+# Root
+/node_modules

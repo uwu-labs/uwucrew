@@ -1,0 +1,37 @@
+{
+  "name": "waifusion-v2",
+  "version": "1.0.0",
+  "description": "POG",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat compile && npx hardhat coverage",
+    "gas": "npx hardhat test",
+    "deploy.local": "npx hardhat test && npx hardhat run --network localhost scripts/deploy.js",
+    "deploy.test": "npx hardhat test && npx hardhat run --network rinkenby scripts/deploy.js",
+    "deploy.arbitrum": "npx hardhat test && npx hardhat run --network arbitrum scripts/deploy.js",
+    "deploy.ethereum": "npx hardhat test && npx hardhat run --network ethereum scripts/deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waifusion/v2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.3",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.0.32",
+    "hardhat": "^2.1.1",
+    "hardhat-abi-exporter": "^2.2.0",
+    "hardhat-gas-reporter": "^1.0.4",
+    "solidity-coverage": "^0.7.16"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.1.7"
+  }
+}
