@@ -18,13 +18,13 @@ const Container = styled.div`
 const Home: React.FC = () => {
   return (
     <Container>
-      <Slide color="#9E4E64" image={i05} />
-      <Slide color="#D3AA73" image={i04} right />
+      <Slide color="#4C96B2" image={i06} />
+      <Slide color="#9E4E64" image={i05} right />
+      <Slide color="#D3AA73" image={i04} />
+      <Slide color="#6E4C65" image={i07} right />
       <Slide color="#A06758" image={i02} />
-      <Slide color="#4C96B2" image={i06} right />
-      <Slide color="#6A8154" image={i03} />
-      <Slide color="#C584A4" image={i01} right />
-      <Slide color="#6E4C65" image={i07} />
+      <Slide color="#6A8154" image={i03} right />
+      <Slide color="#C584A4" image={i01} />
     </Container>
   );
 };
