@@ -41,7 +41,7 @@ const LinkableItem = styled(Link)`
   transition: all 0.3s;
 
   * {
-    color: var(--text-secondary);
+    color: var(--text-primary);
   }
 
   :hover {
@@ -69,7 +69,6 @@ const NavItems: React.FC = () => {
       {!isEth && (
         <Item>
           <LinkableItem to={ROUTES.FARM}>
-            <FarmIcon />
             <label>{t("navigation.farm")}</label>
           </LinkableItem>
         </Item>
@@ -77,20 +76,17 @@ const NavItems: React.FC = () => {
       {isEth && (
         <Item>
           <LinkableItem to={ROUTES.BROWSE}>
-            <SearchIcon />
             <label>{t("navigation.browse")}</label>
           </LinkableItem>
         </Item>
       )}
       <Item>
         <LinkableItem to={ROUTES.WALLET}>
-          <WalletIcon />
           <label>{t("navigation.wallet")}</label>
         </LinkableItem>
       </Item>
       <Item>
         <LinkableItem to={ROUTES.DUNGEON}>
-          <DungeonIcon />
           <label>{t("navigation.dungeon")}</label>
         </LinkableItem>
       </Item>
