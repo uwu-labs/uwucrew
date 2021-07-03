@@ -2,6 +2,7 @@ import { Contract } from "web3-eth-contract";
 import Web3 from "web3";
 import waifuAbi from "../contracts/WaifusionV2.json";
 import { getGlobals } from "./globals";
+import BN from "bn.js";
 
 export type AccoomulateWaifu = {
   wetAccumulate: string;
@@ -25,5 +26,13 @@ export const getWaifuContract = async (): Promise<Contract> => {
   const address = await getAddress();
   return new (window as any).web3.eth.Contract(waifuAbi, globals.waifuAddress, {
     from: address,
+  });
+};
+
+export const mint = async (number: number): Promise<void> => {
+  const waifuContract = await getWaifuContract();
+  const globals = await getGlobals();
+  await waifuContract.methods.mint(number).send({
+    value: new BN(Web3.utils.toWei(globals.price)).mul(new BN(number)),
   });
 };
