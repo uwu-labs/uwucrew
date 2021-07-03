@@ -4,10 +4,39 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import Address from "./Address";
-import NetworkIndicator from "./NetworkIndicator";
 import { selectIsEth } from "../state/reducers/globals";
-import * as ROUTES from "../constants/routes";
+
+type NavItemType = {
+  label: string;
+  route: string;
+};
+
+const navItems: NavItemType[] = [
+  {
+    label: "buy",
+    route: "/?scroll=buy",
+  },
+  {
+    label: "about",
+    route: "/?scroll=about",
+  },
+  {
+    label: "roadmap",
+    route: "/?scroll=roadmap",
+  },
+  {
+    label: "team",
+    route: "/?scroll=team",
+  },
+  {
+    label: "provenance",
+    route: "/?scroll=provenance",
+  },
+  {
+    label: "faq",
+    route: "/?scroll=faq",
+  },
+];
 
 const NavItemsWrapper = styled.ul`
   display: flex;
@@ -36,6 +65,7 @@ const LinkableItem = styled(Link)`
   align-items: center;
   cursor: pointer;
   transition: all 0.3s;
+  text-transform: capitalize;
 
   color: var(--text-primary);
   font-size: 1.2rem;
@@ -46,9 +76,7 @@ const LinkableItem = styled(Link)`
   }
 
   :hover {
-    * {
-      color: var(--primary-shadow);
-    }
+    opacity: 0.5;
   }
 
   svg {
@@ -67,30 +95,13 @@ const NavItems: React.FC = () => {
 
   return (
     <NavItemsWrapper>
-      {!isEth && (
+      {navItems.map((ni: NavItemType) => (
         <Item>
-          <LinkableItem to={ROUTES.FARM}>
-            <label>{t("navigation.farm")}</label>
+          <LinkableItem to={ni.route}>
+            <label>{ni.label}</label>
           </LinkableItem>
         </Item>
-      )}
-      {isEth && (
-        <Item>
-          <LinkableItem to={ROUTES.BROWSE}>
-            <label>{t("navigation.browse")}</label>
-          </LinkableItem>
-        </Item>
-      )}
-      <Item>
-        <LinkableItem to={ROUTES.WALLET}>
-          <label>{t("navigation.wallet")}</label>
-        </LinkableItem>
-      </Item>
-      <Item>
-        <LinkableItem to={ROUTES.DUNGEON}>
-          <label>{t("navigation.dungeon")}</label>
-        </LinkableItem>
-      </Item>
+      ))}
     </NavItemsWrapper>
   );
 };

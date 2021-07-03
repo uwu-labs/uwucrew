@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
 type SlideProps = {
@@ -32,11 +33,28 @@ type Props = {
   color: string;
   image: string;
   right?: boolean;
+  section: string;
 };
 
-const Slide = ({ color, image, right }: Props): JSX.Element => {
+const Slide = ({ color, image, right, section }: Props): JSX.Element => {
+  const history = useHistory();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  history.listen((location) => {
+    const i = location.search.search("scroll=");
+    if (
+      i > -1 &&
+      location.search.substring(i + 7, location.search.length - i + 1) ===
+        section
+    ) {
+      scrollRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  });
+
   return (
-    <StyledSlide color={color}>
+    <StyledSlide color={color} ref={scrollRef}>
       <Image src={image} right={right} />
     </StyledSlide>
   );
