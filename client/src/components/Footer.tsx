@@ -1,21 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import * as ROUTES from "../constants/routes";
 
 const StyledFooter = styled.div`
   display: flex;
   flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 `;
 
 const Container = styled.footer`
   position: relative;
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 4rem;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 const Section = styled.div`
@@ -28,40 +31,15 @@ const Section = styled.div`
   }
 `;
 
-const InternalLink = styled(Link)`
-  margin-right: 20px;
-  text-decoration: none;
-  color: var(--text-primary);
-
-  :hover {
-    text-decoration: underline;
-  }
-`;
-
 const ExternalLink = styled.a`
   margin-left: 20px;
   text-decoration: none;
   color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
 
   :hover {
     text-decoration: underline;
-  }
-`;
-
-const AbsoluteCenterSection = styled.div`
-  display: flex;
-  font-weight: 500;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--text-primary);
-
-  @media (max-width: 768px) {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;
 
@@ -71,19 +49,6 @@ const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <Container>
-        <Section>
-          <InternalLink to={ROUTES.PROVENANCE}>
-            {t("footer.provenance")}
-          </InternalLink>
-          <ExternalLink
-            href="https://opensea.io/assets/waifusion"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t("footer.opensea")}
-          </ExternalLink>
-        </Section>
-        <AbsoluteCenterSection>{t("footer.team")}</AbsoluteCenterSection>
         <Section>
           <ExternalLink
             href="https://twitter.com/waifusion"
