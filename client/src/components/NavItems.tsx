@@ -33,11 +33,13 @@ const LinkableItem = styled(Link)`
   text-decoration: none;
   display: flex;
   flex-wrap: nowrap;
-  font-weight: 500;
   align-items: center;
-  font-size: 15pt;
   cursor: pointer;
   transition: all 0.3s;
+
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
 
   * {
     color: var(--text-primary);
@@ -89,10 +91,6 @@ const NavItems: React.FC = () => {
           <label>{t("navigation.dungeon")}</label>
         </LinkableItem>
       </Item>
-      <Item>
-        <Address />
-      </Item>
-      <NetworkIndicator />
     </NavItemsWrapper>
   );
 };
