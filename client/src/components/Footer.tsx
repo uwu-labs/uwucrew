@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Underline from "./Underline";
 import * as ROUTES from "../constants/routes";
 
 const StyledFooter = styled.div`
@@ -32,7 +31,7 @@ const Section = styled.div`
 const InternalLink = styled(Link)`
   margin-right: 20px;
   text-decoration: none;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 
   :hover {
     text-decoration: underline;
@@ -42,7 +41,7 @@ const InternalLink = styled(Link)`
 const ExternalLink = styled.a`
   margin-left: 20px;
   text-decoration: none;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 
   :hover {
     text-decoration: underline;
@@ -56,7 +55,7 @@ const AbsoluteCenterSection = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--text-secondary);
+  color: var(--text-primary);
 
   @media (max-width: 768px) {
     width: 100%;
@@ -71,7 +70,6 @@ const Footer: React.FC = () => {
 
   return (
     <StyledFooter>
-      <Underline />
       <Container>
         <Section>
           <InternalLink to={ROUTES.PROVENANCE}>
