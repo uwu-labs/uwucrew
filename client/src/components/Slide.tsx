@@ -12,7 +12,7 @@ const StyledSlide = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${(props: SlideProps) => props.color};
-  height: 30rem;
+  height: 35rem;
 `;
 
 type ImageProps = {
@@ -21,10 +21,10 @@ type ImageProps = {
 
 const Image = styled.img`
   position: absolute;
-  height: 25rem;
+  height: 30rem;
   bottom: 0;
-  left: ${(props: ImageProps) => (props.right ? "auto" : "5rem")};
-  right: ${(props: ImageProps) => (props.right ? "5rem" : "auto")};
+  left: ${(props: ImageProps) => (props.right ? "auto" : "0")};
+  right: ${(props: ImageProps) => (props.right ? "0" : "auto")};
   transform: ${(props: ImageProps) => (props.right ? "scaleX(-1)" : "none")};
 `;
 
