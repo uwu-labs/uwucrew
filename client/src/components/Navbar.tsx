@@ -3,13 +3,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router";
 import Logo from "./Logo";
-import Underline from "./Underline";
 import NavItems from "./NavItems";
 import Popup from "./Popup";
 
 const StyledNavbar = styled.div`
   display: flex;
   flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 `;
 
 const Container = styled.div`
