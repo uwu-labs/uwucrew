@@ -45,6 +45,16 @@ const Header = styled.div`
   font-size: 4.5rem;
   font-weight: 600;
   color: var(--text-primary);
+  margin-bottom: 1rem;
+`;
+
+const SubHeader = styled.div`
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  max-width: 60rem;
+  text-align: center;
+  margin-top: 1rem;
 `;
 
 type Props = {
@@ -53,6 +63,7 @@ type Props = {
   right?: boolean;
   section: string;
   header?: string;
+  subHeaders?: string[];
 };
 
 const Slide = ({
@@ -61,6 +72,7 @@ const Slide = ({
   right,
   section,
   header,
+  subHeaders,
 }: Props): JSX.Element => {
   const history = useHistory();
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -81,7 +93,13 @@ const Slide = ({
   return (
     <StyledSlide color={color} ref={scrollRef}>
       <Image src={image} right={right} />
-      <Content right={right}>{header && <Header>{header}</Header>}</Content>
+      <Content right={right}>
+        {header && <Header>{header}</Header>}
+        {subHeaders &&
+          subHeaders.map((subHeader: string) => (
+            <SubHeader>{subHeader}</SubHeader>
+          ))}
+      </Content>
     </StyledSlide>
   );
 };
