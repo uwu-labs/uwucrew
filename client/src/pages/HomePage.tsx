@@ -20,45 +20,78 @@ const Container = styled.div`
 const Home: React.FC = () => {
   return (
     <Container>
-      <Slide color="#4C96B2" image={i06} section="" header="[Project Name]" />
+      <Slide
+        color="#4C96B2"
+        image={i06}
+        section=""
+        header="Project Name"
+        subHeaders={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        ]}
+      />
       <Slide
         color="#9E4E64"
         image={i05}
         right
         section="buy"
-        header="Buy [NFT Name]"
+        header="Buy NFT Name"
+        subHeaders={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ]}
       />
       <Slide
         color="#D3AA73"
         image={i04}
         section="about"
-        header="About [Project Name]"
+        header="About Project Name"
+        subHeaders={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
+        ]}
       />
       <Slide
         color="#6E4C65"
         image={i07}
         right
         section="roadmap"
-        header="[Project Name] Roadmap"
+        header="Project Name Roadmap"
+        subHeaders={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        ]}
       />
       <Slide
         color="#A06758"
         image={i02}
         section="team"
-        header="The [Project Name] Team"
+        header="The Project Name Team"
+        subHeaders={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        ]}
       />
       <Slide
         color="#6A8154"
         image={i03}
         right
         section="provenance"
-        header="[NFT Name] Provenance"
+        header="NFT Name Provenance"
+        subHeaders={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        ]}
       />
       <Slide
         color="#C584A4"
         image={i01}
         section="faq"
-        header="[Project Name] FAQs"
+        header="Project Name FAQs"
+        subHeaders={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ",
+        ]}
       />
     </Container>
   );
