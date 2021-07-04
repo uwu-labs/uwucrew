@@ -5,9 +5,9 @@ import i01 from "../assets/v2/01.png";
 import i02 from "../assets/v2/02.png";
 import i03 from "../assets/v2/03.png";
 import i04 from "../assets/v2/04.png";
-import i05 from "../assets/v2/05.png";
 import i06 from "../assets/v2/06.png";
 import i07 from "../assets/v2/07.png";
+import BuySlide from "../components/BuySlide";
 
 const Container = styled.div`
   position: relative;
@@ -29,16 +29,7 @@ const Home: React.FC = () => {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         ]}
       />
-      <Slide
-        color="#9E4E64"
-        image={i05}
-        right
-        section="buy"
-        header="Buy NFT Name"
-        subHeaders={[
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        ]}
-      />
+      <BuySlide />
       <Slide
         color="#D3AA73"
         image={i04}
