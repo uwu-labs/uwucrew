@@ -64,6 +64,7 @@ type Props = {
   section: string;
   header?: string;
   subHeaders?: string[];
+  content?: JSX.Element;
 };
 
 const Slide = ({
@@ -73,6 +74,7 @@ const Slide = ({
   section,
   header,
   subHeaders,
+  content,
 }: Props): JSX.Element => {
   const history = useHistory();
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -99,6 +101,7 @@ const Slide = ({
           subHeaders.map((subHeader: string) => (
             <SubHeader>{subHeader}</SubHeader>
           ))}
+        {content && content}
       </Content>
     </StyledSlide>
   );
