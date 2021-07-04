@@ -16,6 +16,18 @@ const StyledSlide = styled.div`
   height: 35rem;
 `;
 
+type ContentProps = {
+  right?: boolean;
+};
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: ${(props: ContentProps) =>
+    props.right ? "translateX(-15rem)" : "translateX(15rem)"};
+`;
+
 type ImageProps = {
   right?: boolean;
 };
@@ -29,14 +41,27 @@ const Image = styled.img`
   transform: ${(props: ImageProps) => (props.right ? "scaleX(-1)" : "none")};
 `;
 
+const Header = styled.div`
+  font-size: 4.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+`;
+
 type Props = {
   color: string;
   image: string;
   right?: boolean;
   section: string;
+  header?: string;
 };
 
-const Slide = ({ color, image, right, section }: Props): JSX.Element => {
+const Slide = ({
+  color,
+  image,
+  right,
+  section,
+  header,
+}: Props): JSX.Element => {
   const history = useHistory();
   const scrollRef = useRef<HTMLDivElement>(null);
   history.listen((location) => {
@@ -56,6 +81,7 @@ const Slide = ({ color, image, right, section }: Props): JSX.Element => {
   return (
     <StyledSlide color={color} ref={scrollRef}>
       <Image src={image} right={right} />
+      <Content right={right}>{header && <Header>{header}</Header>}</Content>
     </StyledSlide>
   );
 };

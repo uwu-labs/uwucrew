@@ -20,13 +20,46 @@ const Container = styled.div`
 const Home: React.FC = () => {
   return (
     <Container>
-      <Slide color="#4C96B2" image={i06} section="" />
-      <Slide color="#9E4E64" image={i05} right section="buy" />
-      <Slide color="#D3AA73" image={i04} section="about" />
-      <Slide color="#6E4C65" image={i07} right section="roadmap" />
-      <Slide color="#A06758" image={i02} section="team" />
-      <Slide color="#6A8154" image={i03} right section="provenance" />
-      <Slide color="#C584A4" image={i01} section="faq" />
+      <Slide color="#4C96B2" image={i06} section="" header="[Project Name]" />
+      <Slide
+        color="#9E4E64"
+        image={i05}
+        right
+        section="buy"
+        header="Buy [NFT Name]"
+      />
+      <Slide
+        color="#D3AA73"
+        image={i04}
+        section="about"
+        header="About [Project Name]"
+      />
+      <Slide
+        color="#6E4C65"
+        image={i07}
+        right
+        section="roadmap"
+        header="[Project Name] Roadmap"
+      />
+      <Slide
+        color="#A06758"
+        image={i02}
+        section="team"
+        header="The [Project Name] Team"
+      />
+      <Slide
+        color="#6A8154"
+        image={i03}
+        right
+        section="provenance"
+        header="[NFT Name] Provenance"
+      />
+      <Slide
+        color="#C584A4"
+        image={i01}
+        section="faq"
+        header="[Project Name] FAQs"
+      />
     </Container>
   );
 };
