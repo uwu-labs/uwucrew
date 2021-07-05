@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "Waifusion V2",
+			"path": "."
+		},
+		{
+			"name": "Frontend",
+			"path": "client"
+		},
+		{
+			"name": "Contracts",
+			"path": "contracts"
+		},
+		{
+			"name": "Scripts",
+			"path": "scripts"
+		}
+	],
+	"settings": {}
+}
