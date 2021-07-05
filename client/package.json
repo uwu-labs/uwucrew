@@ -10,6 +10,7 @@
         "start": "next start src"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.35",
         "next": "^11.0.1",
         "next-plausible": "^1.7.0",
         "next-seo": "^4.26.0",
