@@ -1,4 +1,8 @@
 {
+    "name": "waifusion-site",
+    "version": "0.1.0",
+    "private": true,
+    "license": "MIT",
     "dependencies": {
     },
     "devDependencies": {
