@@ -2304,6 +2304,11 @@ next-plausible@^1.7.0:
   resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-1.7.0.tgz#04601d36d46ce0feca7a0792ef807b110db1057a"
   integrity sha512-ndbuyJOgW4DPhbysBIsqut57mBORU0fEhu7oDOK6L6kvmS4HdR2b6CPD8lmeNkb3vrRrfdGVI2bQZPP+jizldg==
 
+next-seo@^4.26.0:
+  version "4.26.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.26.0.tgz#4218cfae5651fdc2e330dcdf1cc1b34ce199d41c"
+  integrity sha512-5TqywQ3XAwqdmEU1AyNZjR7WdDKFTkDD8aBtgQelPvzBUEy8i0mTjtiw+09jhiHFNik6FqS8uPKCaYcY6jRgSQ==
+
 next-translate@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-1.0.1.tgz#fd8f5976efb542030563d81d5f605bc019729028"
