@@ -160,3 +160,4 @@ typings
 # End of https://www.toptal.com/developers/gitignore/api/web,node,typings,visualstudiocode
 
 !*.config.js
+sitemap.xml
