@@ -32,9 +32,9 @@ interface ImageProps {
 	right?: boolean;
 }
 
-const StyledImage = styled(Image)`
+const StyledImage = styled.div`
 	position: absolute;
-	height: 30rem;
+	width: 30rem;
 	bottom: 0;
 	left: ${(props: ImageProps) => (props.right ? 'auto' : '0')};
 	right: ${(props: ImageProps) => (props.right ? '0' : 'auto')};
@@ -88,7 +88,9 @@ const Slide = ({ color, image, right, section, header, subHeaders, content }: Pr
 
 	return (
 		<StyledSlide color={color} ref={scrollRef}>
-			<StyledImage src={image} right={right} />
+			<StyledImage right={right}>
+				<Image src={image} />
+			</StyledImage>
 			<Content right={right}>
 				{header && <Header>{header}</Header>}
 				{subHeaders && subHeaders.map((subHeader: string) => <SubHeader>{subHeader}</SubHeader>)}
