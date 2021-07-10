@@ -12,6 +12,7 @@ import girl06 from '../assets/girls/06.png';
 import girl07 from '../assets/girls/07.png';
 import BuySlide from '../components/BuySlide';
 import GlobalStyles from 'styles/GlobalStyles';
+import Header from '../components/Header';
 
 const Container = styled.div`
 	position: relative;
@@ -25,6 +26,7 @@ const IndexPage: NextPage = () => {
 	return (
 		<>
 			<GlobalStyles />
+			<Header />
 			<Container>
 				<Slide
 					color="#4C96B2"
