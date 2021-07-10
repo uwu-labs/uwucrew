@@ -13,13 +13,13 @@ import girl07 from '../assets/girls/07.png';
 import BuySlide from '../components/BuySlide';
 import GlobalStyles from 'styles/GlobalStyles';
 import Header from '../components/Header';
+import Footer from 'components/Footer';
 
 const Container = styled.div`
 	position: relative;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 `;
 
 const IndexPage: NextPage = () => {
@@ -92,6 +92,7 @@ const IndexPage: NextPage = () => {
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
 					]}
 				/>
+				<Footer />
 			</Container>
 		</>
 	);
