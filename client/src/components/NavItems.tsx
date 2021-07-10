@@ -53,7 +53,7 @@ const Item = styled.li`
 	}
 `;
 
-const LinkableItem = styled(Link)`
+const LinkableItem = styled.div`
 	text-decoration: none;
 	display: flex;
 	flex-wrap: nowrap;
@@ -84,9 +84,11 @@ const NavItems: React.FC = () => {
 		<NavItemsWrapper>
 			{navItems.map((ni: NavItemType) => (
 				<Item>
-					<LinkableItem href={ni.route}>
-						<label>{ni.label}</label>
-					</LinkableItem>
+					<Link href={ni.route}>
+						<LinkableItem>
+							<label>{ni.label}</label>
+						</LinkableItem>
+					</Link>
 				</Item>
 			))}
 		</NavItemsWrapper>
