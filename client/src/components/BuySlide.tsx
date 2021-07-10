@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import countdown from 'countdown';
 import Slide from './Slide';
 import girl05 from '../assets/girls/05.png';
 
@@ -14,18 +13,6 @@ const Countdown = styled.div`
 `;
 
 const BuySlide: React.FC = () => {
-	const [now, setNow] = useState(new Date());
-	const nowRef = useRef(now);
-	nowRef.current = now;
-
-	const tick = () => {
-		setNow(new Date(nowRef.current.setSeconds(nowRef.current.getSeconds() + 1)));
-	};
-
-	useEffect(() => {
-		setInterval(() => tick(), 1000);
-	}, []);
-
 	return (
 		<Slide
 			color="#9E4E64"
@@ -36,7 +23,7 @@ const BuySlide: React.FC = () => {
 			subHeaders={[
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 			]}
-			content={<Countdown>{countdown(new Date(), new Date(2021, 7, 1), countdown.ALL, 3).toString()}</Countdown>}
+			content={<Countdown>3 weeks and 12 hours</Countdown>}
 		/>
 	);
 };
