@@ -29,7 +29,7 @@ const IndexPage: NextPage = () => {
 			<Header />
 			<Container>
 				<Slide
-					color="#4C96B2"
+					color="var(--bg-01)"
 					image={girl06}
 					section=""
 					header="Project Name"
@@ -39,7 +39,7 @@ const IndexPage: NextPage = () => {
 				/>
 				<BuySlide />
 				<Slide
-					color="#D3AA73"
+					color="var(--bg-03)"
 					image={girl04}
 					section="about"
 					header="About Project Name"
@@ -50,7 +50,7 @@ const IndexPage: NextPage = () => {
 					]}
 				/>
 				<Slide
-					color="#6E4C65"
+					color="var(--bg-04)"
 					image={girl07}
 					right
 					section="roadmap"
@@ -63,7 +63,7 @@ const IndexPage: NextPage = () => {
 					]}
 				/>
 				<Slide
-					color="#A06758"
+					color="var(--bg-05)"
 					image={girl02}
 					section="team"
 					header="The Project Name Team"
@@ -72,24 +72,13 @@ const IndexPage: NextPage = () => {
 					]}
 				/>
 				<Slide
-					color="#6A8154"
+					color="var(--bg-06)"
 					image={girl03}
 					right
 					section="provenance"
 					header="NFT Name Provenance"
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-					]}
-				/>
-				<Slide
-					color="#C584A4"
-					image={girl01}
-					section="faq"
-					header="Project Name FAQs"
-					subHeaders={[
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ',
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
 					]}
 				/>
 				<Footer />

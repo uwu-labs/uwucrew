@@ -15,7 +15,7 @@ const Countdown = styled.div`
 const BuySlide: React.FC = () => {
 	return (
 		<Slide
-			color="#9E4E64"
+			color="var(--bg-02)"
 			image={girl05}
 			right
 			section="buy"
