@@ -24,9 +24,12 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 
 						{/* This fixes big icons with next-seo since CSS is somehow overwritten*/}
 						<style>{dom.css()}</style>
+
+						<link rel="preconnect" href="https://fonts.googleapis.com" />
+						<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+						<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
 					</Head>
 					<DefaultSeo {...DefaultSEOProps} />
-
 					<Component {...pageProps} />
 				</ReduxProvider>
 			</PlausibleProvider>

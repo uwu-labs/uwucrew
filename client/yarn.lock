@@ -379,6 +379,11 @@
     tslib "^2.3.0"
     typescript "^4.3.4"
 
+"@types/countdown@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@types/countdown/-/countdown-0.0.8.tgz#130f9c6654e64b8d8c361378c517bb63ecca13a2"
+  integrity sha512-kpWa+wlrYcvgymkaOIF3i40MnSMRNdv91piNVmJ22Pnd4A3QJXu21ngTzHHnLqKVtCjGWfO0FZKSXb3XiGiTdA==
+
 "@types/hoist-non-react-statics@*", "@types/hoist-non-react-statics@^3.3.0":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
@@ -1024,6 +1029,11 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+countdown@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/countdown/-/countdown-2.6.0.tgz#677fb8e3a9d4cc4e76415901ba253b518af34177"
+  integrity sha1-Z3+446nUzE52QVkBuiU7UYrzQXc=
 
 create-ecdh@^4.0.0:
   version "4.0.4"
