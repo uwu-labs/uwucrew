@@ -28,10 +28,6 @@ const navItems: NavItemType[] = [
 	{
 		label: 'provenance',
 		route: '/?scroll=provenance'
-	},
-	{
-		label: 'faq',
-		route: '/?scroll=faq'
 	}
 ];
 
