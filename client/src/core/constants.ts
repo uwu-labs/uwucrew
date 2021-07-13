@@ -6,3 +6,4 @@ export const DESCRIPTION: string = [
 	'There are 16,384 guaranteed-unique Waifusion NFTs. They’re just like you; a beautiful work of art, but 2-D and therefore, superior, Anon-kun.',
 	'Each Waifu is wholly unique and yours forever... unless you sell them... Baka.'
 ].join(' ');
+export const contract: string = '0x0fEa23896fa67e370A48B8919fAb60Abff721Cd8';
