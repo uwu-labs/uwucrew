@@ -1,35 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setSlide } from 'state/reducers/navigation';
 import styled from 'styled-components';
-import Link from 'next/link';
 
-interface NavItemType {
-	label: string;
-	route: string;
-}
-
-const navItems: NavItemType[] = [
-	{
-		label: 'buy',
-		route: '/?scroll=buy'
-	},
-	{
-		label: 'about',
-		route: '/?scroll=about'
-	},
-	{
-		label: 'roadmap',
-		route: '/?scroll=roadmap'
-	},
-	{
-		label: 'team',
-		route: '/?scroll=team'
-	},
-	{
-		label: 'provenance',
-		route: '/?scroll=provenance'
-	}
-];
+const navItems: string[] = ['buy', 'about', 'roadmap', 'team', 'provenance'];
 
 const NavItemsWrapper = styled.ul`
 	display: flex;
@@ -76,15 +51,15 @@ const LinkableItem = styled.div`
 `;
 
 const NavItems: React.FC = () => {
+	const dispatch = useDispatch();
+
 	return (
 		<NavItemsWrapper>
-			{navItems.map((ni: NavItemType) => (
+			{navItems.map((ni: string) => (
 				<Item>
-					<Link href={ni.route}>
-						<LinkableItem>
-							<label>{ni.label}</label>
-						</LinkableItem>
-					</Link>
+					<LinkableItem onClick={() => dispatch(setSlide(ni))}>
+						<label>{ni}</label>
+					</LinkableItem>
 				</Item>
 			))}
 		</NavItemsWrapper>

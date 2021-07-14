@@ -1,7 +1,8 @@
-// import { Router, useRouter } from 'next/dist/client/router';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { selectSlide } from 'state/reducers/navigation';
 
 interface SlideProps {
 	color: string;
@@ -70,23 +71,16 @@ interface Props {
 }
 
 const Slide = ({ color, image, right, section, header, subHeaders, content }: Props): JSX.Element => {
-	// const route = useRouter();
+	const slide = useSelector(selectSlide);
 	const scrollRef = useRef<HTMLDivElement>(null);
-	console.log(section);
-	// Router.events.on('routeChangeStart', () => {
-	// 	console.log(router.pathname);
-	// 	console.log(section);
-	// });
 
-	// history.listen((location) => {
-	// 	const i = location.search.search('scroll=');
-	// 	if (i > -1 && location.search.substring(i + 7, location.search.length - i + 1) === section) {
-	// 		scrollRef.current?.scrollIntoView({
-	// 			behavior: 'smooth',
-	// 			block: 'center'
-	// 		});
-	// 	}
-	// });
+	useEffect(() => {
+		if (slide === section)
+			scrollRef.current?.scrollIntoView({
+				behavior: 'smooth',
+				block: 'center'
+			});
+	}, [slide]);
 
 	return (
 		<StyledSlide color={color} ref={scrollRef}>
