@@ -59,12 +59,12 @@ const LinkableItem = styled.div`
 	text-transform: capitalize;
 	color: var(--text-primary);
 	font-size: 1.2rem;
-	font-weight: 600;
+	font-weight: 500;
 	* {
 		color: var(--text-primary);
 	}
 	:hover {
-		opacity: 0.5;
+		opacity: 0.7;
 	}
 	svg {
 		height: 14pt;
