@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
         --bg-03: #FFFEE3;
         --bg-04: #C9F4FE;
         --bg-05: #FDD4F0;
-        --bg-06: #FFB3C8;
     }
 
     * {

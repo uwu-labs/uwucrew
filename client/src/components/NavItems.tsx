@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setSlide } from 'state/reducers/navigation';
 import styled from 'styled-components';
 
-const navItems: string[] = ['buy', 'about', 'roadmap', 'team', 'provenance'];
+const navItems: string[] = ['about', 'roadmap', 'team', 'waifusion', 'provenance'];
 
 const NavItemsWrapper = styled.ul`
 	display: flex;

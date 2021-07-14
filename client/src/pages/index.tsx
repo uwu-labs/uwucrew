@@ -4,16 +4,15 @@ import path from 'path';
 import React from 'react';
 import styled from 'styled-components';
 import Slide from '../components/Slide';
-import girl01 from '../assets/girls/01.png';
 import girl02 from '../assets/girls/02.png';
-import girl03 from '../assets/girls/03.png';
 import girl04 from '../assets/girls/04.png';
+import girl05 from '../assets/girls/05.png';
 import girl06 from '../assets/girls/06.png';
 import girl07 from '../assets/girls/07.png';
-import BuySlide from '../components/BuySlide';
 import GlobalStyles from 'styles/GlobalStyles';
 import Header from '../components/Header';
 import Footer from 'components/Footer';
+import Hero from 'components/Hero';
 
 const Container = styled.div`
 	position: relative;
@@ -28,21 +27,12 @@ const IndexPage: NextPage = () => {
 			<GlobalStyles />
 			<Header />
 			<Container>
+				<Hero />
 				<Slide
 					color="var(--bg-01)"
 					image={girl06}
-					section=""
-					header="Project Name"
-					subHeaders={[
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-					]}
-				/>
-				<BuySlide />
-				<Slide
-					color="var(--bg-03)"
-					image={girl04}
 					section="about"
-					header="About Project Name"
+					header="About"
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -50,11 +40,20 @@ const IndexPage: NextPage = () => {
 					]}
 				/>
 				<Slide
-					color="var(--bg-04)"
-					image={girl07}
 					right
+					color="var(--bg-02)"
+					image={girl05}
 					section="roadmap"
-					header="Project Name Roadmap"
+					header="Roadmap"
+					subHeaders={[
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+					]}
+				/>
+				<Slide
+					color="var(--bg-03)"
+					image={girl04}
+					section="team"
+					header="The Team"
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -63,20 +62,20 @@ const IndexPage: NextPage = () => {
 					]}
 				/>
 				<Slide
-					color="var(--bg-05)"
-					image={girl02}
-					section="team"
-					header="The Project Name Team"
+					right
+					color="var(--bg-04)"
+					image={girl07}
+					section="waifusion"
+					header="Waifusion"
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 					]}
 				/>
 				<Slide
-					color="var(--bg-06)"
-					image={girl03}
-					right
+					color="var(--bg-05)"
+					image={girl02}
 					section="provenance"
-					header="NFT Name Provenance"
+					header="Provenance"
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 					]}
