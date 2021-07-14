@@ -38,6 +38,7 @@ const StyledImage = styled.div`
 	bottom: 0;
 	left: ${(props: ImageProps) => (props.right ? 'auto' : '0')};
 	right: ${(props: ImageProps) => (props.right ? '0' : 'auto')};
+	transform: translateY(4px);
 	/* transform: ${(props: ImageProps) => (props.right ? 'scaleX(-1)' : 'none')}; */
 `;
 
