@@ -34,7 +34,7 @@ const ExternalLink = styled.a`
 	text-decoration: none;
 	color: var(--text-primary);
 	font-size: 1.2rem;
-	font-weight: 600;
+	font-weight: 500;
 	:hover {
 		text-decoration: underline;
 	}
