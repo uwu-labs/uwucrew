@@ -50,12 +50,13 @@ const Header = styled.div`
 `;
 
 const SubHeader = styled.div`
-	font-size: 1.5rem;
-	font-weight: 500;
+	font-size: 1.4rem;
+	font-weight: 400;
 	color: var(--text-primary);
 	max-width: 60rem;
 	text-align: center;
 	margin-top: 1rem;
+	line-height: 2rem;
 `;
 
 interface Props {
