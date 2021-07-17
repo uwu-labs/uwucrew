@@ -1,7 +1,8 @@
-// import { Router, useRouter } from 'next/dist/client/router';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { selectSlide } from 'state/reducers/navigation';
 
 interface SlideProps {
 	color: string;
@@ -38,6 +39,7 @@ const StyledImage = styled.div`
 	bottom: 0;
 	left: ${(props: ImageProps) => (props.right ? 'auto' : '0')};
 	right: ${(props: ImageProps) => (props.right ? '0' : 'auto')};
+	transform: translateY(4px);
 	/* transform: ${(props: ImageProps) => (props.right ? 'scaleX(-1)' : 'none')}; */
 `;
 
@@ -49,12 +51,13 @@ const Header = styled.div`
 `;
 
 const SubHeader = styled.div`
-	font-size: 1.5rem;
-	font-weight: 500;
+	font-size: 1.4rem;
+	font-weight: 400;
 	color: var(--text-primary);
 	max-width: 60rem;
 	text-align: center;
 	margin-top: 1rem;
+	line-height: 2rem;
 `;
 
 interface Props {
@@ -68,23 +71,16 @@ interface Props {
 }
 
 const Slide = ({ color, image, right, section, header, subHeaders, content }: Props): JSX.Element => {
-	// const route = useRouter();
+	const slide = useSelector(selectSlide);
 	const scrollRef = useRef<HTMLDivElement>(null);
-	console.log(section);
-	// Router.events.on('routeChangeStart', () => {
-	// 	console.log(router.pathname);
-	// 	console.log(section);
-	// });
 
-	// history.listen((location) => {
-	// 	const i = location.search.search('scroll=');
-	// 	if (i > -1 && location.search.substring(i + 7, location.search.length - i + 1) === section) {
-	// 		scrollRef.current?.scrollIntoView({
-	// 			behavior: 'smooth',
-	// 			block: 'center'
-	// 		});
-	// 	}
-	// });
+	useEffect(() => {
+		if (slide === section)
+			scrollRef.current?.scrollIntoView({
+				behavior: 'smooth',
+				block: 'center'
+			});
+	}, [slide]);
 
 	return (
 		<StyledSlide color={color} ref={scrollRef}>

@@ -1,39 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setSlide } from 'state/reducers/navigation';
 import styled from 'styled-components';
-import Link from 'next/link';
 
-interface NavItemType {
-	label: string;
-	route: string;
-}
-
-const navItems: NavItemType[] = [
-	{
-		label: 'buy',
-		route: '/?scroll=buy'
-	},
-	{
-		label: 'about',
-		route: '/?scroll=about'
-	},
-	{
-		label: 'roadmap',
-		route: '/?scroll=roadmap'
-	},
-	{
-		label: 'team',
-		route: '/?scroll=team'
-	},
-	{
-		label: 'provenance',
-		route: '/?scroll=provenance'
-	},
-	{
-		label: 'faq',
-		route: '/?scroll=faq'
-	}
-];
+const navItems: string[] = ['about', 'roadmap', 'team', 'waifusion', 'provenance'];
 
 const NavItemsWrapper = styled.ul`
 	display: flex;
@@ -63,12 +34,12 @@ const LinkableItem = styled.div`
 	text-transform: capitalize;
 	color: var(--text-primary);
 	font-size: 1.2rem;
-	font-weight: 600;
+	font-weight: 500;
 	* {
 		color: var(--text-primary);
 	}
 	:hover {
-		opacity: 0.5;
+		opacity: 0.7;
 	}
 	svg {
 		height: 14pt;
@@ -80,15 +51,15 @@ const LinkableItem = styled.div`
 `;
 
 const NavItems: React.FC = () => {
+	const dispatch = useDispatch();
+
 	return (
 		<NavItemsWrapper>
-			{navItems.map((ni: NavItemType) => (
+			{navItems.map((ni: string) => (
 				<Item>
-					<Link href={ni.route}>
-						<LinkableItem>
-							<label>{ni.label}</label>
-						</LinkableItem>
-					</Link>
+					<LinkableItem onClick={() => dispatch(setSlide(ni))}>
+						<label>{ni}</label>
+					</LinkableItem>
 				</Item>
 			))}
 		</NavItemsWrapper>
