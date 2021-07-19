@@ -55,8 +55,8 @@ const NavItems: React.FC = () => {
 
 	return (
 		<NavItemsWrapper>
-			{navItems.map((ni: string) => (
-				<Item>
+			{navItems.map((ni: string, i: number) => (
+				<Item key={i}>
 					<LinkableItem onClick={() => dispatch(setSlide(ni))}>
 						<label>{ni}</label>
 					</LinkableItem>
