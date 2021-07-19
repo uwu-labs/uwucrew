@@ -37,10 +37,10 @@ const Option = styled.button`
 	border: solid 1px var(--text-primary);
 `;
 
-type Props = {
+interface Props {
 	show: boolean;
 	close: () => void;
-};
+}
 
 const ConnectWallet = (props: Props) => {
 	const { activate } = useWeb3React();
