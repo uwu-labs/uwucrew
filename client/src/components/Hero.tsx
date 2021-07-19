@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import ConnectWallet from './ConnectWallet';
-import Popup from './Popup';
+import MintPopup from './MintPopup';
 
 const StyledHero = styled.div`
 	position: relative;
@@ -89,7 +89,7 @@ const Hero = () => {
 					{!LIVE && <Countdown>13 Days, 7 Hours, 12 Minutes</Countdown>}
 				</Content>
 			</ContentContainer>
-			<Popup show={minting} close={() => setMinting(false)} header="Mint UwU" content={<Content></Content>} />
+			<MintPopup show={minting} close={() => setMinting(false)} />
 			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
 		</StyledHero>
 	);
