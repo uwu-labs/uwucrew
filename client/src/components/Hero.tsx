@@ -1,5 +1,8 @@
-import React from 'react';
+import { LIVE } from 'core/constants';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Button from './Button';
+import Popup from './Popup';
 
 const StyledHero = styled.div`
 	position: relative;
@@ -45,17 +48,19 @@ const SubHeader = styled.h2`
 	text-align: center;
 	margin-top: 1rem;
 	line-height: 2rem;
+	margin-bottom: 3rem;
 `;
 
 const Countdown = styled.div`
 	font-size: 3.5rem;
 	font-weight: 500;
 	color: var(--text-primary);
-	margin-top: 3rem;
 	margin-bottom: 5rem;
 `;
 
 const Hero = () => {
+	const [minting, setMinting] = useState(false);
+
 	return (
 		<StyledHero>
 			<Image src={'https://i.imgur.com/oCR1Pxf.jpg'} />
@@ -67,9 +72,11 @@ const Hero = () => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 						enim ad minim veniam
 					</SubHeader>
-					<Countdown>13 Days, 7 Hours, 12 Minutes</Countdown>
+					{LIVE && <Button onClick={() => setMinting(true)}>Mint UwU</Button>}
+					{!LIVE && <Countdown>13 Days, 7 Hours, 12 Minutes</Countdown>}
 				</Content>
 			</ContentContainer>
+			<Popup show={minting} close={() => setMinting(false)} header="Mint UwU" />
 		</StyledHero>
 	);
 };
