@@ -28,10 +28,8 @@ const Container = styled.div`
 	position: relative;
 	width: 600px;
 	padding: 2rem;
-	border-radius: 1rem;
-	background-color: var(--plain);
-	border: 2px solid var(--plain-shadow);
-	box-shadow: 0 0.3rem 0 0 var(--plain-shadow);
+	background: white;
+	border: 1px solid var(--text-primary);
 	font-size: 1.4rem;
 	font-weight: 500;
 	color: var(--plain-dark);
@@ -47,7 +45,7 @@ const Header = styled.h3`
 	font-size: 3rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
-	color: var(--plain-dark);
+	color: var(--text-primary);
 `;
 
 const Body = styled.p`
@@ -108,7 +106,6 @@ const Popup: React.FC<Props> = (props) => {
 						)}
 						{props.secondButtonText && (
 							<Button
-								secondary
 								onClick={() => {
 									if (props.secondButtonAction) props.secondButtonAction();
 								}}
