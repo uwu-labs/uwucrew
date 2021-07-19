@@ -1,7 +1,9 @@
+import { useWeb3React } from '@web3-react/core';
 import { LIVE } from 'core/constants';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
+import ConnectWallet from './ConnectWallet';
 import Popup from './Popup';
 
 const StyledHero = styled.div`
@@ -59,7 +61,9 @@ const Countdown = styled.div`
 `;
 
 const Hero = () => {
+	const { active } = useWeb3React();
 	const [minting, setMinting] = useState(false);
+	const [connecting, setConnecting] = useState(false);
 
 	return (
 		<StyledHero>
@@ -72,11 +76,21 @@ const Hero = () => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 						enim ad minim veniam
 					</SubHeader>
-					{LIVE && <Button onClick={() => setMinting(true)}>Mint UwU</Button>}
+					{LIVE && (
+						<Button
+							onClick={() => {
+								if (active) setMinting(true);
+								else setConnecting(true);
+							}}
+						>
+							{active ? 'Mint UwU' : 'Connect'}
+						</Button>
+					)}
 					{!LIVE && <Countdown>13 Days, 7 Hours, 12 Minutes</Countdown>}
 				</Content>
 			</ContentContainer>
-			<Popup show={minting} close={() => setMinting(false)} header="Mint UwU" />
+			<Popup show={minting} close={() => setMinting(false)} header="Mint UwU" content={<Content></Content>} />
+			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
 		</StyledHero>
 	);
 };
