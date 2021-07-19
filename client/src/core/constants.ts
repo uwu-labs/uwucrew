@@ -1,5 +1,6 @@
 export const SITE = 'waifusion.io';
 export const SITE_PROTOCOL = `https://${SITE}`;
+export const LIVE = true;
 
 export const DESCRIPTION: string = [
 	'Waifusion is a digital Waifu collection.',
