@@ -1,6 +1,8 @@
 export const SITE = 'waifusion.io';
 export const SITE_PROTOCOL = `https://${SITE}`;
 export const LIVE = true;
+export const INFURA_ID = '48cba79f8c2b4d80af39d9983bf188a2';
+export const PRICE = '0.04';
 
 export const DESCRIPTION: string = [
 	'Waifusion is a digital Waifu collection.',
