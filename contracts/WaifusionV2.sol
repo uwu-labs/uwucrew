@@ -26,7 +26,7 @@ contract WaifusionV2 is Context, Ownable, ERC165, IERC721, IERC721Metadata {
     string private _symbol;
 
     // Price to mint a Waifu in WEI
-    uint256 public constant _price = 0.008 * (10 ** 18);
+    uint256 public constant _price = 0.004 * (10 ** 18);
     
     // Maximum Number of Waifus that can exist
     uint256 public constant _maxSupply = 5000;
