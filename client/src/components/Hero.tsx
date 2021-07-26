@@ -1,5 +1,10 @@
-import React from 'react';
+import { useWeb3React } from '@web3-react/core';
+import { LIVE } from 'core/constants';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Button from './Button';
+import ConnectWallet from './ConnectWallet';
+import MintPopup from './MintPopup';
 
 const StyledHero = styled.div`
 	position: relative;
@@ -45,17 +50,21 @@ const SubHeader = styled.h2`
 	text-align: center;
 	margin-top: 1rem;
 	line-height: 2rem;
+	margin-bottom: 3rem;
 `;
 
 const Countdown = styled.div`
 	font-size: 3.5rem;
 	font-weight: 500;
 	color: var(--text-primary);
-	margin-top: 3rem;
 	margin-bottom: 5rem;
 `;
 
 const Hero = () => {
+	const { active } = useWeb3React();
+	const [minting, setMinting] = useState(false);
+	const [connecting, setConnecting] = useState(false);
+
 	return (
 		<StyledHero>
 			<Image src={'https://i.imgur.com/oCR1Pxf.jpg'} />
@@ -67,9 +76,21 @@ const Hero = () => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
 						enim ad minim veniam
 					</SubHeader>
-					<Countdown>13 Days, 7 Hours, 12 Minutes</Countdown>
+					{LIVE && (
+						<Button
+							onClick={() => {
+								if (active) setMinting(true);
+								else setConnecting(true);
+							}}
+						>
+							{active ? 'Mint UwU' : 'Connect'}
+						</Button>
+					)}
+					{!LIVE && <Countdown>13 Days, 7 Hours, 12 Minutes</Countdown>}
 				</Content>
 			</ContentContainer>
+			<MintPopup show={minting} close={() => setMinting(false)} />
+			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
 		</StyledHero>
 	);
 };

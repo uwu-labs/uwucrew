@@ -89,7 +89,7 @@ const Slide = ({ color, image, right, section, header, subHeaders, content }: Pr
 			</StyledImage>
 			<Content right={right}>
 				{header && <Header>{header}</Header>}
-				{subHeaders && subHeaders.map((subHeader: string) => <SubHeader>{subHeader}</SubHeader>)}
+				{subHeaders && subHeaders.map((subHeader: string, i) => <SubHeader key={i}>{subHeader}</SubHeader>)}
 				{content && content}
 			</Content>
 		</StyledSlide>

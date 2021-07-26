@@ -72,8 +72,8 @@
       ]
     },
     "/Users/chasemanning/Documents/repositories/v2/contracts/WaifusionV2.sol": {
-      "lastModificationDate": 1625301445424,
-      "contentHash": "29bb043735b9e93cf64f7ac6026731eb",
+      "lastModificationDate": 1626666921975,
+      "contentHash": "eec5de2b3c3571153b5dcf875232fbc1",
       "sourceName": "contracts/WaifusionV2.sol",
       "solcConfig": {
         "version": "0.8.0",

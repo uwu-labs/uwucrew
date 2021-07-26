@@ -3,12 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     :root {
-	    --text-primary: #222222;
-        --bg-01: #C9F2C5;
-        --bg-02: #C4D5FD;
-        --bg-03: #FFFEE3;
-        --bg-04: #C9F4FE;
-        --bg-05: #FDD4F0;
+	    --text-primary: #222;
+        --bg-01: #c27797;
+        --bg-02: #4c96b2;
+        --bg-03: #d2ab74;
+        --bg-04: #c85e75;
+        --bg-05: #427e95;
     }
 
     * {
