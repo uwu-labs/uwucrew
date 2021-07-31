@@ -3,14 +3,14 @@ import styled from 'styled-components';
 const Button = styled.button<{
 	primary?: boolean;
 }>`
-	color: var(--text-primary);
+	color: var(--bg);
 	font-size: 2rem;
-	font-weight: 500;
+	font-weight: 600;
 	position: relative;
 	cursor: pointer;
-	padding: 1rem 2rem;
-	background: white;
-	border: solid 1px var(--text-primary);
+	padding: 0.5rem 1rem;
+	background: var(--text-primary);
+	border: solid 2px var(--text-primary);
 `;
 
 export default Button;
