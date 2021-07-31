@@ -15,7 +15,7 @@ const NavItemsWrapper = styled.ul`
 `;
 
 const Item = styled.li`
-	margin-left: 30px;
+	margin-left: 2rem;
 	display: flex;
 	flex-direction: row;
 	cursor: pointer;
@@ -33,8 +33,8 @@ const LinkableItem = styled.div`
 	transition: all 0.3s;
 	text-transform: capitalize;
 	color: var(--text-primary);
-	font-size: 1.2rem;
-	font-weight: 500;
+	font-size: 1.3rem;
+	font-weight: 600;
 	* {
 		color: var(--text-primary);
 	}
