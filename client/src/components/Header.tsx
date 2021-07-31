@@ -15,7 +15,8 @@ const StyledNavbar = styled.div`
 `;
 
 const Logo = styled.div`
-	height: 3rem;
+	font-size: 2.2rem;
+	font-weight: 600;
 `;
 
 const Container = styled.div`
@@ -61,7 +62,7 @@ const Navbar: React.FC = () => {
 	return (
 		<StyledNavbar>
 			<Container>
-				<Logo>new logo</Logo>
+				<Logo>uwu</Logo>
 				<NavItemsContainer>
 					<NavItems />
 				</NavItemsContainer>
