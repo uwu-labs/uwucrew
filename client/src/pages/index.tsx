@@ -13,6 +13,7 @@ import GlobalStyles from 'styles/GlobalStyles';
 import Header from '../components/Header';
 import Footer from 'components/Footer';
 import Hero from 'components/Hero';
+import PreLaunch from './pre-launch';
 
 const Container = styled.div`
 	position: relative;
@@ -25,7 +26,8 @@ const IndexPage: NextPage = () => {
 	return (
 		<>
 			<GlobalStyles />
-			<Header />
+			<PreLaunch />
+			{/* <Header />
 			<Container>
 				<Hero />
 				<Slide
@@ -81,7 +83,7 @@ const IndexPage: NextPage = () => {
 					]}
 				/>
 				<Footer />
-			</Container>
+			</Container> */}
 		</>
 	);
 };
