@@ -11,6 +11,7 @@ const StyledHero = styled.div`
 	height: 90vh;
 	width: 100%;
 	overflow: hidden;
+	background-color: var(--bg);
 `;
 
 const Image = styled.img`
@@ -67,7 +68,7 @@ const Hero = () => {
 
 	return (
 		<StyledHero>
-			<Image src={'https://i.imgur.com/oCR1Pxf.jpg'} />
+			{/* <Image src={'https://i.imgur.com/oCR1Pxf.jpg'} /> */}
 
 			<ContentContainer>
 				<Content>
