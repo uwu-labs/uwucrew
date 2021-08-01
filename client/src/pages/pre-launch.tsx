@@ -35,7 +35,7 @@ const ComingSoon = styled.div`
 
 	background: rgba(255, 255, 255, 0.25);
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(4px);
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
 
@@ -51,19 +51,23 @@ const Socials = styled.div`
 	padding: 1.2rem 2.5rem;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 1rem;
+	grid-gap: 1.3rem;
 	color: var(--text-primary);
 	font-size: 2.3rem;
 	font-weight: 600;
 
 	background: rgba(255, 255, 255, 0.25);
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(4px);
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
 
 	color: #fff;
 	text-shadow: 0 2px 4px rgb(71 97 206 / 36%);
+
+	> a {
+		cursor: pointer;
+	}
 `;
 
 const Social = styled(Image)`
@@ -91,7 +95,7 @@ const Left = styled.div`
 
 	background: rgba(255, 255, 255, 0.25);
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(4px);
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	transform: rotate(-5deg);
@@ -99,7 +103,7 @@ const Left = styled.div`
 
 const Header = styled.h1`
 	color: var(--text-primary);
-	font-size: 14rem;
+	font-size: 12rem;
 	font-weight: 700;
 	line-height: 11rem;
 	margin-bottom: 3rem;
@@ -111,8 +115,9 @@ const Header = styled.h1`
 
 const SubHeader = styled.h2`
 	color: var(--text-primary);
-	font-size: 2.7rem;
-	font-weight: 600;
+	font-size: 2.4rem;
+	line-height: 3rem;
+	font-weight: 500;
 	margin-bottom: 2rem;
 
 	color: #fff;
@@ -133,7 +138,7 @@ const StyledImage = styled.div`
 
 	background: rgba(255, 255, 255, 0.25);
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(4px);
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	transform: rotate(-5deg);
@@ -147,14 +152,7 @@ const PreLaunch = () => {
 	return (
 		<StyledPreLaunch>
 			{/* <Rainbow /> */}
-			{/* <Artifacts /> */}
-			<ComingSoon>Coming Soon</ComingSoon>
-			<Socials>
-				<Social src={discord} />
-				<Social src={twitter} />
-				<Social src={telegram} />
-				<Social src={github} />
-			</Socials>
+			<Artifacts />
 			<Content>
 				<Left>
 					<Header>uwu crew</Header>
@@ -169,6 +167,21 @@ const PreLaunch = () => {
 					</StyledImage>
 				</Right>
 			</Content>
+			<ComingSoon>Coming Soon</ComingSoon>
+			<Socials>
+				<a href="" target="_blank">
+					<Social src={discord} />
+				</a>
+				<a href="" target="_blank">
+					<Social src={twitter} />
+				</a>
+				<a href="" target="_blank">
+					<Social src={telegram} />
+				</a>
+				<a href="" target="_blank">
+					<Social src={github} />
+				</a>
+			</Socials>
 		</StyledPreLaunch>
 	);
 };
