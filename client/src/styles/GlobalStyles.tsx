@@ -3,7 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     :root {
-	    --text-primary: #222;
+	    --text-primary: #333;
+        --bg: white;
         --bg-01: #c27797;
         --bg-02: #4c96b2;
         --bg-03: #d2ab74;
@@ -16,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         color: var(--text-primary);
-	    font-family: 'Roboto', sans-serif;
+        font-family: 'Baloo Chettan 2', cursive;
+        font-size: 10px;
     }
 
     button {
