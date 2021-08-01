@@ -26,11 +26,11 @@ const IndexPage: NextPage = () => {
 	return (
 		<>
 			<GlobalStyles />
-			<PreLaunch />
-			{/* <Header />
+			{/* <PreLaunch /> */}
+			<Header />
 			<Container>
 				<Hero />
-				<Slide
+				{/* <Slide
 					color="var(--bg-01)"
 					image={girl06}
 					section="about"
@@ -81,9 +81,9 @@ const IndexPage: NextPage = () => {
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 					]}
-				/>
+				/> */}
 				<Footer />
-			</Container> */}
+			</Container>
 		</>
 	);
 };

@@ -9,6 +9,9 @@ const navItems: string[] = ['about', 'roadmap', 'team', 'waifusion', 'provenance
 const NavItemsWrapper = styled.ul`
 	display: flex;
 	align-items: center;
+	border-bottom: solid 3px var(--text-primary);
+	min-width: 500px;
+
 	@media (max-width: 768px) {
 		flex-direction: column;
 	}
@@ -55,13 +58,13 @@ const NavItems: React.FC = () => {
 
 	return (
 		<NavItemsWrapper>
-			{navItems.map((ni: string, i: number) => (
+			{/* {navItems.map((ni: string, i: number) => (
 				<Item key={i}>
 					<LinkableItem onClick={() => dispatch(setSlide(ni))}>
 						<label>{ni}</label>
 					</LinkableItem>
 				</Item>
-			))}
+			))} */}
 		</NavItemsWrapper>
 	);
 };

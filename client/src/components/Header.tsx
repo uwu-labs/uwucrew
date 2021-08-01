@@ -1,8 +1,28 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import NavItems from './NavItems';
 import Popup from './Popup';
+
+const wipe = keyframes`
+  from {
+	transform: scaleX(0);
+  }
+  to {
+	transform: scaleX(1);
+  }
+`;
+
+const LineTwo = styled.div`
+	position: fixed;
+	top: 40px;
+	right: 30px;
+	border-bottom: solid 3px var(--text-primary);
+	width: calc(100vw - 145px - 40px);
+	transform-origin: right;
+	transform: scaleX(0);
+	animation: ${wipe} 1s 1s ease-out forwards;
+`;
 
 const StyledNavbar = styled.div`
 	display: flex;
@@ -14,9 +34,23 @@ const StyledNavbar = styled.div`
 	z-index: 1;
 `;
 
+const lower = keyframes`
+  from {
+	  opacity: 0;
+	transform: translateY(-50px);
+  }
+  to {
+	  opacity: 1;
+	transform: translateY(0);
+  }
+`;
+
 const Logo = styled.div`
-	font-size: 2.2rem;
+	font-size: 3.5rem;
 	font-weight: 600;
+	opacity: 0;
+	transform: translateY(-50px);
+	animation: ${lower} 1s 2s ease-out forwards;
 `;
 
 const Container = styled.div`
@@ -63,9 +97,10 @@ const Navbar: React.FC = () => {
 		<StyledNavbar>
 			<Container>
 				<Logo>uwu</Logo>
-				<NavItemsContainer>
+				<LineTwo />
+				{/* <NavItemsContainer>
 					<NavItems />
-				</NavItemsContainer>
+				</NavItemsContainer> */}
 				<Hamburger onClick={() => setNavOpen(true)}>
 					<Line />
 					<Line />

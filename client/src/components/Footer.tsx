@@ -1,5 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import Image from 'next/image';
+import discord from '../assets/svgs/socials/discord.svg';
+import twitter from '../assets/svgs/socials/twitter.svg';
+import telegram from '../assets/svgs/socials/telegram.svg';
+import github from '../assets/svgs/socials/github.svg';
 
 const StyledFooter = styled.div`
 	display: flex;
@@ -18,6 +23,62 @@ const Container = styled.footer`
 	box-sizing: border-box;
 	display: flex;
 	justify-content: flex-end;
+`;
+
+const wipe = keyframes`
+  from {
+	transform: scaleX(0);
+  }
+  to {
+	transform: scaleX(1);
+  }
+`;
+
+const Line = styled.div`
+	position: fixed;
+	left: 40px;
+	bottom: 30px;
+	border-bottom: solid 3px var(--text-primary);
+	/* min-width: 500px; */
+	width: calc(100vw - 239px - 40px);
+	transform-origin: left;
+	transform: scaleX(0);
+	animation: ${wipe} 1s 1s ease-out forwards;
+`;
+
+const raise = keyframes`
+  from {
+	  opacity: 0;
+	transform: translateY(50px);
+  }
+  to {
+	  opacity: 1;
+	transform: translateY(0);
+  }
+`;
+
+const Socials = styled.div`
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 15px 40px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 1.3rem;
+	color: var(--text-primary);
+	font-size: 2.3rem;
+	font-weight: 600;
+	transform: translateY(50px);
+	animation: ${raise} 1s 2s ease-out forwards;
+
+	> a {
+		cursor: pointer;
+	}
+`;
+
+const Social = styled(Image)`
+	width: 1rem;
+	margin: 0 1rem;
 `;
 
 const Section = styled.div`
@@ -43,23 +104,23 @@ const ExternalLink = styled.a`
 const Footer: React.FC = () => {
 	return (
 		<StyledFooter>
+			<Line />
 			<Container>
 				<Section>
-					<ExternalLink href="https://twitter.com/waifusion" target="_blank" rel="noreferrer">
-						Twitter
-					</ExternalLink>
-					<ExternalLink href="https://discord.gg/CaR7RhfDZ6" target="_blank" rel="noreferrer">
-						Discord
-					</ExternalLink>
-					<ExternalLink href="https://t.me/Waifusion" target="_blank" rel="noreferrer">
-						Telegram
-					</ExternalLink>
-					<ExternalLink href="http://github.com/waifusion" target="_blank" rel="noreferrer">
-						GitHub
-					</ExternalLink>
-					<ExternalLink href="mailto: waifusiongovernance@gmail.com" target="_blank" rel="noreferrer">
-						Contact
-					</ExternalLink>
+					<Socials>
+						<a href="" target="_blank">
+							<Social src={discord} />
+						</a>
+						<a href="" target="_blank">
+							<Social src={twitter} />
+						</a>
+						<a href="" target="_blank">
+							<Social src={telegram} />
+						</a>
+						<a href="" target="_blank">
+							<Social src={github} />
+						</a>
+					</Socials>
 				</Section>
 			</Container>
 		</StyledFooter>

@@ -11,6 +11,7 @@ const Button = styled.button<{
 	padding: 0.5rem 1rem;
 	background: var(--text-primary);
 	border: solid 2px var(--text-primary);
+	text-transform: uppercase;
 `;
 
 export default Button;
