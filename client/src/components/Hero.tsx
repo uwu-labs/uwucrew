@@ -142,13 +142,6 @@ const SubHeader = styled.h2`
 	animation: ${raise} 1s 2.6s ease-out forwards;
 `;
 
-const Countdown = styled.div`
-	font-size: 3.5rem;
-	font-weight: 500;
-	color: var(--text-primary);
-	margin-bottom: 5rem;
-`;
-
 const Hero = () => {
 	const { active } = useWeb3React();
 	const [minting, setMinting] = useState(false);
@@ -166,8 +159,6 @@ const Hero = () => {
 
 	return (
 		<StyledHero>
-			{/* <Image src={'https://i.imgur.com/oCR1Pxf.jpg'} /> */}
-
 			<ContentContainer>
 				<Left>
 					<ComingSoonContainer>

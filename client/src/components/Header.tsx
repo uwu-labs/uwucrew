@@ -64,12 +64,6 @@ const Container = styled.div`
 	}
 `;
 
-const NavItemsContainer = styled.div`
-	@media (max-width: 768px) {
-		display: none;
-	}
-`;
-
 const Hamburger = styled.button`
 	display: flex;
 	flex-direction: column;
@@ -98,9 +92,6 @@ const Navbar: React.FC = () => {
 			<Container>
 				<Logo>uwu</Logo>
 				<LineTwo />
-				{/* <NavItemsContainer>
-					<NavItems />
-				</NavItemsContainer> */}
 				<Hamburger onClick={() => setNavOpen(true)}>
 					<Line />
 					<Line />
