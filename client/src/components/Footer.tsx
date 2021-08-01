@@ -90,17 +90,6 @@ const Section = styled.div`
 	}
 `;
 
-const ExternalLink = styled.a`
-	margin-left: 20px;
-	text-decoration: none;
-	color: var(--text-primary);
-	font-size: 1.2rem;
-	font-weight: 500;
-	:hover {
-		text-decoration: underline;
-	}
-`;
-
 const Footer: React.FC = () => {
 	return (
 		<StyledFooter>
@@ -108,16 +97,16 @@ const Footer: React.FC = () => {
 			<Container>
 				<Section>
 					<Socials>
-						<a href="" target="_blank">
+						<a href="https://discord.gg/Ry6bsgsTQh" target="_blank" rel="noreferrer">
 							<Social src={discord} />
 						</a>
-						<a href="" target="_blank">
+						<a href="https://twitter.com/waifusion" target="_blank" rel="noreferrer">
 							<Social src={twitter} />
 						</a>
-						<a href="" target="_blank">
+						<a href="https://t.me/Waifusion" target="_blank" rel="noreferrer">
 							<Social src={telegram} />
 						</a>
-						<a href="" target="_blank">
+						<a href="https://github.com/backdfund" target="_blank" rel="noreferrer">
 							<Social src={github} />
 						</a>
 					</Socials>

@@ -3,17 +3,10 @@ import type { GetStaticProps, NextPage } from 'next';
 import path from 'path';
 import React from 'react';
 import styled from 'styled-components';
-import Slide from '../components/Slide';
-import girl02 from '../assets/girls/02.png';
-import girl04 from '../assets/girls/04.png';
-import girl05 from '../assets/girls/05.png';
-import girl06 from '../assets/girls/06.png';
-import girl07 from '../assets/girls/07.png';
 import GlobalStyles from 'styles/GlobalStyles';
 import Header from '../components/Header';
 import Footer from 'components/Footer';
 import Hero from 'components/Hero';
-import PreLaunch from './pre-launch';
 
 const Container = styled.div`
 	position: relative;
