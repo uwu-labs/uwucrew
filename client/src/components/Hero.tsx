@@ -32,13 +32,7 @@ const slide = keyframes`
   }
 `;
 
-const StyledHero = styled.div`
-	position: relative;
-	min-height: 100vh;
-	width: 100%;
-	overflow: hidden;
-	background-image: radial-gradient(white, #ddd);
-`;
+const StyledHero = styled.div``;
 
 interface ImageProps {
 	color: string;
@@ -66,8 +60,10 @@ const StyledImage = styled.div`
 
 const ContentContainer = styled.div`
 	position: relative;
+	min-height: 100vh;
 	width: 100%;
-	height: 100%;
+	overflow: hidden;
+	background-image: radial-gradient(white, #ddd);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
