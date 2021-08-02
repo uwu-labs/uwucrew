@@ -60,6 +60,7 @@ const StyledImage = styled.div`
 `;
 
 const ContentContainer = styled.div`
+	overflow: hidden;
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
