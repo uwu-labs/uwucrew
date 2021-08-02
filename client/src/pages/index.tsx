@@ -19,7 +19,6 @@ const IndexPage: NextPage = () => {
 	return (
 		<>
 			<GlobalStyles />
-			{/* <PreLaunch /> */}
 			<Header />
 			<Container>
 				<Hero />
