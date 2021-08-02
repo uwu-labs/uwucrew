@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import discord from '../assets/svgs/socials/discord.svg';
 import twitter from '../assets/svgs/socials/twitter.svg';
-import telegram from '../assets/svgs/socials/telegram.svg';
+import medium from '../assets/svgs/socials/medium.svg';
 import github from '../assets/svgs/socials/github.svg';
 
 const StyledFooter = styled.div`
@@ -88,11 +88,11 @@ const Footer: React.FC = () => {
 				<a href="https://discord.gg/Ry6bsgsTQh" target="_blank" rel="noreferrer">
 					<Social src={discord} />
 				</a>
-				<a href="https://twitter.com/waifusion" target="_blank" rel="noreferrer">
+				<a href="https://waifusioncommunity.medium.com/" target="_blank" rel="noreferrer">
 					<Social src={twitter} />
 				</a>
 				<a href="https://t.me/Waifusion" target="_blank" rel="noreferrer">
-					<Social src={telegram} />
+					<Social src={medium} />
 				</a>
 				<a href="https://github.com/backdfund" target="_blank" rel="noreferrer">
 					<Social src={github} />
