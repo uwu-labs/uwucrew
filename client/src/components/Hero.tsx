@@ -47,7 +47,7 @@ const StyledImage = styled.div`
 
 	opacity: 0;
 	transform: translateX(100%);
-	animation: ${slide} 1s 2.9s ease-out forwards;
+	animation: ${slide} 1s 3.2s ease-out forwards;
 
 	> div {
 		transform: translate(-25px, 4px);
