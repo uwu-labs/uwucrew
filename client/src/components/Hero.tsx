@@ -6,7 +6,13 @@ import styled, { keyframes } from 'styled-components';
 import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import MintPopup from './MintPopup';
-import uwu from '../assets/girls/07.png';
+import uwu01 from '../assets/girls/01.png';
+import uwu02 from '../assets/girls/02.png';
+import uwu03 from '../assets/girls/03.png';
+import uwu04 from '../assets/girls/04.png';
+import uwu05 from '../assets/girls/05.png';
+import uwu06 from '../assets/girls/06.png';
+import uwu07 from '../assets/girls/07.png';
 import EmailSignup from './EmailSignup';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
@@ -40,23 +46,39 @@ interface ImageProps {
 }
 
 const StyledImage = styled.div`
+	position: relative;
 	width: 35vw;
+	height: 32vw;
 	padding: 2rem;
 	padding-bottom: 0;
 	background-color: ${(props: ImageProps) => props.color};
 	transition: all 1s;
+	overflow: hidden;
 
 	opacity: 0;
 	transform: translateX(100%);
 	animation: ${slide} 1s 3.2s ease-out forwards;
 
-	> div {
-		transform: translate(-25px, 4px);
-	}
-
 	@media (max-width: 768px) {
 		width: 100%;
 		margin: 0 20px;
+	}
+`;
+
+interface TransformProps {
+	transform: string;
+}
+
+const ImageTransform = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	transform: translateX(${(props: TransformProps) => props.transform});
+	transition: all 1s;
+
+	> div {
+		transform: translate(-25px, 4px);
 	}
 `;
 
@@ -67,9 +89,7 @@ const ContentContainer = styled.div`
 	width: 100%;
 	overflow: hidden;
 	background-color: ${(props: ImageProps) => props.color};
-	background-image: radial-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.75));
-	/* background-color: var(--bg);
-	background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.15)); */
+	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -189,6 +209,10 @@ const Hero = () => {
 	const colorRef = useRef(color);
 	colorRef.current = color;
 
+	const imageTransform = (position: number): string => {
+		return (position - color) * 100 + '%';
+	};
+
 	useEffect(() => {
 		setInterval(() => {
 			if (colorRef.current < 4) setColor(colorRef.current + 1);
@@ -223,7 +247,27 @@ const Hero = () => {
 				</Left>
 				<Right>
 					<StyledImage color={colors[color]}>
-						<Image src={uwu} />
+						<ImageTransform transform={imageTransform(0)}>
+							<Image src={uwu01} />
+						</ImageTransform>
+						<ImageTransform transform={imageTransform(1)}>
+							<Image src={uwu02} />
+						</ImageTransform>
+						<ImageTransform transform={imageTransform(2)}>
+							<Image src={uwu03} />
+						</ImageTransform>
+						<ImageTransform transform={imageTransform(3)}>
+							<Image src={uwu04} />
+						</ImageTransform>
+						<ImageTransform transform={imageTransform(4)}>
+							<Image src={uwu05} />
+						</ImageTransform>
+						<ImageTransform transform={imageTransform(5)}>
+							<Image src={uwu06} />
+						</ImageTransform>
+						<ImageTransform transform={imageTransform(6)}>
+							<Image src={uwu07} />
+						</ImageTransform>
 					</StyledImage>
 				</Right>
 			</ContentContainer>
