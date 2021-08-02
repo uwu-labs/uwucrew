@@ -12,7 +12,7 @@ const wipe = keyframes`
 `;
 
 const LineTwo = styled.div`
-	position: fixed;
+	position: absolute;
 	top: 40px;
 	right: 30px;
 	border-bottom: solid 3px var(--text-primary);
