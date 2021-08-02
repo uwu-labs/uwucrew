@@ -16,15 +16,6 @@ const StyledFooter = styled.div`
 	z-index: 1;
 `;
 
-const Container = styled.footer`
-	position: relative;
-	width: 100%;
-	padding: 2rem 4rem;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: flex-end;
-`;
-
 const wipe = keyframes`
   from {
 	transform: scaleX(0);
@@ -39,11 +30,15 @@ const Line = styled.div`
 	left: 40px;
 	bottom: 30px;
 	border-bottom: solid 3px var(--text-primary);
-	/* min-width: 500px; */
 	width: calc(100vw - 239px - 40px);
 	transform-origin: left;
 	transform: scaleX(0);
 	animation: ${wipe} 1s 1s ease-out forwards;
+
+	@media (max-width: 768px) {
+		left: 25px;
+		width: calc(100vw - 230px - 0px);
+	}
 `;
 
 const raise = keyframes`
@@ -74,6 +69,10 @@ const Socials = styled.div`
 	> a {
 		cursor: pointer;
 	}
+
+	@media (max-width: 768px) {
+		padding: 15px 20px;
+	}
 `;
 
 const Social = styled(Image)`
@@ -81,37 +80,24 @@ const Social = styled(Image)`
 	margin: 0 1rem;
 `;
 
-const Section = styled.div`
-	display: flex;
-	font-weight: 500;
-	white-space: nowrap;
-	@media (max-width: 768px) {
-		display: none;
-	}
-`;
-
 const Footer: React.FC = () => {
 	return (
 		<StyledFooter>
 			<Line />
-			<Container>
-				<Section>
-					<Socials>
-						<a href="https://discord.gg/Ry6bsgsTQh" target="_blank" rel="noreferrer">
-							<Social src={discord} />
-						</a>
-						<a href="https://twitter.com/waifusion" target="_blank" rel="noreferrer">
-							<Social src={twitter} />
-						</a>
-						<a href="https://t.me/Waifusion" target="_blank" rel="noreferrer">
-							<Social src={telegram} />
-						</a>
-						<a href="https://github.com/backdfund" target="_blank" rel="noreferrer">
-							<Social src={github} />
-						</a>
-					</Socials>
-				</Section>
-			</Container>
+			<Socials>
+				<a href="https://discord.gg/Ry6bsgsTQh" target="_blank" rel="noreferrer">
+					<Social src={discord} />
+				</a>
+				<a href="https://twitter.com/waifusion" target="_blank" rel="noreferrer">
+					<Social src={twitter} />
+				</a>
+				<a href="https://t.me/Waifusion" target="_blank" rel="noreferrer">
+					<Social src={telegram} />
+				</a>
+				<a href="https://github.com/backdfund" target="_blank" rel="noreferrer">
+					<Social src={github} />
+				</a>
+			</Socials>
 		</StyledFooter>
 	);
 };
