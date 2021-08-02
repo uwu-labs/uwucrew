@@ -39,7 +39,7 @@ interface ImageProps {
 }
 
 const StyledImage = styled.div`
-	width: 30vw;
+	width: 35vw;
 	padding: 2rem;
 	padding-bottom: 0;
 	background-color: ${(props: ImageProps) => props.color};
@@ -79,7 +79,8 @@ const ContentContainer = styled.div`
 const Left = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding: 80px;
+	padding-left: 80px;
+	padding-right: 40px;
 
 	@media (max-width: 768px) {
 		padding: 0 20px;
