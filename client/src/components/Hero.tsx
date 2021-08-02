@@ -44,6 +44,7 @@ const StyledImage = styled.div`
 	padding: 2rem;
 	padding-bottom: 0;
 	background-color: ${(props: ImageProps) => props.color};
+	transition: all 1s;
 
 	opacity: 0;
 	transform: translateX(100%);
@@ -65,11 +66,14 @@ const ContentContainer = styled.div`
 	min-height: 100vh;
 	width: 100%;
 	overflow: hidden;
-	background-color: var(--bg);
-	background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.15));
+	background-color: ${(props: ImageProps) => props.color};
+	background-image: radial-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.75));
+	/* background-color: var(--bg);
+	background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.15)); */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	transition: all 1s;
 
 	@media (max-width: 768px) {
 		padding-top: 80px;
@@ -189,12 +193,12 @@ const Hero = () => {
 		setInterval(() => {
 			if (colorRef.current < 4) setColor(colorRef.current + 1);
 			else setColor(0);
-		}, 2000);
+		}, 5000);
 	}, []);
 
 	return (
 		<StyledHero>
-			<ContentContainer>
+			<ContentContainer color={colors[color]}>
 				<Left>
 					<ComingSoonContainer>
 						<Line />

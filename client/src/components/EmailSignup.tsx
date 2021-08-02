@@ -25,6 +25,7 @@ const Form = styled.form`
 const Input = styled.input`
 	height: 100%;
 	border: solid 2px ${(props: Props) => props.color};
+	transition: all 1s;
 	background: rgba(255, 255, 255, 0.5);
 	width: 18rem;
 	font-size: 1.6rem;
@@ -39,6 +40,7 @@ const Button = styled.input`
 	align-items: center;
 	padding: 0 2rem;
 	background-color: ${(props: Props) => props.color};
+	transition: all 1s;
 	color: white;
 	font-size: 1.8rem;
 	text-transform: uppercase;
