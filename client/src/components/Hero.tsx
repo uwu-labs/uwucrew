@@ -65,7 +65,8 @@ const ContentContainer = styled.div`
 	min-height: 100vh;
 	width: 100%;
 	overflow: hidden;
-	background-image: radial-gradient(white, #ddd);
+	background-color: var(--bg);
+	background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.15));
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
