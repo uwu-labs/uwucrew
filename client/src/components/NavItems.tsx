@@ -12,6 +12,7 @@ const NavItemsWrapper = styled.ul`
 		flex-direction: column;
 	}
 `;
+
 const NavItems: React.FC = () => {
 	return (
 		<NavItemsWrapper>

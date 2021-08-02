@@ -32,20 +32,14 @@ const slide = keyframes`
   }
 `;
 
-const StyledHero = styled.div`
-	position: relative;
-	height: 100vh;
-	width: 100%;
-	overflow: hidden;
-	background-image: radial-gradient(white, #ddd);
-`;
+const StyledHero = styled.div``;
 
 interface ImageProps {
 	color: string;
 }
 
 const StyledImage = styled.div`
-	width: 30vw;
+	width: 35vw;
 	padding: 2rem;
 	padding-bottom: 0;
 	background-color: ${(props: ImageProps) => props.color};
@@ -55,31 +49,57 @@ const StyledImage = styled.div`
 	animation: ${slide} 1s 2.9s ease-out forwards;
 
 	> div {
-		transform: translate(-25px, 5px);
+		transform: translate(-25px, 4px);
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+		margin: 0 20px;
 	}
 `;
 
 const ContentContainer = styled.div`
 	position: relative;
+	min-height: 100vh;
 	width: 100%;
-	height: 100%;
+	overflow: hidden;
+	background-image: radial-gradient(white, #ddd);
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
+
+	@media (max-width: 768px) {
+		padding-top: 80px;
+		padding-bottom: 80px;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
 `;
 
 const Left = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding: 80px;
+	padding-left: 80px;
+	padding-right: 40px;
+
+	@media (max-width: 768px) {
+		padding: 0 20px;
+	}
 `;
 
 const Right = styled.div`
-	flex: 1;
-	/* width: 50vw; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	@media (min-width: 769px) {
+		flex: 1;
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 `;
 
 const ComingSoonContainer = styled.div`
@@ -107,29 +127,38 @@ const ComingSoonText = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 2.2rem;
 	font-weight: 800;
 	color: ${(props: ColorProps) => props.color};
 	max-width: 64rem;
 	line-height: 1.9rem;
 	font-family: 'Roboto', sans-serif;
 	text-transform: uppercase;
+
+	font-size: 2.2rem;
+	@media (max-width: 768px) {
+		font-size: 2rem;
+	}
 `;
 
 const Header = styled.h1`
-	font-size: 14rem;
 	letter-spacing: 0.3rem;
-	line-height: 10rem;
-	margin-bottom: 3rem;
 	color: var(--text-primary);
 
 	opacity: 0;
 	transform: translateY(100%);
 	animation: ${raise} 1s 2.3s ease-out forwards;
+
+	font-size: 14rem;
+	line-height: 10rem;
+	margin-bottom: 3rem;
+	@media (max-width: 768px) {
+		font-size: 10rem;
+		line-height: 7rem;
+		margin-bottom: 2rem;
+	}
 `;
 
 const SubHeader = styled.h2`
-	font-size: 2rem;
 	font-weight: 500;
 	color: var(--text-primary);
 	max-width: 64rem;
@@ -140,6 +169,12 @@ const SubHeader = styled.h2`
 	opacity: 0;
 	transform: translateY(100%);
 	animation: ${raise} 1s 2.6s ease-out forwards;
+
+	font-size: 2rem;
+	@media (max-width: 768px) {
+		font-size: 1.8rem;
+		max-width: 80vw;
+	}
 `;
 
 const Hero = () => {

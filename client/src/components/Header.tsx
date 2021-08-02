@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import NavItems from './NavItems';
-import Popup from './Popup';
 
 const wipe = keyframes`
   from {
@@ -14,7 +12,7 @@ const wipe = keyframes`
 `;
 
 const LineTwo = styled.div`
-	position: fixed;
+	position: absolute;
 	top: 40px;
 	right: 30px;
 	border-bottom: solid 3px var(--text-primary);
@@ -22,6 +20,10 @@ const LineTwo = styled.div`
 	transform-origin: right;
 	transform: scaleX(0);
 	animation: ${wipe} 1s 1s ease-out forwards;
+
+	@media (max-width: 768px) {
+		width: calc(100vw - 145px - 0px);
+	}
 `;
 
 const StyledNavbar = styled.div`
@@ -59,45 +61,18 @@ const Container = styled.div`
 	justify-content: space-between;
 	box-sizing: border-box;
 	padding: 1rem 4rem;
+
 	@media (max-width: 768px) {
 		padding: 10px 20px;
 	}
 `;
 
-const Hamburger = styled.button`
-	display: flex;
-	flex-direction: column;
-	width: 1.5rem;
-	height: 1.2rem;
-	justify-content: space-between;
-	border: none;
-	background: none;
-	outline: none;
-	@media (min-width: 769px) {
-		display: none;
-	}
-`;
-
-const Line = styled.div`
-	width: 100%;
-	height: 0.1rem;
-	background-color: var(--text-primary);
-`;
-
 const Navbar: React.FC = () => {
-	const [navOpen, setNavOpen] = useState(false);
-
 	return (
 		<StyledNavbar>
 			<Container>
 				<Logo>uwu</Logo>
 				<LineTwo />
-				<Hamburger onClick={() => setNavOpen(true)}>
-					<Line />
-					<Line />
-					<Line />
-				</Hamburger>
-				<Popup show={navOpen} close={() => setNavOpen(false)} content={<NavItems />} />
 			</Container>
 		</StyledNavbar>
 	);
