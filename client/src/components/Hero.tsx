@@ -85,6 +85,7 @@ const Left = styled.div`
 
 	@media (max-width: 768px) {
 		padding: 0 20px;
+		margin-bottom: 3rem;
 	}
 `;
 
