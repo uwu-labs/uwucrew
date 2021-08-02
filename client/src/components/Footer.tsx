@@ -26,7 +26,7 @@ const wipe = keyframes`
 `;
 
 const Line = styled.div`
-	position: fixed;
+	position: absolute;
 	left: 40px;
 	bottom: 30px;
 	border-bottom: solid 3px var(--text-primary);
