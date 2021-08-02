@@ -7,6 +7,7 @@ import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import MintPopup from './MintPopup';
 import uwu from '../assets/girls/07.png';
+import EmailSignup from './EmailSignup';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -112,15 +113,11 @@ const ComingSoonContainer = styled.div`
 	animation: ${raise} 1s 2s ease-out forwards;
 `;
 
-interface ColorProps {
-	color: string;
-}
-
 const Line = styled.div`
 	width: 40px;
 	height: 3px;
 	margin-right: 10px;
-	border-bottom: solid 3px ${(props: ColorProps) => props.color};
+	border-bottom: solid 3px var(--text-primary);
 `;
 
 const ComingSoonText = styled.div`
@@ -128,11 +125,11 @@ const ComingSoonText = styled.div`
 	justify-content: center;
 	align-items: center;
 	font-weight: 800;
-	color: ${(props: ColorProps) => props.color};
 	max-width: 64rem;
 	line-height: 1.9rem;
 	font-family: 'Roboto', sans-serif;
 	text-transform: uppercase;
+	color: var(--text-primary);
 
 	font-size: 2.2rem;
 	@media (max-width: 768px) {
@@ -197,8 +194,8 @@ const Hero = () => {
 			<ContentContainer>
 				<Left>
 					<ComingSoonContainer>
-						<Line color={colors[color]} />
-						<ComingSoonText color={colors[color]}>coming soon</ComingSoonText>
+						<Line />
+						<ComingSoonText>coming soon</ComingSoonText>
 					</ComingSoonContainer>
 					<Header>uwu crew</Header>
 					<SubHeader>
@@ -215,7 +212,7 @@ const Hero = () => {
 							{active ? 'Mint UwU' : 'Connect'}
 						</Button>
 					)}
-					{/* {!LIVE && <Button onClick={() => console.log('Nothing')}>coming soon</Button>} */}
+					{!LIVE && <EmailSignup color={colors[color]} />}
 				</Left>
 				<Right>
 					<StyledImage color={colors[color]}>
