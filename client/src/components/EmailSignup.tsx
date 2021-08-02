@@ -25,7 +25,7 @@ const Form = styled.form`
 const Input = styled.input`
 	height: 100%;
 	border: solid 2px ${(props: Props) => props.color};
-	background: white;
+	background: rgba(255, 255, 255, 0.5);
 	width: 18rem;
 	font-size: 1.6rem;
 	padding: 0 1rem;
