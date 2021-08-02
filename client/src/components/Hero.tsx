@@ -49,7 +49,7 @@ const StyledImage = styled.div`
 	animation: ${slide} 1s 2.9s ease-out forwards;
 
 	> div {
-		transform: translate(-25px, 5px);
+		transform: translate(-25px, 4px);
 	}
 
 	@media (max-width: 768px) {
