@@ -103,7 +103,7 @@ const ContentContainer = styled.div`
 	}
 `;
 
-const Left = styled.div`
+const TextContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding-left: 80px;
@@ -115,7 +115,7 @@ const Left = styled.div`
 	}
 `;
 
-const Right = styled.div`
+const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -223,7 +223,7 @@ const Hero = () => {
 	return (
 		<StyledHero>
 			<ContentContainer color={colors[color]}>
-				<Left>
+				<TextContainer>
 					<ComingSoonContainer>
 						<Line />
 						<ComingSoonText>coming soon</ComingSoonText>
@@ -244,8 +244,8 @@ const Hero = () => {
 						</Button>
 					)}
 					{!LIVE && <EmailSignup color={colors[color]} />}
-				</Left>
-				<Right>
+				</TextContainer>
+				<ImageContainer>
 					<StyledImage color={colors[color]}>
 						<ImageTransform transform={imageTransform(0)}>
 							<Image src={uwu01} />
@@ -269,7 +269,7 @@ const Hero = () => {
 							<Image src={uwu07} />
 						</ImageTransform>
 					</StyledImage>
-				</Right>
+				</ImageContainer>
 			</ContentContainer>
 			<MintPopup show={minting} close={() => setMinting(false)} />
 			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
