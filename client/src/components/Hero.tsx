@@ -89,7 +89,7 @@ const ContentContainer = styled.div`
 	width: 100%;
 	overflow: hidden;
 	background-color: ${(props: ImageProps) => props.color};
-	background-image: radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
