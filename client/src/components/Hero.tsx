@@ -61,7 +61,8 @@ const StyledImage = styled.div`
 
 	@media (max-width: 768px) {
 		width: 100%;
-		margin: 0 20px;
+		height: 100%;
+		padding: 0;
 	}
 `;
 
@@ -78,7 +79,7 @@ const ImageTransform = styled.div`
 	transition: all 1s;
 
 	> div {
-		transform: translate(-25px, 4px);
+		transform: translate(-2%, 4px);
 	}
 `;
 
@@ -98,7 +99,7 @@ const ContentContainer = styled.div`
 	@media (max-width: 768px) {
 		padding-top: 80px;
 		padding-bottom: 80px;
-		flex-direction: column;
+		flex-direction: column-reverse;
 		justify-content: space-evenly;
 	}
 `;
@@ -119,7 +120,8 @@ const ImageContainer = styled.div`
 	align-items: center;
 
 	@media (max-width: 768px) {
-		width: 100%;
+		width: calc(100vw - 4rem);
+		height: calc(100vw - 4rem - 2rem);
 	}
 `;
 
@@ -207,10 +209,10 @@ const Hero = () => {
 	};
 
 	useEffect(() => {
-		setInterval(() => {
-			if (colorRef.current < 4) setColor(colorRef.current + 1);
-			else setColor(0);
-		}, 5000);
+		// setInterval(() => {
+		// 	if (colorRef.current < 4) setColor(colorRef.current + 1);
+		// 	else setColor(0);
+		// }, 5000);
 	}, []);
 
 	return (
