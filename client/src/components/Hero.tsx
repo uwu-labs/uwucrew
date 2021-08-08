@@ -92,7 +92,7 @@ const ContentContainer = styled.div`
 	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	transition: all 1s;
 
 	@media (max-width: 768px) {
@@ -106,8 +106,6 @@ const ContentContainer = styled.div`
 const TextContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding-left: 80px;
-	padding-right: 40px;
 
 	@media (max-width: 768px) {
 		padding: 0 20px;
@@ -119,11 +117,6 @@ const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	@media (min-width: 769px) {
-		flex: 1;
-		width: 100%;
-	}
 
 	@media (max-width: 768px) {
 		width: 100%;
@@ -223,28 +216,6 @@ const Hero = () => {
 	return (
 		<StyledHero>
 			<ContentContainer color={colors[color]}>
-				<TextContainer>
-					<ComingSoonContainer>
-						<Line />
-						<ComingSoonText>coming soon</ComingSoonText>
-					</ComingSoonContainer>
-					<Header>uwu crew</Header>
-					<SubHeader>
-						uwu crew is a collection of 10,000 NFTs on Ethereum and Binance Smart Chain brought to you from the community behind
-						Waifusion. Launching mid August.
-					</SubHeader>
-					{LIVE && (
-						<Button
-							onClick={() => {
-								if (active) setMinting(true);
-								else setConnecting(true);
-							}}
-						>
-							{active ? 'Mint UwU' : 'Connect'}
-						</Button>
-					)}
-					{!LIVE && <EmailSignup color={colors[color]} />}
-				</TextContainer>
 				<ImageContainer>
 					<StyledImage color={colors[color]}>
 						<ImageTransform transform={imageTransform(0)}>
@@ -270,6 +241,28 @@ const Hero = () => {
 						</ImageTransform>
 					</StyledImage>
 				</ImageContainer>
+				<TextContainer>
+					<ComingSoonContainer>
+						<Line />
+						<ComingSoonText>coming soon</ComingSoonText>
+					</ComingSoonContainer>
+					<Header>uwu crew</Header>
+					<SubHeader>
+						uwu crew is a collection of 10,000 NFTs on Ethereum and Binance Smart Chain brought to you from the community behind
+						Waifusion. Launching mid August.
+					</SubHeader>
+					{LIVE && (
+						<Button
+							onClick={() => {
+								if (active) setMinting(true);
+								else setConnecting(true);
+							}}
+						>
+							{active ? 'Mint UwU' : 'Connect'}
+						</Button>
+					)}
+					{!LIVE && <EmailSignup color={colors[color]} />}
+				</TextContainer>
 			</ContentContainer>
 			<MintPopup show={minting} close={() => setMinting(false)} />
 			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
