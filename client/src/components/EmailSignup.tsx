@@ -31,7 +31,7 @@ const Input = styled.input`
 	border: solid 2px ${(props: Props) => props.color};
 	transition: all 1s;
 	background: rgba(255, 255, 255, 0.5);
-	width: 18rem;
+	width: 21rem;
 	font-size: 1.6rem;
 	padding: 0 1rem;
 	color: var(--text-primary);
