@@ -9,6 +9,8 @@ import uwu05 from '../assets/girls/05.png';
 import uwu06 from '../assets/girls/06.png';
 import uwu07 from '../assets/girls/07.png';
 
+const images: StaticImageData[] = [uwu01, uwu02, uwu03, uwu04, uwu05, uwu06, uwu07];
+
 const slide = keyframes`
   from {
 	  opacity: 0;
@@ -47,6 +49,7 @@ const StyledImage = styled.div`
 
 interface TransformProps {
 	transform: string;
+	opacity: number;
 }
 
 const ImageTransform = styled.div`
@@ -55,7 +58,8 @@ const ImageTransform = styled.div`
 	left: 0;
 	width: 100%;
 	transform: translateX(${(props: TransformProps) => props.transform});
-	transition: all 1s;
+	transition: transform 1s;
+	opacity: ${(props: TransformProps) => props.opacity};
 
 	> div {
 		transform: translate(-2%, 4px);
@@ -68,33 +72,29 @@ interface Props {
 }
 
 const RotatingImage = ({ color, activeIndex }: Props) => {
+	const relativeIndex = activeIndex % images.length;
+
 	const imageTransform = (position: number): string => {
-		return (activeIndex - position) * 100 + '%';
+		if (position === 0 && relativeIndex === images.length - 1) return '-100%';
+		if (position === relativeIndex - 1) return '100%';
+		if (position === relativeIndex) return '0%';
+		if (position === relativeIndex + 1) return '-100%';
+		return '100%';
+	};
+
+	const opacity = (position: number) => {
+		if (position === relativeIndex + 1) return 0;
+		if (position === 0 && relativeIndex === images.length - 1) return 0;
+		return 1;
 	};
 
 	return (
 		<StyledImage color={color}>
-			<ImageTransform transform={imageTransform(0)}>
-				<Image src={uwu01} />
-			</ImageTransform>
-			<ImageTransform transform={imageTransform(1)}>
-				<Image src={uwu02} />
-			</ImageTransform>
-			<ImageTransform transform={imageTransform(2)}>
-				<Image src={uwu03} />
-			</ImageTransform>
-			<ImageTransform transform={imageTransform(3)}>
-				<Image src={uwu04} />
-			</ImageTransform>
-			<ImageTransform transform={imageTransform(4)}>
-				<Image src={uwu05} />
-			</ImageTransform>
-			<ImageTransform transform={imageTransform(5)}>
-				<Image src={uwu06} />
-			</ImageTransform>
-			<ImageTransform transform={imageTransform(6)}>
-				<Image src={uwu07} />
-			</ImageTransform>
+			{images.map((image: StaticImageData, index: number) => (
+				<ImageTransform transform={imageTransform(index)} opacity={opacity(index)}>
+					<Image src={image} />
+				</ImageTransform>
+			))}
 		</StyledImage>
 	);
 };

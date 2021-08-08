@@ -144,22 +144,23 @@ const Hero = () => {
 	const { active } = useWeb3React();
 	const [minting, setMinting] = useState(false);
 	const [connecting, setConnecting] = useState(false);
-	const [color, setColor] = useState(0);
-	const colorRef = useRef(color);
-	colorRef.current = color;
+	const [colorIndex, setColor] = useState(0);
+	const colorIndexRef = useRef(colorIndex);
+	colorIndexRef.current = colorIndex;
+
+	const color = colors[colorIndex % colors.length];
 
 	useEffect(() => {
 		setInterval(() => {
-			if (colorRef.current < 4) setColor(colorRef.current + 1);
-			else setColor(0);
+			setColor(colorIndexRef.current + 1);
 		}, 5000);
 	}, []);
 
 	return (
 		<StyledHero>
-			<ContentContainer color={colors[color]}>
+			<ContentContainer color={color}>
 				<ImageContainer>
-					<RotatingImage color={colors[color]} activeIndex={color} />
+					<RotatingImage color={color} activeIndex={colorIndex} />
 				</ImageContainer>
 				<TextContainer>
 					<ComingSoonContainer>
@@ -181,7 +182,7 @@ const Hero = () => {
 							{active ? 'Mint UwU' : 'Connect'}
 						</Button>
 					)}
-					{!LIVE && <EmailSignup color={colors[color]} />}
+					{!LIVE && <EmailSignup color={color} />}
 				</TextContainer>
 			</ContentContainer>
 			<MintPopup show={minting} close={() => setMinting(false)} />
