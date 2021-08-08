@@ -53,8 +53,7 @@ const TextContainer = styled.div`
 	flex-direction: column;
 
 	@media (max-width: 768px) {
-		padding: 0 2rem;
-		margin-bottom: 3rem;
+		margin: 3rem 2rem;
 	}
 `;
 
@@ -66,6 +65,7 @@ const ImageContainer = styled.div`
 	@media (max-width: 768px) {
 		width: calc(100vw - 4rem);
 		height: calc(100vw - 4rem - 2rem);
+		margin: 3rem;
 	}
 `;
 
