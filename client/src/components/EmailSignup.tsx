@@ -18,6 +18,10 @@ const Form = styled.form`
 	height: 4.5rem;
 	animation: ${raise} 1s 2.9s ease-out forwards;
 
+	@media (max-width: 768px) {
+		width: calc(100vw - 4rem);
+	}
+
 	opacity: 0;
 	transform: translateY(100%);
 `;
@@ -31,6 +35,11 @@ const Input = styled.input`
 	font-size: 1.6rem;
 	padding: 0 1rem;
 	color: var(--text-primary);
+
+	@media (max-width: 768px) {
+		width: 100%;
+		flex: 1;
+	}
 `;
 
 const Button = styled.input`
@@ -45,6 +54,10 @@ const Button = styled.input`
 	font-size: 1.8rem;
 	text-transform: uppercase;
 	cursor: pointer;
+
+	@media (max-width: 768px) {
+		padding: 0 1rem;
+	}
 `;
 
 interface Props {

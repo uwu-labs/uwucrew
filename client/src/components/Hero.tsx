@@ -53,7 +53,7 @@ const TextContainer = styled.div`
 	flex-direction: column;
 
 	@media (max-width: 768px) {
-		padding: 0 20px;
+		padding: 0 2rem;
 		margin-bottom: 3rem;
 	}
 `;
