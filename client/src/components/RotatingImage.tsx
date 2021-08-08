@@ -69,7 +69,7 @@ interface Props {
 
 const RotatingImage = ({ color, activeIndex }: Props) => {
 	const imageTransform = (position: number): string => {
-		return (position - activeIndex) * 100 + '%';
+		return (activeIndex - position) * 100 + '%';
 	};
 
 	return (
