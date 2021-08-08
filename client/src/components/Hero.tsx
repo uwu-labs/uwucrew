@@ -31,7 +31,7 @@ const raise = keyframes`
 const slide = keyframes`
   from {
 	  opacity: 0;
-	transform: translateX(100%);
+	transform: translateX(-100%);
   }
   to {
 	  opacity: 1;
@@ -209,10 +209,10 @@ const Hero = () => {
 	};
 
 	useEffect(() => {
-		// setInterval(() => {
-		// 	if (colorRef.current < 4) setColor(colorRef.current + 1);
-		// 	else setColor(0);
-		// }, 5000);
+		setInterval(() => {
+			if (colorRef.current < 4) setColor(colorRef.current + 1);
+			else setColor(0);
+		}, 5000);
 	}, []);
 
 	return (
