@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { selectSlide } from 'state/reducers/navigation';
+import Button from './Button';
 
 interface SlideProps {
 	color: string;
@@ -12,65 +12,75 @@ const StyledSlide = styled.div`
 	position: relative;
 	width: 100%;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	background-color: ${(props: SlideProps) => props.color};
-	height: 35rem;
+	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
+	min-height: 55rem;
+	padding: 7rem 12rem;
 `;
-
-interface ContentProps {
-	right?: boolean;
-}
 
 const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	transform: ${(props: ContentProps) => (props.right ? 'translateX(-15rem)' : 'translateX(15rem)')};
-`;
-
-interface ImageProps {
-	right?: boolean;
-}
-
-const StyledImage = styled.div`
-	position: absolute;
-	width: 30rem;
-	bottom: 0;
-	left: ${(props: ImageProps) => (props.right ? 'auto' : '0')};
-	right: ${(props: ImageProps) => (props.right ? '0' : 'auto')};
-	transform: translateY(4px);
-	/* transform: ${(props: ImageProps) => (props.right ? 'scaleX(-1)' : 'none')}; */
+	width: 100%;
+	margin-bottom: 3rem;
 `;
 
 const Header = styled.div`
-	font-size: 4.5rem;
-	font-weight: 600;
-	color: var(--text-primary);
-	margin-bottom: 1rem;
+	font-size: 10rem;
+	font-weight: 700;
+	/* color: var(--text-primary); */
+	color: ${(props: SlideProps) => props.color};
 `;
 
 const SubHeader = styled.div`
-	font-size: 1.4rem;
-	font-weight: 400;
+	font-weight: 500;
 	color: var(--text-primary);
-	max-width: 60rem;
-	text-align: center;
-	margin-top: 1rem;
-	line-height: 2rem;
+	max-width: 70%;
+	line-height: 2.3rem;
+	margin-bottom: 2rem;
+	font-family: 'Roboto', sans-serif;
+
+	font-size: 2rem;
+	@media (max-width: 768px) {
+		font-size: 1.8rem;
+		max-width: 80vw;
+	}
+`;
+
+const TopLine = styled.div`
+	position: absolute;
+	top: 3rem;
+	right: 4rem;
+	border-bottom: solid 3px ${(props: SlideProps) => props.color};
+	transform-origin: right;
+	width: 80%;
+`;
+
+const BottomLine = styled.div`
+	position: absolute;
+	bottom: 3rem;
+	left: 4rem;
+	border-bottom: solid 3px ${(props: SlideProps) => props.color};
+	transform-origin: right;
+	width: 80%;
+`;
+
+const ButtonContainer = styled.div`
+	width: 15rem;
+	height: 4.3rem;
+	margin-top: 2rem;
 `;
 
 interface Props {
 	color: string;
-	// image: StaticImageData;
-	right?: boolean;
 	section: string;
 	header?: string;
 	subHeaders?: string[];
 	content?: JSX.Element;
 }
 
-const Slide = ({ color, right, section, header, subHeaders, content }: Props): JSX.Element => {
+const Slide = ({ color, section, header, subHeaders, content }: Props): JSX.Element => {
 	const slide = useSelector(selectSlide);
 	const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -84,13 +94,15 @@ const Slide = ({ color, right, section, header, subHeaders, content }: Props): J
 
 	return (
 		<StyledSlide color={color} ref={scrollRef}>
-			{/* <StyledImage right={right}>
-				<Image src={image} />
-			</StyledImage> */}
-			<Content right={right}>
-				{header && <Header>{header}</Header>}
+			<TopLine color={color} />
+			<BottomLine color={color} />
+			<Content>
+				{header && <Header color={color}>{header}</Header>}
 				{subHeaders && subHeaders.map((subHeader: string, i) => <SubHeader key={i}>{subHeader}</SubHeader>)}
 				{content && content}
+				<ButtonContainer>
+					<Button color={color}>meow</Button>
+				</ButtonContainer>
 			</Content>
 		</StyledSlide>
 	);
