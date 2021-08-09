@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setSlide } from 'state/reducers/navigation';
 import styled, { keyframes } from 'styled-components';
 
 const StyledNavbar = styled.div`
@@ -31,7 +33,7 @@ const LineTwo = styled.div`
 	margin-top: 0.4rem;
 	margin-left: 3rem;
 	border-bottom: solid 3px var(--text-primary);
-	width: calc(100vw - 145px - 40px);
+	flex: 1;
 	transform-origin: right;
 	transform: scaleX(0);
 	animation: ${wipe} 1s 1s ease-out forwards;
@@ -75,19 +77,24 @@ const NavItems = styled.div`
 
 const NavItem = styled.div`
 	font-size: 2rem;
-	margin: 0 1rem;
+	padding: 0 1rem;
 	font-weight: 500;
+	cursor: pointer;
+	text-transform: capitalize;
 `;
 
 const Navbar: React.FC = () => {
+	const dispatch = useDispatch();
+
 	return (
 		<StyledNavbar>
 			<Logo>uwu</Logo>
 			<NavItems>
-				<NavItem>test</NavItem>
-				<NavItem>test</NavItem>
-				<NavItem>test</NavItem>
-				<NavItem>test</NavItem>
+				<NavItem onClick={() => dispatch(setSlide('about'))}>about</NavItem>
+				<NavItem onClick={() => dispatch(setSlide('roadmap'))}>roadmap</NavItem>
+				<NavItem onClick={() => dispatch(setSlide('team'))}>team</NavItem>
+				<NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem>
+				<NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem>
 			</NavItems>
 			<LineTwo />
 		</StyledNavbar>
