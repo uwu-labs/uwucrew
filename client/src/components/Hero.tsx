@@ -176,6 +176,7 @@ const Hero = () => {
 					</SubHeader>
 					{LIVE && (
 						<Button
+							color={'pink'}
 							onClick={() => {
 								if (active) setMinting(true);
 								else setConnecting(true);
