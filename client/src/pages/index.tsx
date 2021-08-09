@@ -5,8 +5,8 @@ import React from 'react';
 import styled from 'styled-components';
 import GlobalStyles from 'styles/GlobalStyles';
 import Header from '../components/Header';
-import Footer from 'components/Footer';
 import Hero from 'components/Hero';
+import Slide from 'components/Slide';
 
 const Container = styled.div`
 	position: relative;
@@ -22,9 +22,8 @@ const IndexPage: NextPage = () => {
 			<Header />
 			<Container>
 				<Hero />
-				{/* <Slide
+				<Slide
 					color="var(--bg-01)"
-					image={girl06}
 					section="about"
 					header="About"
 					subHeaders={[
@@ -36,7 +35,6 @@ const IndexPage: NextPage = () => {
 				<Slide
 					right
 					color="var(--bg-02)"
-					image={girl05}
 					section="roadmap"
 					header="Roadmap"
 					subHeaders={[
@@ -45,7 +43,6 @@ const IndexPage: NextPage = () => {
 				/>
 				<Slide
 					color="var(--bg-03)"
-					image={girl04}
 					section="team"
 					header="The Team"
 					subHeaders={[
@@ -58,7 +55,6 @@ const IndexPage: NextPage = () => {
 				<Slide
 					right
 					color="var(--bg-04)"
-					image={girl07}
 					section="waifusion"
 					header="Waifusion"
 					subHeaders={[
@@ -67,14 +63,12 @@ const IndexPage: NextPage = () => {
 				/>
 				<Slide
 					color="var(--bg-05)"
-					image={girl02}
 					section="provenance"
 					header="Provenance"
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 					]}
-				/> */}
-				<Footer />
+				/>
 			</Container>
 		</>
 	);

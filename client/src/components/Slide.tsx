@@ -62,7 +62,7 @@ const SubHeader = styled.div`
 
 interface Props {
 	color: string;
-	image: StaticImageData;
+	// image: StaticImageData;
 	right?: boolean;
 	section: string;
 	header?: string;
@@ -70,7 +70,7 @@ interface Props {
 	content?: JSX.Element;
 }
 
-const Slide = ({ color, image, right, section, header, subHeaders, content }: Props): JSX.Element => {
+const Slide = ({ color, right, section, header, subHeaders, content }: Props): JSX.Element => {
 	const slide = useSelector(selectSlide);
 	const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -84,9 +84,9 @@ const Slide = ({ color, image, right, section, header, subHeaders, content }: Pr
 
 	return (
 		<StyledSlide color={color} ref={scrollRef}>
-			<StyledImage right={right}>
+			{/* <StyledImage right={right}>
 				<Image src={image} />
-			</StyledImage>
+			</StyledImage> */}
 			<Content right={right}>
 				{header && <Header>{header}</Header>}
 				{subHeaders && subHeaders.map((subHeader: string, i) => <SubHeader key={i}>{subHeader}</SubHeader>)}

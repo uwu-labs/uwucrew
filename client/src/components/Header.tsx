@@ -55,8 +55,9 @@ const lower = keyframes`
 const Logo = styled.div`
 	font-size: 3.5rem;
 	font-weight: 600;
-	opacity: 0;
 	line-height: 2.4rem;
+
+	opacity: 0;
 	transform: translateY(-50px);
 	animation: ${lower} 1s 2s ease-out forwards;
 `;
@@ -66,6 +67,10 @@ const NavItems = styled.div`
 	align-items: center;
 	margin-left: 2rem;
 	margin-top: 0.3rem;
+
+	opacity: 0;
+	transform: translateY(-50px);
+	animation: ${lower} 1s 2s ease-out forwards;
 `;
 
 const NavItem = styled.div`

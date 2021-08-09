@@ -7,6 +7,7 @@ import ConnectWallet from './ConnectWallet';
 import MintPopup from './MintPopup';
 import EmailSignup from './EmailSignup';
 import RotatingImage from './RotatingImage';
+import Footer from './Footer';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -21,7 +22,9 @@ const raise = keyframes`
   }
 `;
 
-const StyledHero = styled.div``;
+const StyledHero = styled.div`
+	position: relative;
+`;
 
 interface ContentContainerProps {
 	color: string;
@@ -29,7 +32,6 @@ interface ContentContainerProps {
 
 const ContentContainer = styled.div`
 	overflow: hidden;
-	position: relative;
 	min-height: 100vh;
 	width: 100%;
 	overflow: hidden;
@@ -187,6 +189,7 @@ const Hero = () => {
 			</ContentContainer>
 			<MintPopup show={minting} close={() => setMinting(false)} />
 			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
+			<Footer />
 		</StyledHero>
 	);
 };
