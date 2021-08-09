@@ -2,6 +2,22 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+const StyledNavbar = styled.div`
+	display: flex;
+	position: absolute;
+	align-items: center;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	padding: 1rem 4rem;
+	height: 6.5rem;
+
+	@media (max-width: 768px) {
+		padding: 10px 20px;
+	}
+`;
+
 const wipe = keyframes`
   from {
 	transform: scaleX(0);
@@ -12,9 +28,8 @@ const wipe = keyframes`
 `;
 
 const LineTwo = styled.div`
-	position: absolute;
-	top: 40px;
-	right: 30px;
+	margin-top: 0.4rem;
+	margin-left: 3rem;
 	border-bottom: solid 3px var(--text-primary);
 	width: calc(100vw - 145px - 40px);
 	transform-origin: right;
@@ -24,16 +39,6 @@ const LineTwo = styled.div`
 	@media (max-width: 768px) {
 		width: calc(100vw - 145px - 0px);
 	}
-`;
-
-const StyledNavbar = styled.div`
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	z-index: 1;
 `;
 
 const lower = keyframes`
@@ -51,29 +56,35 @@ const Logo = styled.div`
 	font-size: 3.5rem;
 	font-weight: 600;
 	opacity: 0;
+	line-height: 2.4rem;
 	transform: translateY(-50px);
 	animation: ${lower} 1s 2s ease-out forwards;
 `;
 
-const Container = styled.div`
+const NavItems = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	box-sizing: border-box;
-	padding: 1rem 4rem;
+	margin-left: 2rem;
+	margin-top: 0.3rem;
+`;
 
-	@media (max-width: 768px) {
-		padding: 10px 20px;
-	}
+const NavItem = styled.div`
+	font-size: 2rem;
+	margin: 0 1rem;
+	font-weight: 500;
 `;
 
 const Navbar: React.FC = () => {
 	return (
 		<StyledNavbar>
-			<Container>
-				<Logo>uwu</Logo>
-				<LineTwo />
-			</Container>
+			<Logo>uwu</Logo>
+			<NavItems>
+				<NavItem>test</NavItem>
+				<NavItem>test</NavItem>
+				<NavItem>test</NavItem>
+				<NavItem>test</NavItem>
+			</NavItems>
+			<LineTwo />
 		</StyledNavbar>
 	);
 };
