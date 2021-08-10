@@ -25,15 +25,6 @@ const IndexPage: NextPage = () => {
 			<Container>
 				<Hero />
 				<AboutSlide />
-				<LoreSlide />
-				<Slide
-					color="var(--bg-02)"
-					section="roadmap"
-					header="Roadmap"
-					subHeaders={[
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-					]}
-				/>
 				<Slide
 					color="var(--bg-03)"
 					section="team"
@@ -45,14 +36,23 @@ const IndexPage: NextPage = () => {
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
 					]}
 				/>
+				<LoreSlide />
 				<Slide
+					color="var(--bg-02)"
+					section="roadmap"
+					header="Roadmap"
+					subHeaders={[
+						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+					]}
+				/>
+				{/* <Slide
 					color="var(--bg-05)"
 					section="provenance"
 					header="Provenance"
 					subHeaders={[
 						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 					]}
-				/>
+				/> */}
 			</Container>
 		</>
 	);
