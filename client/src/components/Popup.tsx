@@ -24,9 +24,14 @@ const Background = styled.div`
 	height: 100%;
 `;
 
+interface ContainerProps {
+	large?: boolean;
+}
+
 const Container = styled.div`
 	position: relative;
-	width: 600px;
+	width: ${(props: ContainerProps) => (props.large ? '90vw' : '600px')};
+	height: ${(props: ContainerProps) => (props.large ? '90vh' : 'auto')};
 	padding: 2rem;
 	background: white;
 	border: 1px solid var(--text-primary);
@@ -80,6 +85,7 @@ interface Props {
 	buttonAction?: () => void;
 	secondButtonText?: string;
 	secondButtonAction?: () => void;
+	large?: boolean;
 }
 
 const Popup: React.FC<Props> = (props) => {
@@ -88,7 +94,7 @@ const Popup: React.FC<Props> = (props) => {
 	return (
 		<StyledPopup>
 			<Background onClick={() => props.close()} />
-			<Container>
+			<Container large={props.large}>
 				{props.header && <Header>{props.header}</Header>}
 				{props.body && <Body>{props.body}</Body>}
 				{props.content && props.content}
@@ -96,7 +102,7 @@ const Popup: React.FC<Props> = (props) => {
 					<ButtonContainer>
 						{props.buttonText && (
 							<Button
-								primary
+								color="pink"
 								onClick={() => {
 									if (props.buttonAction) props.buttonAction();
 								}}
@@ -106,6 +112,7 @@ const Popup: React.FC<Props> = (props) => {
 						)}
 						{props.secondButtonText && (
 							<Button
+								color="pink"
 								onClick={() => {
 									if (props.secondButtonAction) props.secondButtonAction();
 								}}
