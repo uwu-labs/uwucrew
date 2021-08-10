@@ -50,10 +50,10 @@ const Container = styled.div`
 `;
 
 const Header = styled.h3`
-	font-size: 3rem;
+	font-size: 7rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
-	color: var(--text-primary);
+	color: ${(props: ContainerProps) => props.color};
 `;
 
 const Body = styled.p`
@@ -100,7 +100,7 @@ const Popup: React.FC<Props> = (props) => {
 			<Background onClick={() => props.close()} />
 			<Container large={props.large} color={props.color}>
 				<ExitButton color={props.color} action={() => props.close()} />
-				{props.header && <Header>{props.header}</Header>}
+				{props.header && <Header color={props.color}>{props.header}</Header>}
 				{props.body && <Body>{props.body}</Body>}
 				{props.content && props.content}
 				{(props.buttonText || props.secondButtonText) && (
