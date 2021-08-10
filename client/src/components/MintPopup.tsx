@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import Popup from './Popup';
-import abi from '../contracts/WaifusionV2.json';
+import abi from '../contracts/SaleContract.json';
 import { useWeb3React } from '@web3-react/core';
 
 const Content = styled.div`
@@ -37,7 +37,9 @@ const MintPopup = ({ show, close }: Props) => {
 			content={
 				<Content>
 					<input type="number" value={amount} onChange={(e: any) => setAmmount(Number(e.target.value))}></input>
-					<Button onClick={() => mint()}>Mint</Button>
+					<Button color="pink" onClick={() => mint()}>
+						Mint
+					</Button>
 				</Content>
 			}
 		/>
