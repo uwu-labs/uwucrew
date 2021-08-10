@@ -26,6 +26,7 @@ const Background = styled.div`
 
 interface ContainerProps {
 	large?: boolean;
+	color: string;
 }
 
 const Container = styled.div`
@@ -33,8 +34,9 @@ const Container = styled.div`
 	width: ${(props: ContainerProps) => (props.large ? '90vw' : '600px')};
 	height: ${(props: ContainerProps) => (props.large ? '90vh' : 'auto')};
 	padding: 2rem;
-	background: white;
-	border: 1px solid var(--text-primary);
+	background-color: ${(props: ContainerProps) => props.color};
+	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
+	border: 3px solid ${(props: ContainerProps) => props.color};
 	font-size: 1.4rem;
 	font-weight: 500;
 	color: var(--plain-dark);
@@ -78,6 +80,7 @@ const ButtonContainer = styled.div`
 interface Props {
 	show: boolean;
 	close: () => void;
+	color: string;
 	header?: string;
 	body?: string;
 	content?: JSX.Element;
@@ -94,7 +97,7 @@ const Popup: React.FC<Props> = (props) => {
 	return (
 		<StyledPopup>
 			<Background onClick={() => props.close()} />
-			<Container large={props.large}>
+			<Container large={props.large} color={props.color}>
 				{props.header && <Header>{props.header}</Header>}
 				{props.body && <Body>{props.body}</Body>}
 				{props.content && props.content}

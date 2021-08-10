@@ -30,7 +30,7 @@ const LoreSlide = (): JSX.Element => {
 					</ButtonContainer>
 				}
 			/>
-			<Popup large show={open} close={() => setOpen(false)} header="uwu lore" content={<div>meow</div>} />
+			<Popup large color="var(--bg-04)" show={open} close={() => setOpen(false)} header="uwu lore" content={<div>meow</div>} />
 		</>
 	);
 };
