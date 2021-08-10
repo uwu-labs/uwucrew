@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
+import ExitButton from './ExitButton';
 
 const StyledPopup = styled.div`
 	position: fixed;
@@ -98,6 +99,7 @@ const Popup: React.FC<Props> = (props) => {
 		<StyledPopup>
 			<Background onClick={() => props.close()} />
 			<Container large={props.large} color={props.color}>
+				<ExitButton color={props.color} action={() => props.close()} />
 				{props.header && <Header>{props.header}</Header>}
 				{props.body && <Body>{props.body}</Body>}
 				{props.content && props.content}
