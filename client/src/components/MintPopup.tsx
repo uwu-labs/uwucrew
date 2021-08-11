@@ -31,6 +31,7 @@ const MintPopup = ({ show, close }: Props) => {
 
 	return (
 		<Popup
+			color="pink"
 			show={show}
 			close={close}
 			header="Mint UwU"
