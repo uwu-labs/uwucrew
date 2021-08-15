@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectSlide } from 'state/reducers/navigation';
-import Button from './Button';
 
 interface SlideProps {
 	color: string;
@@ -66,12 +65,6 @@ const BottomLine = styled.div`
 	width: 80%;
 `;
 
-const ButtonContainer = styled.div`
-	width: 15rem;
-	height: 4.3rem;
-	margin-top: 2rem;
-`;
-
 interface Props {
 	color: string;
 	section: string;
@@ -100,9 +93,6 @@ const Slide = ({ color, section, header, subHeaders, content }: Props): JSX.Elem
 				{header && <Header color={color}>{header}</Header>}
 				{subHeaders && subHeaders.map((subHeader: string, i) => <SubHeader key={i}>{subHeader}</SubHeader>)}
 				{content && content}
-				<ButtonContainer>
-					<Button color={color}>meow</Button>
-				</ButtonContainer>
 			</Content>
 		</StyledSlide>
 	);

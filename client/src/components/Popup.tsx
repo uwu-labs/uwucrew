@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
+import ExitButton from './ExitButton';
 
 const StyledPopup = styled.div`
 	position: fixed;
@@ -24,12 +25,19 @@ const Background = styled.div`
 	height: 100%;
 `;
 
+interface ContainerProps {
+	large?: boolean;
+	color: string;
+}
+
 const Container = styled.div`
 	position: relative;
-	width: 600px;
+	width: ${(props: ContainerProps) => (props.large ? '90vw' : '600px')};
+	height: ${(props: ContainerProps) => (props.large ? '90vh' : 'auto')};
 	padding: 2rem;
-	background: white;
-	border: 1px solid var(--text-primary);
+	background-color: ${(props: ContainerProps) => props.color};
+	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
+	border: 3px solid ${(props: ContainerProps) => props.color};
 	font-size: 1.4rem;
 	font-weight: 500;
 	color: var(--plain-dark);
@@ -42,10 +50,10 @@ const Container = styled.div`
 `;
 
 const Header = styled.h3`
-	font-size: 3rem;
+	font-size: 7rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
-	color: var(--text-primary);
+	color: ${(props: ContainerProps) => props.color};
 `;
 
 const Body = styled.p`
@@ -73,6 +81,7 @@ const ButtonContainer = styled.div`
 interface Props {
 	show: boolean;
 	close: () => void;
+	color: string;
 	header?: string;
 	body?: string;
 	content?: JSX.Element;
@@ -80,6 +89,7 @@ interface Props {
 	buttonAction?: () => void;
 	secondButtonText?: string;
 	secondButtonAction?: () => void;
+	large?: boolean;
 }
 
 const Popup: React.FC<Props> = (props) => {
@@ -88,15 +98,16 @@ const Popup: React.FC<Props> = (props) => {
 	return (
 		<StyledPopup>
 			<Background onClick={() => props.close()} />
-			<Container>
-				{props.header && <Header>{props.header}</Header>}
+			<Container large={props.large} color={props.color}>
+				<ExitButton color={props.color} action={() => props.close()} />
+				{props.header && <Header color={props.color}>{props.header}</Header>}
 				{props.body && <Body>{props.body}</Body>}
 				{props.content && props.content}
 				{(props.buttonText || props.secondButtonText) && (
 					<ButtonContainer>
 						{props.buttonText && (
 							<Button
-								primary
+								color="pink"
 								onClick={() => {
 									if (props.buttonAction) props.buttonAction();
 								}}
@@ -106,6 +117,7 @@ const Popup: React.FC<Props> = (props) => {
 						)}
 						{props.secondButtonText && (
 							<Button
+								color="pink"
 								onClick={() => {
 									if (props.secondButtonAction) props.secondButtonAction();
 								}}

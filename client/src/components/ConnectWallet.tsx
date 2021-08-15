@@ -52,6 +52,7 @@ const ConnectWallet = (props: Props) => {
 
 	return (
 		<Popup
+			color="pink"
 			show={props.show}
 			close={props.close}
 			header="Select Wallet"
