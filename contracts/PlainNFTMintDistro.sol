@@ -8,7 +8,7 @@ interface SaleContract {
   function loadSale(uint256 count) external;
 }
 
-contract uwucrew is Ownable, ERC721Enumerable {
+contract NFT is Ownable, ERC721Enumerable {
   address public saleContract;
   
   uint256 constant BASE = 10**18;
