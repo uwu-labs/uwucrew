@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
 				<NavItem onClick={() => dispatch(setSlide('roadmap'))}>roadmap</NavItem>
 				<NavItem onClick={() => dispatch(setSlide('team'))}>team</NavItem>
 				<NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem>
-				<NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem>
+				{/* <NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem> */}
 			</NavItems>
 			<LineTwo />
 		</StyledNavbar>
