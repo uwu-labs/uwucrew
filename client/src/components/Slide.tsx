@@ -14,8 +14,14 @@ const StyledSlide = styled.div`
 	align-items: center;
 	background-color: ${(props: SlideProps) => props.color};
 	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
-	min-height: 55rem;
+
 	padding: 7rem 12rem;
+	min-height: 55rem;
+	@media (max-width: 768px) {
+		padding: 1rem 3rem;
+		min-height: 40rem;
+		padding-top: 4rem;
+	}
 `;
 
 const Content = styled.div`
@@ -26,24 +32,29 @@ const Content = styled.div`
 `;
 
 const Header = styled.div`
-	font-size: 10rem;
 	font-weight: 700;
-	/* color: var(--text-primary); */
 	color: ${(props: SlideProps) => props.color};
+
+	font-size: 10rem;
+	@media (max-width: 768px) {
+		font-size: 5rem;
+	}
 `;
 
 const SubHeader = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
 	max-width: 70%;
-	line-height: 2.3rem;
 	margin-bottom: 2rem;
 	font-family: 'Roboto', sans-serif;
 
 	font-size: 2rem;
+	line-height: 2.3rem;
 	@media (max-width: 768px) {
-		font-size: 1.8rem;
-		max-width: 80vw;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		max-width: 100%;
+		width: 100%;
 	}
 `;
 
