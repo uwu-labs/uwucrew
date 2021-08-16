@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
 				<a href="https://t.me/Waifusion" target="_blank" rel="noreferrer">
 					<Social src={medium} />
 				</a>
-				<a href="https://github.com/backdfund" target="_blank" rel="noreferrer">
+				<a href="https://github.com/waifusion" target="_blank" rel="noreferrer">
 					<Social src={github} />
 				</a>
 			</Socials>
