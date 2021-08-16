@@ -6,8 +6,8 @@ const GlobalStyle = createGlobalStyle`
 	    --text-primary: #000000;
         --bg: #FAE1ED;
         --bg-01: #c27797;
-        --bg-02: #4c96b2;
-        --bg-03: #d2ab74;
+        --bg-02: #d2ab74;
+        --bg-03: #4c96b2;
         --bg-04: #c85e75;
         --bg-05: #427e95;
     }
