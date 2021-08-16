@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Hero from 'components/Hero';
 import Slide from 'components/Slide';
 import AboutSlide from 'components/AboutSlide';
-import LoreSlide from 'components/LoreSlide';
+import TeamSlide from 'components/TeamSlide';
 
 const Container = styled.div`
 	position: relative;
@@ -25,18 +25,8 @@ const IndexPage: NextPage = () => {
 			<Container>
 				<Hero />
 				<AboutSlide />
-				<Slide
-					color="var(--bg-03)"
-					section="team"
-					header="The Team"
-					subHeaders={[
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ',
-						'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
-					]}
-				/>
-				<LoreSlide />
+				<TeamSlide />
+				{/* <LoreSlide /> */}
 				<Slide
 					color="var(--bg-02)"
 					section="roadmap"
