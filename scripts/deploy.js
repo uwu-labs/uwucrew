@@ -1,10 +1,17 @@
+const { ethers } = require("hardhat");
 const hre = require("hardhat");
 
 async function main() {
-  const WaifusionV2 = await hre.ethers.getContractFactory("WaifusionV2");
-  const waifusionv2 = await WaifusionV2.deploy("WaifusionV2", "V2");
-  await waifusionv2.deployed();
-  console.log("WaifusionV2 deployed to:", waifusionv2.address);
+
+  let UwUCrew = await ethers.getContractFactory("uwucrew");
+  uwucrew = await UwUCrew.deploy("uwucrew", "UWU", 9670);
+  await uwucrew.deployed();
+
+  let Sales = await ethers.getContractFactory("uwucrewWaveLockSaleWithMint");
+  salesContract = await Sales.deploy(uwucrew.address, 10, 8000 /* sale count */, 1350 /* swap count */, 70 /* lpAmount */);
+  await salesContract.deployed();
+  console.log("uwucrew deployed to:", uwucrew.address);
+  console.log("sales contract deployed to:", salesContract.address);
 }
 
 main()

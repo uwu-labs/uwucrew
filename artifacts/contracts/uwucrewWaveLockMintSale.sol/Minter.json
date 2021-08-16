@@ -4,6 +4,19 @@
   "sourceName": "contracts/uwucrewWaveLockMintSale.sol",
   "abi": [
     {
+      "inputs": [],
+      "name": "MAX_UWU",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",

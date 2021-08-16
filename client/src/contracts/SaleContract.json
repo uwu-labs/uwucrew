@@ -3,7 +3,17 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "count",
+        "name": "saleCount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "swapCount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lpCount",
         "type": "uint256"
       }
     ],
