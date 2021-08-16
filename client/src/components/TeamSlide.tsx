@@ -6,6 +6,7 @@ import social from '../assets/svgs/socials/twitter-yellow.svg';
 import laur from '../assets/profiles/laur.png';
 import chase from '../assets/profiles/chase.png';
 import kiwi from '../assets/profiles/kiwi.jpg';
+import morello from '../assets/profiles/morello.jpg';
 
 interface TeamMemberType {
 	name: string;
@@ -35,9 +36,9 @@ const members: TeamMemberType[] = [
 	},
 	{
 		name: 'Morello',
-		role: '',
-		image: laur,
-		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
+		role: 'Bit of everything',
+		image: morello,
+		bio: "Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
 	},
 	{
 		name: '0xWave',
