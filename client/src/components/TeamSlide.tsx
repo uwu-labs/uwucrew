@@ -2,7 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import Slide from 'components/Slide';
-import social from '../assets/svgs/socials/twitter-yellow.svg';
+import twitter from '../assets/svgs/socials/twitter-yellow.svg';
+import github from '../assets/svgs/socials/github-yellow.svg';
 import laur from '../assets/profiles/laur.png';
 import chase from '../assets/profiles/chase.png';
 import kiwi from '../assets/profiles/kiwi.jpg';
@@ -15,6 +16,7 @@ interface TeamMemberType {
 	bio: string;
 	role: string;
 	twitter?: string;
+	github?: string;
 }
 
 const members: TeamMemberType[] = [
@@ -22,15 +24,15 @@ const members: TeamMemberType[] = [
 		name: 'Laur',
 		role: 'Artist',
 		image: laur,
-		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi',
-		twitter: ''
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
 	},
 	{
 		name: 'Kiwi',
 		role: 'Solidity Dev',
 		image: kiwi,
 		bio: 'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.',
-		twitter: 'https://twitter.com/0xKiwi_'
+		twitter: 'https://twitter.com/0xKiwi_',
+		github: 'https://github.com/0xKiwi'
 	},
 	{
 		name: 'Morello',
@@ -44,18 +46,19 @@ const members: TeamMemberType[] = [
 		role: 'Front End Dev',
 		image: chase,
 		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwu crew site.',
-		twitter: 'https://twitter.com/ChaseManning_NZ'
+		twitter: 'https://twitter.com/ChaseManning_NZ',
+		github: 'https://github.com/chase-manning'
 	},
 	{
-		name: 'Cat',
-		role: 'Role',
+		name: 'CatInKleins',
+		role: 'R&D',
 		image: cat,
-		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi',
-		twitter: ''
+		bio: "ETH maxi and NFT gambler, he's generally happy to get paid for looking at anime cleavages all day. Cat helps with art, socials and uwuniverse creation.",
+		twitter: 'https://twitter.com/CatInKleins'
 	},
 	{
 		name: '0xWave',
-		role: 'API Dev',
+		role: 'role',
 		image: laur,
 		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi',
 		twitter: ''
@@ -65,16 +68,17 @@ const members: TeamMemberType[] = [
 const StyledContent = styled.div`
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
 	grid-gap: 3rem;
 
 	margin-top: 3rem;
+	grid-template-columns: repeat(auto-fit, minmax(49rem, 1fr));
 	@media (max-width: 768px) {
 		margin-top: 1rem;
-		flex-direction: column;
+		margin-bottom: 2rem;
+		grid-template-columns: repeat(1, 1fr);
 	}
 `;
 
@@ -82,23 +86,32 @@ const TeamMember = styled.div`
 	border: solid 3px var(--bg-03);
 	padding: 1rem;
 	display: flex;
-	height: 27rem;
 	flex-direction: row;
 
+	height: 27rem;
 	@media (max-width: 768px) {
-		margin-bottom: 3rem;
+		height: auto;
+		flex-direction: column;
 	}
 `;
 
 const ImageContainer = styled.div`
 	width: 24rem;
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 `;
 
 const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
+
 	margin-left: 1rem;
+	@media (max-width: 768px) {
+		margin-left: 0;
+		margin-top: 1rem;
+	}
 `;
 
 const Overview = styled.div`
@@ -116,6 +129,8 @@ const Socials = styled.div`
 const SocialContainer = styled.a`
 	margin-left: 0.3rem;
 	cursor: pointer;
+	transform: translateY(-0.3rem);
+	width: 2.8rem;
 `;
 
 const NameContainer = styled.div`
@@ -171,9 +186,14 @@ const TeamSlide = () => {
 										<Role>{m.role}</Role>
 									</NameContainer>
 									<Socials>
+										{m.github && (
+											<SocialContainer href={m.github} target="_blank" rel="noreferrer">
+												<Image src={github} />
+											</SocialContainer>
+										)}
 										{m.twitter && (
 											<SocialContainer href={m.twitter} target="_blank" rel="noreferrer">
-												<Image src={social} />
+												<Image src={twitter} />
 											</SocialContainer>
 										)}
 									</Socials>
