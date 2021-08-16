@@ -57,7 +57,7 @@ const members: TeamMemberType[] = [
 const StyledContent = styled.div`
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
@@ -71,12 +71,12 @@ const StyledContent = styled.div`
 `;
 
 const TeamMember = styled.a`
-	border-radius: 1rem;
+	/* border-radius: 1rem; */
 	border: solid 3px var(--bg-03);
 	padding: 1rem;
 	display: flex;
-	width: 29rem;
-	flex-direction: column;
+	height: 27rem;
+	flex-direction: row;
 
 	transition: all 0.3s;
 	:hover {
@@ -88,10 +88,20 @@ const TeamMember = styled.a`
 	}
 `;
 
+const ImageContainer = styled.div`
+	width: 24rem;
+`;
+
+const Content = styled.div`
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin-left: 1rem;
+`;
+
 const Overview = styled.div`
 	width: 100%;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	margin-top: 1rem;
 	padding: 0 0.5rem;
@@ -103,19 +113,19 @@ const NameContainer = styled.div`
 `;
 
 const Name = styled.div`
-	font-size: 2.3rem;
+	font-size: 2.6rem;
 	line-height: 1.9rem;
 	font-weight: 600;
 	color: var(--bg-03);
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.8rem;
 `;
 
 const Role = styled.div`
 	line-height: 1.2rem;
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	font-weight: 600;
 	color: var(--text-primary);
-	margin-left: 1rem;
+	margin-left: 1.5rem;
 `;
 
 const Description = styled.div`
@@ -140,15 +150,19 @@ const TeamSlide = () => {
 				<StyledContent>
 					{members.map((m: TeamMemberType) => (
 						<TeamMember href="https://twitter.com/ChaseManning_NZ" target="_blank" rel="noreferrer">
-							<Image src={m.image} />
-							<Overview>
-								<NameContainer>
-									<Name>{`- ${m.name}`}</Name>
-									<Role>{m.role}</Role>
-								</NameContainer>
-								<Image src={social} />
-							</Overview>
-							<Description>{m.bio}</Description>
+							<ImageContainer>
+								<Image src={m.image} />
+							</ImageContainer>
+							<Content>
+								<Overview>
+									<NameContainer>
+										<Name>{`- ${m.name}`}</Name>
+										<Role>{m.role}</Role>
+									</NameContainer>
+									<Image src={social} />
+								</Overview>
+								<Description>{m.bio}</Description>
+							</Content>
 						</TeamMember>
 					))}
 				</StyledContent>
