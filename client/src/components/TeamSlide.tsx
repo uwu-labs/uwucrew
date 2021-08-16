@@ -7,12 +7,14 @@ import laur from '../assets/profiles/laur.png';
 import chase from '../assets/profiles/chase.png';
 import kiwi from '../assets/profiles/kiwi.jpg';
 import morello from '../assets/profiles/morello.jpg';
+import cat from '../assets/profiles/cat.jpg';
 
 interface TeamMemberType {
 	name: string;
 	image: StaticImageData;
 	bio: string;
 	role: string;
+	twitter?: string;
 }
 
 const members: TeamMemberType[] = [
@@ -20,37 +22,43 @@ const members: TeamMemberType[] = [
 		name: 'Laur',
 		role: 'Artist',
 		image: laur,
-		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi',
+		twitter: ''
 	},
 	{
 		name: 'Kiwi',
 		role: 'Solidity Dev',
 		image: kiwi,
-		bio: 'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.'
+		bio: 'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.',
+		twitter: 'https://twitter.com/0xKiwi_'
 	},
 	{
 		name: 'Morello',
 		role: 'Bit of everything',
 		image: morello,
-		bio: "Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
+		bio: "Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew.",
+		twitter: 'https://twitter.com/morellostorment'
 	},
 	{
 		name: 'Chase',
 		role: 'Front End Dev',
 		image: chase,
-		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwu crew site.'
+		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwu crew site.',
+		twitter: 'https://twitter.com/ChaseManning_NZ'
 	},
 	{
 		name: 'Cat',
 		role: 'Role',
-		image: laur,
-		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
+		image: cat,
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi',
+		twitter: ''
 	},
 	{
 		name: '0xWave',
 		role: 'API Dev',
 		image: laur,
-		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi',
+		twitter: ''
 	}
 ];
 
@@ -70,18 +78,12 @@ const StyledContent = styled.div`
 	}
 `;
 
-const TeamMember = styled.a`
-	/* border-radius: 1rem; */
+const TeamMember = styled.div`
 	border: solid 3px var(--bg-03);
 	padding: 1rem;
 	display: flex;
 	height: 27rem;
 	flex-direction: row;
-
-	transition: all 0.3s;
-	:hover {
-		transform: scale(1.03);
-	}
 
 	@media (max-width: 768px) {
 		margin-bottom: 3rem;
@@ -105,6 +107,15 @@ const Overview = styled.div`
 	justify-content: space-between;
 	margin-top: 1rem;
 	padding: 0 0.5rem;
+`;
+
+const Socials = styled.div`
+	display: flex;
+`;
+
+const SocialContainer = styled.a`
+	margin-left: 0.3rem;
+	cursor: pointer;
 `;
 
 const NameContainer = styled.div`
@@ -149,7 +160,7 @@ const TeamSlide = () => {
 			content={
 				<StyledContent>
 					{members.map((m: TeamMemberType) => (
-						<TeamMember href="https://twitter.com/ChaseManning_NZ" target="_blank" rel="noreferrer">
+						<TeamMember>
 							<ImageContainer>
 								<Image src={m.image} />
 							</ImageContainer>
@@ -159,7 +170,13 @@ const TeamSlide = () => {
 										<Name>{`- ${m.name}`}</Name>
 										<Role>{m.role}</Role>
 									</NameContainer>
-									<Image src={social} />
+									<Socials>
+										{m.twitter && (
+											<SocialContainer href={m.twitter} target="_blank" rel="noreferrer">
+												<Image src={social} />
+											</SocialContainer>
+										)}
+									</Socials>
 								</Overview>
 								<Description>{m.bio}</Description>
 							</Content>
