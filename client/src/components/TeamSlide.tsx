@@ -29,16 +29,22 @@ const members: TeamMemberType[] = [
 		bio: 'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.'
 	},
 	{
+		name: 'Morello',
+		role: 'Bit of everything',
+		image: morello,
+		bio: "Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
+	},
+	{
 		name: 'Chase',
 		role: 'Front End Dev',
 		image: chase,
 		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwu crew site.'
 	},
 	{
-		name: 'Morello',
-		role: 'Bit of everything',
-		image: morello,
-		bio: "Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
+		name: 'Cat',
+		role: 'Role',
+		image: laur,
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
 	},
 	{
 		name: '0xWave',
@@ -50,9 +56,12 @@ const members: TeamMemberType[] = [
 
 const StyledContent = styled.div`
 	width: 100%;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
+	justify-items: center;
+	grid-gap: 3rem;
 
 	margin-top: 3rem;
 	@media (max-width: 768px) {
