@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/uwucrewWaveLockMintSale.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> uwucrewWaveLockMintSale.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.13% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>53/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.05% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>27/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.62% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.61% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>51/61</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity ^0.8.0;
+&nbsp;
+import "./tokens/IERC20.sol";
+import "./tokens/IERC721Enumerable.sol";
+import "./utils/Ownable.sol";
+import "./utils/ReentrancyGuard.sol";
+&nbsp;
+import "hardhat/console.sol";
+&nbsp;
+interface Minter {
+  function MAX_UWU() external returns (uint256);
+  function mint(address to, uint256 tokenId) external;
+}
+&nbsp;
+contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
+  address public nft; 
+  address public constant WAIFUSION = 0x2216d47494E516d8206B70FCa8585820eD3C4946;
+  address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 
+  address public constant BURNADDR = 0x0000000000000000000000000000000000080085;
+&nbsp;
+  uint256 constant BASE = 10**18;
+&nbsp;
+  uint256 public amountForSale;
+  uint256 public amountSold;
+  uint256 public amountForSwap;
+  uint256 public amountSwapped;
+&nbsp;
+  uint256 public buyPrice = 0.06 ether;
+  uint256 public swapPrice = 1830 * BASE;
+  uint256 public startBlock;
+  uint256 public wave = 0;
+  uint256 public waveBlockLength = 20;
+&nbsp;
+  mapping(uint256 =&gt; mapping(address =&gt; bool)) public waveLock;
+  mapping(address =&gt; uint256) public balance;
+&nbsp;
+  constructor(address _nft, uint256 _startBlock, uint256 saleCount, uint256 swapCount, uint256 _lpCount) Ownable() ReentrancyGuard() {
+    nft = _nft;
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(Minter(nft).MAX_UWU() &gt; saleCount + swapCount + _lpCount, "More than supply");
+    startBlock = _startBlock;
+    amountForSale = saleCount;
+    amountForSwap = swapCount;
+    // Adding to balance of dev team so they can mint for LP portion whenever.
+    balance[owner()] += _lpCount;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function swapWFforUWU(uint256[] memory ids) public {</span>
+<span class="cstat-no" title="statement not covered" >    uint256 count = ids.length;</span>
+<span class="cstat-no" title="statement not covered" >    require(count &gt; 0, "Cant swap 0")</span>;
+<span class="cstat-no" title="statement not covered" >    require(amountSwapped + count &lt; amountForSwap, "Swapping too many")</span>;
+<span class="cstat-no" title="statement not covered" >    for (uint256 i = 0; i &lt; count; i++) {</span>
+<span class="cstat-no" title="statement not covered" >      IERC721Enumerable(WAIFUSION).safeTransferFrom(msg.sender, BURNADDR, ids[i])</span>;
+    }
+<span class="cstat-no" title="statement not covered" >    IERC20(WET).transferFrom(msg.sender, BURNADDR, count * swapPrice)</span>;
+&nbsp;
+    // Credit balance for swapping.
+<span class="cstat-no" title="statement not covered" >    amountSwapped += count</span>;
+<span class="cstat-no" title="statement not covered" >    balance[msg.sender] += count</span>;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function swapAndMint(uint256[] memory ids) public {</span>
+<span class="cstat-no" title="statement not covered" >    swapWFforUWU(ids)</span>;
+<span class="cstat-no" title="statement not covered" >    mint(ids.length)</span>;
+  }
+&nbsp;
+  function closeSwapToSale() external onlyOwner {
+    uint256 remaining = amountForSwap - amountSwapped;
+    amountForSwap -= remaining;
+    amountForSale += remaining;
+  }
+&nbsp;
+  function closeSwapToOwner() external onlyOwner {
+    uint256 remaining = amountForSwap - amountSwapped;
+    amountForSwap -= remaining;
+    balance[msg.sender] += remaining;
+  }
+&nbsp;
+  function addExtraToSale(uint256 count) external onlyOwner {
+    balance[msg.sender] -= count;
+    amountForSale += count;
+  }
+  
+  /*
+   * DM Keltron#9056 he looks submissive and breedable.
+   */
+  function buy(uint256 count) external payable nonReentrant {
+    require(block.number &gt; startBlock, "Sale has not started");
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(count &gt; 0, "Cannot mint 0");
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(amountSold &lt; amountForSale, "Sold out! Sorry!");
+&nbsp;
+    refreshWave();
+    
+    require(!waveLock[wave][msg.sender], "Locked for this wave");
+    require(count &lt;= maxPerTX(wave), "Max for TX in this wave");
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.value &gt;= count * buyPrice, "Not enough ETH");
+&nbsp;
+    // Adjust for the last mint being incomplete.
+    uint256 ethAmountOwed;
+    if (amountSold + count &gt; amountForSale) {
+      uint256 amountRemaining = amountForSale-amountSold;
+      ethAmountOwed = buyPrice * (count-amountRemaining);
+      count = amountRemaining;
+    }
+&nbsp;
+    // Update the amount the person is eligible for minting.
+    amountSold += count;
+    balance[msg.sender] += count;
+    // Lock this address for the phase.
+    waveLock[wave][msg.sender] = true;
+&nbsp;
+    if (ethAmountOwed &gt; 0) {
+      (bool success, ) = msg.sender.call{ value: ethAmountOwed }("");
+      <span class="missing-if-branch" title="else path not taken" >E</span>require(success, "Address: unable to send value, recipient may have reverted");
+    }
+  }
+&nbsp;
+  function mint(uint256 count) public {
+    _mint(msg.sender, count);
+  }
+&nbsp;
+  function forceMint(address account, uint256 count) public onlyOwner {
+    _mint(account, count);
+  }
+&nbsp;
+  function _mint(address account, uint256 count) public {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(count &gt; 0, "0?");
+    require(count &lt;= balance[account], "Not enough balance");
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(block.number &gt; startBlock, "Can only mint after the sale has begun");
+    balance[account] -= count;
+&nbsp;
+    // Mint to the owner.
+    uint256 currentSupply = IERC721Enumerable(nft).totalSupply();
+    for (uint256 i = 0; i &lt; count; i++) {
+      Minter(nft).mint(account, currentSupply + i);
+    }
+  }
+&nbsp;
+  function refreshWave() public {
+    uint256 blocksSinceStart = block.number - startBlock;
+    uint256 newWave = blocksSinceStart/waveBlockLength;
+    if (newWave != wave) { 
+      wave = newWave;
+    }
+  }
+&nbsp;
+  function currentMaxPerTX() external view returns (uint256) {
+    return maxPerTX(wave);
+  } 
+&nbsp;
+  function maxPerTX(uint256 _wave) internal pure returns (uint256) {
+    if (_wave == 0) {
+      return 4;
+    } else if (_wave == 1) {
+      return 16;
+    } else if (_wave == 2) {
+      return 32;
+    } else {
+      return 32;
+    }
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Aug 14 2021 20:33:58 GMT-0400 (Eastern Daylight Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
