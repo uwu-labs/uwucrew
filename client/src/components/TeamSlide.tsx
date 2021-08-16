@@ -3,23 +3,47 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import Slide from 'components/Slide';
 import social from '../assets/svgs/socials/twitter-yellow.svg';
+import laur from '../assets/profiles/laur.png';
+import chase from '../assets/profiles/chase.png';
+import kiwi from '../assets/profiles/kiwi.jpg';
 
 interface TeamMemberType {
 	name: string;
+	image: StaticImageData;
+	bio: string;
+	role: string;
 }
 
 const members: TeamMemberType[] = [
 	{
-		name: 'Name1'
+		name: 'Laur',
+		role: 'Artist',
+		image: laur,
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
 	},
 	{
-		name: 'Name2'
+		name: 'Kiwi',
+		role: 'Solidity Dev',
+		image: kiwi,
+		bio: 'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.'
 	},
 	{
-		name: 'Name3'
+		name: 'Chase',
+		role: 'Front End Dev',
+		image: chase,
+		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwu crew site.'
 	},
 	{
-		name: 'Name4'
+		name: 'Morello',
+		role: '',
+		image: laur,
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
+	},
+	{
+		name: '0xWave',
+		role: 'API Dev',
+		image: laur,
+		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
 	}
 ];
 
@@ -54,11 +78,7 @@ const TeamMember = styled.a`
 	}
 `;
 
-const Picture = styled.img`
-	width: 100%;
-`;
-
-const NameContainer = styled.div`
+const Overview = styled.div`
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -67,10 +87,25 @@ const NameContainer = styled.div`
 	padding: 0 0.5rem;
 `;
 
+const NameContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
 const Name = styled.div`
 	font-size: 2.3rem;
+	line-height: 1.9rem;
 	font-weight: 600;
 	color: var(--bg-03);
+	margin-bottom: 0.5rem;
+`;
+
+const Role = styled.div`
+	line-height: 1.2rem;
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: var(--text-primary);
+	margin-left: 1rem;
 `;
 
 const Description = styled.div`
@@ -78,7 +113,7 @@ const Description = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
 	line-height: 1.6rem;
-	margin-top: 1rem;
+	margin-top: 2rem;
 	margin-bottom: 0.5rem;
 	font-family: 'Roboto', sans-serif;
 	padding: 0 0.5rem;
@@ -95,15 +130,15 @@ const TeamSlide = () => {
 				<StyledContent>
 					{members.map((m: TeamMemberType) => (
 						<TeamMember href="https://twitter.com/ChaseManning_NZ" target="_blank" rel="noreferrer">
-							<Picture src="https://miro.medium.com/max/336/1*N7hOZYrSOKRha4WXnzwRqw.png" />
-							<NameContainer>
-								<Name>{`- ${m.name}`}</Name>
+							<Image src={m.image} />
+							<Overview>
+								<NameContainer>
+									<Name>{`- ${m.name}`}</Name>
+									<Role>{m.role}</Role>
+								</NameContainer>
 								<Image src={social} />
-							</NameContainer>
-							<Description>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-							</Description>
+							</Overview>
+							<Description>{m.bio}</Description>
 						</TeamMember>
 					))}
 				</StyledContent>
