@@ -5,6 +5,7 @@ import discord from '../assets/svgs/socials/discord.svg';
 import twitter from '../assets/svgs/socials/twitter.svg';
 import medium from '../assets/svgs/socials/medium.svg';
 import github from '../assets/svgs/socials/github.svg';
+import instagram from '../assets/svgs/socials/instagram.svg';
 
 const StyledFooter = styled.div`
 	display: flex;
@@ -31,14 +32,14 @@ const Line = styled.div`
 	left: 40px;
 	bottom: 30px;
 	border-bottom: solid 3px var(--text-primary);
-	width: calc(100vw - 239px - 40px);
+	width: calc(100vw - 282px - 40px);
 	transform-origin: left;
 	transform: scaleX(0);
 	animation: ${wipe} 1s 0s ease-out forwards;
 
 	@media (max-width: 768px) {
 		left: 25px;
-		width: calc(100vw - 230px - 0px);
+		width: calc(100vw - 272px - 0px);
 	}
 `;
 
@@ -59,7 +60,7 @@ const Socials = styled.div`
 	right: 0;
 	padding: 15px 40px;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 1.3rem;
 	color: var(--text-primary);
 	font-size: 2.3rem;
@@ -97,6 +98,9 @@ const Footer: React.FC = () => {
 				</a>
 				<a href="https://github.com/waifusion" target="_blank" rel="noreferrer">
 					<Social src={github} />
+				</a>
+				<a href="https://www.instagram.com/waifusionnft/" target="_blank" rel="noreferrer">
+					<Social src={instagram} />
 				</a>
 			</Socials>
 		</StyledFooter>
