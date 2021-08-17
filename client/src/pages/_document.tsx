@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
 		return (
 			<Html>
 				<Head />
-				<body>
+				<body style={{ overflowX: 'hidden' }}>
 					<Main />
 					<NextScript />
 				</body>
