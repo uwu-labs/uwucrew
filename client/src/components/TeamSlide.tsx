@@ -26,7 +26,7 @@ const members: TeamMemberType[] = [
 		role: 'Artist',
 		image: laur,
 		bio: [
-			'Laur is our talented russian male illustrator debuting in the NFT art space with uwucrew.',
+			'Laur is our talented lady illustrator debuting in the NFT art space with uwucrew.',
 			'Her style ranges from semi-realism to cartoonish illustrations and character design. Bad-ass bitch that drew over 120 assets. Likes the booba. Supports the booba.'
 		],
 		twitter: 'https://twitter.com/electrowaifu'
