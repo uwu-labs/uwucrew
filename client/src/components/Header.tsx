@@ -42,6 +42,7 @@ const LineTwo = styled.div`
 
 	@media (max-width: 768px) {
 		width: calc(100vw - 145px - 0px);
+		display: none;
 	}
 `;
 
