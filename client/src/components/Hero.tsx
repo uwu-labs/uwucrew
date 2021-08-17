@@ -78,7 +78,7 @@ const ComingSoonContainer = styled.div`
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 2s ease-out forwards;
+	animation: ${raise} 1s 1s ease-out forwards;
 `;
 
 const Line = styled.div`
@@ -115,7 +115,7 @@ const Header = styled.h1`
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 2.3s ease-out forwards;
+	animation: ${raise} 1s 1.3s ease-out forwards;
 
 	font-size: 14rem;
 	line-height: 10rem;
@@ -137,7 +137,7 @@ const SubHeader = styled.h2`
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 2.6s ease-out forwards;
+	animation: ${raise} 1s 1.6s ease-out forwards;
 
 	font-size: 2rem;
 	@media (max-width: 768px) {

@@ -39,7 +39,7 @@ const StyledImage = styled.div`
 
 	opacity: 0;
 	transform: translateX(100%);
-	animation: ${slide} 1s 3.2s ease-out forwards;
+	animation: ${slide} 1s 2.2s ease-out forwards;
 
 	@media (max-width: 768px) {
 		width: 100%;

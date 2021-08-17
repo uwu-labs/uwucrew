@@ -38,7 +38,7 @@ const LineTwo = styled.div`
 	flex: 1;
 	transform-origin: right;
 	transform: scaleX(0);
-	animation: ${wipe} 1s 1s ease-out forwards;
+	animation: ${wipe} 1s 0s ease-out forwards;
 
 	@media (max-width: 768px) {
 		width: calc(100vw - 145px - 0px);
@@ -63,7 +63,7 @@ const LogoContainer = styled.div`
 
 	opacity: 0;
 	transform: translateY(-50px);
-	animation: ${lower} 1s 2s ease-out forwards;
+	animation: ${lower} 1s 1s ease-out forwards;
 `;
 
 const NavItems = styled.div`
@@ -74,7 +74,7 @@ const NavItems = styled.div`
 
 	opacity: 0;
 	transform: translateY(-50px);
-	animation: ${lower} 1s 2s ease-out forwards;
+	animation: ${lower} 1s 1s ease-out forwards;
 `;
 
 const NavItem = styled.div`
