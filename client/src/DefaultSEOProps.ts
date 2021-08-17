@@ -24,11 +24,19 @@ export const DefaultSEOProps: DefaultSeoPropsType = {
 		url: SITE_PROTOCOL,
 		type: 'website',
 		locale: 'en_US',
-		site_name: 'uwucrew'
+		site_name: 'uwucrew',
+		images: [
+			{
+				url: '/og-image.png',
+				width: 1200,
+				height: 630,
+				alt: 'uwucrew og image'
+			}
+		]
 	},
 	twitter: {
 		handle: '@waifusion',
 		site: '@waifusion',
-		cardType: 'summary'
+		cardType: 'summary_large_image'
 	}
 };
