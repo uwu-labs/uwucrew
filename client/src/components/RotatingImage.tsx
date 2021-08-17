@@ -8,8 +8,9 @@ import uwu04 from '../assets/girls/04.png';
 import uwu05 from '../assets/girls/05.png';
 import uwu06 from '../assets/girls/06.png';
 import uwu07 from '../assets/girls/07.png';
+import uwu08 from '../assets/girls/08.png';
 
-const images: StaticImageData[] = [uwu01, uwu02, uwu03, uwu04, uwu05, uwu06, uwu07];
+const images: StaticImageData[] = [uwu01, uwu02, uwu03, uwu04, uwu05, uwu06, uwu07, uwu08];
 
 const slide = keyframes`
   from {
@@ -62,7 +63,7 @@ const ImageTransform = styled.div`
 	opacity: ${(props: TransformProps) => props.opacity};
 
 	> div {
-		transform: translate(-2%, 4px);
+		transform: translate(0, 4px);
 	}
 `;
 
