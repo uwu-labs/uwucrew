@@ -44,7 +44,7 @@ const raise = keyframes`
 `;
 
 const headerAnimate = css`
-	animation: ${raise} 1s 1.3s ease-out forwards;
+	animation: ${raise} 0.6s 0.9s ease-out forwards;
 `;
 
 const Header = styled.div`
@@ -62,7 +62,7 @@ const Header = styled.div`
 `;
 
 const subHeaderAnimate = css`
-	animation: ${raise} 1s 1.6s ease-out forwards;
+	animation: ${raise} 0.6s 1.2s ease-out forwards;
 `;
 
 const SubHeader = styled.div`
@@ -96,7 +96,7 @@ const wipe = keyframes`
 `;
 
 const wipeAnimate = css`
-	animation: ${wipe} 1s 0.3s ease-out forwards;
+	animation: ${wipe} 0.6s 0.3s ease-out forwards;
 `;
 
 const TopLine = styled.div`
@@ -126,7 +126,7 @@ const BottomLine = styled.div`
 `;
 
 const contentAnimate = css`
-	animation: ${raise} 1s 1.6s ease-out forwards;
+	animation: ${raise} 0.6s 1.2s ease-out forwards;
 `;
 
 const ContentContainer = styled.div`
