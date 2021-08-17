@@ -81,6 +81,7 @@ const NavItem = styled.div`
 	font-weight: 500;
 	cursor: pointer;
 	text-transform: capitalize;
+	white-space: nowrap;
 
 	font-size: 2rem;
 	@media (max-width: 768px) {
