@@ -45,7 +45,8 @@ const members: TeamMemberType[] = [
 		role: 'Bit of everything',
 		image: morello,
 		bio: [
-			"Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
+			'Defi, shitcoin, NFT enthusiast (gambler) and collector of anime-inspired art.',
+			"Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
 		],
 		twitter: 'https://twitter.com/morellostorment'
 	},
@@ -54,7 +55,8 @@ const members: TeamMemberType[] = [
 		role: 'Front End Dev',
 		image: chase,
 		bio: [
-			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwucrew site.'
+			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs.',
+			'He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwucrew site.'
 		],
 		twitter: 'https://twitter.com/ChaseManning_NZ',
 		github: 'https://github.com/chase-manning'
@@ -64,7 +66,8 @@ const members: TeamMemberType[] = [
 		role: 'R&D',
 		image: cat,
 		bio: [
-			"ETH maxi and NFT gambler, he's generally happy to get paid for looking at anime cleavages all day. Cat helps with art, socials and uwuniverse creation."
+			"ETH maxi and NFT gambler, he's generally happy to get paid for looking at anime cleavages all day.",
+			'Cat helps with art, socials and uwuniverse creation.'
 		],
 		twitter: 'https://twitter.com/CatInKleins'
 	},
