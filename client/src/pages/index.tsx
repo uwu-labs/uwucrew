@@ -30,7 +30,7 @@ const IndexPage: NextPage = () => {
 				<Slide
 					color="var(--bg-02)"
 					section="roadmap"
-					header="Future Plans"
+					header="What's Next"
 					subHeaders={[
 						'We are a team who have been greatly involved in the NFT scene since early March, and are extremely excited to create a collection of our own for everyone to enjoy!',
 						'We have several initiatives planned involving a merch shop, NFT drops, and collaborations to reward holders over time. We believe in a long term vision and are committed to our community to provide an innovative and fun experience.',
