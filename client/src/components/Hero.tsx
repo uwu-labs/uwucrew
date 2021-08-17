@@ -82,10 +82,14 @@ const ComingSoonContainer = styled.div`
 `;
 
 const Line = styled.div`
-	width: 40px;
 	height: 3px;
 	margin-right: 10px;
 	border-bottom: solid 3px var(--text-primary);
+
+	width: 40px;
+	@media (max-width: 768px) {
+		width: 30px;
+	}
 `;
 
 const ComingSoonText = styled.div`
@@ -101,7 +105,7 @@ const ComingSoonText = styled.div`
 
 	font-size: 2.2rem;
 	@media (max-width: 768px) {
-		font-size: 2rem;
+		font-size: 1.6rem;
 	}
 `;
 
@@ -117,8 +121,8 @@ const Header = styled.h1`
 	line-height: 10rem;
 	margin-bottom: 3rem;
 	@media (max-width: 768px) {
-		font-size: 10rem;
-		line-height: 7rem;
+		font-size: 7.5rem;
+		line-height: 5rem;
 		margin-bottom: 2rem;
 	}
 `;
@@ -137,7 +141,7 @@ const SubHeader = styled.h2`
 
 	font-size: 2rem;
 	@media (max-width: 768px) {
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		max-width: 80vw;
 	}
 `;
