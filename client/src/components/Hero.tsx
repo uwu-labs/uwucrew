@@ -24,11 +24,11 @@ const raise = keyframes`
 
 const StyledHero = styled.div`
 	position: relative;
+	overflow: hidden;
 `;
 
 interface ContentContainerProps {
 	color: string;
-	overflow: hidden;
 }
 
 const ContentContainer = styled.div`
