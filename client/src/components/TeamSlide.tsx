@@ -46,7 +46,7 @@ const members: TeamMemberType[] = [
 		name: 'Chase',
 		role: 'Front End Dev',
 		image: chase,
-		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwu crew site.',
+		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwucrew site.',
 		twitter: 'https://twitter.com/ChaseManning_NZ',
 		github: 'https://github.com/chase-manning'
 	},
