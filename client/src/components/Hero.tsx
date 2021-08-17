@@ -130,7 +130,7 @@ const Header = styled.h1`
 const SubHeader = styled.h2`
 	font-weight: 500;
 	color: var(--text-primary);
-	max-width: 64rem;
+	max-width: 61rem;
 	line-height: 2.3rem;
 	margin-bottom: 2rem;
 	font-family: 'Roboto', sans-serif;
