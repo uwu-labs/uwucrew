@@ -9,6 +9,7 @@ import chase from '../assets/profiles/chase.jpg';
 import kiwi from '../assets/profiles/kiwi.jpg';
 import morello from '../assets/profiles/morello.jpg';
 import cat from '../assets/profiles/cat.jpg';
+import wave from '../assets/profiles/wave.jpg';
 
 interface TeamMemberType {
 	name: string;
@@ -35,7 +36,7 @@ const members: TeamMemberType[] = [
 		role: 'Solidity Dev',
 		image: kiwi,
 		bio: [
-			'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.'
+			'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead. He is responsible for the uwucrew smart contracts and image generation. Based and NFT-pilled.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
 		github: 'https://github.com/0xKiwi'
@@ -73,12 +74,14 @@ const members: TeamMemberType[] = [
 	},
 	{
 		name: '0xWave',
-		role: 'role',
-		image: laur,
+		role: 'Math-wiz',
+		image: wave,
 		bio: [
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
+			'Software engineer and data wizard pretending to not be as degenerate as your average jpeg collector.',
+			'Community builder deeply interested in DeFi, NFTs, and their intersection.',
+			'Might respond to your bad take with a chart.'
 		],
-		twitter: ''
+		twitter: 'https://twitter.com/0xWave'
 	}
 ];
 
