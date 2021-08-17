@@ -28,10 +28,10 @@ const StyledHero = styled.div`
 
 interface ContentContainerProps {
 	color: string;
+	overflow: hidden;
 }
 
 const ContentContainer = styled.div`
-	overflow: hidden;
 	min-height: 100vh;
 	width: 100%;
 	overflow: hidden;
