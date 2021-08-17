@@ -34,7 +34,7 @@ const IndexPage: NextPage = () => {
 					subHeaders={[
 						'We are a team who have been greatly involved in the NFT scene since early March, and are extremely excited to create a collection of our own for everyone to enjoy!',
 						'We have several initiatives planned involving a merch shop, NFT drops, and collaborations to reward holders over time. We believe in a long term vision and are committed to our community to provide an innovative and fun experience.',
-						'More announcements will be released in the coming weeks with further details on this!'
+						'More announcements will be released in the coming weeks with further details!'
 					]}
 				/>
 				{/* <Slide
