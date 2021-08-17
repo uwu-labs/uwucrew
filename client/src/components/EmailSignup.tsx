@@ -19,7 +19,7 @@ const StyledEmailSignup = styled.div`
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 2.9s ease-out forwards;
+	animation: ${raise} 1s 1.9s ease-out forwards;
 `;
 
 const Form = styled.form`

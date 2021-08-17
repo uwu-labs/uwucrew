@@ -34,7 +34,7 @@ const Line = styled.div`
 	width: calc(100vw - 239px - 40px);
 	transform-origin: left;
 	transform: scaleX(0);
-	animation: ${wipe} 1s 1s ease-out forwards;
+	animation: ${wipe} 1s 0s ease-out forwards;
 
 	@media (max-width: 768px) {
 		left: 25px;
@@ -65,7 +65,7 @@ const Socials = styled.div`
 	font-size: 2.3rem;
 	font-weight: 600;
 	transform: translateY(50px);
-	animation: ${raise} 1s 2s ease-out forwards;
+	animation: ${raise} 1s 1s ease-out forwards;
 
 	> a {
 		cursor: pointer;
