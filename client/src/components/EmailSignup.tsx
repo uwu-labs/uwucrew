@@ -108,7 +108,7 @@ const EmailSignup = ({ color }: Props) => {
 				/>
 				<Button color={color} type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" />
 			</Form>
-			<Description>Subscribe to updates for uwucrew</Description>
+			<Description>subscribe to updates for uwucrew</Description>
 		</StyledEmailSignup>
 	);
 };
