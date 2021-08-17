@@ -169,7 +169,7 @@ const Hero = () => {
 						<Line />
 						<ComingSoonText>coming soon</ComingSoonText>
 					</ComingSoonContainer>
-					<Header>uwu crew</Header>
+					<Header>uwucrew</Header>
 					<SubHeader>
 						uwucrew is a generative collection of 10,000 female-focused avatars inspired by anime and pop culture, aiming to be both
 						inclusive and expressive. Every uwucrew NFT is completely unique and features up to 8 traits - Background, Hat, Hair, Eyes,
