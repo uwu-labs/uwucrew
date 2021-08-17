@@ -3,6 +3,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setSlide } from 'state/reducers/navigation';
 import styled, { keyframes } from 'styled-components';
+import Image from 'next/image';
+import logo from '../assets/logos/logo.svg';
 
 const StyledNavbar = styled.div`
 	display: flex;
@@ -54,10 +56,9 @@ const lower = keyframes`
   }
 `;
 
-const Logo = styled.div`
-	font-size: 3.5rem;
-	font-weight: 600;
-	line-height: 2.4rem;
+const LogoContainer = styled.div`
+	width: 9rem;
+	margin-top: 1rem;
 
 	opacity: 0;
 	transform: translateY(-50px);
@@ -92,11 +93,13 @@ const Navbar: React.FC = () => {
 
 	return (
 		<StyledNavbar>
-			<Logo>uwu</Logo>
+			<LogoContainer>
+				<Image src={logo} />
+			</LogoContainer>
 			<NavItems>
 				<NavItem onClick={() => dispatch(setSlide('about'))}>about</NavItem>
 				<NavItem onClick={() => dispatch(setSlide('team'))}>team</NavItem>
-				<NavItem onClick={() => dispatch(setSlide('roadmap'))}>roadmap</NavItem>
+				<NavItem onClick={() => dispatch(setSlide('roadmap'))}>future plans</NavItem>
 				{/* <NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem> */}
 				{/* <NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem> */}
 			</NavItems>
