@@ -13,7 +13,7 @@ import cat from '../assets/profiles/cat.jpg';
 interface TeamMemberType {
 	name: string;
 	image: StaticImageData;
-	bio: string;
+	bio: string[];
 	role: string;
 	twitter?: string;
 	github?: string;
@@ -24,14 +24,19 @@ const members: TeamMemberType[] = [
 		name: 'Laur',
 		role: 'Artist',
 		image: laur,
-		bio: 'Laur is our talented woman illustrator debuting in the NFT art space with uwucrew, her style ranges from semi-realism to cartoonish illustrations and character design. She is largely responsible for our 120+ assets, which are composed of 340+ images in total and carefully divided between over 25 layers!',
+		bio: [
+			'Laur is our talented russian male illustrator debuting in the NFT art space with uwucrew.',
+			'Her style ranges from semi-realism to cartoonish illustrations and character design. Bad-ass bitch that drew over 120 assets. Likes the booba. Supports the booba.'
+		],
 		twitter: 'https://twitter.com/electrowaifu'
 	},
 	{
 		name: 'Kiwi',
 		role: 'Solidity Dev',
 		image: kiwi,
-		bio: 'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.',
+		bio: [
+			'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works as a software engineer for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead engineer. He is responsible for the uwucrew smart contracts and image generation software.'
+		],
 		twitter: 'https://twitter.com/0xKiwi_',
 		github: 'https://github.com/0xKiwi'
 	},
@@ -39,14 +44,18 @@ const members: TeamMemberType[] = [
 		name: 'Morello',
 		role: 'Bit of everything',
 		image: morello,
-		bio: "Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew.",
+		bio: [
+			"Defi, shitcoin, NFT gambler enthusiast and collector of anime-inspired art. Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
+		],
 		twitter: 'https://twitter.com/morellostorment'
 	},
 	{
 		name: 'Chase',
 		role: 'Front End Dev',
 		image: chase,
-		bio: 'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwucrew site.',
+		bio: [
+			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs. He developed the origional Waifusion Dungeon, the new Waifusion site, and the uwucrew site.'
+		],
 		twitter: 'https://twitter.com/ChaseManning_NZ',
 		github: 'https://github.com/chase-manning'
 	},
@@ -54,14 +63,18 @@ const members: TeamMemberType[] = [
 		name: 'CatInKleins',
 		role: 'R&D',
 		image: cat,
-		bio: "ETH maxi and NFT gambler, he's generally happy to get paid for looking at anime cleavages all day. Cat helps with art, socials and uwuniverse creation.",
+		bio: [
+			"ETH maxi and NFT gambler, he's generally happy to get paid for looking at anime cleavages all day. Cat helps with art, socials and uwuniverse creation."
+		],
 		twitter: 'https://twitter.com/CatInKleins'
 	},
 	{
 		name: '0xWave',
 		role: 'role',
 		image: laur,
-		bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi',
+		bio: [
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi'
+		],
 		twitter: ''
 	}
 ];
@@ -132,6 +145,7 @@ const SocialContainer = styled.a`
 	cursor: pointer;
 	transform: translateY(-0.3rem);
 	width: 2.8rem;
+	margin-bottom: 2rem;
 `;
 
 const NameContainer = styled.div`
@@ -160,7 +174,7 @@ const Description = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
 	line-height: 1.6rem;
-	margin-top: 2rem;
+	margin-top: 0.3rem;
 	margin-bottom: 0.5rem;
 	font-family: 'Roboto', sans-serif;
 	padding: 0 0.5rem;
@@ -199,7 +213,9 @@ const TeamSlide = () => {
 										)}
 									</Socials>
 								</Overview>
-								<Description>{m.bio}</Description>
+								{m.bio.map((b: string) => (
+									<Description>{b}</Description>
+								))}
 							</Content>
 						</TeamMember>
 					))}
