@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useRef, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectSlide } from 'state/reducers/navigation';
 
 interface SlideProps {
 	color: string;
+	show: boolean;
 }
 
 const StyledSlide = styled.div`
@@ -14,8 +15,14 @@ const StyledSlide = styled.div`
 	align-items: center;
 	background-color: ${(props: SlideProps) => props.color};
 	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
-	min-height: 55rem;
+
 	padding: 7rem 12rem;
+	min-height: 55rem;
+	@media (max-width: 768px) {
+		padding: 1rem 3rem;
+		min-height: 40rem;
+		padding-top: 4rem;
+	}
 `;
 
 const Content = styled.div`
@@ -25,26 +32,71 @@ const Content = styled.div`
 	margin-bottom: 3rem;
 `;
 
+const raise = keyframes`
+  from {
+	opacity: 0;
+	transform: translateY(100%);
+  }
+  to {
+	opacity: 1;
+	transform: translateY(0);
+  }
+`;
+
+const headerAnimate = css`
+	animation: ${raise} 0.6s 0.9s ease-out forwards;
+`;
+
 const Header = styled.div`
-	font-size: 10rem;
 	font-weight: 700;
-	/* color: var(--text-primary); */
 	color: ${(props: SlideProps) => props.color};
+
+	font-size: 10rem;
+	@media (max-width: 768px) {
+		font-size: 5rem;
+	}
+
+	opacity: 0;
+	transform: translateY(100%);
+	${(props: SlideProps) => (props.show ? headerAnimate : 'animation: none')};
+`;
+
+const subHeaderAnimate = css`
+	animation: ${raise} 0.6s 1.2s ease-out forwards;
 `;
 
 const SubHeader = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
 	max-width: 70%;
-	line-height: 2.3rem;
 	margin-bottom: 2rem;
 	font-family: 'Roboto', sans-serif;
 
 	font-size: 2rem;
+	line-height: 2.3rem;
 	@media (max-width: 768px) {
-		font-size: 1.8rem;
-		max-width: 80vw;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		max-width: 100%;
+		width: 100%;
 	}
+
+	opacity: 0;
+	transform: translateY(100%);
+	${(props: SlideProps) => (props.show ? subHeaderAnimate : 'animation: none')};
+`;
+
+const wipe = keyframes`
+  from {
+	transform: scaleX(0);
+  }
+  to {
+	transform: scaleX(1);
+  }
+`;
+
+const wipeAnimate = css`
+	animation: ${wipe} 0.6s 0.3s ease-out forwards;
 `;
 
 const TopLine = styled.div`
@@ -54,6 +106,10 @@ const TopLine = styled.div`
 	border-bottom: solid 3px ${(props: SlideProps) => props.color};
 	transform-origin: right;
 	width: 80%;
+
+	transform-origin: right;
+	transform: scaleX(0);
+	${(props: SlideProps) => (props.show ? wipeAnimate : 'animation: none')};
 `;
 
 const BottomLine = styled.div`
@@ -63,6 +119,25 @@ const BottomLine = styled.div`
 	border-bottom: solid 3px ${(props: SlideProps) => props.color};
 	transform-origin: right;
 	width: 80%;
+
+	transform-origin: left;
+	transform: scaleX(0);
+	${(props: SlideProps) => (props.show ? wipeAnimate : 'animation: none')};
+`;
+
+const contentAnimate = css`
+	animation: ${raise} 0.6s 1.2s ease-out forwards;
+`;
+
+const ContentContainer = styled.div`
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	opacity: 0;
+	transform: translateY(100%);
+	${(props: SlideProps) => (props.show ? contentAnimate : 'animation: none')};
 `;
 
 interface Props {
@@ -76,6 +151,15 @@ interface Props {
 const Slide = ({ color, section, header, subHeaders, content }: Props): JSX.Element => {
 	const slide = useSelector(selectSlide);
 	const scrollRef = useRef<HTMLDivElement>(null);
+	const [inView, setInView] = useState(false);
+
+	const updateInView = () => {
+		const pos = scrollRef.current?.getBoundingClientRect().top;
+		if (!pos) return;
+		console.log(`Position: ${pos}`);
+		console.log(`Mid: ${window.innerHeight}`);
+		if (window.innerHeight / 2 > pos!) setInView(true);
+	};
 
 	useEffect(() => {
 		if (slide === section)
@@ -85,14 +169,31 @@ const Slide = ({ color, section, header, subHeaders, content }: Props): JSX.Elem
 			});
 	}, [slide]);
 
+	useEffect(() => {
+		window.addEventListener('scroll', () => updateInView());
+	}, []);
+
 	return (
-		<StyledSlide color={color} ref={scrollRef}>
-			<TopLine color={color} />
-			<BottomLine color={color} />
+		<StyledSlide color={color} ref={scrollRef} show={inView}>
+			<TopLine color={color} show={inView} />
+			<BottomLine color={color} show={inView} />
 			<Content>
-				{header && <Header color={color}>{header}</Header>}
-				{subHeaders && subHeaders.map((subHeader: string, i) => <SubHeader key={i}>{subHeader}</SubHeader>)}
-				{content && content}
+				{header && (
+					<Header color={color} show={inView}>
+						{header}
+					</Header>
+				)}
+				{subHeaders &&
+					subHeaders.map((subHeader: string, i) => (
+						<SubHeader key={i} color={color} show={inView}>
+							{subHeader}
+						</SubHeader>
+					))}
+				{content && (
+					<ContentContainer color={color} show={inView}>
+						{content}
+					</ContentContainer>
+				)}
 			</Content>
 		</StyledSlide>
 	);

@@ -12,18 +12,24 @@ const raise = keyframes`
   }
 `;
 
+const StyledEmailSignup = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-top: 1rem;
+
+	opacity: 0;
+	transform: translateY(100%);
+	animation: ${raise} 1s 1.9s ease-out forwards;
+`;
+
 const Form = styled.form`
 	display: flex;
 	align-items: center;
 	height: 4.5rem;
-	animation: ${raise} 1s 2.9s ease-out forwards;
 
 	@media (max-width: 768px) {
 		width: calc(100vw - 4rem);
 	}
-
-	opacity: 0;
-	transform: translateY(100%);
 `;
 
 const Input = styled.input`
@@ -60,6 +66,21 @@ const Button = styled.input`
 	}
 `;
 
+const Description = styled.div`
+	font-weight: 500;
+	color: var(--text-primary);
+	max-width: 64rem;
+	line-height: 2.3rem;
+	font-family: 'Roboto', sans-serif;
+	margin-top: 0.3rem;
+
+	font-size: 1.4rem;
+	@media (max-width: 768px) {
+		font-size: 1.2rem;
+		max-width: 80vw;
+	}
+`;
+
 interface Props {
 	color: string;
 }
@@ -68,24 +89,27 @@ const EmailSignup = ({ color }: Props) => {
 	const [email, setEmail] = useState('');
 
 	return (
-		<Form
-			action="https://waifusion.us6.list-manage.com/subscribe/post?u=e27a013fdf4b77f3f4cd29de4&amp;id=53d3057369"
-			method="post"
-			id="mc-embedded-subscribe-form"
-			name="mc-embedded-subscribe-form"
-			target="_blank"
-		>
-			<Input
-				color={color}
-				placeholder="Enter email"
-				type="email"
-				value={email}
-				name="EMAIL"
-				id="mce-EMAIL"
-				onChange={(e) => setEmail(e.target.value)}
-			/>
-			<Button color={color} type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" />
-		</Form>
+		<StyledEmailSignup>
+			<Form
+				action="https://waifusion.us6.list-manage.com/subscribe/post?u=e27a013fdf4b77f3f4cd29de4&amp;id=53d3057369"
+				method="post"
+				id="mc-embedded-subscribe-form"
+				name="mc-embedded-subscribe-form"
+				target="_blank"
+			>
+				<Input
+					color={color}
+					placeholder="Enter email"
+					type="email"
+					value={email}
+					name="EMAIL"
+					id="mce-EMAIL"
+					onChange={(e) => setEmail(e.target.value)}
+				/>
+				<Button color={color} type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" />
+			</Form>
+			<Description>subscribe to updates for uwucrew</Description>
+		</StyledEmailSignup>
 	);
 };
 

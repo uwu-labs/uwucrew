@@ -3,6 +3,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setSlide } from 'state/reducers/navigation';
 import styled, { keyframes } from 'styled-components';
+import Image from 'next/image';
+import logo from '../assets/logos/logo.svg';
 
 const StyledNavbar = styled.div`
 	display: flex;
@@ -36,10 +38,11 @@ const LineTwo = styled.div`
 	flex: 1;
 	transform-origin: right;
 	transform: scaleX(0);
-	animation: ${wipe} 1s 1s ease-out forwards;
+	animation: ${wipe} 1s 0s ease-out forwards;
 
 	@media (max-width: 768px) {
 		width: calc(100vw - 145px - 0px);
+		display: none;
 	}
 `;
 
@@ -54,14 +57,13 @@ const lower = keyframes`
   }
 `;
 
-const Logo = styled.div`
-	font-size: 3.5rem;
-	font-weight: 600;
-	line-height: 2.4rem;
+const LogoContainer = styled.div`
+	width: 9rem;
+	margin-top: 1rem;
 
 	opacity: 0;
 	transform: translateY(-50px);
-	animation: ${lower} 1s 2s ease-out forwards;
+	animation: ${lower} 1s 1s ease-out forwards;
 `;
 
 const NavItems = styled.div`
@@ -72,15 +74,20 @@ const NavItems = styled.div`
 
 	opacity: 0;
 	transform: translateY(-50px);
-	animation: ${lower} 1s 2s ease-out forwards;
+	animation: ${lower} 1s 1s ease-out forwards;
 `;
 
 const NavItem = styled.div`
-	font-size: 2rem;
 	padding: 0 1rem;
 	font-weight: 500;
 	cursor: pointer;
 	text-transform: capitalize;
+	white-space: nowrap;
+
+	font-size: 2rem;
+	@media (max-width: 768px) {
+		font-size: 1.6rem;
+	}
 `;
 
 const Navbar: React.FC = () => {
@@ -88,12 +95,14 @@ const Navbar: React.FC = () => {
 
 	return (
 		<StyledNavbar>
-			<Logo>uwu</Logo>
+			<LogoContainer>
+				<Image src={logo} />
+			</LogoContainer>
 			<NavItems>
 				<NavItem onClick={() => dispatch(setSlide('about'))}>about</NavItem>
-				<NavItem onClick={() => dispatch(setSlide('roadmap'))}>roadmap</NavItem>
 				<NavItem onClick={() => dispatch(setSlide('team'))}>team</NavItem>
-				<NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem>
+				<NavItem onClick={() => dispatch(setSlide('roadmap'))}>what's next</NavItem>
+				{/* <NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem> */}
 				{/* <NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem> */}
 			</NavItems>
 			<LineTwo />
