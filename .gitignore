@@ -9,3 +9,4 @@
 # Root
 /node_modules
 secrets.js
+/artifacts

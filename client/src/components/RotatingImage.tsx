@@ -2,14 +2,15 @@ import React from 'react';
 import Image from 'next/image';
 import styled, { keyframes } from 'styled-components';
 import uwu01 from '../assets/girls/01.png';
-import uwu02 from '../assets/girls/02.png';
-import uwu03 from '../assets/girls/03.png';
+import uwu03 from '../assets/girls/02.png';
+import uwu02 from '../assets/girls/03.png';
 import uwu04 from '../assets/girls/04.png';
 import uwu05 from '../assets/girls/05.png';
-import uwu06 from '../assets/girls/06.png';
-import uwu07 from '../assets/girls/07.png';
+import uwu07 from '../assets/girls/06.png';
+import uwu06 from '../assets/girls/07.png';
+import uwu08 from '../assets/girls/08.png';
 
-const images: StaticImageData[] = [uwu01, uwu02, uwu03, uwu04, uwu05, uwu06, uwu07];
+const images: StaticImageData[] = [uwu01, uwu02, uwu03, uwu04, uwu05, uwu06, uwu07, uwu08];
 
 const slide = keyframes`
   from {
@@ -38,7 +39,7 @@ const StyledImage = styled.div`
 
 	opacity: 0;
 	transform: translateX(100%);
-	animation: ${slide} 1s 3.2s ease-out forwards;
+	animation: ${slide} 1s 2.2s ease-out forwards;
 
 	@media (max-width: 768px) {
 		width: 100%;
@@ -62,7 +63,7 @@ const ImageTransform = styled.div`
 	opacity: ${(props: TransformProps) => props.opacity};
 
 	> div {
-		transform: translate(-2%, 4px);
+		transform: translate(0, 4px);
 	}
 `;
 
@@ -92,7 +93,7 @@ const RotatingImage = ({ color, activeIndex }: Props) => {
 		<StyledImage color={color}>
 			{images.map((image: StaticImageData, index: number) => (
 				<ImageTransform transform={imageTransform(index)} opacity={opacity(index)}>
-					<Image src={image} />
+					<Image priority src={image} />
 				</ImageTransform>
 			))}
 		</StyledImage>

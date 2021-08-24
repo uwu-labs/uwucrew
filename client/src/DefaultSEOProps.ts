@@ -2,8 +2,8 @@ import { DESCRIPTION, SITE_PROTOCOL } from 'core/constants';
 import type { DefaultSeoProps as DefaultSeoPropsType } from 'next-seo';
 
 export const DefaultSEOProps: DefaultSeoPropsType = {
-	titleTemplate: 'Anime Ethereum NFT Collectibles | %s',
-	title: 'Waifusion',
+	titleTemplate: 'uwucrew NFT Collection | %s',
+	title: 'uwucrew',
 	description: DESCRIPTION,
 	canonical: SITE_PROTOCOL,
 	additionalMetaTags: [
@@ -20,15 +20,23 @@ export const DefaultSEOProps: DefaultSeoPropsType = {
 		{ property: 'og:email', content: 'waifusiongovernance@gmail.com' }
 	],
 	openGraph: {
-		title: 'Anime Ethereum NFT Collectibles',
+		title: 'uwucrew NFT Collection',
 		url: SITE_PROTOCOL,
 		type: 'website',
 		locale: 'en_US',
-		site_name: 'Waifusion'
+		site_name: 'uwucrew',
+		images: [
+			{
+				url: '/og-image.png',
+				width: 1200,
+				height: 630,
+				alt: 'uwucrew og image'
+			}
+		]
 	},
 	twitter: {
 		handle: '@waifusion',
 		site: '@waifusion',
-		cardType: 'summary'
+		cardType: 'summary_large_image'
 	}
 };

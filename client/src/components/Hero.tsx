@@ -24,6 +24,7 @@ const raise = keyframes`
 
 const StyledHero = styled.div`
 	position: relative;
+	overflow: hidden;
 `;
 
 interface ContentContainerProps {
@@ -31,7 +32,6 @@ interface ContentContainerProps {
 }
 
 const ContentContainer = styled.div`
-	overflow: hidden;
 	min-height: 100vh;
 	width: 100%;
 	overflow: hidden;
@@ -78,14 +78,18 @@ const ComingSoonContainer = styled.div`
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 2s ease-out forwards;
+	animation: ${raise} 1s 1s ease-out forwards;
 `;
 
 const Line = styled.div`
-	width: 40px;
 	height: 3px;
 	margin-right: 10px;
 	border-bottom: solid 3px var(--text-primary);
+
+	width: 40px;
+	@media (max-width: 768px) {
+		width: 30px;
+	}
 `;
 
 const ComingSoonText = styled.div`
@@ -101,7 +105,7 @@ const ComingSoonText = styled.div`
 
 	font-size: 2.2rem;
 	@media (max-width: 768px) {
-		font-size: 2rem;
+		font-size: 1.6rem;
 	}
 `;
 
@@ -111,14 +115,14 @@ const Header = styled.h1`
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 2.3s ease-out forwards;
+	animation: ${raise} 1s 1.3s ease-out forwards;
 
 	font-size: 14rem;
 	line-height: 10rem;
 	margin-bottom: 3rem;
 	@media (max-width: 768px) {
-		font-size: 10rem;
-		line-height: 7rem;
+		font-size: 7.5rem;
+		line-height: 5rem;
 		margin-bottom: 2rem;
 	}
 `;
@@ -126,18 +130,18 @@ const Header = styled.h1`
 const SubHeader = styled.h2`
 	font-weight: 500;
 	color: var(--text-primary);
-	max-width: 64rem;
+	max-width: 61rem;
 	line-height: 2.3rem;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 	font-family: 'Roboto', sans-serif;
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 2.6s ease-out forwards;
+	animation: ${raise} 1s 1.6s ease-out forwards;
 
 	font-size: 2rem;
 	@media (max-width: 768px) {
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		max-width: 80vw;
 	}
 `;
@@ -169,12 +173,12 @@ const Hero = () => {
 						<Line />
 						<ComingSoonText>coming soon</ComingSoonText>
 					</ComingSoonContainer>
-					<Header>uwu crew</Header>
+					<Header>uwucrew</Header>
 					<SubHeader>
-						uwucrew is a generative collection of 10,000 female-focused avatars inspired by anime and pop culture, aiming to be both
-						inclusive and expressive. Every uwucrew NFT is completely unique and features up to 8 traits - Background, Hat, Hair, Eyes,
-						Mouth, Top, Left Accessory, and Right Accessory.
+						uwucrew is a generative collection of 9670 avatars inspired by anime and pop culture, aiming to be both inclusive and
+						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
 					</SubHeader>
+					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and release late August.</SubHeader>
 					{LIVE && (
 						<Button
 							color={'pink'}
