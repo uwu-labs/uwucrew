@@ -12,26 +12,36 @@ const notZeroAddr = "0x000000000000000000000000000000000000dead";
 
 let signers;
 let primary, alice, bob; 
+let kiwi;
 let uwucrew;
 let salesContract;
+let WET, WAIFUSION;
 
 describe("NFT Sale Test", function () {
   before("Setup", async () => {
+    await network.provider.request({
+      method: "hardhat_reset",
+      params: [
+        {
+          forking: {
+            jsonRpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_ETH_KEY}`,
+            blockNumber: 12964000,
+          },
+        },
+      ],
+    });
     signers = await ethers.getSigners();
     primary = signers[0];
     alice = signers[1];
     bob = signers[2];
-    // await hre.network.provider.request({
-    //   method: "hardhat_impersonateAccount",
-    //   params: ["0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48"]}
-    // );
-    // punkOwner = await ethers.provider.getSigner("0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48")
+    await hre.network.provider.request({
+      method: "hardhat_impersonateAccount",
+      params: ["0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48"]}
+    );
+    kiwi = await ethers.provider.getSigner("0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48")
 
-    // vault = await ethers.getContractAt("NFTXVaultUpgradeable", "0x269616d549d7e8eaa82dfb17028d0b212d11232a");
-    // vaults.push(vault)
-
-    // nftx = await ethers.getContractAt("NFTXVaultFactoryUpgradeable", "0xBE86f647b167567525cCAAfcd6f881F1Ee558216");
-    // erc721 = await ethers.getContractAt("CryptoPunksMarket", "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB");
+    WET = await ethers.getContractAt("IERC20", "0x76280af9d18a868a0af3dca95b57dde816c1aaf2");
+    WAIFUSION = await ethers.getContractAt("ERC721", "0x2216d47494e516d8206b70fca8585820ed3c4946");
 
     let UwUCrew = await ethers.getContractFactory("uwucrew");
     uwucrew = await UwUCrew.deploy("uwucrew", "UWU", 140);
@@ -70,6 +80,20 @@ describe("NFT Sale Test", function () {
     expect(newSold).to.equal(oldSold);
   });
 
+  it("Should let Kiwi swap v1 -> v2 tickets before the sale starts", async () => {
+    await WAIFUSION.connect(kiwi).setApprovalForAll(salesContract.address, true);
+    await WET.connect(kiwi).approve(salesContract.address, BASE.mul(100000000000));
+
+    let oldBal = await salesContract.balance(kiwi.getAddress());
+    await salesContract.connect(kiwi).swapWFforUWU([377, 1173, 11110]);
+    let newBal = await salesContract.balance(kiwi.getAddress());
+    expect(newBal).to.equal(oldBal.add(3))
+  })
+
+  it("Should not let Kiwi mint 1 before the sale starts", async () => {
+    await expectException(salesContract.connect(kiwi).mint(1), "Can only mint after the sale has begun");
+  });
+
   it("Should mine some blocks", async () => {
     const block = await ethers.provider.getBlock("latest");
     await network.provider.send("evm_increaseTime", [block.timestamp + 1000])
@@ -97,6 +121,20 @@ describe("NFT Sale Test", function () {
   it("Should not Alice mint more than what they have", async () => {
     await expectException(salesContract.connect(alice).mint(4), "Not enough balance");
   });
+
+  it("Should let Kiwi mint 1 after the sale starts", async () => {
+    let oldBal = await uwucrew.balanceOf(kiwi.getAddress());
+    await salesContract.connect(kiwi).mint(1);
+    let newBal = await uwucrew.balanceOf(kiwi.getAddress());
+    expect(newBal).to.equal(oldBal.add(1))
+  });
+
+  it("Should let Kiwi swap v1 -> v2 tickets after the sale starts and after minting one", async () => {
+    let oldBal = await salesContract.balance(kiwi.getAddress());
+    await salesContract.connect(kiwi).swapWFforUWU([5334, 398]);
+    let newBal = await salesContract.balance(kiwi.getAddress());
+    expect(newBal).to.equal(oldBal.add(2))
+  })
 
   it("Should let Alice mint the other 3", async () => {
     let oldBal = await uwucrew.balanceOf(alice.getAddress());
@@ -164,10 +202,11 @@ describe("NFT Sale Test", function () {
 
   it("Should let owner allocate swap amount to rest of sale", async () => { 
     let oldForSale = await salesContract.amountForSale();  
-    const extra = await salesContract.amountForSwap();
+    const forSwap = await salesContract.amountForSwap();
+    const swapped = await salesContract.amountSwapped();
     await salesContract.closeSwapToSale();
     let newForSale = await salesContract.amountForSale();  
-    expect(newForSale).to.equal(oldForSale.add(extra));
+    expect(newForSale).to.equal(oldForSale.add(forSwap.sub(swapped)));
   })
 
   it("Should not let someone else add extra to sale", async () => {
@@ -191,10 +230,11 @@ describe("NFT Sale Test", function () {
   it("Should let owner allocate extra to sale", async () => { 
     let oldBalance = await salesContract.balance(primary.getAddress());  
     const forSwap = await salesContract.amountForSwap();
+    const swapped = await salesContract.amountSwapped();
     await salesContract.closeSwapToOwner();
     let newBalance = await salesContract.balance(primary.getAddress());   
     const newSwap = await salesContract.amountForSwap();
-    expect(newBalance).to.equal(oldBalance.add(forSwap));
-    expect(newSwap).to.equal(forSwap);
+    expect(newBalance).to.equal(oldBalance.add(forSwap.sub(swapped)));
+    expect(newSwap).to.equal(0);
   })
 })

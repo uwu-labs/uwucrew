@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">53.85% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/13</span>
+        <span class='fraction'>0/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/6</span>
+        <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/8</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">53.85% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/13</span>
+        <span class='fraction'>0/15</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -110,7 +110,10 @@
 65
 66
 67
-68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+68
+69
+70
+71</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,19 +136,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,8 +176,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,30 +195,33 @@ interface SaleContract {
 &nbsp;
 contract uwucrew is Ownable, ERC721Enumerable {
   address public saleContract;
+  address public extraContract;
+&nbsp;
+  uint256 public immutable MAX_UWU;
   
   uint256 constant BASE = 10**18;
-  uint256 public MAX_UWU;
   uint256 public amountToLP;
 &nbsp;
   string public UWU_PROVENANCE = "";
   string public baseURI;
 &nbsp;
-  uint256 public startingIndex;
-  uint256 public startingIndexBlock;
-&nbsp;
-&nbsp;
-  constructor(string memory _name, string memory _symbol, uint256 maxSupply) Ownable() ERC721(_name, _symbol) {
-    MAX_UWU = maxSupply;
+<span class="fstat-no" title="function not covered" >  constructor(string memory _name, string memory _symbol, uint256 maxSupply) Ownable() ERC721(_name, _symbol) {</span>
+<span class="cstat-no" title="statement not covered" >    MAX_UWU = maxSupply</span>;
   }
 &nbsp;
-  function mint(address to, uint256 tokenId) public virtual {
-    <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender == saleContract, "Nice try lol");
-    _safeMint(to, tokenId);
+<span class="fstat-no" title="function not covered" >  function mint(address to, uint256 tokenId) public virtual {</span>
+<span class="cstat-no" title="statement not covered" >    require(msg.sender == saleContract || msg.sender == extraContract, "Nice try lol")</span>;
+<span class="cstat-no" title="statement not covered" >    _safeMint(to, tokenId)</span>;
   }
 &nbsp;
-  function prepareSale(address _saleContract) public onlyOwner {
-    <span class="missing-if-branch" title="else path not taken" >E</span>require(saleContract == address(0));
-    saleContract = _saleContract;
+<span class="fstat-no" title="function not covered" >  function prepareSale(address _saleContract) public onlyOwner {</span>
+<span class="cstat-no" title="statement not covered" >    require(saleContract == address(0))</span>;
+<span class="cstat-no" title="statement not covered" >    saleContract = _saleContract</span>;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function setExtraContract(address _extraContract) public onlyOwner {</span>
+<span class="cstat-no" title="statement not covered" >    require(extraContract == address(0))</span>;
+<span class="cstat-no" title="statement not covered" >    extraContract = _extraContract</span>;
   }
 &nbsp;
   /**
@@ -229,16 +238,16 @@ contract uwucrew is Ownable, ERC721Enumerable {
   * Set provenance once it's calculated
   */
 <span class="fstat-no" title="function not covered" >  function setProvenanceHash(string memory provenanceHash) public onlyOwner {</span>
-<span class="cstat-no" title="statement not covered" >      UWU_PROVENANCE = provenanceHash</span>;
+<span class="cstat-no" title="statement not covered" >    UWU_PROVENANCE = provenanceHash</span>;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function setBaseURI(string memory _baseURI) public onlyOwner {</span>
-<span class="cstat-no" title="statement not covered" >    baseURI = _baseURI</span>;
+<span class="fstat-no" title="function not covered" >  function setBaseURI(string memory newURI) public onlyOwner {</span>
+<span class="cstat-no" title="statement not covered" >    baseURI = newURI</span>;
   }
 &nbsp;
-  function _safeMint(address to, uint256 tokenId) internal virtual override {
-    <span class="missing-if-branch" title="else path not taken" >E</span>require(tokenId &lt; MAX_UWU, "Max supply");
-    super._safeMint(to, tokenId);
+<span class="fstat-no" title="function not covered" >  function _safeMint(address to, uint256 tokenId) internal virtual override {</span>
+<span class="cstat-no" title="statement not covered" >    require(tokenId &lt; MAX_UWU, "Max supply")</span>;
+<span class="cstat-no" title="statement not covered" >    super._safeMint(to, tokenId)</span>;
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  function _baseURI() internal view virtual override returns (string memory) {</span>
@@ -250,7 +259,7 @@ contract uwucrew is Ownable, ERC721Enumerable {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Aug 14 2021 20:33:58 GMT-0400 (Eastern Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 17 2021 01:10:20 GMT-0400 (Eastern Daylight Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

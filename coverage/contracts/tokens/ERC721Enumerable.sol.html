@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/32</span>
+        <span class='fraction'>0/32</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.43% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/14</span>
+        <span class='fraction'>0/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">44.44% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/9</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/33</span>
+        <span class='fraction'>0/33</span>
       </div>
     </div>
   </div>
@@ -248,7 +248,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -279,17 +279,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -299,9 +299,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -309,8 +309,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7×</span>
-<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -408,8 +408,8 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
     /**
      * @dev See {IERC721Enumerable-totalSupply}.
      */
-    function totalSupply() public view virtual override returns (uint256) {
-        return _allTokens.length;
+<span class="fstat-no" title="function not covered" >    function totalSupply() public view virtual override returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return _allTokens.length;</span>
     }
 &nbsp;
     /**
@@ -435,22 +435,22 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
      *
      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
-    function _beforeTokenTransfer(
+<span class="fstat-no" title="function not covered" >    function _beforeTokenTransfer(</span>
         address from,
         address to,
         uint256 tokenId
     ) internal virtual override {
-        super._beforeTokenTransfer(from, to, tokenId);
+<span class="cstat-no" title="statement not covered" >        super._beforeTokenTransfer(from, to, tokenId)</span>;
 &nbsp;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (from == address(0)) {
-            _addTokenToAllTokensEnumeration(tokenId);
+<span class="cstat-no" title="statement not covered" >        if (from == address(0)) {</span>
+<span class="cstat-no" title="statement not covered" >            _addTokenToAllTokensEnumeration(tokenId)</span>;
         } else <span class="cstat-no" title="statement not covered" >if (from != to) {</span>
 <span class="cstat-no" title="statement not covered" >            _removeTokenFromOwnerEnumeration(from, tokenId)</span>;
         }
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (to == address(0)) {
+<span class="cstat-no" title="statement not covered" >        if (to == address(0)) {</span>
 <span class="cstat-no" title="statement not covered" >            _removeTokenFromAllTokensEnumeration(tokenId)</span>;
-        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (to != from) {
-            _addTokenToOwnerEnumeration(to, tokenId);
+        } else <span class="cstat-no" title="statement not covered" >if (to != from) {</span>
+<span class="cstat-no" title="statement not covered" >            _addTokenToOwnerEnumeration(to, tokenId)</span>;
         }
     }
 &nbsp;
@@ -459,19 +459,19 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
      * @param to address representing the new owner of the given token ID
      * @param tokenId uint256 ID of the token to be added to the tokens list of the given address
      */
-    function _addTokenToOwnerEnumeration(address to, uint256 tokenId) private {
-        uint256 length = ERC721.balanceOf(to);
-        _ownedTokens[to][length] = tokenId;
-        _ownedTokensIndex[tokenId] = length;
+<span class="fstat-no" title="function not covered" >    function _addTokenToOwnerEnumeration(address to, uint256 tokenId) private {</span>
+<span class="cstat-no" title="statement not covered" >        uint256 length = ERC721.balanceOf(to);</span>
+<span class="cstat-no" title="statement not covered" >        _ownedTokens[to][length] = tokenId</span>;
+<span class="cstat-no" title="statement not covered" >        _ownedTokensIndex[tokenId] = length</span>;
     }
 &nbsp;
     /**
      * @dev Private function to add a token to this extension's token tracking data structures.
      * @param tokenId uint256 ID of the token to be added to the tokens list
      */
-    function _addTokenToAllTokensEnumeration(uint256 tokenId) private {
-        _allTokensIndex[tokenId] = _allTokens.length;
-        _allTokens.push(tokenId);
+<span class="fstat-no" title="function not covered" >    function _addTokenToAllTokensEnumeration(uint256 tokenId) private {</span>
+<span class="cstat-no" title="statement not covered" >        _allTokensIndex[tokenId] = _allTokens.length</span>;
+<span class="cstat-no" title="statement not covered" >        _allTokens.push(tokenId)</span>;
     }
 &nbsp;
     /**
@@ -532,7 +532,7 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Aug 14 2021 20:33:58 GMT-0400 (Eastern Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 17 2021 01:10:20 GMT-0400 (Eastern Daylight Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

@@ -17,8 +17,19 @@ let uwucrew;
 let salesContract;
 let WET, WAIFUSION;
 
-describe("NFT Sale Test", function () {
-  before("Setup", async () => {
+describe("NFT WET Sale Test", function () {
+  before("Setup", async () => {    
+    await network.provider.request({
+      method: "hardhat_reset",
+      params: [
+        {
+          forking: {
+            jsonRpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_ETH_KEY}`,
+            blockNumber: 12964000,
+          },
+        },
+      ],
+    });
     signers = await ethers.getSigners();
     primary = signers[0];
     alice = signers[1];
@@ -30,15 +41,11 @@ describe("NFT Sale Test", function () {
     kiwi = await ethers.provider.getSigner("0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48")
 
     WET = await ethers.getContractAt("IERC20", "0x76280af9d18a868a0af3dca95b57dde816c1aaf2");
-    WAIFUSION = await ethers.getContractAt("ERC721", "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB");
-
-    let UwUCrew = await ethers.getContractFactory("uwucrew");
-    uwucrew = await UwUCrew.deploy("uwucrew", "UWU", 140);
-    await uwucrew.deployed();
+    WAIFUSION = await ethers.getContractAt("ERC721", "0x2216d47494e516d8206b70fca8585820ed3c4946");
 
     const block = await ethers.provider.getBlock("latest");
     let Sales = await ethers.getContractFactory("uwucrewWaveLockSaleWithMint");
-    salesContract = await Sales.deploy(uwucrew.address, block.timestamp + 1000, 40, 40, 20);
+    salesContract = await Sales.deploy(block.timestamp + 1000, 40);
     await salesContract.deployed();
   });
 
@@ -69,6 +76,19 @@ describe("NFT Sale Test", function () {
     expect(newSold).to.equal(oldSold);
   });
 
+  it("Should let Kiwi swap v1 -> v2 tickets before the sale starts", async () => {
+    await WET.connect(kiwi).approve(salesContract.address, BASE.mul(100000000000));
+
+    let oldBal = await salesContract.balance(kiwi.getAddress());
+    await salesContract.connect(kiwi).buy(1);
+    let newBal = await salesContract.balance(kiwi.getAddress());
+    expect(newBal).to.equal(oldBal.add(3))
+  })
+
+  it("Should not let Kiwi mint 1 before the sale starts", async () => {
+    await expectException(salesContract.connect(kiwi).mint(1), "Can only mint after the sale has begun");
+  });
+
   it("Should mine some blocks", async () => {
     const block = await ethers.provider.getBlock("latest");
     await network.provider.send("evm_increaseTime", [block.timestamp + 1000])
@@ -97,103 +117,17 @@ describe("NFT Sale Test", function () {
     await expectException(salesContract.connect(alice).mint(4), "Not enough balance");
   });
 
-  it("Should let Alice mint the other 3", async () => {
-    let oldBal = await uwucrew.balanceOf(alice.getAddress());
-    await salesContract.connect(alice).mint(3);
-    let newBal = await uwucrew.balanceOf(alice.getAddress());
-    expect(newBal).to.equal(oldBal.add(3))
+  it("Should let Kiwi mint 1 after the sale starts", async () => {
+    let oldBal = await uwucrew.balanceOf(kiwi.getAddress());
+    await salesContract.connect(kiwi).mint(1);
+    let newBal = await uwucrew.balanceOf(kiwi.getAddress());
+    expect(newBal).to.equal(oldBal.add(1))
   });
 
-  it("Shouldn't let Alice buy again in this wave", async () => {
-    const oldSold = await salesContract.amountSold();
-    await expectException(salesContract.connect(alice).buy(4, {value: ethers.utils.parseEther("0.24")}), "Locked for this wave");
-    const newSold = await salesContract.amountSold();
-    expect(newSold).to.equal(oldSold);
-  });
-
-  it("Should mine 30 blocks", async () => {
-    for (let i = 0; i < 32; i++) {
-      await ethers.provider.send("evm_mine", []);
-    }
-  });
-
-  it("Shouldn't let Alice buy again more than a tx max", async () => {
-    const oldSold = await salesContract.amountSold();
-    await expectException(salesContract.connect(alice).buy(35, {value: ethers.utils.parseEther("0.84")}), "Max for TX in this wave");
-    const newSold = await salesContract.amountSold();
-    expect(newSold).to.equal(oldSold);
-  });
-
-  it("Should let Alice buy more with eth", async () => {
-    const oldSold = await salesContract.amountSold();
-    await salesContract.connect(alice).buy(12, {value: ethers.utils.parseEther("0.72")});
-    const newSold = await salesContract.amountSold();
-    expect(newSold).to.equal(oldSold.add(12))
-  });
-
-  it("Should let Alice mint the other 3", async () => {
-    let oldBal = await uwucrew.balanceOf(alice.getAddress());
-    await salesContract.forceMint(alice.getAddress(), 3);
-    let newBal = await uwucrew.balanceOf(alice.getAddress());
-    expect(newBal).to.equal(oldBal.add(3))
-  });
-
-  it("Should mine 30 blocks", async () => {
-    for (let i = 0; i < 32; i++) {
-      await ethers.provider.send("evm_mine", []);
-    }
-  });
-
-  it("Should let cap off and refund if purchasing more than avail with eth", async () => {
-    const oldSold = await salesContract.amountSold();
-    const amountForSale = await salesContract.amountForSale();
-    const remaining = amountForSale.sub(oldSold)
-    const oldBal = await ethers.provider.getBalance(alice.getAddress());
-    let tx = await salesContract.connect(alice).buy(32, {value: ethers.utils.parseEther("1.92")});
-    let receipt = await tx.wait();
-    const newBal = await ethers.provider.getBalance(alice.getAddress());
-    const newSold = await salesContract.amountSold();
-    expect(newSold).to.equal(oldSold.add(remaining))
-    expect(newBal.add(ethers.utils.parseEther("0.01"))).to.be.gt(oldBal.sub(remaining.mul(ethers.utils.parseEther("0.06"))).sub(receipt.gasUsed))
-  });
-
-  it("Should not let someone else swap to rest of sale", async () => {
-    await expectException(salesContract.connect(alice).closeSwapToSale(), "caller is not the owner");
-  })
-
-  it("Should let owner allocate swap amount to rest of sale", async () => { 
-    let oldForSale = await salesContract.amountForSale();  
-    const extra = await salesContract.amountForSwap();
-    await salesContract.closeSwapToSale();
-    let newForSale = await salesContract.amountForSale();  
-    expect(newForSale).to.equal(oldForSale.add(extra));
-  })
-
-  it("Should not let someone else add extra to sale", async () => {
-    await expectException(salesContract.connect(alice).addExtraToSale(5), "caller is not the owner");
-  })
-
-  it("Should let owner allocate extra to sale", async () => { 
-    let oldForSale = await salesContract.amountForSale();  
-    const oldBal = await salesContract.balance(primary.getAddress());
-    await salesContract.addExtraToSale(5);
-    const newBal = await salesContract.balance(primary.getAddress());
-    let newForSale = await salesContract.amountForSale();  
-    expect(newForSale).to.equal(oldForSale.add(5));
-    expect(newBal).to.equal(oldBal.sub(5));
-  })
-
-  it("Should not let someone else add extra to sale", async () => {
-    await expectException(salesContract.connect(alice).closeSwapToOwner(), "caller is not the owner");
-  })
-
-  it("Should let owner allocate extra to sale", async () => { 
-    let oldBalance = await salesContract.balance(primary.getAddress());  
-    const forSwap = await salesContract.amountForSwap();
-    await salesContract.closeSwapToOwner();
-    let newBalance = await salesContract.balance(primary.getAddress());   
-    const newSwap = await salesContract.amountForSwap();
-    expect(newBalance).to.equal(oldBalance.add(forSwap));
-    expect(newSwap).to.equal(forSwap);
+  it("Should let Kiwi swap v1 -> v2 tickets after the sale starts and after minting one", async () => {
+    let oldBal = await salesContract.balance(kiwi.getAddress());
+    await salesContract.connect(kiwi).swapWFforUWU([5334, 398]);
+    let newBal = await salesContract.balance(kiwi.getAddress());
+    expect(newBal).to.equal(oldBal.add(2))
   })
 })
