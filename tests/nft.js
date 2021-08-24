@@ -58,4 +58,25 @@ describe("NFT Sale Test", function () {
   it("Should let the owner prepare the sales contract", async () => {
     await uwucrew.prepareSale(salesContract.address)
   });
+
+  let newURI = "https://api.uwucrew.art/uwu/";
+  it("Should not let a non-owner change base URI", async () => {
+    await expectException(uwucrew.connect(alice).setBaseURI(newURI), "caller is the owner");
+  })
+
+  it("Should let owner change base URI", async () => {
+    let oldURI = await uwucrew.baseURI();
+    expect(oldURI).to.equal("");
+    await uwucrew.setBaseURI(newURI);
+    let _newURI = await uwucrew.baseURI();
+    expect(_newURI).to.equal(newURI);
+  })
+
+  it("Should properly update base URI for tokens", async () => {
+    let oldURI = await uwucrew.tokenURI(0);
+    expect(oldURI).to.equal("");
+    await uwucrew.setBaseURI(newURI);
+    let _newURI = await uwucrew.tokenURI(0);
+    expect(_newURI).to.equal(newURI+"0");
+  })
 })

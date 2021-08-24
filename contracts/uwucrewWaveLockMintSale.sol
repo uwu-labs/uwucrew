@@ -13,7 +13,7 @@ interface Minter {
 }
 
 contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
-  address public nft; 
+  address public immutable nft; 
   address public constant WAIFUSION = 0x2216d47494E516d8206B70FCa8585820eD3C4946;
   address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 
   address public constant BURNADDR = 0x0000000000000000000000000000000000080085;
@@ -37,7 +37,7 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
 
   constructor(address _nft, uint256 _startTime, uint256 saleCount, uint256 swapCount, uint256 _lpCount) Ownable() ReentrancyGuard() {
     nft = _nft;
-    require(Minter(nft).MAX_UWU() > saleCount + swapCount + _lpCount, "More than supply");
+    require(Minter(_nft).MAX_UWU() > saleCount + swapCount + _lpCount, "More than supply");
     startTime = _startTime;
     amountForSale = saleCount;
     amountForSwap = swapCount;
@@ -49,10 +49,10 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
     uint256 count = ids.length;
     require(count > 0, "Cant swap 0");
     require(amountSwapped + count < amountForSwap, "Swapping too many");
-    for (uint256 i = 0; i < count; i++) {
-      IERC721Enumerable(WAIFUSION).safeTransferFrom(msg.sender, BURNADDR, ids[i]);
-    }
     IERC20(WET).transferFrom(msg.sender, BURNADDR, count * swapPrice);
+    for (uint256 i = 0; i < count; i++) {
+      IERC721Enumerable(WAIFUSION).transferFrom(msg.sender, BURNADDR, ids[i]);
+    }
 
     // Credit balance for swapping.
     amountSwapped += count;
@@ -66,13 +66,13 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
 
   function closeSwapToSale() external onlyOwner {
     uint256 remaining = amountForSwap - amountSwapped;
-    amountForSwap -= remaining;
+    amountForSwap = 0;
     amountForSale += remaining;
   }
 
   function closeSwapToOwner() external onlyOwner {
     uint256 remaining = amountForSwap - amountSwapped;
-    amountForSwap -= remaining;
+    amountForSwap = 0;
     balance[msg.sender] += remaining;
   }
 
