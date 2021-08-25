@@ -29,14 +29,14 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
   uint256 public startTime;
   uint256 public startBlock;
   uint256 public wave = 0;
-  uint256 public waveBlockLength = 20;
+  uint256 public constant waveBlockLength = 20;
 
   mapping(uint256 => mapping(address => bool)) public waveLock;
   mapping(address => uint256) public balance;
 
   constructor(address _nft, uint256 _startTime, uint256 saleCount, uint256 swapCount, uint256 _lpCount) Ownable() ReentrancyGuard() {
     nft = _nft;
-    require(Minter(_nft).MAX_UWU() > saleCount + swapCount + _lpCount, "More than supply");
+    require(Minter(_nft).MAX_UWU() >= saleCount + swapCount + _lpCount, "More than supply");
     startTime = _startTime;
     amountForSale = saleCount;
     amountForSwap = swapCount;
@@ -49,7 +49,7 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
   function swapWFforUWU(uint256[] memory ids) public {
     uint256 count = ids.length;
     require(count > 0, "Cant swap 0");
-    require(amountSwapped + count < amountForSwap, "Swapping too many");
+    require(amountSwapped < amountForSwap, "Sold out! Sorry!");
 
     if (amountSwapped + count > amountForSwap) {
       uint256 amountRemaining = amountForSwap-amountSwapped;

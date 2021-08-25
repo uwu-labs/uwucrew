@@ -63,9 +63,85 @@ describe("NFT Sale Test", function () {
     await expectException(uwucrew.mint(alice.address, 0), "Nice try lol");
   });
 
+  it("Should have 0 hodl for none holders", async () => {
+    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+    expect(hodl).to.equal(0);
+  })
+
   it("Should let the sales contract address mint", async () => {
     await uwucrew.connect(alice).mint(alice.address, 0);
   });
+
+  it("Should mine some blocks", async () => {
+    const block = await ethers.provider.getBlock("latest");
+    await network.provider.send("evm_increaseTime", [1000])
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+  });
+
+  it("Should not have 0 hodl for none holders", async () => {
+    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+    expect(hodl).to.equal(1004);
+  })
+
+  it("Should let the alice transfer", async () => {
+    await uwucrew.connect(alice).transferFrom(alice.address, bob.address, 0);
+  });
+
+  it("Should report right hodl after tranasferning away", async () => {
+    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+    expect(hodl).to.equal(1005);
+  })
+
+  it("Should mine some blocks", async () => {
+    const block = await ethers.provider.getBlock("latest");
+    await network.provider.send("evm_increaseTime", [5000])
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+  });
+
+  it("Should report right hodl after tranasferning away + time", async () => {
+    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+    expect(hodl).to.equal(1005);
+  })
+
+  it("Should report right hodl after tranasferning away + time", async () => {
+    const hodl = await uwucrew.liveCumulativeHODL(bob.address);
+    expect(hodl).to.equal(5004);
+  })
+
+  it("Should mint more to bob", async () => {
+    await uwucrew.connect(alice).mint(bob.address, 1);
+    await uwucrew.connect(alice).mint(bob.address, 2);
+    await uwucrew.connect(alice).mint(bob.address, 3);
+    await uwucrew.connect(alice).mint(bob.address, 4);
+  });
+
+  it("Should report right hodl after tranasferning away + time", async () => {
+    const hodl = await uwucrew.liveCumulativeHODL(bob.address);
+    expect(hodl).to.equal(5014);
+  })
+
+  it("Should mine some blocks", async () => {
+    const block = await ethers.provider.getBlock("latest");
+    await network.provider.send("evm_increaseTime", [5000])
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+  });
+
+  it("Should scale hodl with more nfts", async () => {
+    const hodl = await uwucrew.liveCumulativeHODL(bob.address);
+    expect(hodl).to.equal(30034);
+  })
 
   let newURI = "https://api.uwucrew.art/uwu/";
   it("Should not let a non-owner change base URI", async () => {
