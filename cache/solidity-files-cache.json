@@ -470,8 +470,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/uwucrew.sol": {
-      "lastModificationDate": 1629782880866,
-      "contentHash": "071285aeb69b670b4e5a7ae555218eaf",
+      "lastModificationDate": 1629849945281,
+      "contentHash": "7cec4435fdec5ca503c1fbe860509fd8",
       "sourceName": "contracts/uwucrew.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -649,8 +649,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/uwucrewWaveLockMintSale.sol": {
-      "lastModificationDate": 1629848354987,
-      "contentHash": "8d16f34a2c72d37e3e6fb8fe2266b438",
+      "lastModificationDate": 1629849901706,
+      "contentHash": "92d5b41d32ac57af6b572786629efe9c",
       "sourceName": "contracts/uwucrewWaveLockMintSale.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -723,8 +723,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/uwucrewBSCWetSale.sol": {
-      "lastModificationDate": 1629846528510,
-      "contentHash": "33a2c4187493cf8be62545ea8c5f32da",
+      "lastModificationDate": 1629851127548,
+      "contentHash": "ecef5948184ee66a44733fd3c4c0cd93",
       "sourceName": "contracts/uwucrewBSCWetSale.sol",
       "solcConfig": {
         "version": "0.8.4",
