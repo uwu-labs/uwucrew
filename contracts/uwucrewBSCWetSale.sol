@@ -25,13 +25,14 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
 
   address[] private contributors;
   mapping(address => bool) public contributed;
+  mapping(address => address) public bscToEthAddr;
 
   constructor(uint256 _startTime, uint256 saleCount) Ownable() ReentrancyGuard() {
     startTime = _startTime;
     amountForSale = saleCount;
   }
 
-  function buy(uint256 count) external nonReentrant {
+  function buy(uint256 count, address ethAddress) external nonReentrant {
     require(block.timestamp > startTime, "Sale has not started");
     require(count > 0, "Cannot mint 0");
     require(amountSold < amountForSale, "Sold out! Sorry!");
@@ -48,9 +49,11 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
     }
 
     IERC20(WET).transferFrom(msg.sender, BURNADDR, count * buyPrice);
+
     if (!contributed[msg.sender]) {
       contributors.push(msg.sender);
       contributed[msg.sender] = true;
+      bscToEthAddr[msg.sender] = ethAddress;
     }
 
     // Update the amount the person is eligible for minting.
@@ -75,6 +78,15 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
       balances[i] = balance[_contributors[i]];
     }
     return balances;
+  }
+
+  function allContributorsEthAddrs() external view returns (address[] memory) {
+    address[] memory _contributors = contributors;
+    address[] memory addresses = new address[](_contributors.length);
+    for (uint256 i = 0; i < _contributors.length; i++) {
+      addresses[i] = bscToEthAddr[_contributors[i]];
+    }
+    return addresses;
   }
 
   function currentMaxPerTX() external view returns (uint256) {
