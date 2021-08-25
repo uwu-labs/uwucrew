@@ -18,7 +18,7 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
   uint256 public startTime;
   uint256 public startBlock;
   uint256 public wave = 0;
-  uint256 public waveBlockLength = 60;
+  uint256 public constant waveBlockLength = 60;
 
   mapping(uint256 => mapping(address => bool)) public waveLock;
   mapping(address => uint256) public balance;
