@@ -95,7 +95,7 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
    * DM Keltron#9056 he looks submissive and breedable.
    */
   function buy(uint256 count) external payable nonReentrant {
-    require(block.timestamp > startTime, "Sale has not started");
+    require(block.timestamp >= startTime, "Sale has not started");
     require(count > 0, "Cannot mint 0");
     require(amountSold < amountForSale, "Sold out! Sorry!");
 
@@ -103,7 +103,7 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
     
     require(!waveLock[wave][msg.sender], "Locked for this wave");
     require(count <= maxPerTX(wave), "Max for TX in this wave");
-    require(msg.value >= count * buyPrice, "Not enough ETH");
+    require(msg.value == count * buyPrice, "Not enough ETH");
 
     // Adjust for the last mint being incomplete.
     uint256 ethAmountOwed;
@@ -134,10 +134,10 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
     _mint(account, count);
   }
 
-  function _mint(address account, uint256 count) public {
+  function _mint(address account, uint256 count) internal {
     require(count > 0, "0?");
     require(count <= balance[account], "Not enough balance");
-    require(block.timestamp > startTime, "Can only mint after the sale has begun");
+    require(block.timestamp >= startTime, "Can only mint after the sale has begun");
     balance[account] -= count;
 
     // Mint to the owner.
