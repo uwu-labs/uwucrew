@@ -36,7 +36,7 @@ const members: TeamMemberType[] = [
 		role: 'Solidity Dev',
 		image: kiwi,
 		bio: [
-			'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works for Prysmatic Labs building ETH2.0. He is also an avid DeFi and NFT enthusiast, working at NFTX as a protocol lead. He is responsible for the uwucrew smart contracts and image generation. Based and NFT-pilled.'
+			'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works for NFTX as a protocol lead enginer. He is also an avid DeFi and NFT enthusiast, being heavily engaged with NFTs since March. He is responsible for the uwucrew smart contracts and image generation. Based and NFT-pilled.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
 		github: 'https://github.com/0xKiwi'
