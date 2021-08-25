@@ -2,7 +2,6 @@ const { ethers } = require("hardhat");
 const hre = require("hardhat");
 
 async function main() {
-
   let UwUCrew = await ethers.getContractFactory("uwucrew");
   uwucrew = await UwUCrew.deploy("uwucrew", "UWU", 9670);
   await uwucrew.deployed();

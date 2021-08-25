@@ -58,7 +58,7 @@ describe("NFT Sale Test", function () {
 
   it("Should not let Alice buy with WET before the starting block", async () => {
     const oldSold = await salesContract.amountSold();
-    await expectException(salesContract.connect(alice).buy(4), "Sale has not started");
+    await expectException(salesContract.connect(alice).buy(4, await kiwi.getAddress()), "Sale has not started");
     const newSold = await salesContract.amountSold();
     expect(newSold).to.equal(oldSold);
   });
@@ -77,14 +77,14 @@ describe("NFT Sale Test", function () {
     await WET.connect(kiwi).approve(salesContract.address, BASE.mul(100000000000));
     await WET.connect(kiwi).claim([521,4916,2733,2047,325,289,12272,7556,13204,3020,496,12269,5759,7397,12106,15655,3897,9746,10751,719,14302,10035,2045,3154]);
     const oldSold = await salesContract.amountSold();
-    await salesContract.connect(kiwi).buy(4);
+    await salesContract.connect(kiwi).buy(4, await alice.getAddress());
     const newSold = await salesContract.amountSold();
     expect(newSold).to.equal(oldSold.add(4));
   });
 
   it("Shouldn't let Kiwi buy again in this wave", async () => {
     const oldSold = await salesContract.amountSold();
-    await expectException(salesContract.connect(kiwi).buy(4), "Locked for this wave");
+    await expectException(salesContract.connect(kiwi).buy(4, await kiwi.getAddress()), "Locked for this wave");
     const newSold = await salesContract.amountSold();
     expect(newSold).to.equal(oldSold);
   });
@@ -97,14 +97,14 @@ describe("NFT Sale Test", function () {
 
   it("Shouldn't let Kiwi buy again more than a tx max", async () => {
     const oldSold = await salesContract.amountSold();
-    await expectException(salesContract.connect(kiwi).buy(35), "Max for TX in this wave");
+    await expectException(salesContract.connect(kiwi).buy(35, await kiwi.getAddress()), "Max for TX in this wave");
     const newSold = await salesContract.amountSold();
     expect(newSold).to.equal(oldSold);
   });
 
   it("Should let Kiwi buy more with WET", async () => {
     const oldSold = await salesContract.amountSold();
-    await salesContract.connect(kiwi).buy(12);
+    await salesContract.connect(kiwi).buy(12, await alice.getAddress());
     const newSold = await salesContract.amountSold();
     expect(newSold).to.equal(oldSold.add(12))
   });
@@ -113,7 +113,7 @@ describe("NFT Sale Test", function () {
     await WET.connect(kiwi).transfer(alice.getAddress(), BASE.mul(10980*2));
     await WET.connect(alice).approve(salesContract.address, BASE.mul(10980*2))
     const oldSold = await salesContract.amountSold();
-    await salesContract.connect(alice).buy(2);
+    await salesContract.connect(alice).buy(2, await kiwi.getAddress());
     const newSold = await salesContract.amountSold();
     expect(newSold).to.equal(oldSold.add(2))
   });
@@ -129,7 +129,7 @@ describe("NFT Sale Test", function () {
     const amountForSale = await salesContract.amountForSale();
     const remaining = amountForSale.sub(oldSold)
     const oldBal = await WET.balanceOf(kiwi.getAddress());
-    let tx = await salesContract.connect(kiwi).buy(5);
+    let tx = await salesContract.connect(kiwi).buy(5, await kiwi.getAddress());
     const newBal = await WET.balanceOf(kiwi.getAddress());
     const newSold = await salesContract.amountSold();
     expect(newSold).to.equal(oldSold.add(remaining));
@@ -143,5 +143,13 @@ describe("NFT Sale Test", function () {
     const allBalances = await salesContract.allContributorsBalance();
     expect(allBalances[0]).to.equal(18);
     expect(allBalances[1]).to.equal(2);
+  })
+
+  it("Should properly return all contributors eth addrs", async () => {
+    const contributors = await salesContract.allContributors();
+    expect(contributors.length).to.equal(2);
+    const allAddrs = await salesContract.allContributorsEthAddrs();
+    expect(allAddrs[0]).to.equal(await alice.getAddress());
+    expect(allAddrs[1]).to.equal(await kiwi.getAddress());
   })
 })
