@@ -5,14 +5,13 @@ import "./tokens/IERC721Enumerable.sol";
 import "./utils/Ownable.sol";
 import "./utils/ReentrancyGuard.sol";
 
-import "hardhat/console.sol";
-
 interface Minter {
   function MAX_UWU() external returns (uint256);
   function mint(address to, uint256 tokenId) external;
+  function owner() external returns (address);
 }
 
-contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
+contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
   address public immutable nft; 
   address public constant WAIFUSION = 0x2216d47494E516d8206B70FCa8585820eD3C4946;
   address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 
@@ -42,13 +41,21 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
     amountForSale = saleCount;
     amountForSwap = swapCount;
     // Adding to balance of dev team so they can mint for LP portion whenever.
-    balance[owner()] += _lpCount;
+    // Transfer to owner of NFT instead of deployer.
+    balance[Minter(_nft).owner()] += _lpCount;
+    transferOwnership(Minter(_nft).owner());
   }
 
   function swapWFforUWU(uint256[] memory ids) public {
     uint256 count = ids.length;
     require(count > 0, "Cant swap 0");
     require(amountSwapped + count < amountForSwap, "Swapping too many");
+
+    if (amountSwapped + count > amountForSwap) {
+      uint256 amountRemaining = amountForSwap-amountSwapped;
+      count = amountRemaining;
+    }
+
     IERC20(WET).transferFrom(msg.sender, BURNADDR, count * swapPrice);
     for (uint256 i = 0; i < count; i++) {
       IERC721Enumerable(WAIFUSION).transferFrom(msg.sender, BURNADDR, ids[i]);
@@ -59,26 +66,29 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
     balance[msg.sender] += count;
   }
 
-  function swapAndMint(uint256[] memory ids) public {
-    swapWFforUWU(ids);
-    mint(ids.length);
+  function withdrawETH() external onlyOwner {
+    payable(msg.sender).transfer(address(this).balance);
   }
 
   function closeSwapToSale() external onlyOwner {
     uint256 remaining = amountForSwap - amountSwapped;
-    amountForSwap = 0;
+    amountForSwap = amountSwapped;
     amountForSale += remaining;
   }
 
   function closeSwapToOwner() external onlyOwner {
     uint256 remaining = amountForSwap - amountSwapped;
-    amountForSwap = 0;
+    amountForSwap = amountSwapped;
     balance[msg.sender] += remaining;
   }
 
   function addExtraToSale(uint256 count) external onlyOwner {
     balance[msg.sender] -= count;
     amountForSale += count;
+  }
+
+  function setStartTime(uint256 _startTime) external onlyOwner {
+    startTime = _startTime;
   }
   
   /*
@@ -119,6 +129,7 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
     _mint(msg.sender, count);
   }
 
+  // Force mint in case theres anyone missing for some reason.
   function forceMint(address account, uint256 count) public onlyOwner {
     _mint(account, count);
   }
@@ -140,6 +151,18 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
     return maxPerTX(wave);
   } 
 
+  function maxPerTX(uint256 _wave) public pure returns (uint256) {
+    if (_wave == 0) {
+      return 4;
+    } else if (_wave == 1) {
+      return 16;
+    } else if (_wave == 2) {
+      return 32;
+    } else {
+      return 32;
+    }
+  }
+
   function refreshWave() internal {
     if (startBlock == 0 && block.timestamp > startTime) {
       startBlock = block.number;
@@ -149,18 +172,6 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
     uint256 newWave = blocksSinceStart/waveBlockLength;
     if (newWave != wave) { 
       wave = newWave;
-    }
-  }
-
-  function maxPerTX(uint256 _wave) internal pure returns (uint256) {
-    if (_wave == 0) {
-      return 4;
-    } else if (_wave == 1) {
-      return 16;
-    } else if (_wave == 2) {
-      return 32;
-    } else {
-      return 32;
     }
   }
 }
