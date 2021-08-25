@@ -41,7 +41,7 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
     amountForSale = saleCount;
     amountForSwap = swapCount;
     // Adding to balance of dev team so they can mint for LP portion whenever.
-    // Transfer to owner of NFT instead of deployer.
+    // Transfer to owner of NFT instead of deployer, in case of any multisig set ups.
     balance[Minter(_nft).owner()] += _lpCount;
     transferOwnership(Minter(_nft).owner());
   }

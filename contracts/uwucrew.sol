@@ -34,6 +34,7 @@ contract uwucrew is Ownable, ERC721Enumerable {
     saleContract = _saleContract;
   }
 
+  // Extra contract for helping BSC users bridge over.
   function setExtraContract(address _extraContract) public onlyOwner {
     require(extraContract == address(0));
     extraContract = _extraContract;
@@ -66,6 +67,7 @@ contract uwucrew is Ownable, ERC721Enumerable {
   }
 
   function _safeMint(address to, uint256 tokenId) internal virtual override {
+    // Ensure no matter what that someone cannot mint > supply.
     require(tokenId < MAX_UWU, "Max supply");
     super._safeMint(to, tokenId);
   }
