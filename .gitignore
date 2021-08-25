@@ -5,6 +5,8 @@
 # Contracts
 /contracts/secrets.js
 /contracts/node_modules
+/coverage
+/cache
 
 # Root
 /node_modules

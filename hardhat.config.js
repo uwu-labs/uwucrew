@@ -24,7 +24,12 @@ module.exports = {
     ethereum: {
       url: "https://eth-mainnet.alchemyapi.io/v2/" + process.env.ALCHEMY_ETH_KEY,
       accounts: [process.env.DEV_PRIVKEY],
-    },
+    },  
+    hardhat: {
+      forking: {
+        url: "https://eth-mainnet.alchemyapi.io/v2/" + process.env.ALCHEMY_ETH_KEY,
+      }
+    }
   },
   abiExporter: {
     path: "./client/src/contracts",

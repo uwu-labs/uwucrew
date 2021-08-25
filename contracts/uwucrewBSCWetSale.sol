@@ -60,6 +60,10 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
     waveLock[wave][msg.sender] = true;
   }
 
+  function setStartTime(uint256 _startTime) external onlyOwner {
+    startTime = _startTime;
+  }
+
   function allContributors() external view returns (address[] memory) {
     return contributors;
   }
@@ -75,12 +79,6 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
 
   function currentMaxPerTX() external view returns (uint256) {
     return maxPerTX(wave);
-  } 
-
-  function nextWaveBlock() external view returns (uint256) {
-    uint256 blocksSinceStart = block.number - startBlock;
-    uint256 newWave = blocksSinceStart*waveBlockLength;
-
   } 
 
   function refreshWave() internal {

@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/65</span>
+        <span class='fraction'>0/64</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/63</span>
+        <span class='fraction'>0/62</span>
       </div>
     </div>
   </div>
@@ -207,8 +207,7 @@
 162
 163
 164
-165
-166</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+165</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -261,16 +260,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -354,22 +352,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -387,8 +385,8 @@ interface Minter {
   function mint(address to, uint256 tokenId) external;
 }
 &nbsp;
-contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
-  address public nft; 
+contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
+  address public immutable nft; 
   address public constant WAIFUSION = 0x2216d47494E516d8206B70FCa8585820eD3C4946;
   address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 
   address public constant BURNADDR = 0x0000000000000000000000000000000000080085;
@@ -412,7 +410,7 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
 &nbsp;
 <span class="fstat-no" title="function not covered" >  constructor(address _nft, uint256 _startTime, uint256 saleCount, uint256 swapCount, uint256 _lpCount) Ownable() ReentrancyGuard() {</span>
 <span class="cstat-no" title="statement not covered" >    nft = _nft</span>;
-<span class="cstat-no" title="statement not covered" >    require(Minter(nft).MAX_UWU() &gt; saleCount + swapCount + _lpCount, "More than supply")</span>;
+<span class="cstat-no" title="statement not covered" >    require(Minter(_nft).MAX_UWU() &gt; saleCount + swapCount + _lpCount, "More than supply")</span>;
 <span class="cstat-no" title="statement not covered" >    startTime = _startTime</span>;
 <span class="cstat-no" title="statement not covered" >    amountForSale = saleCount</span>;
 <span class="cstat-no" title="statement not covered" >    amountForSwap = swapCount</span>;
@@ -424,30 +422,29 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
 <span class="cstat-no" title="statement not covered" >    uint256 count = ids.length;</span>
 <span class="cstat-no" title="statement not covered" >    require(count &gt; 0, "Cant swap 0")</span>;
 <span class="cstat-no" title="statement not covered" >    require(amountSwapped + count &lt; amountForSwap, "Swapping too many")</span>;
+<span class="cstat-no" title="statement not covered" >    IERC20(WET).transferFrom(msg.sender, BURNADDR, count * swapPrice)</span>;
 <span class="cstat-no" title="statement not covered" >    for (uint256 i = 0; i &lt; count; i++) {</span>
 <span class="cstat-no" title="statement not covered" >      IERC721Enumerable(WAIFUSION).transferFrom(msg.sender, BURNADDR, ids[i])</span>;
     }
-<span class="cstat-no" title="statement not covered" >    IERC20(WET).transferFrom(msg.sender, BURNADDR, count * swapPrice)</span>;
 &nbsp;
     // Credit balance for swapping.
 <span class="cstat-no" title="statement not covered" >    amountSwapped += count</span>;
 <span class="cstat-no" title="statement not covered" >    balance[msg.sender] += count</span>;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function swapAndMint(uint256[] memory ids) public {</span>
-<span class="cstat-no" title="statement not covered" >    swapWFforUWU(ids)</span>;
-<span class="cstat-no" title="statement not covered" >    mint(ids.length)</span>;
+<span class="fstat-no" title="function not covered" >  function withdrawETH() external onlyOwner {</span>
+<span class="cstat-no" title="statement not covered" >    payable(msg.sender).transfer(address(this).balance)</span>;
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  function closeSwapToSale() external onlyOwner {</span>
 <span class="cstat-no" title="statement not covered" >    uint256 remaining = amountForSwap - amountSwapped;</span>
-<span class="cstat-no" title="statement not covered" >    amountForSwap = 0</span>;
+<span class="cstat-no" title="statement not covered" >    amountForSwap = amountSwapped</span>;
 <span class="cstat-no" title="statement not covered" >    amountForSale += remaining</span>;
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  function closeSwapToOwner() external onlyOwner {</span>
 <span class="cstat-no" title="statement not covered" >    uint256 remaining = amountForSwap - amountSwapped;</span>
-<span class="cstat-no" title="statement not covered" >    amountForSwap = 0</span>;
+<span class="cstat-no" title="statement not covered" >    amountForSwap = amountSwapped</span>;
 <span class="cstat-no" title="statement not covered" >    balance[msg.sender] += remaining</span>;
   }
 &nbsp;
@@ -515,6 +512,18 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
 <span class="cstat-no" title="statement not covered" >    return maxPerTX(wave);</span>
   } 
 &nbsp;
+<span class="fstat-no" title="function not covered" >  function maxPerTX(uint256 _wave) public pure returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >    if (_wave == 0) {</span>
+<span class="cstat-no" title="statement not covered" >      return 4;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (_wave == 1) {</span>
+<span class="cstat-no" title="statement not covered" >      return 16;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (_wave == 2) {</span>
+<span class="cstat-no" title="statement not covered" >      return 32;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      return 32;</span>
+    }
+  }
+&nbsp;
 <span class="fstat-no" title="function not covered" >  function refreshWave() internal {</span>
 <span class="cstat-no" title="statement not covered" >    if (startBlock == 0 &amp;&amp; block.timestamp &gt; startTime) {</span>
 <span class="cstat-no" title="statement not covered" >      startBlock = block.number</span>;
@@ -526,25 +535,13 @@ contract uwucrewWaveLockSaleWithMint is Ownable, ReentrancyGuard {
 <span class="cstat-no" title="statement not covered" >      wave = newWave</span>;
     }
   }
-&nbsp;
-<span class="fstat-no" title="function not covered" >  function maxPerTX(uint256 _wave) internal pure returns (uint256) {</span>
-<span class="cstat-no" title="statement not covered" >    if (_wave == 0) {</span>
-<span class="cstat-no" title="statement not covered" >      return 4;</span>
-    } else <span class="cstat-no" title="statement not covered" >if (_wave == 1) {</span>
-<span class="cstat-no" title="statement not covered" >      return 16;</span>
-    } else <span class="cstat-no" title="statement not covered" >if (_wave == 2) {</span>
-<span class="cstat-no" title="statement not covered" >      return 32;</span>
-    } else {
-<span class="cstat-no" title="statement not covered" >      return 32;</span>
-    }
-  }
 }</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 17 2021 01:10:20 GMT-0400 (Eastern Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 24 2021 19:04:10 GMT-0400 (Eastern Daylight Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

@@ -38,7 +38,7 @@ describe("NFT Sale Test", function () {
     await uwucrew.deployed();
 
     const block = await ethers.provider.getBlock("latest");
-    let Sales = await ethers.getContractFactory("uwucrewWaveLockSaleWithMint");
+    let Sales = await ethers.getContractFactory("uwucrewWaveLockSale");
     salesContract = await Sales.deploy(uwucrew.address, block.timestamp + 1000, 40, 40, 20);
     await salesContract.deployed();
   });
@@ -56,27 +56,35 @@ describe("NFT Sale Test", function () {
   });
 
   it("Should let the owner prepare the sales contract", async () => {
-    await uwucrew.prepareSale(salesContract.address)
+    await uwucrew.prepareSale(alice.address)
+  });
+
+  it("Should not let a non sales contract address mint", async () => {
+    await expectException(uwucrew.mint(alice.address, 0), "Nice try lol");
+  });
+
+  it("Should let the sales contract address mint", async () => {
+    await uwucrew.connect(alice).mint(alice.address, 0);
   });
 
   let newURI = "https://api.uwucrew.art/uwu/";
   it("Should not let a non-owner change base URI", async () => {
-    await expectException(uwucrew.connect(alice).setBaseURI(newURI), "caller is the owner");
+    await expectException(uwucrew.connect(alice).setBaseURI(newURI), "caller is not the owner");
   })
 
   it("Should let owner change base URI", async () => {
     let oldURI = await uwucrew.baseURI();
     expect(oldURI).to.equal("");
+    let oldTokenURI = await uwucrew.tokenURI(0);
+    expect(oldTokenURI).to.equal("");
     await uwucrew.setBaseURI(newURI);
     let _newURI = await uwucrew.baseURI();
     expect(_newURI).to.equal(newURI);
+    let _newTokenURI = await uwucrew.tokenURI(0);
+    expect(_newTokenURI).to.equal(newURI+"0");
   })
 
   it("Should properly update base URI for tokens", async () => {
-    let oldURI = await uwucrew.tokenURI(0);
-    expect(oldURI).to.equal("");
     await uwucrew.setBaseURI(newURI);
-    let _newURI = await uwucrew.tokenURI(0);
-    expect(_newURI).to.equal(newURI+"0");
   })
 })

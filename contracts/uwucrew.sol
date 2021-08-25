@@ -39,6 +39,11 @@ contract uwucrew is Ownable, ERC721Enumerable {
     extraContract = _extraContract;
   }
 
+  function renounceMinting() public onlyOwner {
+    saleContract = address(0);
+    extraContract = address(0);
+  }
+
   /**
     * uwu for the team.
     */
