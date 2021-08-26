@@ -69,7 +69,7 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
   uint256 public amountSwapped;
 
   uint256 public buyPrice = 0.06 ether;
-  uint256 public swapPrice = 2745 * BASE;
+  uint256 public swapPrice = 1830 * BASE;
 
   uint256 public startTime;
   uint256 public startBlock;

@@ -30,8 +30,8 @@ async function main() {
   console.log("uwucrew deployed to:", uwucrew.address);
   console.log("sales contract deployed to:", salesContract.address);
 
-  console.log("uwu owner:", uwucrew.address);
-  console.log("sale owner:", salesContract.address);
+  console.log("uwu owner:", await uwucrew.owner());
+  console.log("sale owner:", await salesContract.owner());
 }
 
 main()
