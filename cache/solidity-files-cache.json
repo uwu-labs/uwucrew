@@ -470,8 +470,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/uwucrew.sol": {
-      "lastModificationDate": 1629875285932,
-      "contentHash": "543598f3548799702b3982b821036b51",
+      "lastModificationDate": 1629921430194,
+      "contentHash": "2e84ce0af9cb4c0cc77372101e6f8753",
       "sourceName": "contracts/uwucrew.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -649,8 +649,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/uwucrewWaveLockMintSale.sol": {
-      "lastModificationDate": 1629875776211,
-      "contentHash": "9ec6481019ea2d861c0c2b589a758990",
+      "lastModificationDate": 1629933071883,
+      "contentHash": "c2702c73cc2de0cc04be89ca29f23746",
       "sourceName": "contracts/uwucrewWaveLockMintSale.sol",
       "solcConfig": {
         "version": "0.8.4",

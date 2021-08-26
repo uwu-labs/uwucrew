@@ -12,7 +12,7 @@ interface Minter {
 }
 
 contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
-  address public immutable nft; 
+  address public nft; 
   address public constant WAIFUSION = 0x2216d47494E516d8206B70FCa8585820eD3C4946;
   address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 
   address public constant BURNADDR = 0x0000000000000000000000000000000000080085;
@@ -34,16 +34,19 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
   mapping(uint256 => mapping(address => bool)) public waveLock;
   mapping(address => uint256) public balance;
 
-  constructor(address _nft, uint256 _startTime, uint256 saleCount, uint256 swapCount, uint256 _lpCount) Ownable() ReentrancyGuard() {
+  event Reserved(address sender, uint256 count);
+  event Minted(address sender, uint256 count);
+
+  constructor(address _nft, address owner, uint256 _startTime, uint256 saleCount, uint256 swapCount, uint256 _lpCount) Ownable() ReentrancyGuard() {
+    require(_startTime != 0, "No start time");
     nft = _nft;
-    require(Minter(_nft).MAX_UWU() >= saleCount + swapCount + _lpCount, "More than supply");
     startTime = _startTime;
     amountForSale = saleCount;
     amountForSwap = swapCount;
     // Adding to balance of dev team so they can mint for LP portion whenever.
     // Transfer to owner of NFT instead of deployer, in case of any multisig set ups.
-    balance[Minter(_nft).owner()] += _lpCount;
-    transferOwnership(Minter(_nft).owner());
+    balance[owner] += _lpCount;
+    transferOwnership(owner);
   }
 
   function swapWFforUWU(uint256[] memory ids) public {
@@ -64,6 +67,8 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
     // Credit balance for swapping.
     amountSwapped += count;
     balance[msg.sender] += count;
+
+    emit Reserved(msg.sender, count);
   }
 
   function withdrawETH() external onlyOwner {
@@ -74,6 +79,11 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
     uint256 remaining = amountForSwap - amountSwapped;
     amountForSwap = amountSwapped;
     amountForSale += remaining;
+  }
+
+  function moveSwapToSale(uint256 count) external onlyOwner {
+    amountForSwap -= count;
+    amountForSale += count;
   }
 
   function closeSwapToOwner() external onlyOwner {
@@ -89,6 +99,10 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
 
   function setStartTime(uint256 _startTime) external onlyOwner {
     startTime = _startTime;
+  }
+
+  function setNFT(address _nft) external onlyOwner {
+    nft = _nft;
   }
   
   /*
@@ -118,6 +132,8 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
     balance[msg.sender] += count;
     // Lock this address for the phase.
     waveLock[wave][msg.sender] = true;
+    
+    emit Reserved(msg.sender, count);
 
     if (ethAmountOwed > 0) {
       (bool success, ) = msg.sender.call{ value: ethAmountOwed }("");
@@ -145,6 +161,8 @@ contract uwucrewWaveLockSale is Ownable, ReentrancyGuard {
     for (uint256 i = 0; i < count; i++) {
       Minter(nft).mint(account, currentSupply + i);
     }
+    
+    emit Minted(account, count);
   }
 
   function currentMaxPerTX() external view returns (uint256) {
