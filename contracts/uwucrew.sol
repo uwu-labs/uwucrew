@@ -18,7 +18,7 @@ contract uwucrew is Ownable, ERC721Enumerable {
   string public baseURI;
 
   mapping(uint256 => uint256) public lastTransferTimestamp;
-  mapping(address => uint256) public cumulativeHodl;
+  mapping(address => uint256) private pastCumulativeHODL;
 
   constructor(string memory _name, string memory _symbol, uint256 maxSupply) Ownable() ERC721(_name, _symbol) {
     MAX_UWU = maxSupply;
@@ -81,15 +81,17 @@ contract uwucrew is Ownable, ERC721Enumerable {
       address to,
       uint256 tokenId
   ) internal virtual override {
-      super._beforeTokenTransfer(from, to, tokenId);
+    super._beforeTokenTransfer(from, to, tokenId);
 
-      uint256 timeHodld = block.timestamp - lastTransferTimestamp[tokenId];
-      cumulativeHodl[from] += timeHodld;
-      lastTransferTimestamp[tokenId] = block.timestamp;
+    uint256 timeHodld = block.timestamp - lastTransferTimestamp[tokenId];
+    if (from != address(0)) {
+      pastCumulativeHODL[from] += timeHodld;
+    }
+    lastTransferTimestamp[tokenId] = block.timestamp;
   }
 
-  function liveCumulativeHODL(address user) public view returns (uint256) {
-    uint256 _cumulativeHODL = cumulativeHodl[user];
+  function cumulativeHODL(address user) public view returns (uint256) {
+    uint256 _cumulativeHODL = pastCumulativeHODL[user];
     uint256 bal = balanceOf(user);
     for (uint256 i = 0; i < bal; i++) {
       uint256 tokenId = tokenOfOwnerByIndex(user, i);

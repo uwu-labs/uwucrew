@@ -39,7 +39,7 @@ describe("NFT Sale Test", function () {
 
     const block = await ethers.provider.getBlock("latest");
     let Sales = await ethers.getContractFactory("uwucrewWaveLockSale");
-    salesContract = await Sales.deploy(uwucrew.address, block.timestamp + 1000, 40, 40, 20);
+    salesContract = await Sales.deploy(uwucrew.address, primary.address, block.timestamp + 1000, 40, 40, 20);
     await salesContract.deployed();
   });
 
@@ -64,7 +64,7 @@ describe("NFT Sale Test", function () {
   });
 
   it("Should have 0 hodl for none holders", async () => {
-    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+    const hodl = await uwucrew.cumulativeHODL(alice.address);
     expect(hodl).to.equal(0);
   })
 
@@ -82,8 +82,8 @@ describe("NFT Sale Test", function () {
     await ethers.provider.send("evm_mine", []);
   });
 
-  it("Should not have 0 hodl for none holders", async () => {
-    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+  it("Should not have 0 hodl for tranferred holders", async () => {
+    const hodl = await uwucrew.cumulativeHODL(alice.address);
     expect(hodl).to.equal(1004);
   })
 
@@ -92,7 +92,7 @@ describe("NFT Sale Test", function () {
   });
 
   it("Should report right hodl after tranasferning away", async () => {
-    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+    const hodl = await uwucrew.cumulativeHODL(alice.address);
     expect(hodl).to.equal(1005);
   })
 
@@ -107,12 +107,12 @@ describe("NFT Sale Test", function () {
   });
 
   it("Should report right hodl after tranasferning away + time", async () => {
-    const hodl = await uwucrew.liveCumulativeHODL(alice.address);
+    const hodl = await uwucrew.cumulativeHODL(alice.address);
     expect(hodl).to.equal(1005);
   })
 
   it("Should report right hodl after tranasferning away + time", async () => {
-    const hodl = await uwucrew.liveCumulativeHODL(bob.address);
+    const hodl = await uwucrew.cumulativeHODL(bob.address);
     expect(hodl).to.equal(5004);
   })
 
@@ -123,8 +123,8 @@ describe("NFT Sale Test", function () {
     await uwucrew.connect(alice).mint(bob.address, 4);
   });
 
-  it("Should report right hodl after tranasferning away + time", async () => {
-    const hodl = await uwucrew.liveCumulativeHODL(bob.address);
+  it("Should not add to hodl for minting", async () => {
+    const hodl = await uwucrew.cumulativeHODL(bob.address);
     expect(hodl).to.equal(5014);
   })
 
@@ -139,8 +139,23 @@ describe("NFT Sale Test", function () {
   });
 
   it("Should scale hodl with more nfts", async () => {
-    const hodl = await uwucrew.liveCumulativeHODL(bob.address);
+    const hodl = await uwucrew.cumulativeHODL(bob.address);
     expect(hodl).to.equal(30034);
+  })
+
+  it("Should mine some blocks", async () => {
+    const block = await ethers.provider.getBlock("latest");
+    await network.provider.send("evm_increaseTime", [10000])
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+    await ethers.provider.send("evm_mine", []);
+  });
+
+  it("Should scale hodl with more nfts", async () => {
+    const hodl = await uwucrew.cumulativeHODL(bob.address);
+    expect(hodl).to.equal(80054);
   })
 
   let newURI = "https://api.uwucrew.art/uwu/";

@@ -49,7 +49,7 @@ describe("NFT Sale Test", function () {
 
     const block = await ethers.provider.getBlock("latest");
     let Sales = await ethers.getContractFactory("uwucrewWaveLockSale");
-    salesContract = await Sales.connect(alice).deploy(uwucrew.address, block.timestamp + 1000, 40, 40, 20);
+    salesContract = await Sales.connect(alice).deploy(uwucrew.address, primary.address, block.timestamp + 1000, 40, 40, 20);
     await salesContract.deployed();
   });
 
@@ -210,6 +210,13 @@ describe("NFT Sale Test", function () {
     expect(wave).to.equal(1);
     expect(max).to.equal(16);
   })
+
+  it("Should let owner mint from owner share", async () => {
+    let oldBal = await uwucrew.balanceOf(await primary.getAddress());
+    await salesContract.connect(primary).mint(3);
+    let newBal = await uwucrew.balanceOf(await primary.getAddress());
+    expect(newBal).to.equal(oldBal.add(3))
+  });
 
   it("Should let cap off and refund if purchasing more than avail with eth", async () => {
     const oldWave = await salesContract.wave();
