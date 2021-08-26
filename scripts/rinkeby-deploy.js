@@ -5,16 +5,14 @@ async function main() {
   let signers = await ethers.getSigners();
   let primary = signers[0];
 
-  console.log("deploying from: ", primary);
+  console.log("deploying from: ", primary.address);
   
   let UwUCrew = await ethers.getContractFactory("uwucrew");
-  uwucrew = await UwUCrew.connect(primary).deploy("uwucrew", "UWU", 9670);
+  uwucrew = await UwUCrew.connect(primary).deploy("uwucrew", "UWU", 255);
   await uwucrew.deployed();
 
-  let Sales = await ethers.getContractFactory("uwucrewWaveLockSaleWithMint");
-  // Total: 9670
-  salesContract = await Sales.connect(primary).deploy(uwucrew.address, primary.address, 10, 8000 /* sale count */, 1370 /* swap count */, 50 /* lpAmount */); 
-  // Purposely leaving out 50 for team, and 200 for BSC.
+  let Sales = await ethers.getContractFactory("uwucrewWaveLockSale");
+  salesContract = await Sales.connect(primary).deploy(uwucrew.address, primary.address, 10, 200 /* sale count */, 50 /* swap count */, 5 /* lpAmount */); 
   await salesContract.deployed();
   await uwucrew.connect(primary).prepareSale(salesContract.address);
 

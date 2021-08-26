@@ -17,7 +17,7 @@ task("accounts", "Prints the list of accounts", async () => {
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    rinkenby: {
+    rinkeby: {
       url: "https://eth-rinkeby.alchemyapi.io/v2/" + process.env.ALCHEMY_RINKEBY_ETH_KEY,
       accounts: [process.env.DEV_PRIVKEY],
     },
