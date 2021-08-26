@@ -12,3 +12,5 @@
 /node_modules
 secrets.js
 /artifacts
+
+.env
