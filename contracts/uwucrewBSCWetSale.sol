@@ -8,13 +8,14 @@ import "./utils/ReentrancyGuard.sol";
 contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
   address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 
   address public constant BURNADDR = 0x0000000000000000000000000000000000080085;
+  IERC721Enumerable public constant WAIFUSION = IERC721Enumerable(0x2216d47494E516d8206B70FCa8585820eD3C4946);
 
   uint256 constant BASE = 10**18;
 
   uint256 public amountForSale;
   uint256 public amountSold;
 
-  uint256 public buyPrice = 10980 * BASE;
+  uint256 public buyPrice = 5 * BASE;
   uint256 public startTime;
   uint256 public startBlock;
   uint256 public wave = 0;
@@ -36,6 +37,7 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
     require(block.timestamp > startTime, "Sale has not started");
     require(count > 0, "Cannot mint 0");
     require(amountSold < amountForSale, "Sold out! Sorry!");
+    require(WAIFUSION.balanceOf(msg.sender) > 0, "Must hold BNB waifus!");
 
     refreshWave();
     
@@ -105,7 +107,7 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
     }
   }
 
-  function maxPerTX(uint256 _wave) internal pure returns (uint256) {
+  function maxPerTX(uint256 _wave) public pure returns (uint256) {
     if (_wave == 0) {
       return 4;
     } else if (_wave == 1) {
@@ -113,7 +115,7 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
     } else if (_wave == 2) {
       return 32;
     } else {
-      return 64;
+      return 32;
     }
   }
 }
