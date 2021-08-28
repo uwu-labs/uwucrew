@@ -24,7 +24,11 @@ module.exports = {
     ethereum: {
       url: "https://eth-mainnet.alchemyapi.io/v2/" + process.env.ALCHEMY_ETH_KEY,
       accounts: [process.env.DEV_PRIVKEY],
-    },  
+    }, 
+    binance: {
+      url: "https://bsc-dataseed1.defibit.io/",
+      accounts: [process.env.DEV_PRIVKEY],
+    } 
   },
   abiExporter: {
     path: "./client/src/contracts",

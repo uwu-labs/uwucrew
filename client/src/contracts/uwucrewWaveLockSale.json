@@ -8,7 +8,7 @@
       },
       {
         "internalType": "address",
-        "name": "owner",
+        "name": "_owner",
         "type": "address"
       },
       {
@@ -319,19 +319,6 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "count",
-        "type": "uint256"
-      }
-    ],
-    "name": "moveSwapToSale",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "nft",
     "outputs": [
@@ -386,6 +373,19 @@
       }
     ],
     "name": "setStartTime",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_swapPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSwapPrice",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

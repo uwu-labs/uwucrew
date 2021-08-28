@@ -16,6 +16,7 @@ let kiwi;
 let uwucrew;
 let salesContract;
 let WET;
+let WAIFUSION;
 
 describe("NFT Sale Test", function () {
   before("Setup", async () => {
@@ -39,7 +40,8 @@ describe("NFT Sale Test", function () {
       params: ["0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48"]}
     );
     kiwi = await ethers.provider.getSigner("0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48")
-
+    
+    WAIFUSION = await ethers.getContractAt("IERC721", "0x2216d47494E516d8206B70FCa8585820eD3C4946");
     WET = await ethers.getContractAt("IERC20WET", "0x76280af9d18a868a0af3dca95b57dde816c1aaf2");
 
     const block = await ethers.provider.getBlock("latest");
@@ -109,7 +111,12 @@ describe("NFT Sale Test", function () {
     expect(newSold).to.equal(oldSold.add(12))
   });
 
-  it("Should let Alice buy some with WET", async () => {
+  it("Shouldnt let Alice buy some without a waifu", async () => {
+    await expectException(salesContract.connect(alice).buy(2, await kiwi.getAddress()), "Must hold BNB waifus");
+  });
+
+  it("Should let Alice buy after a waifu", async () => {
+    await WAIFUSION.connect(kiwi).transferFrom(kiwi.getAddress(), alice.getAddress(), 4916);
     await WET.connect(kiwi).transfer(alice.getAddress(), BASE.mul(10980*2));
     await WET.connect(alice).approve(salesContract.address, BASE.mul(10980*2))
     const oldSold = await salesContract.amountSold();
