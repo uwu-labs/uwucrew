@@ -15,7 +15,7 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
   uint256 public amountForSale;
   uint256 public amountSold;
 
-  uint256 public buyPrice = 5 * BASE;
+  uint256 public buyPrice = 10980 * BASE;
   uint256 public startTime;
   uint256 public startBlock;
   uint256 public wave = 0;

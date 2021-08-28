@@ -9,7 +9,7 @@ async function main() {
 
   let Sales = await ethers.getContractFactory("uwucrewBSCWaveLockSale");
   salesContract = await Sales.connect(primary).deploy(
-    1630138493, 
+    1630153238, 
     200
   ); 
   // Purposely leaving out 50 for team, and 200 for BSC.
