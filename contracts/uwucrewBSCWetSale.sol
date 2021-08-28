@@ -67,6 +67,8 @@ contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
 
   function setStartTime(uint256 _startTime) external onlyOwner {
     startTime = _startTime;
+    // Setting start block to 0 to solve for a bug if the start time is adjusted after the sale has already begun.
+    startBlock = 0;
   }
 
   function allContributors() external view returns (address[] memory) {
