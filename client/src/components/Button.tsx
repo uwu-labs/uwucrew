@@ -13,11 +13,12 @@ const Button = styled.button`
 	background-color: ${(props: Props) => props.color};
 	transition: all 1s;
 	color: white;
-	font-size: 1.8rem;
+	font-size: 2.2rem;
 	font-weight: 500;
 	text-transform: uppercase;
 	cursor: pointer;
 	padding: 0 5rem;
+	height: 5rem;
 
 	@media (max-width: 768px) {
 		padding: 0 1rem;
