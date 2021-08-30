@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { setSlide } from 'state/reducers/navigation';
 import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import logo from '../assets/logos/logo.svg';
 
 const StyledNavbar = styled.div`
@@ -60,6 +62,7 @@ const lower = keyframes`
 const LogoContainer = styled.div`
 	width: 9rem;
 	margin-top: 1rem;
+	cursor: pointer;
 
 	opacity: 0;
 	transform: translateY(-50px);
@@ -93,15 +96,22 @@ const NavItem = styled.div`
 const Navbar: React.FC = () => {
 	const dispatch = useDispatch();
 
+	const navigateToSlide = (slide: string): void => {
+		if (window.location.pathname !== '/') window.location.href = '/';
+		dispatch(setSlide(slide));
+	};
+
 	return (
 		<StyledNavbar>
-			<LogoContainer>
-				<Image src={logo} />
-			</LogoContainer>
+			<Link href="/">
+				<LogoContainer>
+					<Image src={logo} />
+				</LogoContainer>
+			</Link>
 			<NavItems>
-				<NavItem onClick={() => dispatch(setSlide('about'))}>about</NavItem>
-				<NavItem onClick={() => dispatch(setSlide('team'))}>team</NavItem>
-				<NavItem onClick={() => dispatch(setSlide('roadmap'))}>what's next</NavItem>
+				<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
+				<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
+				<NavItem onClick={() => navigateToSlide('roadmap')}>what's next</NavItem>
 				{/* <NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem> */}
 				{/* <NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem> */}
 			</NavItems>
