@@ -36,7 +36,7 @@ app.get("/uwu/:id", async (request: any, response: any) => {
     const web3 = new Web3(provider);
     const contract = new web3.eth.Contract(abi, UWU_CONTRACT);
     const supply = await contract.methods.totalSupply().call();
-    if (id > supply) return defaultUwu();
+    if (id > supply) return response.json(defaultUwu());
 
     let moodQuerySnapshot = await db
       .collection("uwuws")
