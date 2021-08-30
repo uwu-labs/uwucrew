@@ -1,10 +1,10 @@
-import { CONTRACT, PRICE } from 'core/constants';
-import { Contract, ethers } from 'ethers';
+import { SALE_CONTRACT } from 'core/constants';
+import { BigNumber, Contract, ethers } from 'ethers';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import Popup from './Popup';
-import abi from '../contracts/SaleContract.json';
+import abi from '../contracts/uwucrewWaveLockSale.json';
 import { useWeb3React } from '@web3-react/core';
 
 const Content = styled.div`
@@ -23,10 +23,8 @@ const MintPopup = ({ show, close }: Props) => {
 	const { library } = useWeb3React();
 
 	const mint = async () => {
-		const contract = new Contract(CONTRACT, abi, library.getSigner());
-		await contract.mint(Number(amount), {
-			value: ethers.utils.parseEther((PRICE * Number(amount)).toString())
-		});
+		const contract = new Contract(SALE_CONTRACT, abi, library.getSigner());
+		const response: BigNumber = await contract.buyPrice();
 	};
 
 	return (
