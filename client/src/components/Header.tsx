@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import logo from '../assets/logos/logo.svg';
+import { useRouter } from 'next/dist/client/router';
 
 const StyledNavbar = styled.div`
 	display: flex;
@@ -95,9 +96,10 @@ const NavItem = styled.div`
 
 const Navbar: React.FC = () => {
 	const dispatch = useDispatch();
+	const router = useRouter();
 
 	const navigateToSlide = (slide: string): void => {
-		if (window.location.pathname !== '/') window.location.href = '/';
+		if (router.pathname !== '/') router.replace('/');
 		dispatch(setSlide(slide));
 	};
 
