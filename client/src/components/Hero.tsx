@@ -1,13 +1,11 @@
-import { useWeb3React } from '@web3-react/core';
-import { LIVE } from 'core/constants';
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import MintPopup from './MintPopup';
-import EmailSignup from './EmailSignup';
 import RotatingImage from './RotatingImage';
 import Footer from './Footer';
+import { useRouter } from 'next/dist/client/router';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -146,12 +144,20 @@ const SubHeader = styled.h2`
 	}
 `;
 
+const ButtonContainer = styled.div`
+	margin-top: 2rem;
+
+	opacity: 0;
+	transform: translateY(100%);
+	animation: ${raise} 1s 1.9s ease-out forwards;
+`;
+
 const Hero = () => {
-	const { active } = useWeb3React();
 	const [minting, setMinting] = useState(false);
 	const [connecting, setConnecting] = useState(false);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
+	const router = useRouter();
 	colorIndexRef.current = colorIndex;
 
 	const color = colors[colorIndex % colors.length];
@@ -179,18 +185,11 @@ const Hero = () => {
 						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
 					</SubHeader>
 					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and release late August.</SubHeader>
-					{LIVE && (
-						<Button
-							color={'pink'}
-							onClick={() => {
-								if (active) setMinting(true);
-								else setConnecting(true);
-							}}
-						>
-							{active ? 'Mint UwU' : 'Connect'}
+					<ButtonContainer>
+						<Button color={color} onClick={() => router.replace('/buy')}>
+							Buy Tickets
 						</Button>
-					)}
-					{!LIVE && <EmailSignup color={color} />}
+					</ButtonContainer>
 				</TextContainer>
 			</ContentContainer>
 			<MintPopup show={minting} close={() => setMinting(false)} />
