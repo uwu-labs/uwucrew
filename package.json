@@ -8,7 +8,7 @@
     "test": "npx hardhat compile && npx hardhat coverage",
     "gas": "npx hardhat test",
     "deploy.local": "npx hardhat test && npx hardhat run --network localhost scripts/deploy.js",
-    "deploy.test": "npx hardhat test && npx hardhat run --network rinkenby scripts/deploy.js",
+    "deploy.test": "npx hardhat test && npx hardhat run --network rinkeby scripts/deploy.js",
     "deploy.arbitrum": "npx hardhat test && npx hardhat run --network arbitrum scripts/deploy.js",
     "deploy.ethereum": "npx hardhat test && npx hardhat run --network ethereum scripts/deploy.js"
   },
