@@ -23,7 +23,7 @@ const Button = styled.button`
 	height: 5rem;
 
 	@media (max-width: 768px) {
-		padding: 0 1rem;
+		width: 100%;
 	}
 `;
 
