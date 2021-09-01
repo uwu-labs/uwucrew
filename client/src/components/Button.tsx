@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface Props {
 	color: string;
+	inactive?: boolean;
 }
 
 const Button = styled.button`
@@ -18,6 +19,7 @@ const Button = styled.button`
 	text-transform: uppercase;
 	cursor: pointer;
 	padding: 0 5rem;
+	pointer-events: ${(props: Props) => (props.inactive ? 'none' : 'auto')};
 	height: 5rem;
 
 	@media (max-width: 768px) {
