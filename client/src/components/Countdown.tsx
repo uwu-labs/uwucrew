@@ -79,7 +79,8 @@ const Countdown = () => {
 	const remaining = launchDate().getTime() - new Date().getTime();
 
 	const days = () => {
-		const days = remaining / 1000 / 60 / 60 / 24;
+		let days = remaining / 1000 / 60 / 60 / 24;
+		days = days + update - update;
 		return Math.floor(days);
 	};
 
