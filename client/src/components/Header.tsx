@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
 	const router = useRouter();
 
 	const navigateToSlide = (slide: string): void => {
-		if (router.pathname !== '/') router.replace('/');
+		if (router.pathname !== '/') void router.replace('/');
 		dispatch(setSlide(slide));
 	};
 
