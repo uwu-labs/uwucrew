@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Button from './Button';
 import ConnectWallet from './ConnectWallet';
-import MintPopup from './MintPopup';
 import RotatingImage from './RotatingImage';
 import Footer from './Footer';
 import { useRouter } from 'next/dist/client/router';
@@ -164,7 +163,6 @@ const Hero = () => {
 					</ButtonContainer>
 				</TextContainer>
 			</ContentContainer>
-			<MintPopup show={minting} close={() => setMinting(false)} />
 			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
 			<Footer />
 		</StyledHero>
