@@ -12,6 +12,7 @@ import { ethers } from 'ethers';
 
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import { Web3ReactProvider } from '@web3-react/core';
+import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
@@ -39,6 +40,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 								rel="stylesheet"
 							></link>
 						</Head>
+						<Web3Automation />
 						<DefaultSeo {...DefaultSEOProps} />
 						<Component {...pageProps} />
 					</ReduxProvider>
