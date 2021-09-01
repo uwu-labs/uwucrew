@@ -5,6 +5,7 @@ import GlobalStyles from 'styles/GlobalStyles';
 import Header from '../components/Header';
 import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
+import { LIVE } from 'core/constants';
 
 const StyledBuy = styled.div`
 	display: flex;
@@ -34,6 +35,8 @@ const HeaderText = styled.div`
 `;
 
 const BuyPage: NextPage = () => {
+	if (!LIVE) return <></>;
+
 	return (
 		<StyledBuy>
 			{/* <MintPopup show={true} close={() => console.log('emeo')} /> */}
