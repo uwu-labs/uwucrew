@@ -30,6 +30,10 @@ const StyledCountdown = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 `;
 
 const Column = styled.div`
@@ -48,9 +52,9 @@ const Number = styled.div`
 	line-height: 5.5rem;
 	margin-bottom: 0.5rem;
 	@media (max-width: 768px) {
-		font-size: 7.5rem;
+		font-size: 5rem;
 		line-height: 5rem;
-		margin-bottom: 2rem;
+		margin-bottom: 0.3rem;
 	}
 `;
 
@@ -62,7 +66,7 @@ const Label = styled.div`
 
 	font-size: 1.7rem;
 	@media (max-width: 768px) {
-		font-size: 7.5rem;
+		font-size: 1.6rem;
 	}
 `;
 
