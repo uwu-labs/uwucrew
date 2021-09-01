@@ -6,6 +6,8 @@ import MintPopup from './MintPopup';
 import RotatingImage from './RotatingImage';
 import Footer from './Footer';
 import { useRouter } from 'next/dist/client/router';
+import { LIVE } from 'core/constants';
+import Countdown from './Countdown';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -69,44 +71,6 @@ const ImageContainer = styled.div`
 	}
 `;
 
-const ComingSoonContainer = styled.div`
-	display: flex;
-	align-items: center;
-	margin-left: 10px;
-
-	opacity: 0;
-	transform: translateY(100%);
-	animation: ${raise} 1s 1s ease-out forwards;
-`;
-
-const Line = styled.div`
-	height: 3px;
-	margin-right: 10px;
-	border-bottom: solid 3px var(--text-primary);
-
-	width: 40px;
-	@media (max-width: 768px) {
-		width: 30px;
-	}
-`;
-
-const ComingSoonText = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: 800;
-	max-width: 64rem;
-	line-height: 1.9rem;
-	font-family: 'Roboto', sans-serif;
-	text-transform: uppercase;
-	color: var(--text-primary);
-
-	font-size: 2.2rem;
-	@media (max-width: 768px) {
-		font-size: 1.6rem;
-	}
-`;
-
 const Header = styled.h1`
 	letter-spacing: 0.3rem;
 	color: var(--text-primary);
@@ -149,7 +113,7 @@ const ButtonContainer = styled.div`
 
 	opacity: 0;
 	transform: translateY(100%);
-	animation: ${raise} 1s 1.9s ease-out forwards;
+	animation: ${raise} 1s 2.2s ease-out forwards;
 `;
 
 const Hero = () => {
@@ -175,19 +139,23 @@ const Hero = () => {
 					<RotatingImage color={color} activeIndex={colorIndex} />
 				</ImageContainer>
 				<TextContainer>
-					<ComingSoonContainer>
-						<Line />
-						<ComingSoonText>coming soon</ComingSoonText>
-					</ComingSoonContainer>
 					<Header>uwucrew</Header>
 					<SubHeader>
 						uwucrew is a generative collection of 9670 avatars inspired by anime and pop culture, aiming to be both inclusive and
 						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
 					</SubHeader>
-					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and release late August.</SubHeader>
+					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and are releasing on Sunday 9/5 at 6pm EST / 3pm PST</SubHeader>
+					{!LIVE && <Countdown />}
 					<ButtonContainer>
-						<Button color={color} onClick={() => router.replace('/buy')}>
-							Buy Tickets
+						<Button
+							inactive={!LIVE}
+							color={color}
+							onClick={() => {
+								if (LIVE) router.replace('/buy');
+								else return;
+							}}
+						>
+							{LIVE ? 'Buy Tickets' : 'Coming Soon'}
 						</Button>
 					</ButtonContainer>
 				</TextContainer>
