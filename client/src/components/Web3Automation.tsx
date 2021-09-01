@@ -8,7 +8,7 @@ const Web3Automation = () => {
 	const dispatch = useDispatch();
 	const { library, account, chainId, active, activate } = useWeb3React();
 
-	const autoConnect = async () => {
+	const autoConnect = async (): Promise<void> => {
 		const authorized = await metaMask.isAuthorized();
 		if (!active && authorized) {
 			await activate(metaMask);
@@ -16,10 +16,11 @@ const Web3Automation = () => {
 	};
 
 	useEffect(() => {
-		autoConnect();
+		void autoConnect();
 	}, []);
 
 	useEffect(() => {
+		console.log('meow');
 		dispatch(refresh({ library, account }));
 	}, [account, chainId]);
 

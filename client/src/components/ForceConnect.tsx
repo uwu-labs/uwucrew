@@ -5,7 +5,14 @@ import ConnectWallet from './ConnectWallet';
 const ForceConnect = () => {
 	const { active } = useWeb3React();
 
-	return <ConnectWallet show={!active} close={() => {}} />;
+	return (
+		<ConnectWallet
+			show={!active}
+			close={() => {
+				console.log('meow');
+			}}
+		/>
+	);
 };
 
 export default ForceConnect;

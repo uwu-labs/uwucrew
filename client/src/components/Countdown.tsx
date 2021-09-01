@@ -105,7 +105,7 @@ const Countdown = () => {
 		let seconds = remaining - days() * 1000 * 60 * 60 * 24;
 		seconds -= hours() * 1000 * 60 * 60;
 		seconds -= minutes() * 1000 * 60;
-		seconds = seconds / 1000;
+		seconds /= 1000;
 		return Math.floor(seconds);
 	};
 

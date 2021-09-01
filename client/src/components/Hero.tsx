@@ -153,8 +153,7 @@ const Hero = () => {
 							inactive={!LIVE}
 							color={color}
 							onClick={() => {
-								if (LIVE) router.replace('/buy');
-								else return;
+								if (LIVE) void router.replace('/buy');
 							}}
 						>
 							{LIVE ? 'Buy Tickets' : 'Coming Soon'}
