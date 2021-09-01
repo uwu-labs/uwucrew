@@ -120,7 +120,6 @@ const ButtonContainer = styled.div`
 `;
 
 const Hero = () => {
-	const [minting, setMinting] = useState(false);
 	const [connecting, setConnecting] = useState(false);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
