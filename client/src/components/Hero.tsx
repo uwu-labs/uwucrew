@@ -107,6 +107,12 @@ const SubHeader = styled.h2`
 	}
 `;
 
+const CountdownContainer = styled.div`
+	opacity: 0;
+	transform: translateY(100%);
+	animation: ${raise} 1s 1.9s ease-out forwards;
+`;
+
 const ButtonContainer = styled.div`
 	margin-top: 2rem;
 
@@ -125,6 +131,12 @@ const Hero = () => {
 	const colorIndexRef = useRef(colorIndex);
 	const router = useRouter();
 	colorIndexRef.current = colorIndex;
+
+	const launchDate = () => {
+		const d = new Date(0);
+		d.setUTCSeconds(1630879200);
+		return d;
+	};
 
 	const color = colors[colorIndex % colors.length];
 
@@ -147,7 +159,11 @@ const Hero = () => {
 						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
 					</SubHeader>
 					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and are releasing on Sunday 9/5 at 6pm EST / 3pm PST</SubHeader>
-					{!LIVE && <Countdown />}
+					{!LIVE && (
+						<CountdownContainer>
+							<Countdown date={launchDate()} />
+						</CountdownContainer>
+					)}
 					<ButtonContainer>
 						<Button
 							inactive={!LIVE}

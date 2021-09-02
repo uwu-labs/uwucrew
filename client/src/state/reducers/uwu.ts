@@ -1,9 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SALE_CONTRACT } from 'core/constants';
-import { BigNumber, Contract } from 'ethers';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../index';
-import abi from '../../contracts/uwucrewWaveLockSale.json';
-import { bnToNumber } from 'lib/bigNumber';
 
 export interface UserState {
 	balance: number;
@@ -77,13 +73,9 @@ export const {
 
 export const selectOwnedTickets = (state: RootState): number => state.uwu.balance;
 export const selectBuyPrice = (state: RootState): number => state.uwu.buyPrice;
-export const selectWave = (state: RootState): number => state.uwu.wave + 1;
 export const selectRemaining = (state: RootState): number => state.uwu.amountForSale - state.uwu.amountSold;
 export const selectIsLocked = (state: RootState): boolean => state.uwu.isLocked;
-export const selectStartTime = (state: RootState): Date => {
-	const d = new Date(0);
-	d.setUTCSeconds(state.uwu.startTime);
-	return d;
-};
+export const selectWaveBlockLength = (state: RootState): number => state.uwu.waveBlockLength;
+export const selectStartTime = (state: RootState): number => state.uwu.startTime;
 
 export default uwuSlice.reducer;
