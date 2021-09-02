@@ -4,21 +4,13 @@ import styled from 'styled-components';
 import GlobalStyles from 'styles/GlobalStyles';
 import Image from 'next/image';
 
+import uwu from '../assets/girls/buy.jpg';
 import Header from '../components/Header';
-import ticket from '../assets/tickets/uwu_coin.gif';
 import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
 import { LIVE, waveLimits } from 'core/constants';
 import { useSelector } from 'react-redux';
-import {
-	selectBuyPrice,
-	selectIsLocked,
-	selectNextWave,
-	selectRemaining,
-	selectStartTime,
-	selectWave,
-	selectWaveBlockLength
-} from 'state/reducers/uwu';
+import { selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWaveBlockLength } from 'state/reducers/uwu';
 import Countdown from 'components/Countdown';
 
 const StyledBuy = styled.div`
@@ -82,8 +74,8 @@ const Label = styled.div`
 	}
 `;
 
-const Ticket = styled.div`
-	width: 40rem;
+const Uwu = styled.div`
+	width: 30vw;
 `;
 
 const BuyPage: NextPage = () => {
@@ -132,9 +124,9 @@ const BuyPage: NextPage = () => {
 					<OwnedTickets />
 				</HeaderContainer>
 				<Content>
-					<Ticket>
-						<Image src={ticket} />
-					</Ticket>
+					<Uwu>
+						<Image src={uwu} />
+					</Uwu>
 					<Center>
 						<Label>{`Tickets Remaining: ${remaining}`}</Label>
 						<Label>{`Buy Price: ${buyPrice} ETH`}</Label>
@@ -143,9 +135,6 @@ const BuyPage: NextPage = () => {
 						<Label>{`Next wave starts in:`}</Label>
 						<Countdown date={nextWave()} />
 					</Center>
-					<Ticket>
-						<Image src={ticket} />
-					</Ticket>
 				</Content>
 			</Container>
 		</StyledBuy>
