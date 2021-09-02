@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import GlobalStyles from 'styles/GlobalStyles';
 import Image from 'next/image';
@@ -8,9 +8,18 @@ import Header from '../components/Header';
 import ticket from '../assets/tickets/uwu_coin.gif';
 import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
-import { LIVE } from 'core/constants';
+import { LIVE, waveLimits } from 'core/constants';
 import { useSelector } from 'react-redux';
-import { selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWave } from 'state/reducers/uwu';
+import {
+	selectBuyPrice,
+	selectIsLocked,
+	selectNextWave,
+	selectRemaining,
+	selectStartTime,
+	selectWave,
+	selectWaveBlockLength
+} from 'state/reducers/uwu';
+import Countdown from 'components/Countdown';
 
 const StyledBuy = styled.div`
 	display: flex;
@@ -79,10 +88,35 @@ const Ticket = styled.div`
 
 const BuyPage: NextPage = () => {
 	const buyPrice = useSelector(selectBuyPrice);
-	const wave = useSelector(selectWave);
 	const remaining = useSelector(selectRemaining);
 	const isLocked = useSelector(selectIsLocked);
-	const startTime = useSelector(selectStartTime);
+	const startTimeEpocs = useSelector(selectStartTime);
+	const waveBlockLength = useSelector(selectWaveBlockLength);
+
+	const [update, setUpdate] = useState(0);
+
+	useEffect(() => {
+		setInterval(() => setUpdate(Math.random() + update), 1000);
+	}, []);
+
+	const wave = (): number => {
+		const startTime = new Date(0);
+		startTime.setUTCSeconds(startTimeEpocs);
+		const now = new Date();
+		if (now.getTime() < startTime.getTime()) return 1;
+		const secondsPast = (now.getTime() - startTime.getTime()) / 1000;
+		const blocksPast = secondsPast / 15;
+		const wavesPast = Math.floor(blocksPast / waveBlockLength);
+		return 1 + wavesPast;
+	};
+
+	const nextWave = (): Date => {
+		const startTime = new Date(0);
+		startTime.setUTCSeconds(startTimeEpocs);
+		const secondsToAdd = wave() * waveBlockLength * 15;
+		startTime.setSeconds(startTime.getSeconds() + secondsToAdd);
+		return startTime;
+	};
 
 	if (!LIVE) return <></>;
 
@@ -103,10 +137,11 @@ const BuyPage: NextPage = () => {
 					</Ticket>
 					<Center>
 						<Label>{`Tickets Remaining: ${remaining}`}</Label>
-						<Label>{`Buy Price: ${buyPrice}`}</Label>
-						<Label>{`Wave: ${wave}`}</Label>
-						<Label>{`isLocked: ${isLocked}`}</Label>
-						<Label>{`Start Time: ${startTime}`}</Label>
+						<Label>{`Buy Price: ${buyPrice} ETH`}</Label>
+						<Label>{`Current Wave: ${wave()}`}</Label>
+						<Label>{`You can get ${isLocked ? 0 : waveLimits[wave() - 1] || 32} more tickets this wave`}</Label>
+						<Label>{`Next wave starts in:`}</Label>
+						<Countdown date={nextWave()} />
 					</Center>
 					<Ticket>
 						<Image src={ticket} />
