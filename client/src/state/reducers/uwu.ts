@@ -29,84 +29,51 @@ export const initialState: UserState = {
 	isLocked: false
 };
 
-export const refresh = createAsyncThunk(
-	'uwu/refresh',
-	async ({ library, account }: { library: any; account: string | null | undefined }): Promise<UserState> => {
-		const contract = new Contract(SALE_CONTRACT, abi, library.getSigner());
-		let newState = { ...initialState };
-
-		const getBalance = async () => {
-			if (!account) return;
-			const response = await contract.balance(account);
-			newState.balance = response;
-		};
-		const getBuyPrice = async () => {
-			const response: BigNumber = await contract.buyPrice();
-			newState.buyPrice = bnToNumber(response);
-		};
-		const getStartTime = async () => {
-			const response: BigNumber = await contract.startTime();
-			const startTime = bnToNumber(response);
-			newState.startTime = startTime;
-		};
-		const getStartBlock = async () => {
-			const response: BigNumber = await contract.startBlock();
-			const startBlock = bnToNumber(response);
-			newState.startBlock = startBlock;
-		};
-		const getAmountForSale = async () => {
-			const response: BigNumber = await contract.amountForSale();
-			newState.amountForSale = bnToNumber(response);
-		};
-		const getAmountSold = async () => {
-			const response: BigNumber = await contract.amountSold();
-			newState.amountSold = bnToNumber(response);
-		};
-		const getWave = async () => {
-			const response: BigNumber = await contract.wave();
-			newState.wave = bnToNumber(response);
-		};
-		const getWaveBlockLength = async () => {
-			const response: BigNumber = await contract.waveBlockLength();
-			newState.waveBlockLength = bnToNumber(response);
-		};
-		const getIsLocked = async () => {
-			if (!account) return;
-			const response: boolean = await contract.waveLock(account);
-			newState.isLocked = response;
-		};
-
-		await Promise.all([
-			getBalance(),
-			getBuyPrice(),
-			getStartTime(),
-			getStartBlock(),
-			getAmountForSale(),
-			getAmountSold(),
-			getWave(),
-			getWaveBlockLength(),
-			getIsLocked()
-		]);
-		return newState;
-	}
-);
 export const uwuSlice = createSlice({
 	name: 'uwu',
 	initialState,
 	reducers: {
 		setOwnedTickets: (state, action: PayloadAction<number>) => {
 			state.balance = action.payload;
+		},
+		setBuyPrice: (state, action: PayloadAction<number>) => {
+			state.buyPrice = action.payload;
+		},
+		setStartTime: (state, action: PayloadAction<number>) => {
+			state.startTime = action.payload;
+		},
+		setStartBlock: (state, action: PayloadAction<number>) => {
+			state.startBlock = action.payload;
+		},
+		setAmountForSale: (state, action: PayloadAction<number>) => {
+			state.amountForSale = action.payload;
+		},
+		setAmountSold: (state, action: PayloadAction<number>) => {
+			state.amountSold = action.payload;
+		},
+		setWave: (state, action: PayloadAction<number>) => {
+			state.wave = action.payload;
+		},
+		setWaveBlockLength: (state, action: PayloadAction<number>) => {
+			state.waveBlockLength = action.payload;
+		},
+		setIsLocked: (state, action: PayloadAction<boolean>) => {
+			state.isLocked = action.payload;
 		}
-	},
-	extraReducers: (builder) => {
-		builder.addCase(refresh.fulfilled, (state, action: PayloadAction<UserState>) => {
-			state.balance = action.payload.balance;
-			state.buyPrice = action.payload.buyPrice;
-		});
 	}
 });
 
-export const { setOwnedTickets } = uwuSlice.actions;
+export const {
+	setOwnedTickets,
+	setBuyPrice,
+	setStartTime,
+	setStartBlock,
+	setAmountForSale,
+	setAmountSold,
+	setWave,
+	setWaveBlockLength,
+	setIsLocked
+} = uwuSlice.actions;
 
 export const selectOwnedTickets = (state: RootState): number => state.uwu.balance;
 export const selectBuyPrice = (state: RootState): number => state.uwu.buyPrice;
