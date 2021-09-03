@@ -10,7 +10,6 @@ const Button = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 2rem;
 	background-color: ${(props: Props) => props.color};
 	transition: all 1s;
 	color: white;
