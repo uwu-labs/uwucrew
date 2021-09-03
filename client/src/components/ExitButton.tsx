@@ -7,6 +7,7 @@ const StyledExitButton = styled.button`
 	right: 2rem;
 	width: 3rem;
 	height: 3rem;
+	cursor: pointer;
 `;
 
 interface LineProps {
