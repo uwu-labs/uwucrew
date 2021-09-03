@@ -117,7 +117,7 @@ const BuyInput = ({ max }: Props) => {
 	};
 
 	const buy = async () => {
-		if (!validate(amount)) return;
+		if (loading || !validate(amount)) return;
 		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
 		const ethCost = ethers.utils.parseEther((buyPrice * Number(amount)).toString());
 		contract.buy(Number(amount), { value: ethCost }).then((receipt: any) => {
