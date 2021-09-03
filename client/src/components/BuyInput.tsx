@@ -11,7 +11,11 @@ import abi from '../contracts/uwucrewWaveLockSale.json';
 const StyledBuyInput = styled.div`
 	display: flex;
 	flex-direction: column;
+
 	margin-top: 3rem;
+	@media (max-width: 768px) {
+		margin-top: 1rem;
+	}
 `;
 
 const InputContainer = styled.div`

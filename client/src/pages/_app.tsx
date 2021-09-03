@@ -15,6 +15,13 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
+// TODO Create Mint Page
+// TODO Implement mint mobile view
+// TODO Implement wallet connect mobile view
+// TODO Add routing to mint page on hero
+// TODO Add conditional routing to mint page on buy page
+// TODO Finish API
+
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	const getLibrary = (provider: any): any => {
 		return new ethers.providers.Web3Provider(provider);
