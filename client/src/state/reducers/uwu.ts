@@ -11,6 +11,7 @@ export interface UserState {
 	wave: number;
 	waveBlockLength: number;
 	isLocked: boolean;
+	reload: number;
 }
 
 export const initialState: UserState = {
@@ -22,7 +23,8 @@ export const initialState: UserState = {
 	startBlock: 0,
 	wave: 1,
 	waveBlockLength: 1,
-	isLocked: false
+	isLocked: false,
+	reload: 0
 };
 
 export const uwuSlice = createSlice({
@@ -55,6 +57,9 @@ export const uwuSlice = createSlice({
 		},
 		setIsLocked: (state, action: PayloadAction<boolean>) => {
 			state.isLocked = action.payload;
+		},
+		reload: (state) => {
+			state.reload = Math.random();
 		}
 	}
 });
@@ -68,7 +73,8 @@ export const {
 	setAmountSold,
 	setWave,
 	setWaveBlockLength,
-	setIsLocked
+	setIsLocked,
+	reload
 } = uwuSlice.actions;
 
 export const selectOwnedTickets = (state: RootState): number => state.uwu.balance;
@@ -77,5 +83,6 @@ export const selectRemaining = (state: RootState): number => state.uwu.amountFor
 export const selectIsLocked = (state: RootState): boolean => state.uwu.isLocked;
 export const selectWaveBlockLength = (state: RootState): number => state.uwu.waveBlockLength;
 export const selectStartTime = (state: RootState): number => state.uwu.startTime;
+export const selectReload = (state: RootState): number => state.uwu.reload;
 
 export default uwuSlice.reducer;
