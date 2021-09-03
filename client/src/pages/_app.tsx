@@ -17,7 +17,6 @@ config.autoAddCss = false;
 
 // TODO Create Mint Page
 // TODO Implement mint mobile view
-// TODO Implement wallet connect mobile view
 // TODO Add routing to mint page on hero
 // TODO Add conditional routing to mint page on buy page
 // TODO Finish API
