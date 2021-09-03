@@ -126,9 +126,7 @@ const BuyInput = ({ max }: Props) => {
 				setLoading(true);
 				receipt
 					.wait()
-					.then(() => {
-						alert('Done');
-					})
+					.then(() => {})
 					.catch((err: any) => {
 						alert(err);
 					})
