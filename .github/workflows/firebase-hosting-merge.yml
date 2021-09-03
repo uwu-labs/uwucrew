@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting on merge
+name: Deploy API to Firebase on merge
 "on":
   push:
     branches:
@@ -11,16 +11,10 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: "10.x"
-      - name: Installing Client Dependencies
-        run: yarn install
-        working-directory: client
-      - name: Building
-        run: yarn run build
-        working-directory: client
       - name: Installing Function Dependencies
         run: npm install
         working-directory: functions
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
       - name: Deploying to Firebase
-        run: firebase deploy --only functions --token "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+        run: firebase deploy --token "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
