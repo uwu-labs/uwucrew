@@ -6,18 +6,9 @@ import * as cors from "cors";
 const abi = require("../contracts/uwucrew.json");
 const Web3 = require("web3");
 
-// TODO Rename images
-// TODO Load images
-// TODO setup database
-// TODO Setup database schema
-// TODO Add function to upload uwuws
-// TODO Create database upload app
-// TODO Load into database
 // TODO setep return filter
 // TODO Check Start time
 // TODO Test
-// TODO Add Kiwi to firebase
-// TODO Show Kiwi how it works
 // TODO Add vanity URL
 
 const UWU_CONTRACT = "0x1F64F0f5411c73B9323a788C314737E899553a98";

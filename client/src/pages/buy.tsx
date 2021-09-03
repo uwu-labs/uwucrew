@@ -8,11 +8,12 @@ import uwu from '../assets/girls/buy.jpg';
 import Header from '../components/Header';
 import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
-import { LIVE, waveLimits } from 'core/constants';
+import { waveLimits } from 'core/constants';
 import { useSelector } from 'react-redux';
 import { selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWaveBlockLength } from 'state/reducers/uwu';
 import Countdown from 'components/Countdown';
 import BuyInput from 'components/BuyInput';
+import Footer from 'components/Footer';
 
 const StyledBuy = styled.div`
 	display: flex;
@@ -56,10 +57,23 @@ const Content = styled.div`
 	justify-content: space-evenly;
 `;
 
-const Center = styled.div`
+const Body = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+`;
+
+const BodyHeader = styled.h1`
+	letter-spacing: 0.17rem;
+	color: var(--text-primary);
+
+	font-size: 8rem;
+	line-height: 10rem;
+	margin-bottom: 2rem;
+	@media (max-width: 768px) {
+		font-size: 7.5rem;
+		line-height: 5rem;
+		margin-bottom: 2rem;
+	}
 `;
 
 const Label = styled.div`
@@ -67,6 +81,7 @@ const Label = styled.div`
 	color: var(--text-primary);
 	line-height: 2.3rem;
 	margin-bottom: 2rem;
+	max-width: 60rem;
 
 	font-size: 2rem;
 	@media (max-width: 768px) {
@@ -92,6 +107,14 @@ const BuyPage: NextPage = () => {
 		setInterval(() => setUpdate(Math.random() + update), 1000);
 	}, []);
 
+	const startDate = () => {
+		const startTime = new Date(0);
+		startTime.setUTCSeconds(startTimeEpocs);
+		return startTime;
+	};
+
+	const live = new Date() >= startDate();
+
 	const wave = (): number => {
 		const startTime = new Date(0);
 		startTime.setUTCSeconds(startTimeEpocs);
@@ -111,8 +134,6 @@ const BuyPage: NextPage = () => {
 		return startTime;
 	};
 
-	if (!LIVE) return <></>;
-
 	return (
 		<StyledBuy>
 			<ForceConnect />
@@ -128,17 +149,18 @@ const BuyPage: NextPage = () => {
 					<Uwu>
 						<Image src={uwu} />
 					</Uwu>
-					<Center>
-						<Label>{`Tickets Remaining: ${remaining}`}</Label>
-						<Label>{`Buy Price: ${buyPrice} ETH`}</Label>
-						<Label>{`Current Wave: ${wave()}`}</Label>
-						<Label>{`You can get ${isLocked ? 0 : waveLimits[wave() - 1] || 32} more tickets this wave`}</Label>
-						<Label>{`Next wave starts in:`}</Label>
-						<Countdown date={nextWave()} />
-						<BuyInput max={waveLimits[wave() - 1] || 32} />
-					</Center>
+					<Body>
+						<BodyHeader>Starting Soon!</BodyHeader>
+						<Label>{`uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${
+							isLocked ? 0 : waveLimits[wave() - 1] || 32
+						} more tickets this wave.`}</Label>
+						{!live && <Countdown date={startDate()} />}
+						{live && isLocked && <Countdown date={nextWave()} />}
+						{live && !isLocked && <BuyInput max={waveLimits[wave() - 1] || 32} />}
+					</Body>
 				</Content>
 			</Container>
+			<Footer />
 		</StyledBuy>
 	);
 };
