@@ -12,6 +12,7 @@ import { LIVE, waveLimits } from 'core/constants';
 import { useSelector } from 'react-redux';
 import { selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWaveBlockLength } from 'state/reducers/uwu';
 import Countdown from 'components/Countdown';
+import BuyInput from 'components/BuyInput';
 
 const StyledBuy = styled.div`
 	display: flex;
@@ -134,6 +135,7 @@ const BuyPage: NextPage = () => {
 						<Label>{`You can get ${isLocked ? 0 : waveLimits[wave() - 1] || 32} more tickets this wave`}</Label>
 						<Label>{`Next wave starts in:`}</Label>
 						<Countdown date={nextWave()} />
+						<BuyInput max={waveLimits[wave() - 1] || 32} />
 					</Center>
 				</Content>
 			</Container>
