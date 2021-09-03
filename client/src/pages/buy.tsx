@@ -150,7 +150,7 @@ const BuyPage: NextPage = () => {
 						<Image src={uwu} />
 					</Uwu>
 					<Body>
-						<BodyHeader>Starting Soon!</BodyHeader>
+						<BodyHeader>{live ? 'Sale Live!!' : 'Starting Soon!'}</BodyHeader>
 						<Label>{`uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${
 							isLocked ? 0 : waveLimits[wave() - 1] || 32
 						} more tickets this wave.`}</Label>
