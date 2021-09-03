@@ -16,6 +16,7 @@ import BuyInput from 'components/BuyInput';
 import Footer from 'components/Footer';
 
 const StyledBuy = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
@@ -29,6 +30,10 @@ const HeaderContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 const Container = styled.div`
@@ -37,6 +42,12 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 6rem;
+
+	@media (max-width: 768px) {
+		padding: 2rem;
+		margin-top: 5rem;
+		margin-bottom: 5rem;
+	}
 `;
 
 const HeaderText = styled.div`
@@ -45,7 +56,9 @@ const HeaderText = styled.div`
 
 	font-size: 10rem;
 	@media (max-width: 768px) {
-		font-size: 5rem;
+		font-size: 4.5rem;
+		white-space: nowrap;
+		margin-bottom: 2rem;
 	}
 `;
 
@@ -55,11 +68,20 @@ const Content = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+
+	@media (max-width: 768px) {
+		flex-direction: column-reverse;
+	}
 `;
 
 const Body = styled.div`
 	display: flex;
 	flex-direction: column;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		margin-top: 3rem;
+	}
 `;
 
 const BodyHeader = styled.h1`
@@ -70,9 +92,10 @@ const BodyHeader = styled.h1`
 	line-height: 10rem;
 	margin-bottom: 2rem;
 	@media (max-width: 768px) {
-		font-size: 7.5rem;
+		font-size: 5rem;
 		line-height: 5rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
+		white-space: nowrap;
 	}
 `;
 
@@ -85,13 +108,18 @@ const Label = styled.div`
 
 	font-size: 2rem;
 	@media (max-width: 768px) {
-		font-size: 1.6rem;
-		max-width: 80vw;
+		font-size: 1.7rem;
+		max-width: 100%;
 	}
 `;
 
 const Uwu = styled.div`
 	width: 30vw;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		margin-top: 3rem;
+	}
 `;
 
 const BuyPage: NextPage = () => {
