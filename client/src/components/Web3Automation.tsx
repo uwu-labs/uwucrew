@@ -3,8 +3,9 @@ import { SALE_CONTRACT } from 'core/constants';
 import { BigNumber, Contract } from 'ethers';
 import { bnToNumber } from 'lib/bigNumber';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
+	selectReload,
 	setAmountForSale,
 	setAmountSold,
 	setBuyPrice,
@@ -22,6 +23,7 @@ import { metaMask } from './ConnectWallet';
 const Web3Automation = () => {
 	const dispatch = useDispatch();
 	const { library, account, chainId, active, activate } = useWeb3React();
+	const reload = useSelector(selectReload);
 
 	const autoConnect = async (): Promise<void> => {
 		const authorized = await metaMask.isAuthorized();
@@ -87,7 +89,7 @@ const Web3Automation = () => {
 		void getWave();
 		void getWaveBlockLength();
 		void getIsLocked();
-	}, [account, chainId, library]);
+	}, [account, chainId, library, reload]);
 
 	return <></>;
 };
