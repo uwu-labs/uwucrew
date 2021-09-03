@@ -30,13 +30,15 @@ const Label = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
 	line-height: 2.3rem;
-	margin-bottom: 2rem;
 	max-width: 60rem;
 
 	font-size: 2rem;
+	margin-bottom: 2rem;
 	@media (max-width: 768px) {
 		font-size: 1.6rem;
-		max-width: 80vw;
+		line-height: 2rem;
+		max-width: 100%;
+		margin-bottom: 1rem;
 	}
 `;
 
@@ -57,6 +59,10 @@ const Option = styled.button`
 	transition: all 0.3s;
 	:hover {
 		opacity: 0.8;
+	}
+
+	@media (max-width: 768px) {
+		margin-top: 1rem;
 	}
 `;
 

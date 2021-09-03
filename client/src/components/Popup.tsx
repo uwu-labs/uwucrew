@@ -44,8 +44,10 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 	@media (max-width: 768px) {
 		width: 90vw;
+		padding: 1rem;
 	}
 `;
 
@@ -54,6 +56,14 @@ const Header = styled.h3`
 	font-weight: 600;
 	margin-bottom: 1rem;
 	color: ${(props: ContainerProps) => props.color};
+
+	@media (max-width: 768px) {
+		font-size: 4rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		white-space: nowrap;
+		margin-top: 3rem;
+	}
 `;
 
 const Body = styled.p`
