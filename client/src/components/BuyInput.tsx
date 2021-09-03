@@ -131,6 +131,7 @@ const BuyInput = ({ max }: Props) => {
 				.finally(() => {
 					setLoading(false);
 					setError('');
+					setAmount('');
 					dispatch(reload());
 				});
 		});
