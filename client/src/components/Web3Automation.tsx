@@ -72,8 +72,7 @@ const Web3Automation = () => {
 	const getIsLocked = async () => {
 		if (!account) return;
 		const waveResponse: BigNumber = await contract.wave();
-		const wave = bnToNumber(waveResponse);
-		const response: boolean = await contract.waveLock(wave, account);
+		const response: boolean = await contract.waveLock(waveResponse.toNumber(), account);
 		dispatch(setIsLocked(response));
 	};
 
