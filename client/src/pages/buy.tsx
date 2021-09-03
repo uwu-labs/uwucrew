@@ -98,7 +98,7 @@ const BuyPage: NextPage = () => {
 		const now = new Date();
 		if (now.getTime() < startTime.getTime()) return 1;
 		const secondsPast = (now.getTime() - startTime.getTime()) / 1000;
-		const blocksPast = secondsPast / 15;
+		const blocksPast = secondsPast / 13.32;
 		const wavesPast = Math.floor(blocksPast / waveBlockLength);
 		return 1 + wavesPast;
 	};
@@ -106,7 +106,7 @@ const BuyPage: NextPage = () => {
 	const nextWave = (): Date => {
 		const startTime = new Date(0);
 		startTime.setUTCSeconds(startTimeEpocs);
-		const secondsToAdd = wave() * waveBlockLength * 15;
+		const secondsToAdd = wave() * waveBlockLength * 13.32;
 		startTime.setSeconds(startTime.getSeconds() + secondsToAdd);
 		return startTime;
 	};
