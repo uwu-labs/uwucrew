@@ -1,5 +1,5 @@
 import { useWeb3React } from '@web3-react/core';
-import { SALE_CONTRACT } from 'core/constants';
+import { SALE_CONTRACT, SECONDS_PER_BLOCK } from 'core/constants';
 import { BigNumber, Contract } from 'ethers';
 import { bnToNumber } from 'lib/bigNumber';
 import React, { useEffect } from 'react';
@@ -73,8 +73,25 @@ const Web3Automation = () => {
 	};
 	const getIsLocked = async () => {
 		if (!account) return;
-		const waveResponse: BigNumber = await contract.wave();
-		const response: boolean = await contract.waveLock(waveResponse.toNumber(), account);
+
+		// Getting Start Time
+		const startTime = new Date(0);
+		const startTimeResponse: BigNumber = await contract.startTime();
+		startTime.setUTCSeconds(startTimeResponse.toNumber());
+
+		// Getting Wave Block Length
+		const waveBlockLengthResponse: BigNumber = await contract.waveBlockLength();
+		const waveBlockLength = waveBlockLengthResponse.toNumber();
+
+		// Calcing Wave
+		const now = new Date();
+		if (now.getTime() < startTime.getTime()) return;
+		const secondsPast = (now.getTime() - startTime.getTime()) / 1000;
+		const blocksPast = secondsPast / SECONDS_PER_BLOCK;
+		const wavesPast = Math.floor(blocksPast / waveBlockLength);
+
+		// Getting Is Locked
+		const response: boolean = await contract.waveLock(wavesPast, account);
 		dispatch(setIsLocked(response));
 	};
 
