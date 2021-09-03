@@ -2,6 +2,8 @@ import { useWeb3React } from '@web3-react/core';
 import { SALE_CONTRACT } from 'core/constants';
 import { Contract, ethers } from 'ethers';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { reload, selectBuyPrice } from 'state/reducers/uwu';
 import styled from 'styled-components';
 
 import abi from '../contracts/uwucrewWaveLockSale.json';
@@ -79,7 +81,9 @@ interface Props {
 }
 
 const BuyInput = ({ max }: Props) => {
+	const dispatch = useDispatch();
 	const { library } = useWeb3React();
+	const buyPrice = useSelector(selectBuyPrice);
 	const [amount, setAmount] = useState('');
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
@@ -114,18 +118,28 @@ const BuyInput = ({ max }: Props) => {
 
 	const buy = async () => {
 		if (!validate(amount)) return;
-		setLoading(true);
 		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
+		const ethCost = ethers.utils.parseEther((buyPrice * Number(amount)).toString());
 		contract
-			.buy(Number(amount), { value: ethers.utils.parseEther('0.006') })
+			.buy(Number(amount), { value: ethCost })
 			.then((receipt: any) => {
-				alert(receipt);
+				setLoading(true);
+				receipt
+					.wait()
+					.then(() => {
+						alert('Done');
+					})
+					.catch((err: any) => {
+						alert(err);
+					})
+					.finally(() => {
+						setLoading(false);
+						setError('');
+						dispatch(reload());
+					});
 			})
 			.catch((err: any) => {
 				alert(err);
-			})
-			.finally(() => {
-				setLoading(false);
 			});
 	};
 
