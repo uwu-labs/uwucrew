@@ -120,25 +120,20 @@ const BuyInput = ({ max }: Props) => {
 		if (!validate(amount)) return;
 		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
 		const ethCost = ethers.utils.parseEther((buyPrice * Number(amount)).toString());
-		contract
-			.buy(Number(amount), { value: ethCost })
-			.then((receipt: any) => {
-				setLoading(true);
-				receipt
-					.wait()
-					.then(() => {})
-					.catch((err: any) => {
-						alert(err);
-					})
-					.finally(() => {
-						setLoading(false);
-						setError('');
-						dispatch(reload());
-					});
-			})
-			.catch((err: any) => {
-				alert(err);
-			});
+		contract.buy(Number(amount), { value: ethCost }).then((receipt: any) => {
+			setLoading(true);
+			receipt
+				.wait()
+				.then(() => {})
+				.catch((err: any) => {
+					alert(err);
+				})
+				.finally(() => {
+					setLoading(false);
+					setError('');
+					dispatch(reload());
+				});
+		});
 	};
 
 	return (
