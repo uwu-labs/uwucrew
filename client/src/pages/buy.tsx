@@ -8,7 +8,7 @@ import uwu from '../assets/girls/buy.jpg';
 import Header from '../components/Header';
 import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
-import { waveLimits } from 'core/constants';
+import { SECONDS_PER_BLOCK, waveLimits } from 'core/constants';
 import { useSelector } from 'react-redux';
 import { selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWaveBlockLength } from 'state/reducers/uwu';
 import Countdown from 'components/Countdown';
@@ -121,7 +121,7 @@ const BuyPage: NextPage = () => {
 		const now = new Date();
 		if (now.getTime() < startTime.getTime()) return 1;
 		const secondsPast = (now.getTime() - startTime.getTime()) / 1000;
-		const blocksPast = secondsPast / 13.32;
+		const blocksPast = secondsPast / SECONDS_PER_BLOCK;
 		const wavesPast = Math.floor(blocksPast / waveBlockLength);
 		return 1 + wavesPast;
 	};
@@ -129,7 +129,7 @@ const BuyPage: NextPage = () => {
 	const nextWave = (): Date => {
 		const startTime = new Date(0);
 		startTime.setUTCSeconds(startTimeEpocs);
-		const secondsToAdd = wave() * waveBlockLength * 13.32;
+		const secondsToAdd = wave() * waveBlockLength * SECONDS_PER_BLOCK;
 		startTime.setSeconds(startTime.getSeconds() + secondsToAdd);
 		return startTime;
 	};
