@@ -26,15 +26,38 @@ const Content = styled.div`
 	align-items: center;
 `;
 
+const Label = styled.div`
+	font-weight: 500;
+	color: var(--text-primary);
+	line-height: 2.3rem;
+	margin-bottom: 2rem;
+	max-width: 60rem;
+
+	font-size: 2rem;
+	@media (max-width: 768px) {
+		font-size: 1.6rem;
+		max-width: 80vw;
+	}
+`;
+
 const Option = styled.button`
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 1rem;
+	margin-top: 1.5rem;
 	padding: 1.3rem 0;
 	cursor: pointer;
-	border: solid 1px var(--text-primary);
+	background-color: var(--bg-04);
+	color: white;
+	font-size: 2.2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+
+	transition: all 0.3s;
+	:hover {
+		opacity: 0.8;
+	}
 `;
 
 interface Props {
@@ -52,12 +75,13 @@ const ConnectWallet = (props: Props) => {
 
 	return (
 		<Popup
-			color="pink"
+			color="var(--bg-04)"
 			show={props.show}
 			close={props.close}
-			header="Select Wallet"
+			header="Connect Wallet"
 			content={
 				<Content>
+					<Label>Connect your wallet to buy tickets and mint uwus!</Label>
 					<Option onClick={() => connect(metaMask)}>Metamask</Option>
 					<Option onClick={() => connect(walletConnect)}>Wallet Connect</Option>
 				</Content>
