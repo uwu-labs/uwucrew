@@ -9,7 +9,7 @@ export const DESCRIPTION: string =
 	'uwucrew is a generative collection of completely unique 9670 avatars inspired by anime & pop culture, aiming to be inclusive & expressive';
 
 // Rinkeby;
-export const SALE_CONTRACT: string = '0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D';
+export const SALE_CONTRACT: string = '0x3D5042670657Bf91e8a37cea3A001714FD8323Ac';
 
 // Prod
 // export const SALE_CONTRACT: string = '0x5e75bc35955f9e196e5bb25ddde09424b476a18d';
