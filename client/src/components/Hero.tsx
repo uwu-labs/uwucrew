@@ -160,7 +160,7 @@ const Hero = () => {
 					</ButtonContainer>
 				</TextContainer>
 			</ContentContainer>
-			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
+			<ConnectWallet show={connecting} close={() => setConnecting(false)} color={color} />
 			<Footer />
 		</StyledHero>
 	);
