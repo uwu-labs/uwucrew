@@ -90,7 +90,7 @@ const BodyHeader = styled.h1`
 	line-height: 10rem;
 	margin-bottom: 2rem;
 	@media (max-width: 768px) {
-		font-size: 5rem;
+		font-size: 4.5rem;
 		line-height: 5rem;
 		margin-bottom: 1rem;
 		white-space: nowrap;
