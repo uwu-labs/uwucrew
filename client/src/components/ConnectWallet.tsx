@@ -42,6 +42,10 @@ const Label = styled.div`
 	}
 `;
 
+interface OptionProps {
+	color: string;
+}
+
 const Option = styled.button`
 	width: 100%;
 	display: flex;
@@ -50,13 +54,15 @@ const Option = styled.button`
 	margin-top: 1.5rem;
 	padding: 1.3rem 0;
 	cursor: pointer;
-	background-color: var(--bg-04);
 	color: white;
 	font-size: 2.2rem;
 	font-weight: 500;
 	text-transform: uppercase;
 
-	transition: all 0.3s;
+	transition: background-color 0.3s;
+	background-color: ${(props: OptionProps) => props.color};
+
+	transition: all 1s;
 	:hover {
 		opacity: 0.8;
 	}
@@ -69,27 +75,32 @@ const Option = styled.button`
 interface Props {
 	show: boolean;
 	close: () => void;
+	color: string;
 }
 
-const ConnectWallet = (props: Props) => {
+const ConnectWallet = ({ show, close, color }: Props) => {
 	const { activate } = useWeb3React();
 
 	const connect = async (connector: any) => {
 		await activate(connector);
-		props.close();
+		close();
 	};
 
 	return (
 		<Popup
-			color="var(--bg-04)"
-			show={props.show}
-			close={props.close}
+			color={color}
+			show={show}
+			close={close}
 			header="Connect Wallet"
 			content={
 				<Content>
 					<Label>Connect your wallet to buy tickets and mint uwus!</Label>
-					<Option onClick={() => connect(metaMask)}>Metamask</Option>
-					<Option onClick={() => connect(walletConnect)}>Wallet Connect</Option>
+					<Option onClick={() => connect(metaMask)} color={color}>
+						Metamask
+					</Option>
+					<Option onClick={() => connect(walletConnect)} color={color}>
+						Wallet Connect
+					</Option>
 				</Content>
 			}
 		/>

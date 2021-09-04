@@ -164,7 +164,7 @@ const BuyPage: NextPage = () => {
 
 	return (
 		<StyledBuy>
-			<ForceConnect />
+			<ForceConnect color="var(--bg-04)" />
 			<GlobalStyles />
 			<Header />
 

@@ -8,6 +8,7 @@ const Web3 = require("web3");
 
 // TODO setep return filter
 // TODO Check Start time
+// TODO Change cat to gif
 // TODO Test
 // TODO Add vanity URL
 

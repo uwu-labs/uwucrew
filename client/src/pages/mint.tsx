@@ -125,7 +125,7 @@ const MintPage: NextPage = () => {
 
 	return (
 		<StyledMint>
-			<ForceConnect />
+			<ForceConnect color="var(--bg-03)" />
 			<GlobalStyles />
 			<Header />
 
