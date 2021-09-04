@@ -15,6 +15,13 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
+// TODO Add NExt eave strat in
+// TODO add multiplier for gas price
+// TODO Button not showing after wave switch
+// TODO Gas estimate error
+// TODO Clicks not registering
+// TODO Change text that shows when sold out on buy
+// TODO Add option to change mint amount
 // TODO Finish API
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
