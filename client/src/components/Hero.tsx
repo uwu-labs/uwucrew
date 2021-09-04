@@ -6,6 +6,8 @@ import RotatingImage from './RotatingImage';
 import Footer from './Footer';
 import { useRouter } from 'next/dist/client/router';
 import { useWeb3React } from '@web3-react/core';
+import { useSelector } from 'react-redux';
+import { selectRemaining } from 'state/reducers/uwu';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -120,10 +122,13 @@ const ButtonContainer = styled.div`
 
 const Hero = () => {
 	const { active } = useWeb3React();
+	const router = useRouter();
+
+	const remaining = useSelector(selectRemaining);
+
 	const [connecting, setConnecting] = useState(false);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
-	const router = useRouter();
 	colorIndexRef.current = colorIndex;
 
 	const color = colors[colorIndex % colors.length];
@@ -151,11 +156,14 @@ const Hero = () => {
 						<Button
 							color={color}
 							onClick={() => {
-								if (active) void router.replace('/buy');
-								else setConnecting(true);
+								if (!active) setConnecting(true);
+								if (active) {
+									if (remaining > 0) void router.replace('/buy');
+									else void router.replace('/mint');
+								}
 							}}
 						>
-							{active ? 'Buy Tickets' : 'Connect Wallet'}
+							{active ? (remaining > 0 ? 'Buy Tickets' : 'Mint uwus') : 'Connect Wallet'}
 						</Button>
 					</ButtonContainer>
 				</TextContainer>
