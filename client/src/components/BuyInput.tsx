@@ -97,7 +97,7 @@ const BuyInput = ({ max }: Props) => {
 			setError('You have already purchased for this wave');
 			return false;
 		}
-		let value: number = 0;
+		let value = 0;
 		try {
 			value = Number(input);
 		} catch {
@@ -134,9 +134,12 @@ const BuyInput = ({ max }: Props) => {
 			setLoading(true);
 			receipt
 				.wait()
-				.then(() => {})
+				.then(() => {
+					console.log('Buy submitted');
+				})
 				.catch((err: any) => {
-					alert(err);
+					console.log('Error');
+					console.log(err);
 				})
 				.finally(() => {
 					setLoading(false);

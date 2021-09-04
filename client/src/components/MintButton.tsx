@@ -53,9 +53,12 @@ const MintButton: NextPage = () => {
 			setLoading(true);
 			receipt
 				.wait()
-				.then(() => {})
+				.then(() => {
+					console.log('Mint submitted');
+				})
 				.catch((err: any) => {
-					alert(err);
+					console.log('Error');
+					console.log(err);
 				})
 				.finally(() => {
 					setLoading(false);
