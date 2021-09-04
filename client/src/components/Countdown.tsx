@@ -71,7 +71,7 @@ const Label = styled.div`
 `;
 
 const Countdown = () => {
-	const epocs = 1630879200;
+	const epocs = 1630877400;
 	const [update, setUpdate] = useState(0);
 
 	const launchDate = () => {
