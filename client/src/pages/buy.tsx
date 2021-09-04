@@ -14,6 +14,7 @@ import { selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selec
 import Countdown from 'components/Countdown';
 import BuyInput from 'components/BuyInput';
 import Footer from 'components/Footer';
+import { useRouter } from 'next/dist/client/router';
 
 const StyledBuy = styled.div`
 	position: relative;
@@ -122,7 +123,29 @@ const Uwu = styled.div`
 	}
 `;
 
+const Button = styled.button`
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--bg-04);
+	transition: all 1s;
+	color: white;
+	font-size: 2.2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 0 5rem;
+	height: 5rem;
+	margin-top: 1.5rem;
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
+`;
+
 const BuyPage: NextPage = () => {
+	const router = useRouter();
 	const buyPrice = useSelector(selectBuyPrice);
 	const remaining = useSelector(selectRemaining);
 	const isLocked = useSelector(selectIsLocked);
@@ -178,13 +201,14 @@ const BuyPage: NextPage = () => {
 						<Image src={uwu} />
 					</Uwu>
 					<Body>
-						<BodyHeader>{live ? 'Sale Live!!' : 'Starting Soon!'}</BodyHeader>
+						<BodyHeader>{remaining === 0 ? 'Sold Out!' : live ? 'Sale Live!!' : 'Starting Soon!'}</BodyHeader>
 						<Label>{`uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${
 							isLocked ? 0 : waveLimits[wave() - 1] || 32
 						} more tickets this wave.`}</Label>
-						{!live && <Countdown date={startDate()} />}
-						{live && isLocked && <Countdown date={nextWave()} />}
-						{live && !isLocked && <BuyInput max={waveLimits[wave() - 1] || 32} />}
+						{remaining > 0 && !live && <Countdown date={startDate()} />}
+						{remaining > 0 && live && isLocked && <Countdown date={nextWave()} />}
+						{remaining > 0 && live && !isLocked && <BuyInput max={waveLimits[wave() - 1] || 32} />}
+						{remaining === 0 && <Button onClick={() => void router.replace('/mint')}>Mint uwus</Button>}
 					</Body>
 				</Content>
 			</Container>
