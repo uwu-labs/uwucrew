@@ -146,7 +146,7 @@ const Hero = () => {
 						uwucrew is a generative collection of 9670 avatars inspired by anime and pop culture, aiming to be both inclusive and
 						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
 					</SubHeader>
-					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and are releasing on Sunday 9/5 at 6pm EST / 3pm PST</SubHeader>
+					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and are releasing on Sunday 9/5 at 5:30PM EST / 2:30PM PST</SubHeader>
 					{!LIVE && <Countdown />}
 					<ButtonContainer>
 						<Button
