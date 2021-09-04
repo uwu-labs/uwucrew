@@ -9,8 +9,8 @@ import Header from '../components/Header';
 import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
 import { SECONDS_PER_BLOCK, waveLimits } from 'core/constants';
-import { useSelector } from 'react-redux';
-import { selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWaveBlockLength } from 'state/reducers/uwu';
+import { useDispatch, useSelector } from 'react-redux';
+import { reload, selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWaveBlockLength, setIsLocked } from 'state/reducers/uwu';
 import Countdown from 'components/Countdown';
 import BuyInput from 'components/BuyInput';
 import Footer from 'components/Footer';
@@ -145,6 +145,7 @@ const Button = styled.button`
 `;
 
 const BuyPage: NextPage = () => {
+	const dispatch = useDispatch();
 	const router = useRouter();
 	const buyPrice = useSelector(selectBuyPrice);
 	const remaining = useSelector(selectRemaining);
@@ -185,6 +186,12 @@ const BuyPage: NextPage = () => {
 		return startTime;
 	};
 
+	useEffect(() => {
+		console.log('Triggerd locked handling');
+		dispatch(setIsLocked(false));
+		dispatch(reload());
+	}, [wave()]);
+
 	return (
 		<StyledBuy>
 			<ForceConnect color="var(--bg-04)" />
@@ -202,11 +209,21 @@ const BuyPage: NextPage = () => {
 					</Uwu>
 					<Body>
 						<BodyHeader>{remaining === 0 ? 'Sold Out!' : live ? 'Sale Live!!' : 'Starting Soon!'}</BodyHeader>
-						<Label>{`uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${
-							isLocked ? 0 : waveLimits[wave() - 1] || 32
-						} more tickets this wave.`}</Label>
+						<Label>
+							{remaining > 0
+								? `uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${
+										isLocked ? 0 : waveLimits[wave() - 1] || 32
+								  } more tickets this wave.`
+								: 'All uwu-tickets have sold out! If you have any tickets, head to the mint page to redeem your uwus.'}
+						</Label>
 						{remaining > 0 && !live && <Countdown date={startDate()} />}
-						{remaining > 0 && live && isLocked && <Countdown date={nextWave()} />}
+						{remaining > 0 && live && isLocked && (
+							<>
+								<Label>Next wave starts in:</Label>
+								<Countdown date={nextWave()} />
+							</>
+						)}
+
 						{remaining > 0 && live && !isLocked && <BuyInput max={waveLimits[wave() - 1] || 32} />}
 						{remaining === 0 && <Button onClick={() => void router.replace('/mint')}>Mint uwus</Button>}
 					</Body>
