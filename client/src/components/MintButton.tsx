@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { reload, selectOwnedTickets } from 'state/reducers/uwu';
-import { Contract } from 'ethers';
+import { BigNumber, Contract, ethers } from 'ethers';
 import { SALE_CONTRACT } from 'core/constants';
 
 import abi from '../contracts/uwucrewWaveLockSale.json';
@@ -43,8 +43,13 @@ const MintButton: NextPage = () => {
 
 	const mint = async () => {
 		if (loading || balance === 0) return;
+
 		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
-		contract.mint(balance).then((receipt: any) => {
+		const gasEstimate: BigNumber = await contract.estimateGas.mint(balance);
+		const scale = BigNumber.from(10).pow(18);
+		const gasLimit = gasEstimate.mul(ethers.utils.parseEther('1.2')).div(scale);
+
+		contract.mint(balance, { gasLimit }).then((receipt: any) => {
 			setLoading(true);
 			receipt
 				.wait()

@@ -15,9 +15,6 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
-// TODO Add routing to mint page on hero
-// TODO Add conditional routing to mint page on buy page and sold out message
-// TODO Add gas estimate multiplier
 // TODO Finish API
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
