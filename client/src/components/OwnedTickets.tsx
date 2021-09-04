@@ -6,7 +6,7 @@ import { selectOwnedTickets } from 'state/reducers/uwu';
 const StyledOwnedTickets = styled.div`
 	display: flex;
 	align-items: center;
-	background-color: var(--bg-04);
+	background-color: ${(props: Props) => props.color};
 	height: 4.7rem;
 	padding: 0 3.3rem;
 `;
@@ -23,11 +23,15 @@ const Label = styled.div`
 	}
 `;
 
-const OwnedTickets = () => {
+interface Props {
+	color: string;
+}
+
+const OwnedTickets = ({ color }: Props) => {
 	const ownedTickets = useSelector(selectOwnedTickets);
 
 	return (
-		<StyledOwnedTickets>
+		<StyledOwnedTickets color={color}>
 			<Label>{`Owned: ${ownedTickets}`}</Label>
 		</StyledOwnedTickets>
 	);

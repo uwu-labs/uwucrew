@@ -171,7 +171,7 @@ const BuyPage: NextPage = () => {
 			<Container>
 				<HeaderContainer>
 					<HeaderText>Buy uwu-tickets</HeaderText>
-					<OwnedTickets />
+					<OwnedTickets color="var(--bg-04)" />
 				</HeaderContainer>
 				<Content>
 					<Uwu>

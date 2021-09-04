@@ -15,10 +15,11 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
-// TODO Create Mint Page
+// TODO Add force wallet popup on mint page
+// TODO Add adjustable color for connect popup
 // TODO Implement mint mobile view
 // TODO Add routing to mint page on hero
-// TODO Add conditional routing to mint page on buy page
+// TODO Add conditional routing to mint page on buy page and sold out message
 // TODO Finish API
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
