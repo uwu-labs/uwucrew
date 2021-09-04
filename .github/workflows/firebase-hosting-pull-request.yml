@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: "10.x"
+          node-version: "12.x"
       - name: Installing Client Dependencies
         run: yarn install
         working-directory: client
