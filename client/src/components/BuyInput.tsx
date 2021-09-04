@@ -1,6 +1,6 @@
 import { useWeb3React } from '@web3-react/core';
 import { SALE_CONTRACT } from 'core/constants';
-import { Contract, ethers } from 'ethers';
+import { BigNumber, Contract, ethers } from 'ethers';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reload, selectBuyPrice } from 'state/reducers/uwu';
@@ -122,9 +122,15 @@ const BuyInput = ({ max }: Props) => {
 
 	const buy = async () => {
 		if (loading || !validate(amount)) return;
+
 		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
 		const ethCost = ethers.utils.parseEther((buyPrice * Number(amount)).toString());
-		contract.buy(Number(amount), { value: ethCost }).then((receipt: any) => {
+
+		const gasEstimate: BigNumber = await contract.estimateGas.buy(Number(amount), { value: ethCost });
+		const scale = BigNumber.from(10).pow(18);
+		const gasLimit = gasEstimate.mul(ethers.utils.parseEther('1.2')).div(scale);
+
+		contract.buy(Number(amount), { value: ethCost, gasLimit }).then((receipt: any) => {
 			setLoading(true);
 			receipt
 				.wait()
