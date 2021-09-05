@@ -235,10 +235,14 @@ const BuyPage: NextPage = () => {
 						<BodyHeader>{remaining === 0 ? 'Sold Out!' : live ? 'Sale Live!!' : 'Starting Soon!'}</BodyHeader>
 						{remaining > 0 && (
 							<Label>
-								{`uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${Math.min(
-									isLocked ? 0 : waveLimits[wave() - 1] || 32,
-									remaining
-								)} more tickets this wave.`}{' '}
+								{`uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. ${
+									live
+										? `The current wave is ${wave()} and you can get ${Math.min(
+												isLocked ? 0 : waveLimits[wave() - 1] || 32,
+												remaining
+										  )} more tickets this wave.`
+										: ''
+								}`}
 								{/* <Link href="https://etherscan.io/address/0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D" target="_blank" rel="noreferrer">
 									View Ticket Contract
 								</Link> */}
