@@ -160,7 +160,7 @@ const MintPage: NextPage = () => {
 						{!live && <Countdown date={startDate()} />}
 						{live && (
 							<>
-								<Label>Time remaining to redeem:</Label>
+								<Label>Please redeem your uwu-tickets before the time expires or else you may lose your uwus</Label>
 								<Countdown date={deadline()} />
 								<MintInput />
 							</>
