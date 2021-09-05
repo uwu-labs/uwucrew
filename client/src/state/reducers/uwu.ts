@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { BigNumber } from 'ethers';
+import { bnToNumber } from 'lib/bigNumber';
 import type { RootState } from '../index';
 
 export interface UserState {
 	balance: number;
-	buyPrice: number;
+	buyPrice: BigNumber;
 	amountForSale: number;
 	amountSold: number;
 	startTime: number;
@@ -16,7 +18,7 @@ export interface UserState {
 
 export const initialState: UserState = {
 	balance: 0,
-	buyPrice: 0,
+	buyPrice: BigNumber.from('0'),
 	amountForSale: 0,
 	amountSold: 0,
 	startTime: 0,
@@ -34,7 +36,7 @@ export const uwuSlice = createSlice({
 		setOwnedTickets: (state, action: PayloadAction<number>) => {
 			state.balance = action.payload;
 		},
-		setBuyPrice: (state, action: PayloadAction<number>) => {
+		setBuyPrice: (state, action: PayloadAction<BigNumber>) => {
 			state.buyPrice = action.payload;
 		},
 		setStartTime: (state, action: PayloadAction<number>) => {
@@ -78,7 +80,8 @@ export const {
 } = uwuSlice.actions;
 
 export const selectOwnedTickets = (state: RootState): number => state.uwu.balance;
-export const selectBuyPrice = (state: RootState): number => state.uwu.buyPrice;
+export const selectBuyPrice = (state: RootState): BigNumber => state.uwu.buyPrice;
+export const selectBuyPriceNumber = (state: RootState): number => bnToNumber(state.uwu.buyPrice);
 export const selectRemaining = (state: RootState): number => state.uwu.amountForSale - state.uwu.amountSold;
 export const selectIsLocked = (state: RootState): boolean => state.uwu.isLocked;
 export const selectWaveBlockLength = (state: RootState): number => state.uwu.waveBlockLength;

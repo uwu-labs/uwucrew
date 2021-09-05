@@ -125,18 +125,21 @@ const BuyInput = ({ max }: Props) => {
 		if (loading || !validate(amount) || !library) return;
 
 		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
-		const ethCost = ethers.utils.parseEther((buyPrice * Number(amount)).toString());
 		const scale = BigNumber.from(10).pow(18);
+
+		// Gettin ETH cost
+		const amountBN = ethers.utils.parseEther(amount);
+		const ethCost = buyPrice.mul(amountBN).div(scale);
 
 		// Getting gas price
 		const gasPriceCurrent = await library.getGasPrice();
 		const gasPrice = gasPriceCurrent.mul(ethers.utils.parseEther('1.2')).div(scale);
 
 		// Getting gas limit
-		const gasEstimate: BigNumber = await contract.estimateGas.buy(Number(amount), { value: ethCost });
+		const gasEstimate: BigNumber = await contract.estimateGas.buy(amount, { value: ethCost });
 		const gasLimit = gasEstimate.mul(ethers.utils.parseEther('1.2')).div(scale);
 
-		contract.buy(Number(amount), { value: ethCost, gasLimit, gasPrice }).then((receipt: any) => {
+		contract.buy(amount, { value: ethCost, gasPrice, gasLimit }).then((receipt: any) => {
 			setLoading(true);
 			receipt
 				.wait()

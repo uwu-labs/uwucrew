@@ -10,7 +10,15 @@ import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
 import { SECONDS_PER_BLOCK, waveLimits } from 'core/constants';
 import { useDispatch, useSelector } from 'react-redux';
-import { reload, selectBuyPrice, selectIsLocked, selectRemaining, selectStartTime, selectWaveBlockLength, setIsLocked } from 'state/reducers/uwu';
+import {
+	reload,
+	selectBuyPriceNumber,
+	selectIsLocked,
+	selectRemaining,
+	selectStartTime,
+	selectWaveBlockLength,
+	setIsLocked
+} from 'state/reducers/uwu';
 import Countdown from 'components/Countdown';
 import BuyInput from 'components/BuyInput';
 import Footer from 'components/Footer';
@@ -147,7 +155,7 @@ const Button = styled.button`
 const BuyPage: NextPage = () => {
 	const dispatch = useDispatch();
 	const router = useRouter();
-	const buyPrice = useSelector(selectBuyPrice);
+	const buyPrice = useSelector(selectBuyPriceNumber);
 	const remaining = useSelector(selectRemaining);
 	const isLocked = useSelector(selectIsLocked);
 	const startTimeEpocs = useSelector(selectStartTime);
