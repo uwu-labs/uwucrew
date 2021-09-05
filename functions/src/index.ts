@@ -60,8 +60,12 @@ app.get("/uwu/:id", async (request: any, response: any) => {
       .where("id", "==", Number.parseInt(id))
       .get();
 
-    if (moodQuerySnapshot.empty)
-      return response.status(404).send("Uwu Not Found");
+    // Temp 404 handling
+    if (moodQuerySnapshot.empty) return response.json(defaultUwu());
+
+    // 404 handling
+    // if (moodQuerySnapshot.empty)
+    //   return response.status(404).send("Uwu Not Found");
 
     return response.json(moodQuerySnapshot.docs[0].data());
   } catch (error) {
