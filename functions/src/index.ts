@@ -4,12 +4,12 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
 const uwu_abi = require("../contracts/uwucrew.json");
-const sale_abi = require("../contracts/uwucrewWaveLockSale.json");
+// const sale_abi = require("../contracts/uwucrewWaveLockSale.json");
 const Web3 = require("web3");
 
 // Production
 const UWU_CONTRACT = "0xF75140376D246D8B1E5B8a48E3f00772468b3c0c";
-const SALE_CONTRACT = "0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D";
+// const SALE_CONTRACT = "0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D";
 const URL = `https://mainnet.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
 
 // Rinkeby
@@ -49,11 +49,11 @@ app.get("/uwu/:id", async (request: any, response: any) => {
     if (Number.parseInt(id) + 1 > supply) return response.json(defaultUwu());
 
     // Checking if Sale Started
-    const sale_contract = new web3.eth.Contract(sale_abi, SALE_CONTRACT);
-    const startTimeEpocs = await sale_contract.methods.startTime().call();
-    const d = new Date(0);
-    d.setUTCSeconds(startTimeEpocs);
-    if (new Date() < d) return response.json(defaultUwu());
+    // const sale_contract = new web3.eth.Contract(sale_abi, SALE_CONTRACT);
+    // const startTimeEpocs = await sale_contract.methods.startTime().call();
+    // const d = new Date(0);
+    // d.setUTCSeconds(startTimeEpocs);
+    // if (new Date() < d) return response.json(defaultUwu());
 
     let moodQuerySnapshot = await db
       .collection("uwus")
