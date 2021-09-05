@@ -134,10 +134,10 @@ const MintInput: NextPage = () => {
 		const gasPrice = gasPriceCurrent.mul(ethers.utils.parseEther('1.2')).div(scale);
 
 		// Getting gas estimate
-		const gasEstimate: BigNumber = await contract.estimateGas.mint(balance);
-		const gasLimit = gasEstimate.mul(BigNumber.from(120)).div(BigNumber.from(100));
+		// const gasEstimate: BigNumber = await contract.estimateGas.mint(balance);
+		// const gasLimit = gasEstimate.mul(BigNumber.from(120)).div(BigNumber.from(100));
 
-		contract.mint(Number(amount), { gasLimit, gasPrice }).then((receipt: any) => {
+		contract.mint(Number(amount), { gasPrice }).then((receipt: any) => {
 			setLoading(true);
 			receipt
 				.wait()
