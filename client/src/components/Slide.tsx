@@ -156,8 +156,6 @@ const Slide = ({ color, section, header, subHeaders, content }: Props): JSX.Elem
 	const updateInView = () => {
 		const pos = scrollRef.current?.getBoundingClientRect().top;
 		if (!pos) return;
-		console.log(`Position: ${pos}`);
-		console.log(`Mid: ${window.innerHeight}`);
 		if (window.innerHeight / 2 > pos!) setInView(true);
 	};
 
