@@ -15,8 +15,6 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
-// TODO Add option to change mint amount
-// TODO add multiplier for gas price
 // TODO Gas estimate error
 // TODO Clicks not registering
 // TODO Timing broken

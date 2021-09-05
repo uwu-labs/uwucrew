@@ -11,7 +11,7 @@ import ForceConnect from 'components/ForceConnect';
 import { useSelector } from 'react-redux';
 import Footer from 'components/Footer';
 import { selectOwnedTickets } from 'state/reducers/uwu';
-import MintButton from 'components/MintButton';
+import MintInput from 'components/MintInput';
 
 const StyledMint = styled.div`
 	position: relative;
@@ -142,7 +142,7 @@ const MintPage: NextPage = () => {
 						<BodyHeader>Redeem Tickets</BodyHeader>
 						<Label>{`You can mint an uwucrew NFT with your uwu-tickets! You have ${balance} tickets remaining to mint uwuws with. uwus are revealed instantly and are completely randomised.`}</Label>
 						<div>
-							<MintButton />
+							<MintInput />
 						</div>
 					</Body>
 				</Content>

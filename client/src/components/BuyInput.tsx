@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reload, selectBuyPrice } from 'state/reducers/uwu';
 import styled from 'styled-components';
+import type { Web3Provider } from '@ethersproject/providers';
 
 import abi from '../contracts/uwucrewWaveLockSale.json';
 
@@ -86,7 +87,7 @@ interface Props {
 
 const BuyInput = ({ max }: Props) => {
 	const dispatch = useDispatch();
-	const { library } = useWeb3React();
+	const { library } = useWeb3React<Web3Provider>();
 	const buyPrice = useSelector(selectBuyPrice);
 	const [amount, setAmount] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -121,16 +122,21 @@ const BuyInput = ({ max }: Props) => {
 	};
 
 	const buy = async () => {
-		if (loading || !validate(amount)) return;
+		if (loading || !validate(amount) || !library) return;
 
 		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
 		const ethCost = ethers.utils.parseEther((buyPrice * Number(amount)).toString());
-
-		const gasEstimate: BigNumber = await contract.estimateGas.buy(Number(amount), { value: ethCost });
 		const scale = BigNumber.from(10).pow(18);
+
+		// Getting gas price
+		const gasPriceCurrent = await library.getGasPrice();
+		const gasPrice = gasPriceCurrent.mul(ethers.utils.parseEther('1.2')).div(scale);
+
+		// Getting gas limit
+		const gasEstimate: BigNumber = await contract.estimateGas.buy(Number(amount), { value: ethCost });
 		const gasLimit = gasEstimate.mul(ethers.utils.parseEther('1.2')).div(scale);
 
-		contract.buy(Number(amount), { value: ethCost, gasLimit }).then((receipt: any) => {
+		contract.buy(Number(amount), { value: ethCost, gasLimit, gasPrice }).then((receipt: any) => {
 			setLoading(true);
 			receipt
 				.wait()
