@@ -10,8 +10,9 @@ import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
 import { useSelector } from 'react-redux';
 import Footer from 'components/Footer';
-import { selectOwnedTickets } from 'state/reducers/uwu';
+import { selectOwnedTickets, selectStartTime } from 'state/reducers/uwu';
 import MintInput from 'components/MintInput';
+import Countdown from 'components/Countdown';
 
 const StyledMint = styled.div`
 	position: relative;
@@ -122,6 +123,21 @@ const Uwu = styled.div`
 
 const MintPage: NextPage = () => {
 	const balance = useSelector(selectOwnedTickets);
+	const startTimeEpocs = useSelector(selectStartTime);
+
+	const startDate = () => {
+		const startTime = new Date(0);
+		startTime.setUTCSeconds(startTimeEpocs);
+		return startTime;
+	};
+
+	const live = new Date() >= startDate();
+
+	const deadline = () => {
+		const deadline = startDate();
+		deadline.setDate(deadline.getDate() + 3);
+		return deadline;
+	};
 
 	return (
 		<StyledMint>
@@ -141,9 +157,14 @@ const MintPage: NextPage = () => {
 					<Body>
 						<BodyHeader>Redeem Tickets</BodyHeader>
 						<Label>{`You can mint an uwucrew NFT with your uwu-tickets! You have ${balance} tickets remaining to mint uwuws with. uwus are revealed instantly and are completely randomised.`}</Label>
-						<div>
-							<MintInput />
-						</div>
+						{!live && <Countdown date={startDate()} />}
+						{live && (
+							<>
+								<Label>Time remaining to redeem:</Label>
+								<Countdown date={deadline()} />
+								<MintInput />
+							</>
+						)}
 					</Body>
 				</Content>
 			</Container>
