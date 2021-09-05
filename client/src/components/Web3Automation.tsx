@@ -45,7 +45,7 @@ const Web3Automation = () => {
 	};
 	const getBuyPrice = async () => {
 		const response: BigNumber = await contract.buyPrice();
-		dispatch(setBuyPrice(bnToNumber(response)));
+		dispatch(setBuyPrice(response));
 	};
 	const getStartTime = async () => {
 		const response: BigNumber = await contract.startTime();
