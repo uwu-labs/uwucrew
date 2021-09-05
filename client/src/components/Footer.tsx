@@ -6,7 +6,8 @@ import twitter from '../assets/svgs/socials/twitter.svg';
 import medium from '../assets/svgs/socials/medium.svg';
 import github from '../assets/svgs/socials/github.svg';
 import instagram from '../assets/svgs/socials/instagram.svg';
-// import etherscan from '../assets/svgs/socials/etherscan.svg';
+import etherscan from '../assets/svgs/socials/etherscan.svg';
+import opensea from '../assets/svgs/socials/opensea.svg';
 
 const StyledFooter = styled.div`
 	display: flex;
@@ -33,15 +34,14 @@ const Line = styled.div`
 	left: 40px;
 	bottom: 30px;
 	border-bottom: solid 3px var(--text-primary);
-	/* width: calc(100vw - 282px - 70px); */
-	width: calc(100vw - 282px - 40px);
+	width: calc(100vw - 282px - 120px);
 	transform-origin: left;
 	transform: scaleX(0);
 	animation: ${wipe} 1s 0s ease-out forwards;
 
 	@media (max-width: 768px) {
 		left: 25px;
-		width: calc(100vw - 272px - 0px);
+		width: calc(100vw - 272px - 80px);
 	}
 `;
 
@@ -62,8 +62,7 @@ const Socials = styled.div`
 	right: 0;
 	padding: 15px 40px;
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	/* grid-template-columns: repeat(6, 1fr); */
+	grid-template-columns: repeat(7, 1fr);
 	grid-gap: 1.3rem;
 	color: var(--text-primary);
 	font-size: 2.3rem;
@@ -90,14 +89,17 @@ const Footer: React.FC = () => {
 		<StyledFooter>
 			<Line />
 			<Socials>
-				{/* <a
+				<a href="https://opensea.io/collection/uwucrew" target="_blank" rel="noreferrer" style={{ transform: 'translateY(3px)' }}>
+					<Social src={opensea} />
+				</a>
+				<a
 					href="https://etherscan.io/address/0xF75140376D246D8B1E5B8a48E3f00772468b3c0c"
 					target="_blank"
 					rel="noreferrer"
 					style={{ transform: 'translateY(3px)' }}
 				>
 					<Social src={etherscan} />
-				</a> */}
+				</a>
 				<a href="https://discord.gg/CaR7RhfDZ6" target="_blank" rel="noreferrer">
 					<Social src={discord} />
 				</a>
