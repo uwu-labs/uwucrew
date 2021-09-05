@@ -22,6 +22,7 @@ const StyledNavbar = styled.div`
 
 	@media (max-width: 768px) {
 		padding: 10px 20px;
+		justify-content: center;
 	}
 `;
 
@@ -68,6 +69,10 @@ const LogoContainer = styled.div`
 	opacity: 0;
 	transform: translateY(-50px);
 	animation: ${lower} 1s 1s ease-out forwards;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
 `;
 
 const NavItems = styled.div`
@@ -79,6 +84,10 @@ const NavItems = styled.div`
 	opacity: 0;
 	transform: translateY(-50px);
 	animation: ${lower} 1s 1s ease-out forwards;
+
+	@media (max-width: 768px) {
+		margin-left: 0;
+	}
 `;
 
 const NavItem = styled.div`
@@ -114,6 +123,8 @@ const Navbar: React.FC = () => {
 				<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
 				<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
 				<NavItem onClick={() => navigateToSlide('roadmap')}>what's next</NavItem>
+				<NavItem onClick={() => router.replace('/buy')}>buy</NavItem>
+				<NavItem onClick={() => router.replace('/mint')}>mint</NavItem>
 				{/* <NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem> */}
 				{/* <NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem> */}
 			</NavItems>
