@@ -29,7 +29,7 @@ const members: TeamMemberType[] = [
 			'Laur is our talented illustrator debuting in the NFT art space with uwucrew.',
 			'Her style ranges from semi-realism to cartoonish illustrations and character design. Bad ass that drew over 120 assets. Likes the booba. Supports the booba.'
 		],
-		twitter: 'https://twitter.com/electrowaifu'
+		twitter: 'https://twitter.com/fungibleartist'
 	},
 	{
 		name: 'Kiwi',
