@@ -16,6 +16,7 @@ import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
 // TODO Add warning to mint page
+// TODO Cloudflare
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	const getLibrary = (provider: any): any => {
