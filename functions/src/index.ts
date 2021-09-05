@@ -7,8 +7,15 @@ const uwu_abi = require("../contracts/uwucrew.json");
 const sale_abi = require("../contracts/uwucrewWaveLockSale.json");
 const Web3 = require("web3");
 
-const UWU_CONTRACT = "0xF75140376D246D8B1E5B8a48E3f00772468b3c0c";
-export const SALE_CONTRACT = "0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D";
+// Production
+// const UWU_CONTRACT = "0xF75140376D246D8B1E5B8a48E3f00772468b3c0c";
+// const SALE_CONTRACT = "0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D";
+// const URL = `https://mainnet.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
+
+// Rinkeby
+const UWU_CONTRACT = "0x64d7F507f3635ea5DFdD9FDec1f2fa3CbF66b7fb";
+const SALE_CONTRACT = "0x08A733CfE3E55Ac3ef549FfA7D5E9F26ACC4eC3C";
+const URL = `https://rinkeby.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
 
 const defaultUwu = () => {
   return {
@@ -33,8 +40,7 @@ app.get("/uwu/:id", async (request: any, response: any) => {
     const id = request.params.id;
     if (!id) throw new Error("Uwu ID is required");
 
-    const url = `https://mainnet.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
-    const provider = new Web3.providers.HttpProvider(url);
+    const provider = new Web3.providers.HttpProvider(URL);
     const web3 = new Web3(provider);
 
     // Checking if Minted

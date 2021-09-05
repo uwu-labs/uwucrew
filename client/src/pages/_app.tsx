@@ -15,7 +15,7 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
-// TODO Finish API
+// TODO Add warning to mint page
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	const getLibrary = (provider: any): any => {
