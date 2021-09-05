@@ -122,21 +122,21 @@ const Label = styled.div`
 	}
 `;
 
-const Link = styled.a`
-	font-weight: 500;
-	color: var(--text-primary);
-	line-height: 2.3rem;
-	margin-bottom: 2rem;
-	max-width: 60rem;
-	text-decoration: underline;
-	margin-left: 0.2rem;
+// const Link = styled.a`
+// 	font-weight: 500;
+// 	color: var(--text-primary);
+// 	line-height: 2.3rem;
+// 	margin-bottom: 2rem;
+// 	max-width: 60rem;
+// 	text-decoration: underline;
+// 	margin-left: 0.2rem;
 
-	font-size: 2rem;
-	@media (max-width: 768px) {
-		font-size: 1.7rem;
-		max-width: 100%;
-	}
-`;
+// 	font-size: 2rem;
+// 	@media (max-width: 768px) {
+// 		font-size: 1.7rem;
+// 		max-width: 100%;
+// 	}
+// `;
 
 const Uwu = styled.div`
 	width: 30vw;
@@ -239,9 +239,9 @@ const BuyPage: NextPage = () => {
 									isLocked ? 0 : waveLimits[wave() - 1] || 32,
 									remaining
 								)} more tickets this wave.`}{' '}
-								<Link href="https://etherscan.io/address/0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D" target="_blank" rel="noreferrer">
+								{/* <Link href="https://etherscan.io/address/0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D" target="_blank" rel="noreferrer">
 									View Ticket Contract
-								</Link>
+								</Link> */}
 							</Label>
 						)}
 						{remaining === 0 && (
