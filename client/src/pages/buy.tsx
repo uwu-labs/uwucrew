@@ -122,6 +122,22 @@ const Label = styled.div`
 	}
 `;
 
+const Link = styled.a`
+	font-weight: 500;
+	color: var(--text-primary);
+	line-height: 2.3rem;
+	margin-bottom: 2rem;
+	max-width: 60rem;
+	text-decoration: underline;
+	margin-left: 0.2rem;
+
+	font-size: 2rem;
+	@media (max-width: 768px) {
+		font-size: 1.7rem;
+		max-width: 100%;
+	}
+`;
+
 const Uwu = styled.div`
 	width: 30vw;
 
@@ -217,14 +233,20 @@ const BuyPage: NextPage = () => {
 					</Uwu>
 					<Body>
 						<BodyHeader>{remaining === 0 ? 'Sold Out!' : live ? 'Sale Live!!' : 'Starting Soon!'}</BodyHeader>
-						<Label>
-							{remaining > 0
-								? `uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${Math.min(
-										isLocked ? 0 : waveLimits[wave() - 1] || 32,
-										remaining
-								  )} more tickets this wave.`
-								: 'All uwu-tickets have sold out! If you have any tickets, head to the mint page to redeem your uwus.'}
-						</Label>
+						{remaining > 0 && (
+							<Label>
+								{`uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${Math.min(
+									isLocked ? 0 : waveLimits[wave() - 1] || 32,
+									remaining
+								)} more tickets this wave.`}{' '}
+								<Link href="https://etherscan.io/address/0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D" target="_blank" rel="noreferrer">
+									View Ticket Contract
+								</Link>
+							</Label>
+						)}
+						{remaining === 0 && (
+							<Label>{'All uwu-tickets have sold out! If you have any tickets, head to the mint page to redeem your uwus.'}</Label>
+						)}
 						{remaining > 0 && !live && <Countdown date={startDate()} />}
 						{remaining > 0 && live && isLocked && (
 							<>

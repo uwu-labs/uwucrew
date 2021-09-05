@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
 			<Line />
 			<Socials>
 				<a
-					href="https://etherscan.io/address/0xF75140376D246D8B1E5B8a48E3f00772468b3c0c#code"
+					href="https://etherscan.io/address/0xF75140376D246D8B1E5B8a48E3f00772468b3c0c"
 					target="_blank"
 					rel="noreferrer"
 					style={{ transform: 'translateY(3px)' }}
