@@ -1,7 +1,6 @@
 import { useWeb3React } from '@web3-react/core';
 import { SALE_CONTRACT, SECONDS_PER_BLOCK } from 'core/constants';
 import { BigNumber, Contract } from 'ethers';
-import { bnToNumber } from 'lib/bigNumber';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
