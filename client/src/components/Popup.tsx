@@ -35,8 +35,6 @@ const Container = styled.div`
 	width: ${(props: ContainerProps) => (props.large ? '90vw' : '600px')};
 	height: ${(props: ContainerProps) => (props.large ? '90vh' : 'auto')};
 	padding: 2rem;
-	background-color: ${(props: ContainerProps) => props.color};
-	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
 	border: 3px solid ${(props: ContainerProps) => props.color};
 	font-size: 1.4rem;
 	font-weight: 500;
@@ -44,8 +42,14 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	transition: all 1s;
+	background-color: ${(props: ContainerProps) => props.color};
+	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
+
 	@media (max-width: 768px) {
 		width: 90vw;
+		padding: 1rem;
 	}
 `;
 
@@ -53,7 +57,17 @@ const Header = styled.h3`
 	font-size: 7rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
+
+	transition: all 1s;
 	color: ${(props: ContainerProps) => props.color};
+
+	@media (max-width: 768px) {
+		font-size: 4rem;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		white-space: nowrap;
+		margin-top: 3rem;
+	}
 `;
 
 const Body = styled.p`
@@ -61,7 +75,7 @@ const Body = styled.p`
 	font-weight: 500;
 	margin-bottom: 2rem;
 	text-align: center;
-	color: var(--plain-dark);
+	color: var(--text-primary);
 `;
 
 const ButtonContainer = styled.div`
@@ -107,7 +121,7 @@ const Popup: React.FC<Props> = (props) => {
 					<ButtonContainer>
 						{props.buttonText && (
 							<Button
-								color="pink"
+								color={props.color}
 								onClick={() => {
 									if (props.buttonAction) props.buttonAction();
 								}}
@@ -117,7 +131,7 @@ const Popup: React.FC<Props> = (props) => {
 						)}
 						{props.secondButtonText && (
 							<Button
-								color="pink"
+								color={props.color}
 								onClick={() => {
 									if (props.secondButtonAction) props.secondButtonAction();
 								}}

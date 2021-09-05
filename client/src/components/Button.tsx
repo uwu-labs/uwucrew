@@ -10,8 +10,6 @@ const Button = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 2rem;
-	background-color: ${(props: Props) => props.color};
 	transition: all 1s;
 	color: white;
 	font-size: 2.2rem;
@@ -21,6 +19,9 @@ const Button = styled.button`
 	padding: 0 5rem;
 	pointer-events: ${(props: Props) => (props.inactive ? 'none' : 'auto')};
 	height: 5rem;
+
+	transition: background-color 0.3s;
+	background-color: ${(props: Props) => props.color};
 
 	@media (max-width: 768px) {
 		width: 100%;
