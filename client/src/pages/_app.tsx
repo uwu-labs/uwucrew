@@ -15,9 +15,6 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
-// TODO Gas estimate error
-// TODO Clicks not registering
-// TODO Timing broken
 // TODO Finish API
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
