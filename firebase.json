@@ -6,12 +6,11 @@
     ]
   },
   "hosting": {
-    "public": "client/build",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "public": "public",
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "function": "webApi"
       }
     ]
   }

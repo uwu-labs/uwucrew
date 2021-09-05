@@ -1,26 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-
-const raise = keyframes`
-  from {
-	  opacity: 0;
-	transform: translateY(100%);
-  }
-  to {
-	  opacity: 1;
-	transform: translateY(0);
-  }
-`;
+import styled from 'styled-components';
 
 const Container = styled.div`
 	width: 100%;
 	display: flex;
 	align-items: center;
 	margin: 1rem 0;
-
-	opacity: 0;
-	transform: translateY(100%);
-	animation: ${raise} 1s 1.9s ease-out forwards;
 `;
 
 const StyledCountdown = styled.div`
@@ -70,17 +55,15 @@ const Label = styled.div`
 	}
 `;
 
-const Countdown = () => {
-	const epocs = 1630877400;
+interface Props {
+	date: Date;
+}
+
+const Countdown = ({ date }: Props) => {
 	const [update, setUpdate] = useState(0);
 
-	const launchDate = () => {
-		const d = new Date(0);
-		d.setUTCSeconds(epocs);
-		return d;
-	};
-
-	const remaining = launchDate().getTime() - new Date().getTime();
+	const difference = date.getTime() - new Date().getTime();
+	const remaining = difference < 0 ? 0 : difference;
 
 	const days = () => {
 		let days = remaining / 1000 / 60 / 60 / 24;

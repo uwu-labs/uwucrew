@@ -2,7 +2,11 @@ import { useWeb3React } from '@web3-react/core';
 import React from 'react';
 import ConnectWallet from './ConnectWallet';
 
-const ForceConnect = () => {
+interface Props {
+	color: string;
+}
+
+const ForceConnect = ({ color }: Props) => {
 	const { active } = useWeb3React();
 
 	return (
@@ -11,6 +15,7 @@ const ForceConnect = () => {
 			close={() => {
 				console.log('meow');
 			}}
+			color={color}
 		/>
 	);
 };

@@ -5,8 +5,9 @@ import ConnectWallet from './ConnectWallet';
 import RotatingImage from './RotatingImage';
 import Footer from './Footer';
 import { useRouter } from 'next/dist/client/router';
-import { LIVE } from 'core/constants';
-import Countdown from './Countdown';
+import { useWeb3React } from '@web3-react/core';
+import { useSelector } from 'react-redux';
+import { selectRemaining } from 'state/reducers/uwu';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -120,10 +121,14 @@ const ButtonContainer = styled.div`
 `;
 
 const Hero = () => {
+	const { active } = useWeb3React();
+	const router = useRouter();
+
+	const remaining = useSelector(selectRemaining);
+
 	const [connecting, setConnecting] = useState(false);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
-	const router = useRouter();
 	colorIndexRef.current = colorIndex;
 
 	const color = colors[colorIndex % colors.length];
@@ -147,21 +152,23 @@ const Hero = () => {
 						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
 					</SubHeader>
 					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and are releasing on Sunday 9/5 at 5:30PM EST / 2:30PM PST</SubHeader>
-					{!LIVE && <Countdown />}
 					<ButtonContainer>
 						<Button
-							inactive={!LIVE}
 							color={color}
 							onClick={() => {
-								if (LIVE) void router.replace('/buy');
+								if (!active) setConnecting(true);
+								if (active) {
+									if (remaining > 0) void router.replace('/buy');
+									else void router.replace('/mint');
+								}
 							}}
 						>
-							{LIVE ? 'Buy Tickets' : 'Coming Soon'}
+							{active ? (remaining > 0 ? 'Buy Tickets' : 'Mint uwus') : 'Connect Wallet'}
 						</Button>
 					</ButtonContainer>
 				</TextContainer>
 			</ContentContainer>
-			<ConnectWallet show={connecting} close={() => setConnecting(false)} />
+			<ConnectWallet show={connecting} close={() => setConnecting(false)} color={color} />
 			<Footer />
 		</StyledHero>
 	);

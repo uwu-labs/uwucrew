@@ -7,6 +7,7 @@ const StyledExitButton = styled.button`
 	right: 2rem;
 	width: 3rem;
 	height: 3rem;
+	cursor: pointer;
 `;
 
 interface LineProps {
@@ -17,6 +18,7 @@ interface LineProps {
 const Line = styled.div`
 	width: 100%;
 	height: 3px;
+	transition: background-color 1s;
 	background-color: ${(props: LineProps) => props.color};
 	transform: ${(props: LineProps) => (props.right ? 'translateY(0px) rotate(45deg)' : 'translateY(-3px) rotate(-45deg)')};
 `;
