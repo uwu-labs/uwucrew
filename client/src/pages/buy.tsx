@@ -248,7 +248,7 @@ const BuyPage: NextPage = () => {
 							<Label>{'All uwu-tickets have sold out! If you have any tickets, head to the mint page to redeem your uwus.'}</Label>
 						)}
 						{remaining > 0 && !live && <Countdown date={startDate()} />}
-						{remaining > 0 && live && isLocked && (
+						{remaining > 0 && live && (
 							<>
 								<Label>Next wave starts in:</Label>
 								<Countdown date={nextWave()} />
