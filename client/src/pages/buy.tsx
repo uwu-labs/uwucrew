@@ -211,9 +211,10 @@ const BuyPage: NextPage = () => {
 						<BodyHeader>{remaining === 0 ? 'Sold Out!' : live ? 'Sale Live!!' : 'Starting Soon!'}</BodyHeader>
 						<Label>
 							{remaining > 0
-								? `uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${
-										isLocked ? 0 : waveLimits[wave() - 1] || 32
-								  } more tickets this wave.`
+								? `uwu-tickets are redeemable for uwucrew NFTs! There are ${remaining} remaining for sale and they cost ${buyPrice} ETH to buy. The current wave is ${wave()} and you can get ${Math.min(
+										isLocked ? 0 : waveLimits[wave() - 1] || 32,
+										remaining
+								  )} more tickets this wave.`
 								: 'All uwu-tickets have sold out! If you have any tickets, head to the mint page to redeem your uwus.'}
 						</Label>
 						{remaining > 0 && !live && <Countdown date={startDate()} />}
@@ -224,7 +225,7 @@ const BuyPage: NextPage = () => {
 							</>
 						)}
 
-						{remaining > 0 && live && !isLocked && <BuyInput max={waveLimits[wave() - 1] || 32} />}
+						{remaining > 0 && live && !isLocked && <BuyInput max={Math.min(waveLimits[wave() - 1] || 32, remaining)} />}
 						{remaining === 0 && <Button onClick={() => void router.replace('/mint')}>Mint uwus</Button>}
 					</Body>
 				</Content>
