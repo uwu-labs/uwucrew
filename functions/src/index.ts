@@ -3,20 +3,17 @@ import * as admin from "firebase-admin";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
-const abi = require("../contracts/uwucrew.json");
+const uwu_abi = require("../contracts/uwucrew.json");
+const sale_abi = require("../contracts/uwucrewWaveLockSale.json");
 const Web3 = require("web3");
 
-// TODO setep return filter
-// TODO Check Start time
-// TODO Change cat to gif
-// TODO Test
-// TODO Add vanity URL
-
-const UWU_CONTRACT = "0x1F64F0f5411c73B9323a788C314737E899553a98";
+const UWU_CONTRACT = "0x28021452b7Ef46e6800C87d057fA64492B2505eB";
+export const SALE_CONTRACT: string =
+  "0x3D5042670657Bf91e8a37cea3A001714FD8323Ac";
 
 const defaultUwu = () => {
   return {
-    image: "https://i.insider.com/5aa10ca0d877e618008b4678",
+    image: "https://uwucrew.art/pre-reveal.mp4",
   };
 };
 
@@ -37,13 +34,21 @@ app.get("/uwu/:id", async (request: any, response: any) => {
     const id = request.params.id;
     if (!id) throw new Error("Uwu ID is required");
 
-    const url = `https://rinkeby.infura.io/v3/1704ebb4fcf041619a8b00b00d8d9aa3`;
+    const url = `https://rinkeby.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
     const provider = new Web3.providers.HttpProvider(url);
     const web3 = new Web3(provider);
-    const contract = new web3.eth.Contract(abi, UWU_CONTRACT);
-    const supply = await contract.methods.totalSupply().call();
-    if (Number.parseInt(id) > supply + 10_000)
-      return response.json(defaultUwu());
+
+    // Checking if Minted
+    const uwu_contract = new web3.eth.Contract(uwu_abi, UWU_CONTRACT);
+    const supply = await uwu_contract.methods.totalSupply().call();
+    if (Number.parseInt(id) + 1 > supply) return response.json(defaultUwu());
+
+    // Checking if Sale Started
+    const sale_contract = new web3.eth.Contract(sale_abi, SALE_CONTRACT);
+    const startTimeEpocs = await sale_contract.methods.startTime().call();
+    const d = new Date(0);
+    d.setUTCSeconds(startTimeEpocs);
+    if (new Date() < d) return response.json(defaultUwu());
 
     let moodQuerySnapshot = await db
       .collection("uwus")
