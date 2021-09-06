@@ -44,9 +44,11 @@ app.get("/uwu/:id", async (request: any, response: any) => {
     const web3 = new Web3(provider);
 
     // Checking if Minted
-    const uwu_contract = new web3.eth.Contract(uwu_abi, UWU_CONTRACT);
-    const supply = await uwu_contract.methods.totalSupply().call();
-    if (Number.parseInt(id) + 1 > supply) return response.json(defaultUwu());
+    if (Number.parseInt(id) > 7_600) {
+      const uwu_contract = new web3.eth.Contract(uwu_abi, UWU_CONTRACT);
+      const supply = await uwu_contract.methods.totalSupply().call();
+      if (Number.parseInt(id) + 1 > supply) return response.json(defaultUwu());
+    }
 
     // Checking if Sale Started
     // const sale_contract = new web3.eth.Contract(sale_abi, SALE_CONTRACT);
@@ -74,20 +76,20 @@ app.get("/uwu/:id", async (request: any, response: any) => {
   }
 });
 
-app.post("/uwus", async (request: any, response: any) => {
-  try {
-    const { attributes, id, description, image, name } = request.body;
-    const data = {
-      id,
-      image: `https://firebasestorage.googleapis.com/v0/b/uwucrew-3563e/o/${image}.png?alt=media`,
-      attributes,
-      description,
-      name,
-    };
-    await db.collection("uwus").add(data);
-    return response.status(200).send("Uwu Uploaded");
-  } catch (error) {
-    console.log(error);
-    return response.status(500).send(error);
-  }
-});
+// app.post("/uwus", async (request: any, response: any) => {
+//   try {
+//     const { attributes, id, description, image, name } = request.body;
+//     const data = {
+//       id,
+//       image: `https://firebasestorage.googleapis.com/v0/b/uwucrew-3563e/o/${image}.png?alt=media`,
+//       attributes,
+//       description,
+//       name,
+//     };
+//     await db.collection("uwus").add(data);
+//     return response.status(200).send("Uwu Uploaded");
+//   } catch (error) {
+//     console.log(error);
+//     return response.status(500).send(error);
+//   }
+// });
