@@ -15,9 +15,22 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
+// TODO Remove Buy page
+// TODO Fix issue with minting
+// TODO Remove is live logic
+// TODO Add edit feature to API
+// TODO Remove uwu page on Waifusion site
+// TODO Propose charity
+// ------ Tomorrow
+// TODO BSC redeem
 // TODO Add team split and roadmap
-// TODO Add main link to OpenSea
 // TODO Add lore
+// TODO Make open source
+// TODO Rename Repo
+// TODO Create Readme
+// ---- AFTER MINT FINISHES
+// TODO Fully remove mint check
+// TODO Add main link to OpenSea
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	const getLibrary = (provider: any): any => {
