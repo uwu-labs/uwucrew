@@ -137,22 +137,29 @@ const MintInput: NextPage = () => {
 		// const gasEstimate: BigNumber = await contract.estimateGas.mint(balance);
 		// const gasLimit = gasEstimate.mul(BigNumber.from(120)).div(BigNumber.from(100));
 
-		contract.mint(Number(amount), { gasPrice }).then((receipt: any) => {
-			setLoading(true);
-			receipt
-				.wait()
-				.then(() => {
-					console.log('Mint submitted');
-				})
-				.catch((err: any) => {
-					console.log('Error');
-					console.log(err);
-				})
-				.finally(() => {
-					setLoading(false);
-					dispatch(reload());
-				});
-		});
+		contract
+			.mint(Number(amount), { gasPrice })
+			.then((receipt: any) => {
+				setLoading(true);
+				receipt
+					.wait()
+					.then(() => {
+						console.log('Mint submitted');
+					})
+					.catch((err: any) => {
+						console.log('Error');
+						console.log(err);
+					})
+					.finally(() => {
+						setLoading(false);
+						dispatch(reload());
+					});
+			})
+			.catch((err: any) => {
+				setError('Not enough ETH to cover gas');
+				console.log('Error');
+				console.log(err);
+			});
 	};
 
 	return (
