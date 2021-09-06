@@ -15,8 +15,6 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
-// TODO Remove uwu page on Waifusion site
-// TODO Propose charity
 // ------ Tomorrow
 // TODO BSC redeem
 // TODO Add team split and roadmap
