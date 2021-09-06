@@ -94,7 +94,7 @@ const ConnectWallet = ({ show, close, color }: Props) => {
 			header="Connect Wallet"
 			content={
 				<Content>
-					<Label>Connect your wallet to buy tickets and mint uwus!</Label>
+					<Label>Connect your wallet to mint uwus!</Label>
 					<Option onClick={() => connect(metaMask)} color={color}>
 						Metamask
 					</Option>
