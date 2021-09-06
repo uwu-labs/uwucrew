@@ -4,8 +4,6 @@ import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import RotatingImage from './RotatingImage';
 import Footer from './Footer';
-import { useRouter } from 'next/dist/client/router';
-import { useWeb3React } from '@web3-react/core';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -119,9 +117,6 @@ const ButtonContainer = styled.div`
 `;
 
 const Hero = () => {
-	const { active } = useWeb3React();
-	const router = useRouter();
-
 	const [connecting, setConnecting] = useState(false);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
