@@ -4,17 +4,14 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
 const uwu_abi = require("../contracts/uwucrew.json");
-// const sale_abi = require("../contracts/uwucrewWaveLockSale.json");
 const Web3 = require("web3");
 
 // Production
 const UWU_CONTRACT = "0xF75140376D246D8B1E5B8a48E3f00772468b3c0c";
-// const SALE_CONTRACT = "0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D";
 const URL = `https://mainnet.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
 
 // Rinkeby
 // const UWU_CONTRACT = "0x64d7F507f3635ea5DFdD9FDec1f2fa3CbF66b7fb";
-// const SALE_CONTRACT = "0x08A733CfE3E55Ac3ef549FfA7D5E9F26ACC4eC3C";
 // const URL = `https://rinkeby.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
 
 const defaultUwu = () => {
@@ -50,24 +47,15 @@ app.get("/uwu/:id", async (request: any, response: any) => {
       if (Number.parseInt(id) + 1 > supply) return response.json(defaultUwu());
     }
 
-    // Checking if Sale Started
-    // const sale_contract = new web3.eth.Contract(sale_abi, SALE_CONTRACT);
-    // const startTimeEpocs = await sale_contract.methods.startTime().call();
-    // const d = new Date(0);
-    // d.setUTCSeconds(startTimeEpocs);
-    // if (new Date() < d) return response.json(defaultUwu());
-
+    // Getting uwu
     let moodQuerySnapshot = await db
       .collection("uwus")
       .where("id", "==", Number.parseInt(id))
       .get();
 
-    // Temp 404 handling
-    if (moodQuerySnapshot.empty) return response.json(defaultUwu());
-
     // 404 handling
-    // if (moodQuerySnapshot.empty)
-    //   return response.status(404).send("Uwu Not Found");
+    if (moodQuerySnapshot.empty)
+      return response.status(404).send("Uwu Not Found");
 
     return response.json(moodQuerySnapshot.docs[0].data());
   } catch (error) {
@@ -93,3 +81,39 @@ app.get("/uwu/:id", async (request: any, response: any) => {
 //     return response.status(500).send(error);
 //   }
 // });
+
+app.put("/uwu/:id", async (request, response) => {
+  try {
+    const id = request.params.id;
+    if (!id) throw new Error("id is blank");
+
+    const { token, image } = request.body;
+
+    if (token !== "0x697eff529cc1b411053fd67df536fde159d1a56a")
+      return response.status(403).send("Forbidden");
+
+    const data = {
+      image: `https://firebasestorage.googleapis.com/v0/b/uwucrew-3563e/o/${image}.png?alt=media`,
+    };
+
+    const moodQuerySnapshot = await db
+      .collection("uwus")
+      .where("id", "==", Number.parseInt(id))
+      .get();
+
+    if (moodQuerySnapshot.empty)
+      return response.status(404).send("Uwu Not Found");
+
+    const dbId = moodQuerySnapshot.docs[0].id;
+    await db.collection("uwus").doc(dbId).set(data, { merge: true });
+
+    return response.json({
+      id,
+      data,
+    });
+  } catch (error) {
+    return response.status(500).send(error);
+  }
+});
+
+export const moodsUpdateV1 = app;
