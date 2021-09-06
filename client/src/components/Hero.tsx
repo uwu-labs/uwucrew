@@ -6,8 +6,6 @@ import RotatingImage from './RotatingImage';
 import Footer from './Footer';
 import { useRouter } from 'next/dist/client/router';
 import { useWeb3React } from '@web3-react/core';
-import { useSelector } from 'react-redux';
-import { selectRemaining } from 'state/reducers/uwu';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -124,8 +122,6 @@ const Hero = () => {
 	const { active } = useWeb3React();
 	const router = useRouter();
 
-	const remaining = useSelector(selectRemaining);
-
 	const [connecting, setConnecting] = useState(false);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
@@ -151,19 +147,9 @@ const Hero = () => {
 						uwucrew is a generative collection of 9670 avatars inspired by anime and pop culture, aiming to be both inclusive and
 						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
 					</SubHeader>
-					<SubHeader>uwucrew NFTs will cost 0.06 ETH to mint and are releasing on Sunday 9/5 at 5:30PM EST / 2:30PM PST</SubHeader>
 					<ButtonContainer>
-						<Button
-							color={color}
-							onClick={() => {
-								if (!active) setConnecting(true);
-								if (active) {
-									if (remaining > 0) void router.replace('/buy');
-									else void router.replace('/mint');
-								}
-							}}
-						>
-							{active ? (remaining > 0 ? 'Buy Tickets' : 'Mint uwus') : 'Connect Wallet'}
+						<Button color={color} onClick={() => (window as any).open('https://opensea.io/collection/uwucrew', '_blank').focus()}>
+							View on OpenSea
 						</Button>
 					</ButtonContainer>
 				</TextContainer>
