@@ -180,7 +180,16 @@ const MintPage: NextPage = () => {
 						<Label>{`If you purchased an uwu-ticket with BSC WET then you can redeem your uwus here! You have ${balance} tickets remaining to mint uwuws with.`}</Label>
 						<Label>Please redeem your uwu-tickets before the time expires or else you may lose your uwus</Label>
 						<Countdown date={deadline()} />
-						<MintBscInput balance={balance} refresh={() => getbalance()} index={index} address={account} proof={proof} total={total} />
+						{account && (
+							<MintBscInput
+								balance={balance}
+								refresh={() => getbalance()}
+								index={index}
+								address={account}
+								proof={proof}
+								total={total}
+							/>
+						)}
 					</Body>
 				</Content>
 			</Container>
