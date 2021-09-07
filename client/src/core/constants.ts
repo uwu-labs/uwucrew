@@ -8,7 +8,7 @@ export const DESCRIPTION: string =
 
 // Rinkeby;
 export const SALE_CONTRACT: string = '0xA17e72b5172E12e9e3A37Ff0DE201aAF3fBA03b4';
-export const BSC_CLAIM: string = '0x25cbC1626A5b775546A206ea2fB835883dD06c5a';
+export const BSC_CLAIM: string = '0x838FDB438828FBF03fF1F5b1d1faB66B5302705A';
 export const UWU_CONTRACT: string = '0x64d7F507f3635ea5DFdD9FDec1f2fa3CbF66b7fb';
 export const SECONDS_PER_BLOCK = 16;
 
