@@ -1,18 +1,21 @@
 import type { NextPage } from 'next';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import GlobalStyles from 'styles/GlobalStyles';
 import Image from 'next/image';
 
 import uwu from '../assets/girls/mint.jpg';
 import Header from '../components/Header';
-import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
-import { useSelector } from 'react-redux';
 import Footer from 'components/Footer';
-import { selectOwnedTickets } from 'state/reducers/uwu';
-import MintInput from 'components/MintInput';
 import Countdown from 'components/Countdown';
+import data from '../assets/data/bsc_proofs.json';
+import { useWeb3React } from '@web3-react/core';
+import abi from '../contracts/NFTMerkleDistributor.json';
+import { Contract } from 'ethers';
+import { BSC_CLAIM } from 'core/constants';
+import MintBscInput from 'components/MintBscInput';
+import OwnedTickets from 'components/OwnedTickets';
 
 const StyledMint = styled.div`
 	position: relative;
@@ -122,7 +125,11 @@ const Uwu = styled.div`
 `;
 
 const MintPage: NextPage = () => {
-	const balance = useSelector(selectOwnedTickets);
+	const { account, chainId, library } = useWeb3React();
+	const [balance, setBalance] = useState(0);
+	const [index, setIndex] = useState(0);
+	const [proof, setProof] = useState<string[]>([]);
+	const [total, setTotal] = useState(0);
 
 	const startDate = () => {
 		const startTime = new Date(0);
@@ -132,9 +139,28 @@ const MintPage: NextPage = () => {
 
 	const deadline = () => {
 		const deadline = startDate();
-		deadline.setDate(deadline.getDate() + 3);
+		deadline.setDate(deadline.getDate() + 4);
 		return deadline;
 	};
+
+	const getbalance = async (): Promise<number> => {
+		if (!account) return 0;
+		const address = account;
+		const accountData = (data as any)[address];
+		if (!accountData) return 0;
+		if (!library) return 0;
+		const contract = new Contract(BSC_CLAIM, abi, library?.getSigner());
+		const minted = await contract.mintedPerAccount(address);
+		setBalance(Number(accountData.Amount) - minted.toNumber());
+		setIndex(accountData.Index);
+		setProof(accountData.Proof);
+		setTotal(Number(accountData.Amount));
+		return balance;
+	};
+
+	useEffect(() => {
+		void getbalance();
+	}, [account, chainId, library]);
 
 	return (
 		<StyledMint>
@@ -145,18 +171,27 @@ const MintPage: NextPage = () => {
 			<Container>
 				<HeaderContainer>
 					<HeaderText>Mint uwus!</HeaderText>
-					<OwnedTickets color="var(--bg-03)" />
+					<OwnedTickets color="var(--bg-03)" owned={balance} />
 				</HeaderContainer>
 				<Content>
 					<Uwu>
 						<Image src={uwu} />
 					</Uwu>
 					<Body>
-						<BodyHeader>Redeem Tickets</BodyHeader>
-						<Label>{`You can mint an uwucrew NFT with your uwu-tickets! You have ${balance} tickets remaining to mint uwus with. uwus are revealed instantly and are completely randomised.`}</Label>
+						<BodyHeader>Redeem Uwus</BodyHeader>
+						<Label>{`If you purchased an uwu-ticket with BSC WET then you can redeem your uwus here! You have ${balance} tickets remaining to mint uwus with.`}</Label>
 						<Label>Please redeem your uwu-tickets before the time expires or else you may lose your uwus</Label>
 						<Countdown date={deadline()} />
-						<MintInput />
+						{account && (
+							<MintBscInput
+								balance={balance}
+								refresh={() => getbalance()}
+								index={index}
+								address={account}
+								proof={proof}
+								total={total}
+							/>
+						)}
 					</Body>
 				</Content>
 			</Container>

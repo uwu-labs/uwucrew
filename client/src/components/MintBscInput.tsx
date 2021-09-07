@@ -1,13 +1,10 @@
-import type { NextPage } from 'next';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
-import { reload, selectOwnedTickets } from 'state/reducers/uwu';
-import { BigNumber, Contract, ethers } from 'ethers';
-import { SALE_CONTRACT } from 'core/constants';
+import { Contract } from 'ethers';
+import { BSC_CLAIM } from 'core/constants';
 import type { Web3Provider } from '@ethersproject/providers';
 
-import abi from '../contracts/uwucrewWaveLockSale.json';
+import abi from '../contracts/NFTMerkleDistributor.json';
 import { useWeb3React } from '@web3-react/core';
 
 const StyledMintInput = styled.div`
@@ -87,17 +84,24 @@ const Error = styled.div`
 	}
 `;
 
-const MintInput: NextPage = () => {
-	const dispatch = useDispatch();
+interface Props {
+	balance: number;
+	total: number;
+	index: number;
+	proof: string[];
+	address: string;
+	refresh: () => void;
+}
+
+const MintBscInput = ({ balance, total, refresh, index, proof, address }: Props) => {
 	const { library } = useWeb3React<Web3Provider>();
-	const balance = useSelector(selectOwnedTickets);
 	const [loading, setLoading] = useState(false);
 	const [amount, setAmount] = useState('');
 	const [error, setError] = useState('');
 
 	const validate = (input: string): boolean => {
 		if (balance === 0) {
-			setError('You do not have any uwu-tickets');
+			setError('You do not have any to claim');
 			return false;
 		}
 		let value = 0;
@@ -116,29 +120,20 @@ const MintInput: NextPage = () => {
 			return false;
 		}
 		if (value > balance) {
-			setError(`You only have ${balance} uwu-tickets`);
+			setError(`You only have ${balance} to claim`);
 			return false;
 		}
 		setError('');
 		return true;
 	};
 
-	const mint = async () => {
+	const mint = () => {
 		if (loading || balance === 0 || !validate(amount) || !library) return;
 
-		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
-		const scale = BigNumber.from(10).pow(18);
-
-		// Getting gas price
-		const gasPriceCurrent = await library.getGasPrice();
-		const gasPrice = gasPriceCurrent.mul(ethers.utils.parseEther('1.2')).div(scale);
-
-		// Getting gas estimate
-		// const gasEstimate: BigNumber = await contract.estimateGas.mint(balance);
-		// const gasLimit = gasEstimate.mul(BigNumber.from(120)).div(BigNumber.from(100));
+		const contract = new Contract(BSC_CLAIM, abi, library?.getSigner());
 
 		contract
-			.mint(Number(amount), { gasPrice })
+			.claim(index, address, total, amount, proof)
 			.then((receipt: any) => {
 				setLoading(true);
 				receipt
@@ -152,7 +147,7 @@ const MintInput: NextPage = () => {
 					})
 					.finally(() => {
 						setLoading(false);
-						dispatch(reload());
+						refresh();
 					});
 			})
 			.catch((err: any) => {
@@ -183,4 +178,4 @@ const MintInput: NextPage = () => {
 	);
 };
 
-export default MintInput;
+export default MintBscInput;
