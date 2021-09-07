@@ -173,7 +173,6 @@ const MintPage: NextPage = () => {
 			<Container>
 				<HeaderContainer>
 					<HeaderText>Mint uwuws!</HeaderText>
-					<OwnedTickets color="var(--bg-03)" />
 				</HeaderContainer>
 				<Content>
 					<Uwu>
