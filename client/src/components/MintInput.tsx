@@ -175,7 +175,7 @@ const MintInput: NextPage = () => {
 					}}
 				/>
 				<Button onClick={() => mint()} disabled={balance === 0}>
-					{loading ? 'Loading' : 'Mint uwuws'}
+					{loading ? 'Loading' : 'Mint uwus'}
 				</Button>
 			</InputContainer>
 			{error && <Error>{error}</Error>}

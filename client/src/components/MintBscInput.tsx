@@ -170,7 +170,7 @@ const MintBscInput = ({ balance, total, refresh, index, proof, address }: Props)
 					}}
 				/>
 				<Button onClick={() => mint()} disabled={balance === 0}>
-					{loading ? 'Loading' : 'Mint uwuws'}
+					{loading ? 'Loading' : 'Mint uwus'}
 				</Button>
 			</InputContainer>
 			{error && <Error>{error}</Error>}

@@ -144,7 +144,7 @@ const MintPage: NextPage = () => {
 
 			<Container>
 				<HeaderContainer>
-					<HeaderText>Mint uwuws!</HeaderText>
+					<HeaderText>Mint uwus!</HeaderText>
 					<OwnedTickets color="var(--bg-03)" />
 				</HeaderContainer>
 				<Content>
@@ -153,7 +153,7 @@ const MintPage: NextPage = () => {
 					</Uwu>
 					<Body>
 						<BodyHeader>Redeem Tickets</BodyHeader>
-						<Label>{`You can mint an uwucrew NFT with your uwu-tickets! You have ${balance} tickets remaining to mint uwuws with. uwus are revealed instantly and are completely randomised.`}</Label>
+						<Label>{`You can mint an uwucrew NFT with your uwu-tickets! You have ${balance} tickets remaining to mint uwus with. uwus are revealed instantly and are completely randomised.`}</Label>
 						<Label>Please redeem your uwu-tickets before the time expires or else you may lose your uwus</Label>
 						<Countdown date={deadline()} />
 						<MintInput />
