@@ -145,7 +145,7 @@ const MintPage: NextPage = () => {
 	const getbalance = async (): Promise<number> => {
 		if (!account) return 0;
 		const address = account;
-		const accountData = data[address];
+		const accountData = (data as any)[address];
 		if (!accountData) return 0;
 		if (!library) return 0;
 		const contract = new Contract(BSC_CLAIM, abi, library?.getSigner());
