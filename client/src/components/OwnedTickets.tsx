@@ -3,10 +3,14 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectOwnedTickets } from 'state/reducers/uwu';
 
+interface StyledProps {
+	color: string;
+}
+
 const StyledOwnedTickets = styled.div`
 	display: flex;
 	align-items: center;
-	background-color: ${(props: Props) => props.color};
+	background-color: ${(props: StyledProps) => props.color};
 	height: 4.7rem;
 	padding: 0 3.3rem;
 `;
@@ -25,14 +29,15 @@ const Label = styled.div`
 
 interface Props {
 	color: string;
+	owned?: number;
 }
 
-const OwnedTickets = ({ color }: Props) => {
+const OwnedTickets = ({ color, owned }: Props) => {
 	const ownedTickets = useSelector(selectOwnedTickets);
 
 	return (
 		<StyledOwnedTickets color={color}>
-			<Label>{`Owned: ${ownedTickets}`}</Label>
+			<Label>{`Owned: ${owned === undefined ? ownedTickets : owned}`}</Label>
 		</StyledOwnedTickets>
 	);
 };

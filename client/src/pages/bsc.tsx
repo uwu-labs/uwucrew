@@ -15,6 +15,7 @@ import abi from '../contracts/NFTMerkleDistributor.json';
 import { Contract } from 'ethers';
 import { BSC_CLAIM } from 'core/constants';
 import MintBscInput from 'components/MintBscInput';
+import OwnedTickets from 'components/OwnedTickets';
 
 const StyledMint = styled.div`
 	position: relative;
@@ -169,15 +170,16 @@ const MintPage: NextPage = () => {
 
 			<Container>
 				<HeaderContainer>
-					<HeaderText>Mint uwuws!</HeaderText>
+					<HeaderText>Mint uwus!</HeaderText>
+					<OwnedTickets color="var(--bg-03)" owned={balance} />
 				</HeaderContainer>
 				<Content>
 					<Uwu>
 						<Image src={uwu} />
 					</Uwu>
 					<Body>
-						<BodyHeader>Redeem Uwuws</BodyHeader>
-						<Label>{`If you purchased an uwu-ticket with BSC WET then you can redeem your uwus here! You have ${balance} tickets remaining to mint uwuws with.`}</Label>
+						<BodyHeader>Redeem Uwus</BodyHeader>
+						<Label>{`If you purchased an uwu-ticket with BSC WET then you can redeem your uwus here! You have ${balance} tickets remaining to mint uwus with.`}</Label>
 						<Label>Please redeem your uwu-tickets before the time expires or else you may lose your uwus</Label>
 						<Countdown date={deadline()} />
 						{account && (
