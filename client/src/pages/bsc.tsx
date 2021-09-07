@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 import uwu from '../assets/girls/mint.jpg';
 import Header from '../components/Header';
-import OwnedTickets from 'components/OwnedTickets';
 import ForceConnect from 'components/ForceConnect';
 import Footer from 'components/Footer';
 import Countdown from 'components/Countdown';
