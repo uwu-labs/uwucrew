@@ -124,9 +124,7 @@ const Uwu = styled.div`
 `;
 
 const MintPage: NextPage = () => {
-	// const { account, chainId, library } = useWeb3React();
-	const { chainId, library } = useWeb3React();
-	const account = '0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48';
+	const { account, chainId, library } = useWeb3React();
 	const [balance, setBalance] = useState(0);
 	const [index, setIndex] = useState(0);
 	const [proof, setProof] = useState<string[]>([]);
