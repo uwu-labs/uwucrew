@@ -132,7 +132,7 @@ const MintPage: NextPage = () => {
 
 	const deadline = () => {
 		const deadline = startDate();
-		deadline.setDate(deadline.getDate() + 3);
+		deadline.setDate(deadline.getDate() + 4);
 		return deadline;
 	};
 
