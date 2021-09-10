@@ -6,6 +6,9 @@
   "components": {
     "hero": {
       "opensea": "View on OpenSea"
+    },
+    "owned": {
+      "owned": "Owned"
     }
   }
 }
