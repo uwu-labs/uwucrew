@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectOwnedTickets } from 'state/reducers/uwu';
+import useTranslation from 'next-translate/useTranslation';
 
 interface StyledProps {
 	color: string;
@@ -34,10 +35,11 @@ interface Props {
 
 const OwnedTickets = ({ color, owned }: Props) => {
 	const ownedTickets = useSelector(selectOwnedTickets);
+	const { t } = useTranslation('common');
 
 	return (
 		<StyledOwnedTickets color={color}>
-			<Label>{`Owned: ${owned === undefined ? ownedTickets : owned}`}</Label>
+			<Label>{`${t('components.owned.owned')}: ${owned === undefined ? ownedTickets : owned}`}</Label>
 		</StyledOwnedTickets>
 	);
 };
