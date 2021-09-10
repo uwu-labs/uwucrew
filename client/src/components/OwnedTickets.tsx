@@ -1,8 +1,8 @@
+import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
-import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { selectOwnedTickets } from 'state/reducers/uwu';
-import useTranslation from 'next-translate/useTranslation';
+import styled from 'styled-components';
 
 interface StyledProps {
 	color: string;

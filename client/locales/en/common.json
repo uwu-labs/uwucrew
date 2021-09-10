@@ -7,6 +7,17 @@
     "hero": {
       "opensea": "View on OpenSea"
     },
+    "mint": {
+      "input_placeholder": "Enter amount (e.g. {{balance}})",
+      "errors": {
+        "no_tickets": "You do not have any uwu-tickets",
+        "invalid_number": "Invalid number",
+        "one_or_more": "Must be 1 or more",
+        "integer": "Must be an integer",
+        "balance": "You only have {{balance}} uwu-tickets",
+        "gas": "Not enough ETH to cover gas"
+      }
+    },
     "owned": {
       "owned": "Owned"
     }

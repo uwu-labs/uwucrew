@@ -1,14 +1,14 @@
+import type { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
+import { SALE_CONTRACT } from 'core/constants';
+import { BigNumber, Contract, ethers } from 'ethers';
 import type { NextPage } from 'next';
+import useTranslation from 'next-translate/useTranslation';
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { reload, selectOwnedTickets } from 'state/reducers/uwu';
-import { BigNumber, Contract, ethers } from 'ethers';
-import { SALE_CONTRACT } from 'core/constants';
-import type { Web3Provider } from '@ethersproject/providers';
-
+import styled from 'styled-components';
 import abi from '../contracts/uwucrewWaveLockSale.json';
-import { useWeb3React } from '@web3-react/core';
 
 const StyledMintInput = styled.div`
 	display: flex;
@@ -94,29 +94,30 @@ const MintInput: NextPage = () => {
 	const [loading, setLoading] = useState(false);
 	const [amount, setAmount] = useState('');
 	const [error, setError] = useState('');
+	const { t } = useTranslation('common');
 
 	const validate = (input: string): boolean => {
 		if (balance === 0) {
-			setError('You do not have any uwu-tickets');
+			setError(t('components.mint.errors.no_tickets'));
 			return false;
 		}
 		let value = 0;
 		try {
 			value = Number(input);
 		} catch {
-			setError('Invalid number');
+			setError(t('components.mint.errors.invalid_number'));
 			return false;
 		}
 		if (value <= 0) {
-			setError('Must be 1 or more');
+			setError(t('components.mint.errors.one_or_more'));
 			return false;
 		}
 		if (value % 1 !== 0) {
-			setError('Must be an integer');
+			setError(t('components.mint.errors.integer'));
 			return false;
 		}
 		if (value > balance) {
-			setError(`You only have ${balance} uwu-tickets`);
+			setError(t('components.mint.errors.balance', { balance }));
 			return false;
 		}
 		setError('');
@@ -156,7 +157,7 @@ const MintInput: NextPage = () => {
 					});
 			})
 			.catch((err: any) => {
-				setError('Not enough ETH to cover gas');
+				setError(t('components.mint.errors.gas'));
 				console.log('Error');
 				console.log(err);
 			});
@@ -166,7 +167,7 @@ const MintInput: NextPage = () => {
 		<StyledMintInput>
 			<InputContainer>
 				<Input
-					placeholder={`Enter amount (e.g. ${balance})`}
+					placeholder={t('components.mint.input_placeholder', { balance })}
 					type="number"
 					value={amount}
 					onChange={(e) => {
@@ -175,6 +176,7 @@ const MintInput: NextPage = () => {
 					}}
 				/>
 				<Button onClick={() => mint()} disabled={balance === 0}>
+					{/* TODO: Possibly translate this */}
 					{loading ? 'Loading' : 'Mint uwus'}
 				</Button>
 			</InputContainer>
