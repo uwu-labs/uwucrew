@@ -1,9 +1,10 @@
+import useTranslation from 'next-translate/useTranslation';
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Button from './Button';
 import ConnectWallet from './ConnectWallet';
-import RotatingImage from './RotatingImage';
 import Footer from './Footer';
+import RotatingImage from './RotatingImage';
 
 const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
 
@@ -121,6 +122,7 @@ const Hero = () => {
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
 	colorIndexRef.current = colorIndex;
+	const { t } = useTranslation('common');
 
 	const color = colors[colorIndex % colors.length];
 
@@ -137,14 +139,11 @@ const Hero = () => {
 					<RotatingImage color={color} activeIndex={colorIndex} />
 				</ImageContainer>
 				<TextContainer>
-					<Header>uwucrew</Header>
-					<SubHeader>
-						uwucrew is a generative collection of 9670 avatars inspired by anime and pop culture, aiming to be both inclusive and
-						expressive. Every uwucrew NFT is completely unique and features up to 9 traits with 120+ assets.
-					</SubHeader>
+					<Header>{t('general.name')}</Header>
+					<SubHeader>{t('general.description')}</SubHeader>
 					<ButtonContainer>
 						<Button color={color} onClick={() => (window as any).open('https://opensea.io/collection/uwucrew', '_blank').focus()}>
-							View on OpenSea
+							{t('components.hero.opensea')}
 						</Button>
 					</ButtonContainer>
 				</TextContainer>
