@@ -9,6 +9,7 @@ import Hero from 'components/Hero';
 import Slide from 'components/Slide';
 import AboutSlide from 'components/AboutSlide';
 import TeamSlide from 'components/TeamSlide';
+import RoadmapSlide from 'components/RoadmapSlide';
 
 const Container = styled.div`
 	position: relative;
@@ -25,9 +26,10 @@ const IndexPage: NextPage = () => {
 			<Container>
 				<Hero />
 				<AboutSlide />
+				<RoadmapSlide />
 				<TeamSlide />
 				{/* <LoreSlide /> */}
-				<Slide
+				{/* <Slide
 					color="var(--bg-02)"
 					section="roadmap"
 					header="What's Next"
@@ -36,7 +38,7 @@ const IndexPage: NextPage = () => {
 						'We have several initiatives planned involving a merch shop, NFT drops, and collaborations to reward holders over time. We believe in a long term vision and are committed to our community to provide an innovative and fun experience.',
 						'More announcements will be released in the coming weeks with further details!'
 					]}
-				/>
+				/> */}
 				{/* <Slide
 					color="var(--bg-05)"
 					section="provenance"
