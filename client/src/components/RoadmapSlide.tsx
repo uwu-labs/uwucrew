@@ -24,6 +24,10 @@ const Content = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 const SubHeader = styled.div`
@@ -32,15 +36,12 @@ const SubHeader = styled.div`
 	max-width: 70%;
 	margin-bottom: 2rem;
 	margin-top: 3rem;
-	/* font-family: 'Roboto', sans-serif; */
 
 	font-size: 3rem;
 	line-height: 2.3rem;
 	@media (max-width: 768px) {
-		font-size: 1.6rem;
-		line-height: 2rem;
-		max-width: 100%;
-		width: 100%;
+		font-size: 2rem;
+		font-weight: 700;
 	}
 `;
 
