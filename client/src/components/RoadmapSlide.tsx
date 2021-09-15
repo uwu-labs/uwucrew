@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from './Button';
 import SaleSplit from './SaleSplit';
 import Slide from './Slide';
 
@@ -70,6 +71,10 @@ const ListItem = styled.div`
 	}
 `;
 
+const ButtonContainer = styled.div`
+	margin-top: 3rem;
+`;
+
 const RoadmapSlide = () => {
 	return (
 		<Slide
@@ -90,6 +95,16 @@ const RoadmapSlide = () => {
 								<ListItem>{item}</ListItem>
 							))}
 						</List>
+						<ButtonContainer>
+							<Button
+								color="var(--bg-02)"
+								onClick={() =>
+									(window as any).open('https://medium.com/@uwulabs/uwucrew-official-roadmap-v1-98462045b1b0', '_blank').focus()
+								}
+							>
+								More Details
+							</Button>
+						</ButtonContainer>
 					</Items>
 					<SaleSplit />
 				</Content>
