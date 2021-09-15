@@ -3,29 +3,16 @@ import styled from 'styled-components';
 import { Pie } from 'react-chartjs-2';
 
 const StyledSaleSplit = styled.div`
-	width: 35vw;
-	height: 27vw;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-`;
 
-const SubHeader = styled.div`
-	font-weight: 600;
-	color: var(--text-primary);
-	max-width: 70%;
-	text-align: center;
-	/* margin-bottom: 2rem; */
-	/* font-family: 'Roboto', sans-serif; */
-
-	font-size: 3rem;
-	line-height: 2.3rem;
+	width: 35vw;
+	height: 27vw;
 	@media (max-width: 768px) {
-		font-size: 1.6rem;
-		line-height: 2rem;
-		max-width: 100%;
-		width: 100%;
+		width: 90vw;
+		height: 70vw;
 	}
 `;
 
@@ -33,7 +20,7 @@ const data = {
 	labels: ['Charity', 'DAO Treasury', 'Future Development', 'Team'],
 	datasets: [
 		{
-			label: '# of Votes',
+			label: 'Distribution',
 			data: [7.5, 15, 27.5, 50],
 			backgroundColor: ['#C27797', '#C79E9E', '#808080', '#8CB1B7'],
 			borderColor: ['#C27797', '#C79E9E', '#808080', '#8CB1B7'],
@@ -46,13 +33,17 @@ const options = {
 	plugins: {
 		legend: {
 			position: 'right'
+		},
+		tooltip: {
+			callbacks: {
+				label: (context: any) => `${context.dataset.label}: ${context.parsed}%`
+			}
 		}
 	}
 };
 
 const SaleSplit = () => (
 	<StyledSaleSplit>
-		{/* <SubHeader>Primary Sale Split</SubHeader> */}
 		<Pie data={data} options={options} />
 	</StyledSaleSplit>
 );
