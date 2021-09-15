@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SaleSplit from './SaleSplit';
 import Slide from './Slide';
 
 const roadmap: string[] = [
@@ -20,7 +21,7 @@ const drops: string[] = [
 const Content = styled.div`
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
 `;
 
@@ -90,6 +91,7 @@ const RoadmapSlide = () => {
 							))}
 						</List>
 					</Items>
+					<SaleSplit />
 				</Content>
 			}
 		/>
