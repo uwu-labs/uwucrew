@@ -35,9 +35,8 @@ const data = {
 		{
 			label: '# of Votes',
 			data: [7.5, 15, 27.5, 50],
-			// backgroundColor: ['#DBE6EA', '#F4E5EB', '#DEEAEF', '#F7F0E7'],
-			backgroundColor: ['#C27797', '#8CB1B7', '#C79E9E', '#828697'],
-			borderColor: ['#C27797', '#8CB1B7', '#C79E9E', '#828697'],
+			backgroundColor: ['#C27797', '#C79E9E', '#808080', '#8CB1B7'],
+			borderColor: ['#C27797', '#C79E9E', '#808080', '#8CB1B7'],
 			borderWidth: 2
 		}
 	]
