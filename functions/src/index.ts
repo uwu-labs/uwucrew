@@ -3,22 +3,22 @@ import * as admin from "firebase-admin";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
-const uwu_abi = require("../contracts/uwucrew.json");
-const Web3 = require("web3");
+// const uwu_abi = require("../contracts/uwucrew.json");
+// const Web3 = require("web3");
 
 // Production
-const UWU_CONTRACT = "0xF75140376D246D8B1E5B8a48E3f00772468b3c0c";
-const URL = `https://mainnet.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
+// const UWU_CONTRACT = "0xF75140376D246D8B1E5B8a48E3f00772468b3c0c";
+// const URL = `https://mainnet.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
 
 // Rinkeby
 // const UWU_CONTRACT = "0x64d7F507f3635ea5DFdD9FDec1f2fa3CbF66b7fb";
 // const URL = `https://rinkeby.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2`;
 
-const defaultUwu = () => {
-  return {
-    image: "https://uwucrew.art/pre-reveal.mp4",
-  };
-};
+// const defaultUwu = () => {
+//   return {
+//     image: "https://uwucrew.art/pre-reveal.mp4",
+//   };
+// };
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -37,15 +37,15 @@ app.get("/uwu/:id", async (request: any, response: any) => {
     const id = request.params.id;
     if (!id) throw new Error("Uwu ID is required");
 
-    const provider = new Web3.providers.HttpProvider(URL);
-    const web3 = new Web3(provider);
+    // const provider = new Web3.providers.HttpProvider(URL);
+    // const web3 = new Web3(provider);
 
-    // Checking if Minted
-    if (Number.parseInt(id) > 7_600) {
-      const uwu_contract = new web3.eth.Contract(uwu_abi, UWU_CONTRACT);
-      const supply = await uwu_contract.methods.totalSupply().call();
-      if (Number.parseInt(id) + 1 > supply) return response.json(defaultUwu());
-    }
+    // // Checking if Minted
+    // if (Number.parseInt(id) > 7_600) {
+    //   const uwu_contract = new web3.eth.Contract(uwu_abi, UWU_CONTRACT);
+    //   const supply = await uwu_contract.methods.totalSupply().call();
+    //   if (Number.parseInt(id) + 1 > supply) return response.json(defaultUwu());
+    // }
 
     // Getting uwu
     let moodQuerySnapshot = await db
