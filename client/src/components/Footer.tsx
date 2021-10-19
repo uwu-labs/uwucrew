@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
 				<a href="https://twitter.com/uwucrewnft" target="_blank" rel="noreferrer">
 					<Social src={twitter} />
 				</a>
-				<a href="https://waifusioncommunity.medium.com/" target="_blank" rel="noreferrer">
+				<a href="https://medium.com/@uwulabs" target="_blank" rel="noreferrer">
 					<Social src={medium} />
 				</a>
 				<a href="https://github.com/waifusion" target="_blank" rel="noreferrer">

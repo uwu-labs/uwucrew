@@ -122,8 +122,7 @@ const Navbar: React.FC = () => {
 			<NavItems>
 				<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
 				<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
-				<NavItem onClick={() => navigateToSlide('roadmap')}>what's next</NavItem>
-				<NavItem onClick={() => router.replace('/mint')}>mint</NavItem>
+				<NavItem onClick={() => navigateToSlide('roadmap')}>roadmap</NavItem>
 				{/* <NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem> */}
 				{/* <NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem> */}
 			</NavItems>

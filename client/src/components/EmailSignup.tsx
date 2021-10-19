@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import useTranslation from 'next-translate/useTranslation';
 
 const raise = keyframes`
   from {
@@ -87,6 +88,7 @@ interface Props {
 
 const EmailSignup = ({ color }: Props) => {
 	const [email, setEmail] = useState('');
+	const { t } = useTranslation('common');
 
 	return (
 		<StyledEmailSignup>
@@ -99,7 +101,7 @@ const EmailSignup = ({ color }: Props) => {
 			>
 				<Input
 					color={color}
-					placeholder="Enter email"
+					placeholder={t('components.email.input_placeholder')}
 					type="email"
 					value={email}
 					name="EMAIL"

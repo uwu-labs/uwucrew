@@ -1,14 +1,11 @@
-import type { Web3Provider } from '@ethersproject/providers';
-import { useWeb3React } from '@web3-react/core';
-import { SALE_CONTRACT } from 'core/constants';
-import { BigNumber, Contract, ethers } from 'ethers';
-import type { NextPage } from 'next';
-import useTranslation from 'next-translate/useTranslation';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { reload, selectOwnedTickets } from 'state/reducers/uwu';
 import styled from 'styled-components';
-import abi from '../contracts/uwucrewWaveLockSale.json';
+import { Contract } from 'ethers';
+import { BSC_CLAIM } from 'core/constants';
+import type { Web3Provider } from '@ethersproject/providers';
+
+import abi from '../contracts/NFTMerkleDistributor.json';
+import { useWeb3React } from '@web3-react/core';
 
 const StyledMintInput = styled.div`
 	display: flex;
@@ -87,59 +84,56 @@ const Error = styled.div`
 	}
 `;
 
-const MintInput: NextPage = () => {
-	const dispatch = useDispatch();
+interface Props {
+	balance: number;
+	total: number;
+	index: number;
+	proof: string[];
+	address: string;
+	refresh: () => void;
+}
+
+const MintBscInput = ({ balance, total, refresh, index, proof, address }: Props) => {
 	const { library } = useWeb3React<Web3Provider>();
-	const balance = useSelector(selectOwnedTickets);
 	const [loading, setLoading] = useState(false);
 	const [amount, setAmount] = useState('');
 	const [error, setError] = useState('');
-	const { t } = useTranslation('common');
 
 	const validate = (input: string): boolean => {
 		if (balance === 0) {
-			setError(t('components.mint.errors.no_tickets'));
+			setError('You do not have any to claim');
 			return false;
 		}
 		let value = 0;
 		try {
 			value = Number(input);
 		} catch {
-			setError(t('components.mint.errors.invalid_number'));
+			setError('Invalid number');
 			return false;
 		}
 		if (value <= 0) {
-			setError(t('components.mint.errors.one_or_more'));
+			setError('Must be 1 or more');
 			return false;
 		}
 		if (value % 1 !== 0) {
-			setError(t('components.mint.errors.integer'));
+			setError('Must be an integer');
 			return false;
 		}
 		if (value > balance) {
-			setError(t('components.mint.errors.balance', { balance }));
+			setError(`You only have ${balance} to claim`);
 			return false;
 		}
 		setError('');
 		return true;
 	};
 
-	const mint = async () => {
+	const mint = () => {
 		if (loading || balance === 0 || !validate(amount) || !library) return;
 
-		const contract = new Contract(SALE_CONTRACT, abi, library?.getSigner());
-		const scale = BigNumber.from(10).pow(18);
-
-		// Getting gas price
-		const gasPriceCurrent = await library.getGasPrice();
-		const gasPrice = gasPriceCurrent.mul(ethers.utils.parseEther('1.2')).div(scale);
-
-		// Getting gas estimate
-		// const gasEstimate: BigNumber = await contract.estimateGas.mint(balance);
-		// const gasLimit = gasEstimate.mul(BigNumber.from(120)).div(BigNumber.from(100));
+		const contract = new Contract(BSC_CLAIM, abi, library?.getSigner());
 
 		contract
-			.mint(Number(amount), { gasPrice })
+			.claim(index, address, total, amount, proof)
 			.then((receipt: any) => {
 				setLoading(true);
 				receipt
@@ -153,11 +147,11 @@ const MintInput: NextPage = () => {
 					})
 					.finally(() => {
 						setLoading(false);
-						dispatch(reload());
+						refresh();
 					});
 			})
 			.catch((err: any) => {
-				setError(t('components.mint.errors.gas'));
+				setError('Not enough ETH to cover gas');
 				console.log('Error');
 				console.log(err);
 			});
@@ -167,7 +161,7 @@ const MintInput: NextPage = () => {
 		<StyledMintInput>
 			<InputContainer>
 				<Input
-					placeholder={t('components.mint.input_placeholder', { balance })}
+					placeholder={`Enter amount (e.g. ${balance})`}
 					type="number"
 					value={amount}
 					onChange={(e) => {
@@ -176,7 +170,6 @@ const MintInput: NextPage = () => {
 					}}
 				/>
 				<Button onClick={() => mint()} disabled={balance === 0}>
-					{/* TODO: Possibly translate this */}
 					{loading ? 'Loading' : 'Mint uwus'}
 				</Button>
 			</InputContainer>
@@ -185,4 +178,4 @@ const MintInput: NextPage = () => {
 	);
 };
 
-export default MintInput;
+export default MintBscInput;
