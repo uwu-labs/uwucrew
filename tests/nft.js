@@ -4,6 +4,7 @@ const { expectRevert, expectException } = require("../utils/expectRevert");
 const { BigNumber } = require("@ethersproject/bignumber");
 const { ethers, upgrades } = require("hardhat");
 
+let idToData = require("./id-to-data.json");
 
 const BASE = BigNumber.from(10).pow(18);
 const PERC1_FEE = BASE.div(100);
@@ -177,5 +178,106 @@ describe("NFT Sale Test", function () {
 
   it("Should properly update base URI for tokens", async () => {
     await uwucrew.setBaseURI(newURI);
+  })
+
+  let uwuLoot;
+  it("Should deploy uwuLoot", async () => {
+    let Loot = await ethers.getContractFactory("uwuLoot");
+    uwuLoot = await Loot.deploy("0xf75140376d246d8b1e5b8a48e3f00772468b3c0c", "0x0dceec6a1d9d5f99f708aeb16555ce53f84deaa21d252e67841330dd16a9be9e")
+    await uwuLoot.deployed();
+  })
+
+  it("Should let me register uwu 0", async () => {
+    console.log(uwuLoot.address)
+    await uwuLoot.registerNFT(0, idToData["0"].Metadata, idToData["0"].Proof)
+  });
+
+  // it("Should let me register several uwus", async () => {
+  //   await uwuLoot.registerNFTs([1, 10, 200, 1000], [idToData["1"].Metadata, idToData["10"].Metadata, idToData["200"].Metadata, idToData["1000"].Metadata], [idToData["1"].Proof, idToData["10"].Proof, idToData["200"].Proof, idToData["1000"].Proof])
+  // });
+
+  it("Should let me register several uwus", async () => {
+    let ids = []
+    let data = []
+    let proofs = []
+    for (let i = 1001; i < 1026; i++) {
+      ids.push(i)
+      data.push(idToData[`${i}`].Metadata)
+      proofs.push(idToData[`${i}`].Proof)
+    }
+    await uwuLoot.registerNFTs(ids, data, proofs);
+  });
+
+  it("Should give accurate metadata", async () => {
+    let loot = await uwuLoot.getAllLoot(0);
+    let realLoot = [
+      'Hot Pink',
+      'Bronze',
+      'Green Tanktop',
+      'Boba',
+      'Gold Claws',
+      'Brown Short Bangs',
+      'No Hat',
+      'Eyepatch',
+      'Hmph'
+    ];
+    for (let i = 0; i < realLoot.length; i++) {
+      expect(loot[i]).to.equal(realLoot[i]);
+    }
+  })
+
+  it("Should give accurate registry indexes", async () => {
+    let loot = await uwuLoot.getAllRegistryIndexes(0);
+    let realLoot = [
+      2,
+      2,
+      2,
+      1,
+      9,
+      3,
+      0,
+      3,
+      5
+    ];
+    for (let i = 0; i < realLoot.length; i++) {
+      expect(loot[i]).to.equal(realLoot[i]);
+    }
+  })
+
+
+  it("Should give accurate metadata for another id", async () => {
+    let loot = await uwuLoot.getAllLoot(1001);
+    let realLoot = [
+      'Pink',
+      'Freckled',
+      'YFI Tee',
+      'No Right Accessory',
+      'Peace Hand',
+      'Black Long Bangs',
+      'No Hat',
+      'Green Determined',
+      'Open Mouth'
+    ];
+    for (let i = 0; i < realLoot.length; i++) {
+      expect(loot[i]).to.equal(realLoot[i]);
+    }
+  })
+
+  it("Should give accurate registry indexes", async () => {
+    let loot = await uwuLoot.getAllRegistryIndexes(1001);
+    let realLoot = [
+      7,
+      1,
+      13,
+      0,
+      1,
+      18,
+      0,
+      4,
+      8
+    ];
+    for (let i = 0; i < realLoot.length; i++) {
+      expect(loot[i]).to.equal(realLoot[i]);
+    }
   })
 })
