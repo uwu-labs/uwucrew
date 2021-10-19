@@ -8,7 +8,7 @@ import "./utils/ReentrancyGuard.sol";
 import "./utils/MerkleProof.sol";
 
 interface Minter {
-  function MAX_UWU() external returns (uint256);
+  function MAX_UWU() external view returns (uint256);
   function mint(address to, uint256 tokenId) external;
 }
 
@@ -53,11 +53,14 @@ contract NFTMerkleDistributor {
         uint256 newMinted = mintedPerAccount[account] + amountToMint; 
         require(newMinted <= amount, "Trying to mint too many");
         mintedPerAccount[account] += amountToMint;
-
-        Minter(nft).mint(account, amountToMint);
         if (mintedPerAccount[account] == amount) {
           _setClaimed(index);
         }
-        emit Claimed(index, account, amount);
+        
+        uint256 supply = IERC721Enumerable(nft).totalSupply();
+        for (uint256 i = 0; i < amountToMint; i++) {
+            Minter(nft).mint(account, supply+i);
+        }
+        emit Claimed(index, account, amountToMint);
     }
 }

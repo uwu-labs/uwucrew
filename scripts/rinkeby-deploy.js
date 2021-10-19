@@ -12,7 +12,7 @@ async function main() {
   await uwucrew.deployed();
 
   let Sales = await ethers.getContractFactory("uwucrewWaveLockSale");
-  salesContract = await Sales.connect(primary).deploy(uwucrew.address, primary.address, 10, 200 /* sale count */, 50 /* swap count */, 5 /* lpAmount */); 
+  salesContract = await Sales.connect(primary).deploy(uwucrew.address, primary.address, 1630729200, 40 /* sale count */, 0 /* swap count */, 5 /* lpAmount */); 
   await salesContract.deployed();
   await uwucrew.connect(primary).prepareSale(salesContract.address);
 

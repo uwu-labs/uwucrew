@@ -22,7 +22,7 @@ module.exports = {
       accounts: [process.env.DEV_PRIVKEY],
     },
     ethereum: {
-      url: "https://eth-mainnet.alchemyapi.io/v2/" + process.env.ALCHEMY_ETH_KEY,
+      url: "https://mainnet.infura.io/v3/48cba79f8c2b4d80af39d9983bf188a2",
       accounts: [process.env.DEV_PRIVKEY],
     }, 
     binance: {
