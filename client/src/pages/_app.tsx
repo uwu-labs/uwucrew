@@ -15,16 +15,6 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
 config.autoAddCss = false;
 
-// ------ Tomorrow
-// TODO BSC redeem
-// TODO Add team split and roadmap
-// TODO Add lore
-// TODO Make open source
-// TODO Rename Repo
-// TODO Create Readme
-// ---- AFTER MINT FINISHES
-// TODO Fully remove mint check
-
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 	const getLibrary = (provider: any): any => {
 		return new ethers.providers.Web3Provider(provider);
