@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import GlobalStyles from 'styles/GlobalStyles';
 import Image from 'next/image';
@@ -8,16 +8,10 @@ import uwu from '../assets/girls/mint.jpg';
 import Header from '../components/Header';
 import ForceConnect from 'components/ForceConnect';
 import Footer from 'components/Footer';
-import Countdown from 'components/Countdown';
-import data from '../assets/data/bsc_proofs.json';
 import { useWeb3React } from '@web3-react/core';
-import abi from '../contracts/uwuloot.json';
-import { Contract } from 'ethers';
-import MintBscInput from 'components/MintBscInput';
-import OwnedTickets from 'components/OwnedTickets';
-import { UWU_LOOT } from 'core/constants';
+import LootInput from 'components/LootInput';
 
-const StyledMint = styled.div`
+const StyledUwuLoot = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -118,44 +112,11 @@ const Uwu = styled.div`
 
 const UwuLootPage: NextPage = () => {
 	const { account, chainId, library } = useWeb3React();
-	const [balance, setBalance] = useState(0);
-	const [index, setIndex] = useState(0);
-	const [proof, setProof] = useState<string[]>([]);
-	const [total, setTotal] = useState(0);
 
-	const startDate = () => {
-		const startTime = new Date(0);
-		startTime.setUTCSeconds(1630877400);
-		return startTime;
-	};
-
-	const deadline = () => {
-		const deadline = startDate();
-		deadline.setDate(deadline.getDate() + 4);
-		return deadline;
-	};
-
-	const getbalance = async (): Promise<number> => {
-		if (!account) return 0;
-		const address = account;
-		const accountData = (data as any)[address];
-		if (!accountData) return 0;
-		if (!library) return 0;
-		const contract = new Contract(UWU_LOOT, abi, library?.getSigner());
-		const minted = await contract.mintedPerAccount(address);
-		setBalance(Number(accountData.Amount) - minted.toNumber());
-		setIndex(accountData.Index);
-		setProof(accountData.Proof);
-		setTotal(Number(accountData.Amount));
-		return balance;
-	};
-
-	useEffect(() => {
-		void getbalance();
-	}, [account, chainId, library]);
+	useEffect(() => {}, [account, chainId, library]);
 
 	return (
-		<StyledMint>
+		<StyledUwuLoot>
 			<ForceConnect color="var(--bg-03)" />
 			<GlobalStyles />
 			<Header />
@@ -163,32 +124,24 @@ const UwuLootPage: NextPage = () => {
 			<Container>
 				<HeaderContainer>
 					<HeaderText>uwuloot</HeaderText>
-					<OwnedTickets color="var(--bg-03)" owned={balance} />
+					{/* <OwnedTickets color="var(--bg-03)" owned={balance} /> */}
 				</HeaderContainer>
 				<Content>
 					<Uwu>
 						<Image src={uwu} />
 					</Uwu>
 					<Body>
-						<BodyHeader>Redeem Uwus</BodyHeader>
-						<Label>{`If you purchased an uwu-ticket with BSC WET then you can redeem your uwus here! You have ${balance} tickets remaining to mint uwus with.`}</Label>
-						<Label>Please redeem your uwu-tickets before the time expires or else you may lose your uwus</Label>
-						<Countdown date={deadline()} />
-						{account && (
-							<MintBscInput
-								balance={balance}
-								refresh={() => getbalance()}
-								index={index}
-								address={account}
-								proof={proof}
-								total={total}
-							/>
-						)}
+						<BodyHeader>Cool Header</BodyHeader>
+						<Label>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id egestas orci. Proin at elit ultrices, feugiat mauris at,
+							volutpat magna. Donec sed sollicitudin elit, quis blandit odio. Cras in metus nec lorem elementum venenatis. Orci varius
+						</Label>
+						{account && <LootInput />}
 					</Body>
 				</Content>
 			</Container>
 			<Footer />
-		</StyledMint>
+		</StyledUwuLoot>
 	);
 };
 
