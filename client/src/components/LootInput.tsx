@@ -75,7 +75,7 @@ const LootInput = () => {
 	const [loading, setLoading] = useState(false);
 	const [ids, setIds] = useState('');
 
-	const register = async () => {
+	const register = () => {
 		if (loading || !ids || !library) return;
 
 		const idList = ids.replace(' ', '').split(',');
