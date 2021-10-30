@@ -1,6 +1,6 @@
 export const SITE = 'uwucrew.art';
 export const SITE_PROTOCOL = `https://${SITE}`;
-export const INFURA_ID = '1704ebb4fcf041619a8b00b00d8d9aa3';
+export const INFURA_ID = '8aed9cce114f4ff78727037332122b08';
 export const PRICE = 0.008;
 
 export const DESCRIPTION =
