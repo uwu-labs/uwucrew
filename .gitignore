@@ -1,21 +1,9 @@
-# Client
-/client/node_modules
-/client/build
-
-# Contracts
-/contracts/secrets.js
-/contracts/node_modules
-/coverage
-/cache
-
 # Functions
-/functions/node_modules
-/functions/ui-debug.log
-/functions/lib
+functions/ui-debug.log/
+functions/lib/
 
 # Root
-/node_modules
+node_modules/
 secrets.js
-/artifacts
 
 .env

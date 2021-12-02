@@ -161,3 +161,7 @@ typings
 
 !*.config.js
 sitemap.xml
+build/
+node_modules/
+secrets.js
+.env

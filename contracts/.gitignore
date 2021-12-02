@@ -1,0 +1,5 @@
+secrets.js
+node_modules/
+coverage/
+cache/
+artifacts/
