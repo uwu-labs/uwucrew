@@ -1,14 +1,15 @@
-const { ethers } = require('hardhat');
-const hre = require('hardhat');
+import { ethers } from 'hardhat';
+import type { UwucrewWaveLockSale } from '../typechain-types';
 
-const json = require('../eth_addrs.json');
+import json from '../eth_addrs.json';
 
 async function main() {
+	console.log(json);
 	const signers = await ethers.getSigners();
 	const primary = signers[0];
 
 	console.log('deploying from: ', primary.address);
-	const sale = await ethers.getContractAt('uwucrewWaveLockSale', '0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D');
+	const sale = (await ethers.getContractAt('uwucrewWaveLockSale', '0x5E75Bc35955F9E196e5bb25ddDE09424B476a18D')) as UwucrewWaveLockSale;
 
 	const allContributorsEth = json;
 	const allContributorsBalance = [];
@@ -17,7 +18,7 @@ async function main() {
 	}
 
 	for (let i = 0; i < allContributorsBalance.length - 1; i++) {
-		if (allContributorsBalance[i] == '0') {
+		if (allContributorsBalance[i] === '0') {
 			continue;
 		}
 		console.log(`${allContributorsEth[i]},${Number(allContributorsBalance[i]) * 0.06}`);

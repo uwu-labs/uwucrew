@@ -15,10 +15,6 @@
 		{
 			"name": "Contracts",
 			"path": "contracts"
-		},
-		{
-			"name": "Scripts",
-			"path": "contracts/scripts"
 		}
 	],
 	"settings": {}
