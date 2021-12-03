@@ -12,7 +12,9 @@
     "deploy:test": "hardhat test && hardhat run --network rinkeby scripts/deploy.js",
     "deploy:arbitrum": "hardhat test && hardhat run --network arbitrum scripts/deploy.js",
     "deploy:ethereum": "hardhat test && hardhat run --network ethereum scripts/deploy.js",
-    "postcompile": "copyfiles -u 1 ./abis/* ../client/src/contracts"
+    "postcompile": "yarn abi:copy:frontend && yarn abi:copy:api",
+    "abi:copy:frontend": "copyfiles -u 1 ./abis/* ../client/src/contracts",
+    "abi:copy:api": "copyfiles -u 1 ./abis/* ../api/functions/contracts"
   },
   "repository": {
     "type": "git",
