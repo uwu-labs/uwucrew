@@ -1,25 +1,24 @@
-const { expect } = require('chai');
-const { expectRevert, expectException } = require('../utils/expectRevert');
+import type { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import chai, { expect } from 'chai';
+import { solidity } from 'ethereum-waffle';
+import { BigNumber, Contract, Signer } from 'ethers';
+import { ethers, network } from 'hardhat';
+import type { UwucrewBSCWaveLockSale } from '../typechain-types';
+import { expectException } from '../utils/expectRevert';
 
-const { BigNumber } = require('@ethersproject/bignumber');
-const { ethers, upgrades } = require('hardhat');
+chai.use(solidity);
 
 const BASE = BigNumber.from(10).pow(18);
-const PERC1_FEE = BASE.div(100);
-const zeroAddr = '0x0000000000000000000000000000000000000000';
-const notZeroAddr = '0x000000000000000000000000000000000000dead';
 
-let signers;
-let primary;
-let alice;
-let bob;
-let kiwi;
-let uwucrew;
-let salesContract;
-let WET;
-let WAIFUSION;
+describe('NFT Sale Test', () => {
+	let signers: SignerWithAddress[];
+	let primary: SignerWithAddress;
+	let alice: SignerWithAddress;
+	let kiwi: Signer;
+	let salesContract: UwucrewBSCWaveLockSale;
+	let WET: Contract;
+	let WAIFUSION: Contract;
 
-describe('NFT Sale Test', function () {
 	before('Setup', async () => {
 		await network.provider.request({
 			method: 'hardhat_reset',
@@ -33,10 +32,9 @@ describe('NFT Sale Test', function () {
 			]
 		});
 		signers = await ethers.getSigners();
-		primary = signers[0];
-		alice = signers[1];
-		bob = signers[2];
-		await hre.network.provider.request({
+		[primary, alice] = signers;
+
+		await network.provider.request({
 			method: 'hardhat_impersonateAccount',
 			params: ['0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48']
 		});
@@ -47,7 +45,7 @@ describe('NFT Sale Test', function () {
 
 		const block = await ethers.provider.getBlock('latest');
 		const Sales = await ethers.getContractFactory('uwucrewBSCWaveLockSale');
-		salesContract = await Sales.deploy(block.timestamp + 1000, 20);
+		salesContract = (await Sales.deploy(block.timestamp + 1000, 20)) as UwucrewBSCWaveLockSale;
 		await salesContract.deployed();
 	});
 
@@ -140,7 +138,6 @@ describe('NFT Sale Test', function () {
 		const amountForSale = await salesContract.amountForSale();
 		const remaining = amountForSale.sub(oldSold);
 		const oldBal = await WET.balanceOf(kiwi.getAddress());
-		const tx = await salesContract.connect(kiwi).buy(5, await kiwi.getAddress());
 		const newBal = await WET.balanceOf(kiwi.getAddress());
 		const newSold = await salesContract.amountSold();
 		expect(newSold).to.equal(oldSold.add(remaining));

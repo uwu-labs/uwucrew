@@ -1,48 +1,32 @@
-const { expect } = require('chai');
-const { expectRevert, expectException } = require('../utils/expectRevert');
+import type { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import chai, { expect } from 'chai';
+import { solidity } from 'ethereum-waffle';
+import { ethers, network } from 'hardhat';
+import type { Uwucrew, UwucrewWaveLockSale, UwuLoot } from '../typechain-types';
+import { expectException } from '../utils/expectRevert';
+import idToData from './id-to-data.json';
 
-const { BigNumber } = require('@ethersproject/bignumber');
-const { ethers, upgrades } = require('hardhat');
+chai.use(solidity);
 
-const idToData = require('./id-to-data.json');
+describe('NFT Sale Test', () => {
+	let signers: SignerWithAddress[];
+	let primary: SignerWithAddress;
+	let alice: SignerWithAddress;
+	let bob: SignerWithAddress;
+	let uwucrew: Uwucrew;
+	let salesContract: UwucrewWaveLockSale;
 
-const BASE = BigNumber.from(10).pow(18);
-const PERC1_FEE = BASE.div(100);
-const zeroAddr = '0x0000000000000000000000000000000000000000';
-const notZeroAddr = '0x000000000000000000000000000000000000dead';
-
-let signers;
-let primary;
-let alice;
-let bob;
-let uwucrew;
-let salesContract;
-
-describe('NFT Sale Test', function () {
 	before('Setup', async () => {
 		signers = await ethers.getSigners();
-		primary = signers[0];
-		alice = signers[1];
-		bob = signers[2];
-		// await hre.network.provider.request({
-		//   method: "hardhat_impersonateAccount",
-		//   params: ["0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48"]}
-		// );
-		// punkOwner = await ethers.provider.getSigner("0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48")
-
-		// vault = await ethers.getContractAt("NFTXVaultUpgradeable", "0x269616d549d7e8eaa82dfb17028d0b212d11232a");
-		// vaults.push(vault)
-
-		// nftx = await ethers.getContractAt("NFTXVaultFactoryUpgradeable", "0xBE86f647b167567525cCAAfcd6f881F1Ee558216");
-		// erc721 = await ethers.getContractAt("CryptoPunksMarket", "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB");
+		[primary, alice, bob] = signers;
 
 		const UwUCrew = await ethers.getContractFactory('uwucrew');
-		uwucrew = await UwUCrew.deploy('uwucrew', 'UWU', 140);
+		uwucrew = (await UwUCrew.deploy('uwucrew', 'UWU', 140)) as Uwucrew;
 		await uwucrew.deployed();
 
 		const block = await ethers.provider.getBlock('latest');
 		const Sales = await ethers.getContractFactory('uwucrewWaveLockSale');
-		salesContract = await Sales.deploy(uwucrew.address, primary.address, block.timestamp + 1000, 40, 40, 20);
+		salesContract = (await Sales.deploy(uwucrew.address, primary.address, block.timestamp + 1000, 40, 40, 20)) as UwucrewWaveLockSale;
 		await salesContract.deployed();
 	});
 
@@ -76,7 +60,6 @@ describe('NFT Sale Test', function () {
 	});
 
 	it('Should mine some blocks', async () => {
-		const block = await ethers.provider.getBlock('latest');
 		await network.provider.send('evm_increaseTime', [1000]);
 		await ethers.provider.send('evm_mine', []);
 		await ethers.provider.send('evm_mine', []);
@@ -100,7 +83,6 @@ describe('NFT Sale Test', function () {
 	});
 
 	it('Should mine some blocks', async () => {
-		const block = await ethers.provider.getBlock('latest');
 		await network.provider.send('evm_increaseTime', [5000]);
 		await ethers.provider.send('evm_mine', []);
 		await ethers.provider.send('evm_mine', []);
@@ -132,7 +114,6 @@ describe('NFT Sale Test', function () {
 	});
 
 	it('Should mine some blocks', async () => {
-		const block = await ethers.provider.getBlock('latest');
 		await network.provider.send('evm_increaseTime', [5000]);
 		await ethers.provider.send('evm_mine', []);
 		await ethers.provider.send('evm_mine', []);
@@ -147,7 +128,6 @@ describe('NFT Sale Test', function () {
 	});
 
 	it('Should mine some blocks', async () => {
-		const block = await ethers.provider.getBlock('latest');
 		await network.provider.send('evm_increaseTime', [10000]);
 		await ethers.provider.send('evm_mine', []);
 		await ethers.provider.send('evm_mine', []);
@@ -182,24 +162,20 @@ describe('NFT Sale Test', function () {
 		await uwucrew.setBaseURI(newURI);
 	});
 
-	let uwuLoot;
+	let uwuLoot: UwuLoot;
 	it('Should deploy uwuLoot', async () => {
 		const Loot = await ethers.getContractFactory('uwuLoot');
-		uwuLoot = await Loot.deploy(
+		uwuLoot = (await Loot.deploy(
 			'0xf75140376d246d8b1e5b8a48e3f00772468b3c0c',
 			'0x0dceec6a1d9d5f99f708aeb16555ce53f84deaa21d252e67841330dd16a9be9e'
-		);
+		)) as UwuLoot;
 		await uwuLoot.deployed();
 	});
 
 	it('Should let me register uwu 0', async () => {
 		console.log(uwuLoot.address);
-		await uwuLoot.registerNFT(0, idToData['0'].Metadata, idToData['0'].Proof);
+		await uwuLoot.registerNFT(0, (idToData as any)['0'].Metadata, (idToData as any)['0'].Proof);
 	});
-
-	// it("Should let me register several uwus", async () => {
-	//   await uwuLoot.registerNFTs([1, 10, 200, 1000], [idToData["1"].Metadata, idToData["10"].Metadata, idToData["200"].Metadata, idToData["1000"].Metadata], [idToData["1"].Proof, idToData["10"].Proof, idToData["200"].Proof, idToData["1000"].Proof])
-	// });
 
 	it('Should let me register several uwus', async () => {
 		const ids = [];
@@ -207,8 +183,8 @@ describe('NFT Sale Test', function () {
 		const proofs = [];
 		for (let i = 1001; i < 1026; i++) {
 			ids.push(i);
-			data.push(idToData[`${i}`].Metadata);
-			proofs.push(idToData[`${i}`].Proof);
+			data.push((idToData as any)[`${i}`].Metadata);
+			proofs.push((idToData as any)[`${i}`].Proof);
 		}
 		await uwuLoot.registerNFTs(ids, data, proofs);
 	});

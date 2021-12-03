@@ -9,7 +9,7 @@
     },
     "include": [
         "./scripts",
-        "./tests",
+        "./test",
         "./utils",
         "./typechain"
     ],

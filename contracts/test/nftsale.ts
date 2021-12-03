@@ -1,25 +1,25 @@
-const { expect } = require('chai');
-const { expectRevert, expectException } = require('../utils/expectRevert');
+import type { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import chai, { expect } from 'chai';
+import { solidity } from 'ethereum-waffle';
+import { BigNumber, Contract, Signer } from 'ethers';
+import { ethers, network } from 'hardhat';
+import type { Uwucrew, UwucrewWaveLockSale } from '../typechain-types';
+import { expectException } from '../utils/expectRevert';
 
-const { BigNumber } = require('@ethersproject/bignumber');
-const { ethers, upgrades } = require('hardhat');
+chai.use(solidity);
 
 const BASE = BigNumber.from(10).pow(18);
-const PERC1_FEE = BASE.div(100);
-const zeroAddr = '0x0000000000000000000000000000000000000000';
-const notZeroAddr = '0x000000000000000000000000000000000000dead';
 
-let signers;
-let primary;
-let alice;
-let bob;
-let kiwi;
-let uwucrew;
-let salesContract;
-let WET;
-let WAIFUSION;
+describe('NFT Sale Test', () => {
+	let signers: SignerWithAddress[];
+	let primary: SignerWithAddress;
+	let alice: SignerWithAddress;
+	let kiwi: Signer;
+	let WET: Contract;
+	let WAIFUSION: Contract;
+	let uwucrew: Uwucrew;
+	let salesContract: UwucrewWaveLockSale;
 
-describe('NFT Sale Test', function () {
 	before('Setup', async () => {
 		await network.provider.request({
 			method: 'hardhat_reset',
@@ -33,10 +33,9 @@ describe('NFT Sale Test', function () {
 			]
 		});
 		signers = await ethers.getSigners();
-		primary = signers[0];
-		alice = signers[1];
-		bob = signers[2];
-		await hre.network.provider.request({
+		[primary, alice] = signers;
+
+		await network.provider.request({
 			method: 'hardhat_impersonateAccount',
 			params: ['0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48']
 		});
@@ -46,12 +45,19 @@ describe('NFT Sale Test', function () {
 		WAIFUSION = await ethers.getContractAt('ERC721', '0x2216d47494e516d8206b70fca8585820ed3c4946');
 
 		const UwUCrew = await ethers.getContractFactory('uwucrew');
-		uwucrew = await UwUCrew.deploy('uwucrew', 'UWU', 140);
+		uwucrew = (await UwUCrew.deploy('uwucrew', 'UWU', 140)) as Uwucrew;
 		await uwucrew.deployed();
 
 		const block = await ethers.provider.getBlock('latest');
 		const Sales = await ethers.getContractFactory('uwucrewWaveLockSale');
-		salesContract = await Sales.connect(alice).deploy(uwucrew.address, primary.address, block.timestamp + 1000, 40, 40, 20);
+		salesContract = (await Sales.connect(alice).deploy(
+			uwucrew.address,
+			primary.address,
+			block.timestamp + 1000,
+			40,
+			40,
+			20
+		)) as UwucrewWaveLockSale;
 		await salesContract.deployed();
 	});
 
@@ -195,7 +201,7 @@ describe('NFT Sale Test', function () {
 
 	it('Should let Alice mint the other 3', async () => {
 		const oldBal = await uwucrew.balanceOf(await alice.getAddress());
-		await salesContract.connect(primary).forceMint(alice.getAddress(), 3);
+		await salesContract.connect(primary).forceMint(await alice.getAddress(), 3);
 		const newBal = await uwucrew.balanceOf(await alice.getAddress());
 		expect(newBal).to.equal(oldBal.add(3));
 	});
@@ -221,7 +227,6 @@ describe('NFT Sale Test', function () {
 	});
 
 	it('Should let cap off and refund if purchasing more than avail with eth', async () => {
-		const oldWave = await salesContract.wave();
 		const oldMax = await salesContract.currentMaxPerTX();
 		const oldSold = await salesContract.amountSold();
 		const amountForSale = await salesContract.amountForSale();
@@ -229,7 +234,6 @@ describe('NFT Sale Test', function () {
 		const oldBal = await ethers.provider.getBalance(await alice.getAddress());
 		const tx = await salesContract.connect(alice).buy(32, { value: ethers.utils.parseEther('1.92') });
 		const receipt = await tx.wait();
-		const newWave = await salesContract.wave();
 		const newMax = await salesContract.currentMaxPerTX();
 		expect;
 		expect(oldMax).to.equal(16);

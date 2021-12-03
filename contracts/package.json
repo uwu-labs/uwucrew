@@ -25,6 +25,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@ethersproject/bignumber": "^5.5.0",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-etherscan": "^2.1.6",
     "@nomiclabs/hardhat-solhint": "^2.0.0",
