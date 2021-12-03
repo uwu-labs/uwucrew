@@ -1,0 +1,3 @@
+.firebase/*.cache
+functions/ui-debug.log/
+functions/lib/

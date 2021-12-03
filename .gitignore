@@ -1,9 +1,5 @@
-# Functions
-functions/ui-debug.log/
-functions/lib/
-
-# Root
 node_modules/
 secrets.js
+secrets.json
 
 .env

@@ -9,6 +9,10 @@
 			"path": "client"
 		},
 		{
+			"name": "API",
+			"path": "api"
+		},
+		{
 			"name": "Contracts",
 			"path": "contracts"
 		},
