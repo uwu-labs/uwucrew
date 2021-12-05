@@ -111,9 +111,7 @@ const Uwu = styled.div`
 `;
 
 const UwuLootPage: NextPage = () => {
-	const { account, chainId, library } = useWeb3React();
-
-	useEffect(() => {}, [account, chainId, library]);
+	const { account } = useWeb3React();
 
 	return (
 		<StyledUwuLoot>
@@ -124,7 +122,6 @@ const UwuLootPage: NextPage = () => {
 			<Container>
 				<HeaderContainer>
 					<HeaderText>uwuloot</HeaderText>
-					{/* <OwnedTickets color="var(--bg-03)" owned={balance} /> */}
 				</HeaderContainer>
 				<Content>
 					<Uwu>
