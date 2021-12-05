@@ -1,6 +1,4 @@
-import { generateSitemap } from 'core/sitemap';
-import type { GetStaticProps, NextPage } from 'next';
-import path from 'path';
+import type { NextPage } from 'next';
 import React from 'react';
 import styled from 'styled-components';
 import GlobalStyles from 'styles/GlobalStyles';
