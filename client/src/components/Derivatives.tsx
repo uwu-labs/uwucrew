@@ -13,7 +13,6 @@ const StyledDerivatives = styled.div`
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	background: var(--bg-03);
 	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
 
@@ -26,6 +25,7 @@ const StyledDerivatives = styled.div`
 const Filters = styled.div`
 	display: flex;
 	align-items: center;
+	margin: 0 auto;
 	margin-bottom: 3rem;
 
 	@media (max-width: 720px) {
