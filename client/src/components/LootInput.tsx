@@ -82,15 +82,16 @@ const LootInput = () => {
 
 		const contract = new Contract(UWU_LOOT, abi, library?.getSigner());
 
+		// Logging for testing
 		console.log({
-			id: idList.map((id: string) => (proofs as any)[id].Id),
+			id: idList,
 			data: idList.map((id: string) => (proofs as any)[id].Metadata),
 			proof: idList.map((id: string) => (proofs as any)[id].Proof)
 		});
 
 		contract
 			.registerNFTs(
-				idList.map((id: string) => (proofs as any)[id].Id),
+				idList,
 				idList.map((id: string) => (proofs as any)[id].Metadata),
 				idList.map((id: string) => (proofs as any)[id].Proof)
 			)
