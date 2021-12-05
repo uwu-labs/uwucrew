@@ -1,5 +1,7 @@
 import type { DerivativeType } from 'config/derivatives';
+import { useState } from 'react';
 import styled from 'styled-components';
+import DerivativePopup from './DerivativePopup';
 
 const Container = styled.div`
 	position: relative;
@@ -79,33 +81,38 @@ interface Props {
 }
 
 const DerivativeImage = ({ derivative }: Props) => {
+	const [popup, setPopup] = useState(false);
+
 	return (
-		<Container>
-			<Image src={derivative.image} />
-			<Overlay>
-				<OverlayBackground />
-				<TopRow>
-					{derivative.id && (
-						<Link
-							href={`https://opensea.io/assets/0xf75140376d246d8b1e5b8a48e3f00772468b3c0c/${derivative.id}`}
-							target="_blank"
-						>{`uwucrew #${derivative.id}`}</Link>
-					)}
-				</TopRow>
-				<BottomRow>
-					{derivative.artistLink && derivative.artistName && (
-						<Link target="_blank" href={derivative.artistLink}>
-							{derivative.artistName}
-						</Link>
-					)}
-					{derivative.post && (
-						<Link target="_blank" href={derivative.post}>
-							Twitter Post
-						</Link>
-					)}
-				</BottomRow>
-			</Overlay>
-		</Container>
+		<>
+			<Container>
+				<Image src={derivative.image} />
+				<Overlay>
+					<OverlayBackground onClick={() => setPopup(true)} />
+					<TopRow>
+						{derivative.id && (
+							<Link
+								href={`https://opensea.io/assets/0xf75140376d246d8b1e5b8a48e3f00772468b3c0c/${derivative.id}`}
+								target="_blank"
+							>{`uwucrew #${derivative.id}`}</Link>
+						)}
+					</TopRow>
+					<BottomRow>
+						{derivative.artistLink && derivative.artistName && (
+							<Link target="_blank" href={derivative.artistLink}>
+								{derivative.artistName}
+							</Link>
+						)}
+						{derivative.post && (
+							<Link target="_blank" href={derivative.post}>
+								Twitter Post
+							</Link>
+						)}
+					</BottomRow>
+				</Overlay>
+			</Container>
+			<DerivativePopup derivative={derivative} show={popup} close={() => setPopup(false)} />
+		</>
 	);
 };
 
