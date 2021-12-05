@@ -1,6 +1,7 @@
 import derivatives, { DerivativeType } from 'config/derivatives';
 import useScreenWidth from 'hooks/use-screen-width';
 import styled from 'styled-components';
+import DerivativeImage from './DerivativeImage';
 
 const MIN_WIDTH = 350;
 
@@ -20,11 +21,6 @@ const Column = styled.div`
 	flex-direction: column;
 `;
 
-const Image = styled.img`
-	width: 100%;
-	padding: 0.5rem;
-`;
-
 const Derivatives = () => {
 	const width = useScreenWidth();
 
@@ -37,7 +33,7 @@ const Derivatives = () => {
 					{derivatives
 						.filter((d: DerivativeType, index: number) => index % columns === key)
 						.map((derivative: DerivativeType) => (
-							<Image src={derivative.image} />
+							<DerivativeImage derivative={derivative} />
 						))}
 				</Column>
 			))}
