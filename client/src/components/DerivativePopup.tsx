@@ -30,10 +30,21 @@ const Popup = styled.div`
 	height: 100%;
 	display: flex;
 	background-color: white;
+	max-width: calc(100% - 2rem);
+
+	@media (max-width: 1024px) {
+		flex-direction: column;
+		height: auto;
+	}
 `;
 
 const Image = styled.img`
 	height: 100%;
+
+	@media (max-width: 1024px) {
+		height: auto;
+		width: 100%;
+	}
 `;
 
 const Sidebar = styled.div`
@@ -41,8 +52,13 @@ const Sidebar = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 3rem;
-	min-width: 30rem;
+	min-width: 25rem;
 	padding-top: 8rem;
+
+	@media (max-width: 1024px) {
+		padding: 2rem;
+		padding-top: 2rem;
+	}
 `;
 
 const Row = styled.div`
