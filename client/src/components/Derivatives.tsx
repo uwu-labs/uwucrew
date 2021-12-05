@@ -110,7 +110,7 @@ const Derivatives = () => {
 						{[
 							...new Set(
 								derivatives
-									.filter((derivative: DerivativeType) => !!derivative.artistName)
+									.filter((derivative: DerivativeType) => Boolean(derivative.artistName))
 									.map((derivative: DerivativeType) => derivative.artistName || '')
 							)
 						]
