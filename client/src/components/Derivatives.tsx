@@ -32,7 +32,7 @@ const Derivatives = () => {
 			{[...Array(columns).keys()].map((key: number) => (
 				<Column>
 					{derivatives
-						.filter((d: DerivativeType, index: number) => index % columns === key)
+						.filter((d: DerivativeType, index: number) => index % columns === key + (d.id || 0) - (d.id || 0))
 						.map((derivative: DerivativeType) => (
 							<DerivativeImage derivative={derivative} />
 						))}
