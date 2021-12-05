@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import GlobalStyles from 'styles/GlobalStyles';
 import Image from 'next/image';
