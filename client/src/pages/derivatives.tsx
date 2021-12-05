@@ -26,12 +26,4 @@ const DerivativesPage: NextPage = () => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-	const directory = path.join(process.cwd(), 'src');
-
-	await generateSitemap(directory);
-
-	return { props: {} };
-};
-
 export default DerivativesPage;
