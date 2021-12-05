@@ -22,6 +22,18 @@ const StyledDerivatives = styled.div`
 	}
 `;
 
+const Count = styled.div`
+	color: black;
+	font-size: 2rem;
+	font-weight: 600;
+	margin: 0 auto;
+	margin-bottom: 2rem;
+
+	@media (max-width: 720px) {
+		margin-bottom: 1rem;
+	}
+`;
+
 const Filters = styled.div`
 	display: flex;
 	align-items: center;
@@ -100,8 +112,13 @@ const Derivatives = () => {
 
 	const columns = Math.round(width / MIN_WIDTH);
 
+	const filtered = derivatives
+		.filter((derivative: DerivativeType) => !artist || derivative.artistName === artist)
+		.filter((derivative: DerivativeType) => !id || (derivative.id && derivative.id.toString() === id));
+
 	return (
 		<StyledDerivatives>
+			<Count>{`${filtered.length} Total Derivatives`}</Count>
 			<Filters>
 				<Filter>
 					<Label>Artist:</Label>
@@ -128,9 +145,7 @@ const Derivatives = () => {
 			<Images>
 				{[...Array(columns).keys()].map((key: number) => (
 					<Column>
-						{derivatives
-							.filter((derivative: DerivativeType) => !artist || derivative.artistName === artist)
-							.filter((derivative: DerivativeType) => !id || (derivative.id && derivative.id.toString() === id))
+						{filtered
 							.filter((d: DerivativeType, index: number) => index % columns === key + (d.id || 0) - (d.id || 0))
 							.map((derivative: DerivativeType) => (
 								<DerivativeImage derivative={derivative} />
