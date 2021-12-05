@@ -14,6 +14,11 @@ const StyledDerivatives = styled.div`
 	display: flex;
 	background: var(--bg-03);
 	background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.75));
+
+	@media (max-width: 720px) {
+		padding: 1rem;
+		padding-top: 7rem;
+	}
 `;
 
 const Column = styled.div`
