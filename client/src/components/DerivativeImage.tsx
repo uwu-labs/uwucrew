@@ -1,5 +1,5 @@
 import type { DerivativeType } from 'config/derivatives';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import DerivativePopup from './DerivativePopup';
 

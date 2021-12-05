@@ -1,3 +1,4 @@
+import React from 'react';
 import derivatives, { DerivativeType } from 'config/derivatives';
 import useScreenWidth from 'hooks/use-screen-width';
 import styled from 'styled-components';

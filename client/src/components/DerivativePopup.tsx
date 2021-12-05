@@ -1,3 +1,4 @@
+import React from 'react';
 import type { DerivativeType } from 'config/derivatives';
 import styled from 'styled-components';
 import ExitButton from './ExitButton';
