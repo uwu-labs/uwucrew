@@ -22,4 +22,4 @@ This repo contains all contracts that have been used for the uwucrew NFTs, minti
 ## Scripts
 
 - `npm run test` to test the contracts
-- `npm run postcompile` to copy abis to the client and API
+- `npm run compile` to compile contracts and copy abis to the client and API
