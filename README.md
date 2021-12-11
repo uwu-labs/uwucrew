@@ -19,29 +19,18 @@
   </p>
 </div>
 
-# Waifusion Website
+# uwucrew
 
-Welcome to the repo for the uwucrew.art website - a React project implementing Web3 which allows users to interact with the uwucrew NFT project.
+Welcome to the repo for the uwucrew NFT project! :tada:
+This repo is home to the code for the uwucrew site, API and contracts.
+You can find each of these in the directories `client`, `api` & `contracts`.
+Including a Readme for each project :sparkles:
 
-## Development
+## Contributions
 
-- Install [Yarn](https://yarnpkg.com/) (or [Node](https://nodejs.org/)).
-- Then run the following commands:
-
-```
-# Clone the project to download its contents
-> cd projects/
-> git clone https://github.com/waifusion/uwucrew.git
-
-# Make Yarn install the project's dependencies into node_modules/
-> cd uwucrew/
-> yarn install
-
-# Startup the project
-> yarn dev
-```
-
-- Open http://localhost:3000/ to view the website.
+Contributions are very welcomed!
+Feel free to fork the repo and raise a PR with any changes you think would benefit uwucrew :rocket:
+Join the Discord (link below) to chat with the other devs about your ideas or how you could help!
 
 ## Links
 
