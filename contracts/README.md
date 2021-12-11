@@ -5,7 +5,7 @@ This repo contains all contracts that have been used for the uwucrew NFTs, minti
 
 ## Development
 
--   Install [Node](https://nodejs.org/)
+-   Install [Yarn](https://yarnpkg.com/) (or [Node](https://nodejs.org/)).
 -   Then run the following commands:
 
 ```
@@ -13,13 +13,13 @@ This repo contains all contracts that have been used for the uwucrew NFTs, minti
 > cd projects/
 > git clone https://github.com/waifusion/uwucrew.git
 
-# Make npm install the project's dependencies into node_modules/
+# Make yarn install the project's dependencies into node_modules/
 > cd uwucrew
 > cd contracts
-> npm install
+> yarn install
 ```
 
 ## Scripts
 
-- `npm run test` to test the contracts
-- `npm run compile` to compile contracts and copy abis to the client and API
+- `yarn run test` to test the contracts
+- `yarn run compile` to compile contracts and copy abis to the client and API
