@@ -59,7 +59,7 @@ const members: TeamMemberType[] = [
 			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs.',
 			'He developed the original Waifusion Dungeon, the new Waifusion site, and the uwucrew site.'
 		],
-		twitter: 'https://twitter.com/ChaseManning_NZ',
+		twitter: 'https://twitter.com/chase_manning_',
 		github: 'https://github.com/chase-manning'
 	},
 	{
