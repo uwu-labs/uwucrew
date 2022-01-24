@@ -103,6 +103,19 @@ const NavItem = styled.div`
 	}
 `;
 
+const PageLink = styled.div`
+	padding: 0 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	text-transform: capitalize;
+	white-space: nowrap;
+
+	font-size: 2rem;
+	@media (max-width: 768px) {
+		font-size: 1.6rem;
+	}
+`;
+
 const Navbar: React.FC = () => {
 	const dispatch = useDispatch();
 	const router = useRouter();
@@ -123,8 +136,9 @@ const Navbar: React.FC = () => {
 				<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
 				<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
 				<NavItem onClick={() => navigateToSlide('roadmap')}>roadmap</NavItem>
-				{/* <NavItem onClick={() => dispatch(setSlide('lore'))}>lore</NavItem> */}
-				{/* <NavItem onClick={() => dispatch(setSlide('provenance'))}>provenance</NavItem> */}
+				<Link href="/derivatives">
+					<PageLink>derivative gallery</PageLink>
+				</Link>
 			</NavItems>
 			<LineTwo />
 		</StyledNavbar>
