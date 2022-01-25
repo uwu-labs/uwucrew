@@ -548,8 +548,8 @@ const derivatives: DerivativeType[] = [
 		image: 'https://pbs.twimg.com/media/FEazTfWXoAARFMl?format=jpg&name=360x360',
 		id: 6372,
 		post: 'https://twitter.com/Delaroche0/status/1461052279948288000?s=20',
-		artistName: "Naked de' Medici'",
-		artistLink: 'https://twitter.com/Delaroche0',
+		artistName: "Opi",
+		artistLink: 'https://twitter.com/opijpg',
 	},
 	{
 		image: 'https://pbs.twimg.com/media/FEwWfG4UcAQOuLL?format=jpg&name=small',
