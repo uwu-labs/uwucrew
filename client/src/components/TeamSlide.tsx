@@ -18,6 +18,8 @@ interface TeamMemberType {
 	role: string;
 	twitter?: string;
 	github?: string;
+	linkText?: string;
+	link?: string;
 }
 
 const members: TeamMemberType[] = [
@@ -46,9 +48,11 @@ const members: TeamMemberType[] = [
 		role: 'Bit of everything',
 		image: morello,
 		bio: [
-			'Defi, shitcoin, NFT enthusiast (gambler) and collector of anime-inspired art.',
-			"Doesn't really have a real role but helps out with art, task planning, socials, and shitposting for uwucrew."
+			'Morello works on community management, partnerships, and project organization for uwucrew.',
+			'He has been paper-handing blue chip NFTs since February 2021, and has since become an avid collector of anime art.'
 		],
+		linkText: 'Check out his gallery here: ',
+		link: 'https://foundation.app/@morello',
 		twitter: 'https://twitter.com/morellostorment'
 	},
 	{
@@ -188,6 +192,17 @@ const Description = styled.div`
 	width: 100%;
 `;
 
+const Link = styled.a`
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: var(--text-primary);
+	line-height: 1.6rem;
+	margin-top: 0.3rem;
+	margin-bottom: 0.5rem;
+	font-family: 'Roboto', sans-serif;
+	text-decoration: underline;
+`;
+
 const TeamSlide = () => {
 	return (
 		<Slide
@@ -220,9 +235,17 @@ const TeamSlide = () => {
 										)}
 									</Socials>
 								</Overview>
-								{m.bio.map((b: string) => (
-									<Description>{b}</Description>
+								{m.bio.map((b: string, i: number) => (
+									<Description key={i}>{b}</Description>
 								))}
+								{m.linkText && m.link && (
+									<Description>
+										{m.linkText}
+										<Link href={m.link} target="_blank" rel="noreferrer">
+											{m.link}
+										</Link>
+									</Description>
+								)}
 							</Content>
 						</TeamMember>
 					))}
