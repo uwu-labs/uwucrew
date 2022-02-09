@@ -4,7 +4,7 @@ export const INFURA_ID = '8aed9cce114f4ff78727037332122b08';
 export const PRICE = 0.008;
 
 export const DESCRIPTION =
-	'uwucrew is a generative collection of completely unique 9670 avatars inspired by anime & pop culture, aiming to be inclusive & expressive';
+	'uwucrew is a generative collection of completely unique 9670 avatars inspired by anime, aiming to be inclusive & expressive';
 
 // Rinkeby;
 // export const SALE_CONTRACT: string = '0xA17e72b5172E12e9e3A37Ff0DE201aAF3fBA03b4';

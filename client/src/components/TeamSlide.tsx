@@ -31,7 +31,7 @@ const members: TeamMemberType[] = [
 		role: 'Artist',
 		image: laur,
 		bio: [
-			'Laur is the sole artist of uwucrew, 9670 anime and pop culture-inspired avatars that aims to be inclusive and expressive.',
+			'Laur is the sole artist of uwucrew, 9670 anime-inspired avatars that aims to be inclusive and expressive.',
 			'Laur focuses on semi-realism, 2d animation and character design. She enjoys collecting 1/1 anime art and supporting the growth of NFT artists.'
 		],
 		twitter: 'https://twitter.com/fungibleartist'
