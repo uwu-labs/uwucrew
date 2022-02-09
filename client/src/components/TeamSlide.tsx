@@ -10,6 +10,9 @@ import kiwi from '../assets/profiles/kiwi.jpg';
 import morello from '../assets/profiles/morello.jpg';
 import cat from '../assets/profiles/cat.jpg';
 import wave from '../assets/profiles/wave.jpg';
+import quantumly from '../assets/profiles/quantumly.jpg';
+import danny from '../assets/profiles/danny.jpg';
+import omar from '../assets/profiles/omar.jpg';
 
 interface TeamMemberType {
 	name: string;
@@ -28,8 +31,8 @@ const members: TeamMemberType[] = [
 		role: 'Artist',
 		image: laur,
 		bio: [
-			'Laur is our talented illustrator debuting in the NFT art space with uwucrew.',
-			'Her style ranges from semi-realism to cartoonish illustrations and character design. Bad ass that drew over 120 assets. Likes the booba. Supports the booba.'
+			'Laur is the sole artist of uwucrew, 9670 anime and pop culture-inspired avatars that aims to be inclusive and expressive.',
+			'Laur focuses on semi-realism, 2d animation and character design. She enjoys collecting 1/1 anime art and supporting the growth of NFT artists.'
 		],
 		twitter: 'https://twitter.com/fungibleartist'
 	},
@@ -38,7 +41,9 @@ const members: TeamMemberType[] = [
 		role: 'Solidity Dev',
 		image: kiwi,
 		bio: [
-			'Ivan Martinez (Kiwi) is a long time developer in the crypto space, he currently works for NFTX as a protocol lead enginer. He is also an avid DeFi and NFT enthusiast, being heavily engaged with NFTs since March. He is responsible for the uwucrew smart contracts and image generation. Based and NFT-pilled.'
+			'Ivan Martinez (Kiwi) is a long time developer in the crypto space, working for NFTX as a protocol lead enginer.',
+			'An avid DeFi and NFT enthusiast, Kiwi has been engaged with NFTs since March 2021.',
+			'He is responsible for the uwucrew smart contracts and image gen.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
 		github: 'https://github.com/0xKiwi'
@@ -60,8 +65,9 @@ const members: TeamMemberType[] = [
 		role: 'Front End Dev',
 		image: chase,
 		bio: [
+			'Recommended by 4 out of 5 people who recommend things.',
 			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs.',
-			'He developed the original Waifusion Dungeon, the new Waifusion site, and the uwucrew site.'
+			'He builds the websites for uwucrew and ensures everything is looking slick online!'
 		],
 		twitter: 'https://twitter.com/chase_manning_',
 		github: 'https://github.com/chase-manning'
@@ -71,8 +77,8 @@ const members: TeamMemberType[] = [
 		role: 'R&D',
 		image: cat,
 		bio: [
-			"ETH maxi and NFT gambler, he's generally happy to get paid for looking at anime cleavages all day.",
-			'Cat helps with art, socials and uwuniverse creation.'
+			'More than anything, Cat loves his mom, ETH and NFTs.',
+			'Being an early uwu appreciator, he helped design and establish uwucrew NFT collection. Currently, Cat mostly focuses on community management, socials and events organization. Secretly a part of the uwuminati.'
 		],
 		twitter: 'https://twitter.com/CatInKleins'
 	},
@@ -86,6 +92,37 @@ const members: TeamMemberType[] = [
 			'Might respond to your bad take with a chart.'
 		],
 		twitter: 'https://twitter.com/0xWave'
+	},
+	{
+		name: 'Omar',
+		role: 'Community Support & Events',
+		image: omar,
+		bio: [
+			'Artist turned collector, community support and events.',
+			'Omar is a street photographer who enjoys collecting anime inspired NFTs and helps strengthen uwucrew community engagement via event hosting, branding and fun activities.'
+		],
+		twitter: 'https://twitter.com/OmarIbisa'
+	},
+	{
+		name: 'Danny',
+		role: 'Collaborations & Partnerships',
+		image: danny,
+		bio: [
+			'Danny is the collaborations and partnerships manager of uwucrew and assists with research and development.',
+			'He learned to study marketplace trends and valuations from MMO Free Markets and applies that to the NFT market today.'
+		],
+		twitter: 'https://twitter.com/0xMaple'
+	},
+	{
+		name: 'Quantumly',
+		role: 'Full Stack Developer',
+		image: quantumly,
+		bio: [
+			'Full Stack Developer working with JavaScript / TypeScript, React, Solidity, C#, and Elixir.',
+			'Fast learner & open source contributor.'
+		],
+		twitter: 'https://twitter.com/quantumlyy',
+		github: 'https://github.com/quantumlyy'
 	}
 ];
 
@@ -95,7 +132,7 @@ const StyledContent = styled.div`
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
-	grid-gap: 3rem;
+	grid-gap: 1rem;
 
 	margin-top: 3rem;
 	grid-template-columns: repeat(auto-fit, minmax(49rem, 1fr));
@@ -112,7 +149,6 @@ const TeamMember = styled.div`
 	display: flex;
 	flex-direction: row;
 
-	height: 27rem;
 	@media (max-width: 768px) {
 		height: auto;
 		flex-direction: column;
@@ -155,7 +191,6 @@ const SocialContainer = styled.a`
 	cursor: pointer;
 	transform: translateY(-0.3rem);
 	width: 2.8rem;
-	margin-bottom: 2rem;
 `;
 
 const NameContainer = styled.div`
@@ -168,7 +203,7 @@ const Name = styled.div`
 	line-height: 1.9rem;
 	font-weight: 600;
 	color: var(--bg-03);
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.3rem;
 `;
 
 const Role = styled.div`
@@ -178,6 +213,8 @@ const Role = styled.div`
 	color: var(--text-primary);
 	margin-left: 1.5rem;
 	white-space: nowrap;
+	margin-bottom: 1.5rem;
+	transform: translateY(-0.3rem);
 `;
 
 const Description = styled.div`
@@ -220,7 +257,6 @@ const TeamSlide = () => {
 								<Overview>
 									<NameContainer>
 										<Name>{`- ${m.name}`}</Name>
-										<Role>{m.role}</Role>
 									</NameContainer>
 									<Socials>
 										{m.github && (
@@ -235,6 +271,7 @@ const TeamSlide = () => {
 										)}
 									</Socials>
 								</Overview>
+								<Role>{m.role}</Role>
 								{m.bio.map((b: string, i: number) => (
 									<Description key={i}>{b}</Description>
 								))}
