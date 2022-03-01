@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\access\\Ownable.sol": {
-      "lastModificationDate": 1631311649049,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1646116914024,
       "contentHash": "17d9f40220b0ab370db2c77e7c92c4ef",
       "sourceName": "contracts/access/Ownable.sol",
       "solcConfig": {
@@ -38,8 +38,8 @@
         "Ownable"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1631311649054,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/Context.sol": {
+      "lastModificationDate": 1646116914028,
       "contentHash": "2d9293f80788081837a528017f3c6bb7",
       "sourceName": "contracts/utils/Context.sol",
       "solcConfig": {
@@ -73,10 +73,10 @@
         "Context"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\Ownable.sol": {
-      "lastModificationDate": 1631311649057,
-      "contentHash": "6920483757f5a28c907ee4be0febe461",
-      "sourceName": "contracts/utils/Ownable.sol",
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "e1a1c6377bbbc02700df6e9a9cda15b8",
+      "sourceName": "contracts/tokens/ERC721.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -101,17 +101,1150 @@
         }
       },
       "imports": [
-        "./Context.sol"
+        "../utils/Address.sol",
+        "../utils/Context.sol",
+        "../utils/Strings.sol",
+        "./IERC721.sol",
+        "./IERC721Metadata.sol",
+        "./IERC721Receiver.sol",
+        "./IERC721Metadata.sol",
+        "../utils/introspection/ERC165.sol",
+        "./ERC721Holder.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "Ownable"
+        "ERC721"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\WaveLockMintSale.sol": {
-      "lastModificationDate": 1638386836461,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/Address.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "37103cdc416efc2601c6f6734044b559",
+      "sourceName": "contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "e575d915a7dbf0decd510699a7fd53dc",
+      "sourceName": "contracts/utils/Strings.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Strings"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC721.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "ef3ffd147adf872a77063c18d757818a",
+      "sourceName": "contracts/tokens/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC721Metadata.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "69a5a7442d6fbbe804592abde1101f33",
+      "sourceName": "contracts/tokens/IERC721Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Metadata"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC721Receiver.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "3d4292e6bc8ee1bfd0fbb0fee72daa79",
+      "sourceName": "contracts/tokens/IERC721Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Receiver"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/introspection/ERC165.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "a9a5319dff9088c6ffe757ea1c2a6729",
+      "sourceName": "contracts/utils/introspection/ERC165.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721Holder.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "19f488040075641a02b0a14eacffcd49",
+      "sourceName": "contracts/tokens/ERC721Holder.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Holder"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "3e75af5c8391ff9795a51843c64f9561",
+      "sourceName": "contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721SimpleUpgradeable.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "2825ec71d6e9d152967462d638069ba0",
+      "sourceName": "contracts/tokens/ERC721SimpleUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../proxy/Initializable.sol",
+        "../utils/Address.sol",
+        "../utils/ContextUpgradeable.sol",
+        "../utils/Strings.sol",
+        "./IERC721Simple.sol",
+        "./IERC721Metadata.sol",
+        "./IERC721Receiver.sol",
+        "./IERC721Metadata.sol",
+        "../utils/introspection/ERC165.sol",
+        "./ERC721Holder.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Simple"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/Initializable.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "76309b022d76aa52bb1830b7bf515e9e",
+      "sourceName": "contracts/proxy/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "a74d37ae0f65659ab44878998edaeb82",
+      "sourceName": "contracts/utils/ContextUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../proxy/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ContextUpgradeable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC721Simple.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "0a348affa63260d30c12335e653b63f4",
+      "sourceName": "contracts/tokens/IERC721Simple.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Simple"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721URIStorage.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "273a82f797757c0849fe1e6070cb9126",
+      "sourceName": "contracts/tokens/ERC721URIStorage.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC721SimpleUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721URIStorage"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionStatic.sol": {
+      "lastModificationDate": 1646116914016,
+      "contentHash": "dcdfa2e11f378ba99beed7f94ed32b41",
+      "sourceName": "contracts/uwudropCollectionStatic.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IRoyalties.sol",
+        "./tokens/ERC721URIStorage.sol",
+        "./utils/OwnableUpgradeable.sol",
+        "./utils/Address.sol",
+        "./utils/MerkleProof.sol",
+        "./proxy/BeaconFinalizeUtils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "uwudropCollection"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/interfaces/IRoyalties.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "7097c84a00135b9ab176c16b84854b4a",
+      "sourceName": "contracts/interfaces/IRoyalties.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IGetFees",
+        "IGetRoyalties",
+        "ITokenCreator",
+        "ITokenCreatorPaymentAddress"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "d2d3d95a8f9241e8ce8b4feb1d921e71",
+      "sourceName": "contracts/utils/OwnableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ContextUpgradeable.sol",
+        "../proxy/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OwnableUpgradeable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/MerkleProof.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "ff02eec664f26ef2e68f283360f20814",
+      "sourceName": "contracts/utils/MerkleProof.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MerkleProof"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/BeaconFinalizeUtils.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "eb6db3d262290200c605510a69a2406a",
+      "sourceName": "contracts/proxy/BeaconFinalizeUtils.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBeacon.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BeaconFinalizeUtils"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/IBeacon.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "5cfdf1a03d502aa7e3101f991475d10c",
+      "sourceName": "contracts/proxy/IBeacon.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IBeacon"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionDynamic.sol": {
+      "lastModificationDate": 1646116914016,
+      "contentHash": "7f478ac6e754d93f46f23f4205e010e5",
+      "sourceName": "contracts/uwudropCollectionDynamic.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IRoyalties.sol",
+        "./tokens/ERC721URIStorage.sol",
+        "./utils/OwnableUpgradeable.sol",
+        "./utils/Address.sol",
+        "./utils/MerkleProof.sol",
+        "./proxy/BeaconFinalizeUtils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "uwudropCollectionDynamic"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionFactory.sol": {
+      "lastModificationDate": 1646116914016,
+      "contentHash": "7f763f6456b7d98ff29ba23f2c9a7a93",
+      "sourceName": "contracts/uwudropCollectionFactory.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./utils/OwnableUpgradeable.sol",
+        "./utils/Create2.sol",
+        "./proxy/UpgradeableBeacon.sol",
+        "./proxy/Create2BeaconProxy.sol",
+        "./uwudropCollectionDynamic.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "uwudropCollectionFactory"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/Create2.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "c0fb52a76c5679fd2ac37403b82b97f4",
+      "sourceName": "contracts/utils/Create2.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Create2"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/UpgradeableBeacon.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "fe8f9bdc5e3b68495ec2c78bec7d1827",
+      "sourceName": "contracts/proxy/UpgradeableBeacon.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBeacon.sol",
+        "../utils/OwnableUpgradeable.sol",
+        "../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "UpgradeableBeacon"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/Create2BeaconProxy.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "23490651c8c615a7f1066345469fd369",
+      "sourceName": "contracts/proxy/Create2BeaconProxy.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBeacon.sol",
+        "./Proxy.sol",
+        "../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Create2BeaconProxy"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/Proxy.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "024b43a2eb98268c6f73bc2cf35c5cca",
+      "sourceName": "contracts/proxy/Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Proxy"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/BeaconProxy.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "fa706b514a642819f81d1ecd1b1425ad",
+      "sourceName": "contracts/proxy/BeaconProxy.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IBeacon.sol",
+        "./Proxy.sol",
+        "../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BeaconProxy"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/Create2BeaconFinalize.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "310a7bf31c04ec7bed135689346d0e50",
+      "sourceName": "contracts/proxy/Create2BeaconFinalize.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Create2BeaconProxy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Create2BeaconFinalize",
+        "Finalizeable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwuLoot.sol": {
+      "lastModificationDate": 1646116914016,
+      "contentHash": "12324e964b75242ca9cd97b9422bb2b6",
+      "sourceName": "contracts/uwuLoot.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./tokens/IERC20.sol",
+        "./tokens/IERC721Enumerable.sol",
+        "./utils/MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Iuwucrew",
+        "uwuLoot"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC20.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "c7492a9ab60ba083d345f893d5e0f33c",
+      "sourceName": "contracts/tokens/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC721Enumerable.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "1af6c7fa7b957bffc0030c4cb2a55ca0",
+      "sourceName": "contracts/tokens/IERC721Enumerable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Enumerable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/WaveLockMintSale.sol": {
+      "lastModificationDate": 1646116914016,
       "contentHash": "7430d28dc3f1b24cd90baca00efdc664",
       "sourceName": "contracts/WaveLockMintSale.sol",
       "solcConfig": {
@@ -151,45 +1284,10 @@
         "WaveLockSale"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\IERC20.sol": {
-      "lastModificationDate": 1631311649051,
-      "contentHash": "c7492a9ab60ba083d345f893d5e0f33c",
-      "sourceName": "contracts/tokens/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\IERC721Enumerable.sol": {
-      "lastModificationDate": 1631311649055,
-      "contentHash": "1af6c7fa7b957bffc0030c4cb2a55ca0",
-      "sourceName": "contracts/tokens/IERC721Enumerable.sol",
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/Ownable.sol": {
+      "lastModificationDate": 1646116914028,
+      "contentHash": "6920483757f5a28c907ee4be0febe461",
+      "sourceName": "contracts/utils/Ownable.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -214,17 +1312,17 @@
         }
       },
       "imports": [
-        "./IERC721.sol"
+        "./Context.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC721Enumerable"
+        "Ownable"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\ReentrancyGuard.sol": {
-      "lastModificationDate": 1631311649058,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/ReentrancyGuard.sol": {
+      "lastModificationDate": 1646116914028,
       "contentHash": "80b1e36ed1d6740946c3858e4b5165da",
       "sourceName": "contracts/utils/ReentrancyGuard.sol",
       "solcConfig": {
@@ -258,80 +1356,8 @@
         "ReentrancyGuard"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\IERC721.sol": {
-      "lastModificationDate": 1631311649052,
-      "contentHash": "ef3ffd147adf872a77063c18d757818a",
-      "sourceName": "contracts/tokens/IERC721.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/introspection/IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\introspection\\IERC165.sol": {
-      "lastModificationDate": 1631311649056,
-      "contentHash": "3e75af5c8391ff9795a51843c64f9561",
-      "sourceName": "contracts/utils/introspection/IERC165.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC165"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\uwucrewWaveLockMintSale.sol": {
-      "lastModificationDate": 1631311649058,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwucrewWaveLockMintSale.sol": {
+      "lastModificationDate": 1646116914016,
       "contentHash": "69a6e31df24ece37f4ef33a58602548b",
       "sourceName": "contracts/uwucrewWaveLockMintSale.sol",
       "solcConfig": {
@@ -371,10 +1397,10 @@
         "uwucrewWaveLockSale"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\uwuLoot.sol": {
-      "lastModificationDate": 1638386836461,
-      "contentHash": "5e45e1995cfc33a103599840baffe94f",
-      "sourceName": "contracts/uwuLoot.sol",
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwucrewSwap.sol": {
+      "lastModificationDate": 1646116914016,
+      "contentHash": "6e4658b9a264ff7953a941cff647c8d4",
+      "sourceName": "contracts/uwucrewSwap.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -401,20 +1427,21 @@
       "imports": [
         "./tokens/IERC20.sol",
         "./tokens/IERC721Enumerable.sol",
-        "./utils/MerkleProof.sol"
+        "./utils/Ownable.sol",
+        "./utils/ReentrancyGuard.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "Iuwucrew",
-        "uwuLoot"
+        "Minter",
+        "uwucrewSwap"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\MerkleProof.sol": {
-      "lastModificationDate": 1631311649055,
-      "contentHash": "ff02eec664f26ef2e68f283360f20814",
-      "sourceName": "contracts/utils/MerkleProof.sol",
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwucrewBSCWetSale.sol": {
+      "lastModificationDate": 1646116914016,
+      "contentHash": "c6c6ca470ac3eb43e8ef5a416953390d",
+      "sourceName": "contracts/uwucrewBSCWetSale.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -438,16 +1465,21 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "./tokens/IERC20.sol",
+        "./tokens/IERC721Enumerable.sol",
+        "./utils/Ownable.sol",
+        "./utils/ReentrancyGuard.sol"
+      ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "MerkleProof"
+        "uwucrewBSCWaveLockSale"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\uwucrewBSCClaim.sol": {
-      "lastModificationDate": 1638386836460,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwucrewBSCClaim.sol": {
+      "lastModificationDate": 1646116914016,
       "contentHash": "34cea25964e79b03b5ddfd2bc253004c",
       "sourceName": "contracts/uwucrewBSCClaim.sol",
       "solcConfig": {
@@ -488,89 +1520,8 @@
         "NFTMerkleDistributor"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\uwucrewSwap.sol": {
-      "lastModificationDate": 1638386836461,
-      "contentHash": "6e4658b9a264ff7953a941cff647c8d4",
-      "sourceName": "contracts/uwucrewSwap.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./tokens/IERC20.sol",
-        "./tokens/IERC721Enumerable.sol",
-        "./utils/Ownable.sol",
-        "./utils/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Minter",
-        "uwucrewSwap"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\uwucrewBSCWetSale.sol": {
-      "lastModificationDate": 1631311649057,
-      "contentHash": "c6c6ca470ac3eb43e8ef5a416953390d",
-      "sourceName": "contracts/uwucrewBSCWetSale.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./tokens/IERC20.sol",
-        "./tokens/IERC721Enumerable.sol",
-        "./utils/Ownable.sol",
-        "./utils/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "uwucrewBSCWaveLockSale"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\uwucrew.sol": {
-      "lastModificationDate": 1631311649059,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwucrew.sol": {
+      "lastModificationDate": 1646116914016,
       "contentHash": "0b05ae260a7592ec2bbe42b4003df99c",
       "sourceName": "contracts/uwucrew.sol",
       "solcConfig": {
@@ -609,8 +1560,8 @@
         "uwucrew"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\ERC721Enumerable.sol": {
-      "lastModificationDate": 1631311649051,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721Enumerable.sol": {
+      "lastModificationDate": 1646116914024,
       "contentHash": "d3f8300bfa91a8066346748cc5b0e164",
       "sourceName": "contracts/tokens/ERC721Enumerable.sol",
       "solcConfig": {
@@ -647,307 +1598,8 @@
         "ERC721Enumerable"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\ERC721.sol": {
-      "lastModificationDate": 1631311649052,
-      "contentHash": "3fbf57fddfdf2532efc4d8d8a865f852",
-      "sourceName": "contracts/tokens/ERC721.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/Address.sol",
-        "../utils/Context.sol",
-        "../utils/Strings.sol",
-        "./IERC721.sol",
-        "./IERC721Metadata.sol",
-        "./IERC721Enumerable.sol",
-        "./IERC721Receiver.sol",
-        "./IERC721Metadata.sol",
-        "../utils/introspection/ERC165.sol",
-        "./ERC721Holder.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\Address.sol": {
-      "lastModificationDate": 1631311649054,
-      "contentHash": "37103cdc416efc2601c6f6734044b559",
-      "sourceName": "contracts/utils/Address.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Address"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\Strings.sol": {
-      "lastModificationDate": 1631311649058,
-      "contentHash": "e575d915a7dbf0decd510699a7fd53dc",
-      "sourceName": "contracts/utils/Strings.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Strings"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\IERC721Metadata.sol": {
-      "lastModificationDate": 1631311649053,
-      "contentHash": "0dc3820d7e82cb1a16a5998de45705c2",
-      "sourceName": "contracts/tokens/IERC721Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721Metadata"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\IERC721Receiver.sol": {
-      "lastModificationDate": 1631311649053,
-      "contentHash": "3d4292e6bc8ee1bfd0fbb0fee72daa79",
-      "sourceName": "contracts/tokens/IERC721Receiver.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721Receiver"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\utils\\introspection\\ERC165.sol": {
-      "lastModificationDate": 1631311649057,
-      "contentHash": "a9a5319dff9088c6ffe757ea1c2a6729",
-      "sourceName": "contracts/utils/introspection/ERC165.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC165"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\ERC721Holder.sol": {
-      "lastModificationDate": 1631311649051,
-      "contentHash": "19f488040075641a02b0a14eacffcd49",
-      "sourceName": "contracts/tokens/ERC721Holder.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC721Receiver.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721Holder"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\extensions\\IERC721Metadata.sol": {
-      "lastModificationDate": 1631311649050,
-      "contentHash": "3b069e8e549a98f6f381e2223c807a04",
-      "sourceName": "contracts/extensions/IERC721Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../tokens/IERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721Metadata"
-      ]
-    },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\template\\PlainNFTMintDistro.sol": {
-      "lastModificationDate": 1631311649050,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/template/PlainNFTMintDistro.sol": {
+      "lastModificationDate": 1646116914024,
       "contentHash": "d759275fa41fd229168977bbae35984e",
       "sourceName": "contracts/template/PlainNFTMintDistro.sol",
       "solcConfig": {
@@ -986,8 +1638,8 @@
         "SaleContract"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\template\\WaveLockMintSale.sol": {
-      "lastModificationDate": 1631311649050,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/template/WaveLockMintSale.sol": {
+      "lastModificationDate": 1646116914024,
       "contentHash": "1b249fa29f41c2a258388eee2e4ccb47",
       "sourceName": "contracts/template/WaveLockMintSale.sol",
       "solcConfig": {
@@ -1027,8 +1679,265 @@
         "WaveLockSaleWithMint"
       ]
     },
-    "C:\\Users\\Quantumly\\Desktop\\v2\\contracts\\contracts\\tokens\\IERC20WET.sol": {
-      "lastModificationDate": 1631311649052,
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/ProxyControllerSimple.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "7e3f059c6a4b39b6d4f32b924e77e8fa",
+      "sourceName": "contracts/proxy/ProxyControllerSimple.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Ownable.sol",
+        "../interfaces/IAdminUpgradeabilityProxy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ProxyControllerSimple"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/interfaces/IAdminUpgradeabilityProxy.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "657313e63ab114cbd5e3660411b633ff",
+      "sourceName": "contracts/interfaces/IAdminUpgradeabilityProxy.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IAdminUpgradeabilityProxy"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/ProxyController.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "6b854dddd398cfa205d09b9f9d2e4b43",
+      "sourceName": "contracts/proxy/ProxyController.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Ownable.sol",
+        "../interfaces/IAdminUpgradeabilityProxy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ProxyController"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC1155.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "50d513edcda7e2924ae21869379a1a1d",
+      "sourceName": "contracts/tokens/IERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/interfaces/IERC2981.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "2056ca6e5f54b487eab337f13686ee4f",
+      "sourceName": "contracts/interfaces/IERC2981.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC2981"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/extensions/IERC721Metadata.sol": {
+      "lastModificationDate": 1646116914024,
+      "contentHash": "3b069e8e549a98f6f381e2223c807a04",
+      "sourceName": "contracts/extensions/IERC721Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tokens/IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Metadata"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/ClonesUpgradeable.sol": {
+      "lastModificationDate": 1646116914020,
+      "contentHash": "c2e535358c5acb94d57d3bf8d3f1a050",
+      "sourceName": "contracts/proxy/ClonesUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ClonesUpgradeable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/IERC20WET.sol": {
+      "lastModificationDate": 1646116914024,
       "contentHash": "2e5c710ea62014353a7c68a3c2f2f73b",
       "sourceName": "contracts/tokens/IERC20WET.sol",
       "solcConfig": {

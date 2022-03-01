@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/uwuLoot.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> uwuLoot.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/101</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/101</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity ^0.8.0;
+&nbsp;
+import "./tokens/IERC20.sol";
+import "./tokens/IERC721Enumerable.sol";
+import "./utils/MerkleProof.sol";
+&nbsp;
+interface Iuwucrew is IERC721Enumerable {
+  function lastTransferTimestamp(uint256 tokenId) external view returns (uint256);
+  function cumulativeHODL(address who) external view returns (uint256);
+}
+&nbsp;
+contract uwuLoot {
+    uint256 constant MAX_NFTS = 9670;
+&nbsp;
+    Iuwucrew public immutable nft;
+    bytes32 public immutable dataMerkleRoot;
+&nbsp;
+     // This is a packed array of uint8 .
+    mapping(uint256 =&gt; uint256) public registry;
+&nbsp;
+    string[] public backgrounds = [
+      "Blush",
+      "Gray",
+      "Hot Pink",
+      "Lavender",
+      "Marsh",
+      "Ocean",
+      "Orange",
+      "Pink",
+      "Rose",
+      "Ruby",
+      "Sky"
+    ];
+&nbsp;
+    string[] public skins = [
+      "Blushing",
+      "Freckled",
+      "Bronze",
+      "Sepia"
+    ];
+&nbsp;
+    string[] public outfits = [
+      "White Tanktop",
+      "Baka Tee",
+      "Green Tanktop",
+      "White Dress",
+      "Petite Gym",
+      "Zipper Top",
+      "Busty Gym",
+      "Black Dress",
+      "Bored Tee",
+      "Hoodie",
+      "Orange Sweater",
+      "Jersey",
+      "Designer",
+      "YFI Tee",
+      "Occult Dress",
+      "Dapper",
+      "Qipao",
+      "Kimono",
+      "Military Coat",
+      "NFTX Hoodie",
+      "Biker",
+      "Wagie",
+      "Pink Overalls",
+      "Baelien",
+      "Stealth Dress",
+      "Racer",
+      "Admiral",
+      "Queen",
+      "Bunny",
+      "Black Suit",
+      "Mechsuit",
+      "Armor"
+    ];
+&nbsp;
+    string[] public rightAccessories = [
+      "No Right Accessory",
+      "Boba",
+      "Sushi",
+      "Pizza",
+      "Basketball",
+      "Pancakes",
+      "Katana",
+      "Blue Fire",
+      "Giant Sword",
+      "Gold Scythe"
+    ];
+&nbsp;
+    string[] public leftAccessories = [
+      "No Left Accessory",
+      "Peace Hand",
+      "Lollipop",
+      "DEFI NOTE",
+      "Doggo",
+      "Skulls",
+      "Fomo Doll",
+      "Fren",
+      "Cyborg Arm",
+      "Gold Claws",
+      "Brown Doggo"
+    ];
+&nbsp;
+    string[] public hairs = [
+      "Blonde Ponytail",
+      "Rose Ponytail",
+      "Blonde Long",
+      "Brown Short Bangs",
+      "Black Short Bangs",
+      "Black Pixie",
+      "Black Braids",
+      "Blonde Twintails",
+      "Purple Messy",
+      "Orange Long Bangs",
+      "Purple Braids",
+      "Pink Messy",
+      "Silver Pixie",
+      "Blue Short Bangs",
+      "Pink Twintails",
+      "Turquoise Twintails",
+      "White Long Bangs",
+      "Rainbow Braids",
+      "Black Long Bangs"
+    ];
+&nbsp;
+    string[] public hats = [
+      "No Hat",
+      "Black Bow",
+      "Pink Bow",
+      "Hibiscus Flower",
+      "Elf Ears",
+      "Bone Pins",
+      "Horns",
+      "Flower Crown",
+      "Alien Antenna",
+      "Demon Horns",
+      "Mr. Whiskers",
+      "Fox Mask",
+      "Floor Cap",
+      "Occult Hat",
+      "Ornate Flower",
+      "Wagie Cap",
+      "Bunny Ears",
+      "Admiral's Hat",
+      "Queen's Crown",
+      "Hair Bands"
+    ];
+&nbsp;
+    string[] public eyes = [
+      "Round Glasses",
+      "Blue Neutral",
+      "Green Wink",
+      "Eyepatch",
+      "Green Determined",
+      "Relaxed",
+      "Gold Determined",
+      "Purple Neutral",
+      "Closed",
+      "Pink Wink",
+      "Hypnotized",
+      "Dual Color Neutral",
+      "Lovey Dovey",
+      "Pink Glasses",
+      "Heterochromia Determined",
+      "Blindfold",
+      "Heterochromia Neutral",
+      "Shades",
+      "Gold Shades"
+    ];
+&nbsp;
+    string[] public mouths = [
+      "Content Smile",
+      "uwu",
+      "Grin",
+      "Playful",
+      "Pout",
+      "Hmph",
+      "Tongue Out",
+      "Lipstick",
+      "Open Mouth",
+      "Yelling",
+      "Bubblegum",
+      "Black Mask"
+    ];
+        
+    string[] public suffixes = [
+        "",
+        "of uwu",
+        "of owo",
+        "of Cringe",
+        "of Skill",
+        "of Enlightenment",
+        "of Protection",
+        "of Rage",
+        "of Fury"
+    ];
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(address nft_, bytes32 merkleRoot_) {</span>
+<span class="cstat-no" title="statement not covered" >        nft = Iuwucrew(nft_)</span>;
+<span class="cstat-no" title="statement not covered" >        dataMerkleRoot = merkleRoot_</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function registerNFT(uint256 id, uint256 data, bytes32[] memory merkleProof) public {</span>
+<span class="cstat-no" title="statement not covered" >      require(registry[id] == 0, 'MerkleDistributor: Drop already claimed.')</span>;
+&nbsp;
+      // Verify the merkle proof.
+<span class="cstat-no" title="statement not covered" >      bytes32 node = keccak256(abi.encodePacked(address(nft), id, data));</span>
+<span class="cstat-no" title="statement not covered" >      require(MerkleProof.verify(merkleProof, dataMerkleRoot, node), 'MerkleDistributor: Invalid proof.')</span>;
+&nbsp;
+      // Adding one on the right-most bit
+<span class="cstat-no" title="statement not covered" >      registry[id] = data + 1</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function registerNFTs(uint256[] calldata ids, uint256[] calldata allData, bytes32[][] calldata merkleProofs) external {</span>
+<span class="cstat-no" title="statement not covered" >      require(merkleProofs.length == ids.length, "Not equal proofs")</span>;
+<span class="cstat-no" title="statement not covered" >      require(allData.length == ids.length, "Not equal data")</span>;
+<span class="cstat-no" title="statement not covered" >      for (uint256 i = 0; i &lt; ids.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        registerNFT(ids[i], allData[i], merkleProofs[i])</span>;
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function allTokenIdsHeldBy(address who) external view returns (uint256[] memory) {</span>
+<span class="cstat-no" title="statement not covered" >      Iuwucrew _nft = Iuwucrew(nft);</span>
+<span class="cstat-no" title="statement not covered" >      uint256 balance = _nft.balanceOf(who);</span>
+<span class="cstat-no" title="statement not covered" >      uint256[] memory tokensHeld = new uint256[](balance);</span>
+<span class="cstat-no" title="statement not covered" >      for (uint256 i = 0; i &lt; balance; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        tokensHeld[i] = _nft.tokenOfOwnerByIndex(who, i)</span>;
+      }
+<span class="cstat-no" title="statement not covered" >      return tokensHeld;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function allTokenTimestampsHeldBy(address who) external view returns (uint256[] memory) {</span>
+<span class="cstat-no" title="statement not covered" >      Iuwucrew _nft = Iuwucrew(nft);</span>
+<span class="cstat-no" title="statement not covered" >      uint256 balance = _nft.balanceOf(who);</span>
+<span class="cstat-no" title="statement not covered" >      uint256[] memory tokenTimestamps = new uint256[](balance);</span>
+<span class="cstat-no" title="statement not covered" >      for (uint256 i = 0; i &lt; balance; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        tokenTimestamps[i] = _nft.lastTransferTimestamp(_nft.tokenOfOwnerByIndex(who, i))</span>;
+      }
+<span class="cstat-no" title="statement not covered" >      return tokenTimestamps;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getAllLoot(uint256 tokenId) public view returns (string[] memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      string[] memory allLoot = new string[](9);</span>
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      allLoot[0] = _getBackground(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[1] = _getSkin(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[2] = _getOutfit(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[3] = _getRightAccessory(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[4] = _getLeftAccessory(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[5] = _getHair(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[6] = _getHat(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[7] = _getEyes(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[8] = _getMouth(registryData)</span>;
+<span class="cstat-no" title="statement not covered" >      return allLoot;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getAllLootWithExtras(uint256 tokenId) external view returns (string[] memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      string[] memory allLoot = getAllLoot(tokenId);</span>
+<span class="cstat-no" title="statement not covered" >      uint256 rng3 = uint256(keccak256(abi.encodePacked(address(this), allLoot[3], tokenId)));</span>
+<span class="cstat-no" title="statement not covered" >      uint256 rng4 = uint256(keccak256(abi.encodePacked(address(this), allLoot[4], tokenId)));</span>
+<span class="cstat-no" title="statement not covered" >      allLoot[3] = string(abi.encodePacked(allLoot[3], " ", suffixes[rng3%suffixes.length]))</span>;
+<span class="cstat-no" title="statement not covered" >      allLoot[4] = string(abi.encodePacked(allLoot[4], " ", suffixes[rng4%suffixes.length]))</span>;
+<span class="cstat-no" title="statement not covered" >      return allLoot;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getAllRegistryIndexes(uint256 tokenId) external view returns (uint256[] memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256[] memory allIndexes = new uint256[](9);</span>
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      allIndexes[0] = registryData &gt;&gt; 248</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[1] = uint256(uint8(registryData &gt;&gt; 240))</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[2] = uint256(uint8(registryData &gt;&gt; 232))</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[3] = uint256(uint8(registryData &gt;&gt; 224))</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[4] = uint256(uint8(registryData &gt;&gt; 216))</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[5] = uint256(uint8(registryData &gt;&gt; 208))</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[6] = uint256(uint8(registryData &gt;&gt; 200))</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[7] = uint256(uint8(registryData &gt;&gt; 192))</span>;
+<span class="cstat-no" title="statement not covered" >      allIndexes[8] = uint256(uint8(registryData &gt;&gt; 184))</span>;
+<span class="cstat-no" title="statement not covered" >      return allIndexes;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getBackground(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      require(uint8(registryData) != 0)</span>;
+<span class="cstat-no" title="statement not covered" >      return _getBackground(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getSkin(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getSkin(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getOutfit(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getOutfit(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getRightAccessory(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getRightAccessory(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getLeftAccessory(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getLeftAccessory(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getHair(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getHair(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getHats(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getHat(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getEyes(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getEyes(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function getMouth(uint256 tokenId) external view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      require(tokenId &lt; MAX_NFTS)</span>;
+<span class="cstat-no" title="statement not covered" >      uint256 registryData = registry[tokenId];</span>
+<span class="cstat-no" title="statement not covered" >      return _getMouth(registryData);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getBackground(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = registryData &gt;&gt; 248;</span>
+<span class="cstat-no" title="statement not covered" >      return backgrounds[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getSkin(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 240));</span>
+<span class="cstat-no" title="statement not covered" >      return skins[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getOutfit(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 232));</span>
+<span class="cstat-no" title="statement not covered" >      return outfits[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getRightAccessory(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 224));</span>
+<span class="cstat-no" title="statement not covered" >      return rightAccessories[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getLeftAccessory(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 216));</span>
+<span class="cstat-no" title="statement not covered" >      return leftAccessories[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getHair(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 208));</span>
+<span class="cstat-no" title="statement not covered" >      return hairs[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getHat(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 200));</span>
+<span class="cstat-no" title="statement not covered" >      return hats[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getEyes(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 192));</span>
+<span class="cstat-no" title="statement not covered" >      return eyes[dataIndex];</span>
+    } 
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _getMouth(uint256 registryData) internal view returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >      uint256 dataIndex = uint256(uint8(registryData &gt;&gt; 184));</span>
+<span class="cstat-no" title="statement not covered" >      return mouths[dataIndex];</span>
+    } 
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 16 2022 16:33:44 GMT-0500 (Eastern Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

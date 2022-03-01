@@ -184,15 +184,13 @@ contract uwuLoot {
     ];
         
     string[] public suffixes = [
+        "",
         "of uwu",
         "of owo",
         "of Cringe",
         "of Skill",
-        "of Perfection",
-        "of Brilliance",
         "of Enlightenment",
         "of Protection",
-        "of Anger",
         "of Rage",
         "of Fury"
     ];
@@ -206,7 +204,7 @@ contract uwuLoot {
       require(registry[id] == 0, 'MerkleDistributor: Drop already claimed.');
 
       // Verify the merkle proof.
-      bytes32 node = keccak256(abi.encodePacked(address(this), id, data));
+      bytes32 node = keccak256(abi.encodePacked(address(nft), id, data));
       require(MerkleProof.verify(merkleProof, dataMerkleRoot, node), 'MerkleDistributor: Invalid proof.');
 
       // Adding one on the right-most bit
@@ -241,7 +239,7 @@ contract uwuLoot {
       return tokenTimestamps;
     }
 
-    function getAllLoot(uint256 tokenId) external view returns (string[] memory) {
+    function getAllLoot(uint256 tokenId) public view returns (string[] memory) {
       require(tokenId < MAX_NFTS);
       string[] memory allLoot = new string[](9);
       uint256 registryData = registry[tokenId];
@@ -254,6 +252,16 @@ contract uwuLoot {
       allLoot[6] = _getHat(registryData);
       allLoot[7] = _getEyes(registryData);
       allLoot[8] = _getMouth(registryData);
+      return allLoot;
+    }
+
+    function getAllLootWithExtras(uint256 tokenId) external view returns (string[] memory) {
+      require(tokenId < MAX_NFTS);
+      string[] memory allLoot = getAllLoot(tokenId);
+      uint256 rng3 = uint256(keccak256(abi.encodePacked(address(this), allLoot[3], tokenId)));
+      uint256 rng4 = uint256(keccak256(abi.encodePacked(address(this), allLoot[4], tokenId)));
+      allLoot[3] = string(abi.encodePacked(allLoot[3], " ", suffixes[rng3%suffixes.length]));
+      allLoot[4] = string(abi.encodePacked(allLoot[4], " ", suffixes[rng4%suffixes.length]));
       return allLoot;
     }
 

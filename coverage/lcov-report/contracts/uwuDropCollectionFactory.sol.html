@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/uwuDropCollectionFactory.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> uwuDropCollectionFactory.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "./utils/OwnableUpgradeable.sol";
+import "./utils/Create2.sol";
+import "./proxy/UpgradeableBeacon.sol";
+import "./proxy/Create2BeaconProxy.sol";
+import "./uwuDropCollection.sol";
+&nbsp;
+// Author: 0xKiwi.
+&nbsp;
+contract uwudropCollectionFactory is OwnableUpgradeable, UpgradeableBeacon {
+    uint256 public collectionIndex;
+    uint256 public adminFee = 0.01 ether;
+&nbsp;
+    mapping(address =&gt; address) public nftToRoyaltyReceiver;
+    bytes internal constant beaconCode = type(Create2BeaconProxy).creationCode;
+&nbsp;
+    event CollectionCreated(address collectionAddr);
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function __uwudropCollectionFactory_init() external virtual initializer {</span>
+<span class="cstat-no" title="statement not covered" >        __Ownable_init()</span>;
+<span class="cstat-no" title="statement not covered" >        address collectionImpl = address(new uwuDropCollection());</span>
+<span class="cstat-no" title="statement not covered" >        __UpgradeableBeacon__init(collectionImpl)</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function createCollection(string memory name, string memory symbol, address _owner, address royaltyReceiver) external {</span>
+<span class="cstat-no" title="statement not covered" >        uint256 _collectionIndex = collectionIndex;</span>
+<span class="cstat-no" title="statement not covered" >      address deployedCollection = _deployuwuDropCollection(_collectionIndex, name, symbol, _owner, royaltyReceiver);</span>
+<span class="cstat-no" title="statement not covered" >      collectionIndex = _collectionIndex + 1</span>;
+<span class="cstat-no" title="statement not covered" >      emit CollectionCreated(deployedCollection);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function collectionAddress(uint256 _collectionIndex) public view returns (address) {</span>
+<span class="cstat-no" title="statement not covered" >        bytes32 salt = keccak256(abi.encodePacked(_collectionIndex));</span>
+<span class="cstat-no" title="statement not covered" >        return Create2.computeAddress(salt, keccak256(beaconCode));</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _deployuwuDropCollection(uint256 _collectionIndex, string memory name, string memory symbol, address _owner, address royaltyReceiver) internal returns (address) {</span>
+<span class="cstat-no" title="statement not covered" >        bytes32 salt = keccak256(abi.encodePacked(_collectionIndex));</span>
+<span class="cstat-no" title="statement not covered" >        address deployedCollection = Create2.deploy(0, salt, beaconCode);</span>
+<span class="cstat-no" title="statement not covered" >        uwuDropCollection(deployedCollection).__uwuDropCollection_init(name, symbol, _owner, royaltyReceiver)</span>;
+<span class="cstat-no" title="statement not covered" >        return deployedCollection;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function isContract(address account) internal view returns (bool) {</span>
+        // This method relies on extcodesize, which returns 0 for contracts in
+        // construction, since the code is only stored at the end of the
+        // constructor execution.
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uint256 size;</span>
+        // solhint-disable-next-line no-inline-assembly
+        assembly { size := extcodesize(account) }
+<span class="cstat-no" title="statement not covered" >        return size != 0;</span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 16 2022 16:33:44 GMT-0500 (Eastern Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

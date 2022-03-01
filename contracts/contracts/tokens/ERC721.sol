@@ -7,7 +7,6 @@ import "../utils/Context.sol";
 import "../utils/Strings.sol";
 import "./IERC721.sol";
 import "./IERC721Metadata.sol";
-import "./IERC721Enumerable.sol";
 import "./IERC721Receiver.sol";
 import "./IERC721Metadata.sol";
 import "../utils/introspection/ERC165.sol";
