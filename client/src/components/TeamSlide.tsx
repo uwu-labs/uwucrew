@@ -13,6 +13,7 @@ import wave from '../assets/profiles/wave.jpg';
 import quantumly from '../assets/profiles/quantumly.jpg';
 import danny from '../assets/profiles/danny.jpg';
 import omar from '../assets/profiles/omar.jpg';
+import luke from '../assets/profiles/luke.jpg';
 
 interface TeamMemberType {
 	name: string;
@@ -123,6 +124,16 @@ const members: TeamMemberType[] = [
 		],
 		twitter: 'https://twitter.com/quantumlyy',
 		github: 'https://github.com/quantumlyy'
+	},
+	{
+		name: 'Frozen Luke',
+		role: 'Project Manager',
+		image: luke,
+		bio: [
+			'Luke is here to keep the UWU team on track in executing all their amazing ideas.',
+			'He comes from the videogame world, and NFTs remind him of the early days of esports.'
+		],
+		twitter: 'https://twitter.com/LukeFrozen'
 	}
 ];
 
