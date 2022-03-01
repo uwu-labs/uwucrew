@@ -1970,6 +1970,45 @@
       "artifacts": [
         "IERC20WET"
       ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/nft1155Distributor.sol": {
+      "lastModificationDate": 1646164342624,
+      "contentHash": "e0f6fa4e6a0aa02bcf24b5beeb957274",
+      "sourceName": "contracts/utils/nft1155Distributor.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155",
+        "IERC165",
+        "nft1155Distributor"
+      ]
     }
   }
 }

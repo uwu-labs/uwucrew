@@ -34,7 +34,12 @@ export default {
 		binance: {
 			url: 'https://bsc-dataseed1.defibit.io/',
 			accounts: [process.env.DEV_PRIVKEY]
-		}
+		},
+    polygon: {
+      url: "https://polygon-rpc.com",
+      accounts: [process.env.DEV_PRIVKEY],
+      gasPrice: 50000000000
+    },
 	},
 	abiExporter: {
 		path: './abis',
