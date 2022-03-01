@@ -29,7 +29,7 @@ describe('uwudrop Test', () => {
       [],
       {
         initializer: "__uwudropCollectionFactory__init__",
-				unsafeAllow: ,
+				unsafeAllow: "delegatecall",
       }
     )) as UwudropCollectionFactory;
     await uwudropFactory.deployed();
