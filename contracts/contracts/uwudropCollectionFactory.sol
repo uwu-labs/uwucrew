@@ -18,7 +18,7 @@ import "./uwudropCollectionDynamic.sol";
 //
 contract uwudropCollectionFactory is OwnableUpgradeable, UpgradeableBeacon {
     uint256 public collectionIndex;
-    uint256 public adminFee = 0.01 gwei;
+    uint256 public adminFee;
 
     // Sponsor support to allow certain collectors to cover gas costs for artists? Administrative?
     mapping(address => bool) public sponsors;
@@ -31,6 +31,7 @@ contract uwudropCollectionFactory is OwnableUpgradeable, UpgradeableBeacon {
         __Ownable_init();
         address collectionImpl = address(new uwudropCollectionDynamic());
         __UpgradeableBeacon__init(collectionImpl);
+        adminFee = 0.01 gwei;
     }
 
     function version() external pure returns (string memory) {
