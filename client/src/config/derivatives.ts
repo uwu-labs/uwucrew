@@ -1452,7 +1452,6 @@ const derivatives: DerivativeType[] = [
     artistLink: "https://twitter.com/sawawse",
     image: "https://pbs.twimg.com/media/FIEnChUUcAAg8Mg?format=jpg&name=large",
     post: "https://twitter.com/sawawse/status/1477505081754800128",
-    id: ""
   },
   {
     artistName: "Hamui",
@@ -1697,7 +1696,6 @@ const derivatives: DerivativeType[] = [
     artistLink: "https://twitter.com/ChinpongR",
     image: "https://twitter.com/i/status/1483261024900116480",
     post: "https://twitter.com/ChinpongR/status/1483261024900116480",
-    id: ""
   },
   {
     artistName: "ANJU",
