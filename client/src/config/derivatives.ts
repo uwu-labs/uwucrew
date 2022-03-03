@@ -1340,7 +1340,7 @@ const derivatives: DerivativeType[] = [
     artistLink: "https://twitter.com/Lamenthyst",
     image: "https://pbs.twimg.com/media/FHe9jDuaIAExZQv?format=jpg&name=medium",
     post: "https://twitter.com/Lamenthyst/status/1474858233894666240",
-    id: "7650 3756"
+    id: 7650, //"7650 3756"
   },
   {
     artistName: "Xiran",
@@ -1564,7 +1564,7 @@ const derivatives: DerivativeType[] = [
     artistLink: "https://twitter.com/ChinpongR",
     image: "https://twitter.com/i/status/1481359649949589516",
     post: "https://twitter.com/ChinpongR/status/1481359649949589516",
-    id: "3993 4726 4881"
+    id: 3993, //"3993 4726 4881"
   },
   {
     artistName: "Tue",
@@ -1592,7 +1592,7 @@ const derivatives: DerivativeType[] = [
     artistLink: "https://twitter.com/zhenzhu_zoldyck",
     image: "https://twitter.com/i/status/1481786721591500800",
     post: "https://twitter.com/zhenzhu_zoldyck/status/1481786721591500800",
-    id: "3993 4726 4881"
+    id: 3993, //3993 4726 4881"
   },
   {
     artistName: "Nadhsan",
@@ -2124,7 +2124,7 @@ const derivatives: DerivativeType[] = [
     artistLink: "https://twitter.com/minirzz_",
     image: "https://pbs.twimg.com/media/FKSIBP2aIAEC1D-?format=jpg&name=large",
     post: "https://twitter.com/minirzz_/status/1487463339785875459",
-    id: "3993 4726 4881"
+    id: 3993, // 3993 4726 4881"
   },
   {
     artistName: "Alice",
@@ -2138,7 +2138,7 @@ const derivatives: DerivativeType[] = [
     artistLink: "https://twitter.com/ta2nb_mkiii",
     image: "https://twitter.com/i/status/1487668558553546758",
     post: "https://twitter.com/ta2nb_mkiii/status/1487668558553546758",
-    id: "3993 4726 4881"
+    id: 3993, //"3993 4726 4881"
   },
   {
     artistName: "Win",
