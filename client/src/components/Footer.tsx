@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
 				<a href="https://medium.com/@uwulabs" target="_blank" rel="noreferrer">
 					<Social src={medium} />
 				</a>
-				<a href="https://github.com/waifusion" target="_blank" rel="noreferrer">
+				<a href="https://github.com/uwu-labs" target="_blank" rel="noreferrer">
 					<Social src={github} />
 				</a>
 				<a href="https://www.instagram.com/uwucrew.art/" target="_blank" rel="noreferrer">
