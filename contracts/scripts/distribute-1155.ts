@@ -1,8 +1,6 @@
 const { BigNumber } = require("@ethersproject/bignumber");
-const { ethers, upgrades } = require("hardhat");
+const { ethers } = require("hardhat");
 import airdropInfo from "../snapshots/14296680-roadmapv2.json";
-
-const notZeroAddr = "0x000000000000000000000000000000000000dead";
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -16,16 +14,15 @@ async function main() {
   );
   
   let addresses = Object.keys(airdropInfo);
+  console.log(addresses.length);
 
   const distributor = await ethers.getContractAt("nft1155Distributor", "0x86a90727e2D27E84615766255980414B15Af67F4")
   const nft = await ethers.getContractAt("IERC1155", "0x2953399124f0cbb46d2cbacd8a89cf0599974963");
-  const id = 0;
-
-  await nft.setApprovalForAll("0x86a90727e2D27E84615766255980414B15Af67F4", true);
+  const id = "66450628800353115039952438590945603205850694131236567417649397736429085266024";
 
   let nonce = await ethers.provider.getTransactionCount(await deployer.getAddress(), "pending");
   console.log(nonce)
-  let batchSize = 5;
+  let batchSize = 200;
   for (let i = 0; i < addresses.length; i += batchSize) {
     let sendAddresses = [];
     let max = i+batchSize > addresses.length ? addresses.length : i+batchSize
@@ -41,7 +38,7 @@ async function main() {
       nft.address, sendAddresses, id,
       {
         nonce: BigNumber.from(nonce),
-        gasLimit: 5100000,
+        gasLimit: 20100000,
       }
     );
     await tx.wait();

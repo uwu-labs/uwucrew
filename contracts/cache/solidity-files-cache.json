@@ -1972,8 +1972,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/nft1155Distributor.sol": {
-      "lastModificationDate": 1646164342624,
-      "contentHash": "e0f6fa4e6a0aa02bcf24b5beeb957274",
+      "lastModificationDate": 1646170513580,
+      "contentHash": "90a6058355a5cd8bfb68bc9bde54c2bf",
       "sourceName": "contracts/utils/nft1155Distributor.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -1998,16 +1998,56 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "../tokens/IERC1155.sol"
+      ],
       "versionPragmas": [
-        "^0.8.0",
-        "^0.8.0",
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC1155",
-        "IERC165",
         "nft1155Distributor"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropShared.sol": {
+      "lastModificationDate": 1647221730607,
+      "contentHash": "0efc22053b44d0ebf563f0e146b0cbc8",
+      "sourceName": "contracts/uwudropShared.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IRoyalties.sol",
+        "./tokens/ERC721URIStorage.sol",
+        "./utils/OwnableUpgradeable.sol",
+        "./utils/Address.sol",
+        "./utils/MerkleProof.sol",
+        "./proxy/BeaconFinalizeUtils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "uwudropShared"
       ]
     }
   }
