@@ -14,6 +14,7 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
   uint256 private _royaltyInBasisPoints = 300;
 
   uint256 public collectionIndex;
+  uint256 public uwulabsFee;
 
   mapping(uint256 => bool) public collectionFinalized;
   mapping(uint256 => bytes32) public collectionDataRoot;
@@ -40,6 +41,7 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     __Ownable_init();
     __ERC721Simple_init(_name, _symbol);
     setBaseURI(_baseURI);
+    uwulabsFee = 0.01 gwei;
   }
 
   function createCollection(bytes32 dataRoot, address _derivativeSourceNFT) external {
@@ -76,30 +78,34 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     emit Finalized(collectionId);
   }
 
-  function nftMint(uint256 collectionId, uint256 id, address sourceArtist, bool privateSale, bytes32[] memory merkleProof) external payable {
+  function nftMint(uint256 collectionId, uint256 id, uint256 price, address sourceArtist, bool privateSale, bytes32[] memory merkleProof) external payable {
     require(_exists(id), "Already purchased");
     bytes32 _dataRoot = collectionDataRoot[collectionId];
     require(_dataRoot != bytes32(0), "Data Root not initialized");
-    // require(msg.value == price, "Not enough ETH");
-    address receiver = address(0);
-    if (privateSale) {
-      receiver = msg.sender;
+    require(msg.value == price, "Not enough ETH");
+
+    {
+      address receiver = address(0);
+      if (privateSale) {
+        receiver = msg.sender;
+      }
+      bytes32 node = keccak256(abi.encodePacked(collectionId, id, price, msg.value, receiver));
+      require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
+      require(id < 1e6, "Above max");
     }
-    bytes32 node = keccak256(abi.encodePacked(collectionId, id, msg.value, receiver));
-    require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
-    require(id < 1e6, "Above max");
 
     // uwulabs fee: 1%.
-    payable(owner()).sendValue((1 * msg.value)/100);
+    uint256 _uwulabsFee = uwulabsFee;
+    payable(owner()).sendValue((_uwulabsFee * msg.value)/1 gwei);
 
     // derivative source fee: variable.
     address _derivativeSourceNFT = derivativeSourceNFT[collectionId];
     address derivFeeReceiver = derivativeSourceReceiver[_derivativeSourceNFT];
     uint256 derivFee = derivativeFee[_derivativeSourceNFT];
-    payable(derivFeeReceiver).sendValue((derivFee * msg.value)/100);
+    payable(derivFeeReceiver).sendValue((derivFee * msg.value)/1 gwei);
 
     // Rest goes to artist.
-    payable(sourceArtist).sendValue(((100 - derivFee - 1)*msg.value)/100);
+    payable(sourceArtist).sendValue(((1 gwei - derivFee - _uwulabsFee)*msg.value)/1 gwei);
 
     _mint(sourceArtist, msg.sender, collectionId*1e6 | id);
   }
