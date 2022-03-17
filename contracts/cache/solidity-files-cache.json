@@ -407,8 +407,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721SimpleUpgradeable.sol": {
-      "lastModificationDate": 1646116914024,
-      "contentHash": "2825ec71d6e9d152967462d638069ba0",
+      "lastModificationDate": 1647555564620,
+      "contentHash": "4c01e2e3f4199ba141a8d0122f36a4e8",
       "sourceName": "contracts/tokens/ERC721SimpleUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -599,8 +599,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionStatic.sol": {
-      "lastModificationDate": 1646116914016,
-      "contentHash": "dcdfa2e11f378ba99beed7f94ed32b41",
+      "lastModificationDate": 1647555650444,
+      "contentHash": "68e2377df8a324c71ac614ecd7dfed59",
       "sourceName": "contracts/uwudropCollectionStatic.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -824,8 +824,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionDynamic.sol": {
-      "lastModificationDate": 1646116914016,
-      "contentHash": "7f478ac6e754d93f46f23f4205e010e5",
+      "lastModificationDate": 1647555638816,
+      "contentHash": "8da4fd497dd8f3e5dab2faccee6a02c7",
       "sourceName": "contracts/uwudropCollectionDynamic.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -866,7 +866,7 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionFactory.sol": {
-      "lastModificationDate": 1646123205428,
+      "lastModificationDate": 1646163030508,
       "contentHash": "1ef2a8539a7762d3f7ccc0a890f32f93",
       "sourceName": "contracts/uwudropCollectionFactory.sol",
       "solcConfig": {
@@ -2009,8 +2009,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropShared.sol": {
-      "lastModificationDate": 1647221730607,
-      "contentHash": "0efc22053b44d0ebf563f0e146b0cbc8",
+      "lastModificationDate": 1647556077268,
+      "contentHash": "59252208117639f4a96bae5ed3eacb1f",
       "sourceName": "contracts/uwudropShared.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2040,8 +2040,7 @@
         "./tokens/ERC721URIStorage.sol",
         "./utils/OwnableUpgradeable.sol",
         "./utils/Address.sol",
-        "./utils/MerkleProof.sol",
-        "./proxy/BeaconFinalizeUtils.sol"
+        "./utils/MerkleProof.sol"
       ],
       "versionPragmas": [
         "^0.8.0"

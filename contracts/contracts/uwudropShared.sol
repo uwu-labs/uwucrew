@@ -24,7 +24,7 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
 
   mapping(uint256 => address) public derivativeSourceNFT;
   mapping(address => address) public derivativeSourceReceiver;
-  mapping(uint256 => uint256) public derivativeFee;
+  mapping(address => uint256) public derivativeFee;
 
   /**
    * @dev Stores an optional alternate address to receive creator revenue and royalty payments.
@@ -42,19 +42,19 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     setBaseURI(_baseURI);
   }
 
-  function createCollection(bytes32 dataRoot, address derivativeSourceNFT) external {
+  function createCollection(bytes32 dataRoot, address _derivativeSourceNFT) external {
     uint256 _collectionIndex = collectionIndex + 1;
     collectionIndex = _collectionIndex;
     collectionOwner[_collectionIndex] = msg.sender;
     collectionDataRoot[_collectionIndex] = dataRoot;
-    derivativeSourceNFT[_collectionIndex] = derivativeSourceNFT;
+    derivativeSourceNFT[_collectionIndex] = _derivativeSourceNFT;
   }
 
   function updateCollectionData(uint256 collectionId, string memory customURI, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
     require(!collectionFinalized[collectionId], "Finalized");
     collectionDataRoot[collectionId] = newNFTDataTreeRoot;
     baseURI = customURI;
-    emit CollectionUpdate(newMaxSupply, newNFTDataTreeRoot, customURI);
+    emit CollectionUpdate(collectionId, newMaxSupply, newNFTDataTreeRoot, customURI);
   }
 
   // function managerUpdateCollectionData(uint256 collectionId, string memory customURI, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
@@ -88,25 +88,27 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     bytes32 node = keccak256(abi.encodePacked(collectionId, id, msg.value, receiver));
     require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
     require(id < 1e6, "Above max");
-    _mint(msg.sender, collectionId*1e6 | id);
 
     // uwulabs fee: 1%.
     payable(owner()).sendValue((1 * msg.value)/100);
 
     // derivative source fee: variable.
-    address derivFeeReceiver = derivativeSourceReceiver[collectionId];
-    uint256 derivFee = derivativeFee[collectionId];
+    address _derivativeSourceNFT = derivativeSourceNFT[collectionId];
+    address derivFeeReceiver = derivativeSourceReceiver[_derivativeSourceNFT];
+    uint256 derivFee = derivativeFee[_derivativeSourceNFT];
     payable(derivFeeReceiver).sendValue((derivFee * msg.value)/100);
 
     // Rest goes to artist.
     payable(sourceArtist).sendValue(((100 - derivFee - 1)*msg.value)/100);
+
+    _mint(sourceArtist, msg.sender, collectionId*1e6 | id);
   }
 
-  function setDerivativeSourceFee(address derivativeSourceNFT, uint256 _derivFee, address _derivFeeReceiver) {
+  function setDerivativeSourceFee(address _derivativeSourceNFT, uint256 _derivFee, address _derivFeeReceiver) public {
     // require();
     
-    derivativeSourceReceiver[derivativeSourceNFT] = _derivFeeReceiver;
-    derivativeFee[derivativeSourceNFT] = _derivFee;
+    derivativeSourceReceiver[_derivativeSourceNFT] = _derivFeeReceiver;
+    derivativeFee[_derivativeSourceNFT] = _derivFee;
   }
  
   function disperseETH() internal {

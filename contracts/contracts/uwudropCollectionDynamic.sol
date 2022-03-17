@@ -103,7 +103,7 @@ contract uwudropCollectionDynamic is OwnableUpgradeable, ERC721URIStorage {
     // Put artist address/collection id into this to prevent colluding trees? (provided by frontend anyways, so doesn't have to be 100% decentralized)
     bytes32 node = keccak256(abi.encodePacked(id, newTokenURI, msg.value, receiver));
     require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
-    _mint(msg.sender, id);
+    _mint(msg.sender, msg.sender, id);
     // If the user passed in a token uri, use it. If not, tokenURI() resorts to the baseuri + tokenId.
     if (bytes(newTokenURI).length == 0) {
       _setTokenURI(id, newTokenURI);

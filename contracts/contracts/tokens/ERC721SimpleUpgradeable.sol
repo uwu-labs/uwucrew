@@ -255,8 +255,8 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
      *
      * Emits a {Transfer} event.
      */
-    function _safeMint(address to, uint256 tokenId) internal virtual {
-        _safeMint(to, tokenId, "");
+    function _safeMint(address minter, address to, uint256 tokenId) internal virtual {
+        _safeMint(minter, to, tokenId, "");
     }
 
     /**
@@ -264,11 +264,12 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
      * forwarded in {IERC721Receiver-onERC721Received} to contract recipients.
      */
     function _safeMint(
+        address minter,
         address to,
         uint256 tokenId,
         bytes memory _data
     ) internal virtual {
-        _mint(to, tokenId);
+        _mint(minter, to, tokenId);
         require(
             _checkOnERC721Received(address(0), to, tokenId, _data),
             "ERC721: transfer to non ERC721Receiver implementer"
@@ -287,13 +288,13 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
      *
      * Emits a {Transfer} event.
      */
-    function _mint(address to, uint256 tokenId) internal virtual {
+    function _mint(address minter, address to, uint256 tokenId) internal virtual {
         uint256[] memory ids = new uint256[](1);
         ids[0] = tokenId;
-        _mintNFTs(to, ids);
+        _mintNFTs(minter, to, ids);
     }
 
-    function _mintNFTs(address to, uint256[] memory tokenIds) internal virtual {
+    function _mintNFTs(address minter, address to, uint256[] memory tokenIds) internal virtual {
         require(to != address(0), "ERC721: mint to the zero address");
 
         uint256 _length = tokenIds.length;
@@ -305,7 +306,8 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
             _beforeTokenTransfer(address(0), to, tokenId);
 
             _owners[tokenId] = to;
-            emit Transfer(address(0), to, tokenId);
+            emit Transfer(address(0), minter, tokenId);
+            emit Transfer(minter, to, tokenId);
         }
     }
 
