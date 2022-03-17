@@ -45,6 +45,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     uwulabsFee = 0.01 gwei;
   }
 
+  receive() external payable {
+    revert("Should not be sending eth directly");
+  }
+
   function createCollection(bytes32 dataRoot, address _derivativeSourceNFT) external {
     uint256 _collectionIndex = collectionIndex + 1;
     collectionIndex = _collectionIndex;
@@ -114,23 +118,18 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     // Rest goes to artist.
     payable(sourceArtist).sendValue(((1 gwei - derivFee - _uwulabsFee)*msg.value)/1 gwei);
 
-    _mint(sourceArtist, msg.sender, _nftId);
-
     // Add more to this.
     emit Purchase(collectionId, id);
+
+    _mint(sourceArtist, msg.sender, _nftId);
   }
 
+  // Lets the owner of the NFT contract define the fee parameters.
   function setDerivativeSourceFee(address _derivativeSourceNFT, uint256 _derivFee, address _derivFeeReceiver) public {
-    // require();
+    require(msg.sender == OwnableUpgradeable(_derivativeSourceNFT).owner());
     
     derivativeSourceReceiver[_derivativeSourceNFT] = _derivFeeReceiver;
     derivativeFee[_derivativeSourceNFT] = _derivFee;
-  }
- 
-  function disperseETH() internal {
-    uint256 fullAmount = address(this).balance;
-    payable(msg.sender).sendValue(fullAmount*990/1000);
-    payable(0x354A70969F0b4a4C994403051A81C2ca45db3615).sendValue(address(this).balance);
   }
 
   function setTokenCreatorPaymentAddress(address payable tokenCreatorPaymentAddress) external onlyOwner {
