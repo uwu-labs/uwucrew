@@ -11,8 +11,6 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
   
   string public baseURI;
 
-  uint256 private _royaltyInBasisPoints = 300;
-
   uint256 public collectionIndex;
   uint256 public uwulabsFee;
 
@@ -21,22 +19,19 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
   mapping(uint256 => address) public collectionOwner;
   
   // maybe put in merkle tree for simplicity.
-  mapping(uint256 => bytes32) public collectionManagers;
+  mapping(uint256 => bytes32) public collectionManagersRoot;
 
   mapping(uint256 => address) public derivativeSourceNFT;
   mapping(address => address) public derivativeSourceReceiver;
   mapping(address => uint256) public derivativeFee;
 
-  /**
-   * @dev Stores an optional alternate address to receive creator revenue and royalty payments.
-   * The target address may be a contract which could split or escrow payments.
-   */
-  address payable private _creatorPaymentAddress;
-
-  event Purchase(uint256 collectionId, uint256 id);
-  event CollectionUpdate(uint256 collectionId, uint256 newMaxSupply, bytes32 newNFTDataRoot, string customURI);
+  event Purchase(uint256 collectionId, uint256 id, address buyer, address sourceArtist);
+  event CollectionCreated(uint256 collectionId, address who, bytes32 newNFTDataRoot, address derivativeSourceNFT);
+  event CollectionUpdate(uint256 collectionId, address who, uint256 newMaxSupply, bytes32 newNFTDataRoot);
   event CollectionManagerUpdate(uint256 collectionId, bytes32 newCollectionManagerRoot);
   event Finalized(uint256 collectionId);
+
+  event DerivativeSourceFeeUpdate(address sourceNFT, uint256 derivativeFee);
 
   function __uwudropShared_init(string memory _name, string memory _symbol, string memory _baseURI) external {
     __Ownable_init();
@@ -45,9 +40,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     uwulabsFee = 0.01 gwei;
   }
 
-  receive() external payable {
-    revert("Should not be sending eth directly");
-  }
+  // receive() external payable {
+    // Might need to split received funds.
+    // revert("Should not be sending eth directly");
+  // }
 
   function createCollection(bytes32 dataRoot, address _derivativeSourceNFT) external {
     uint256 _collectionIndex = collectionIndex + 1;
@@ -55,26 +51,32 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     collectionOwner[_collectionIndex] = msg.sender;
     collectionDataRoot[_collectionIndex] = dataRoot;
     derivativeSourceNFT[_collectionIndex] = _derivativeSourceNFT;
+
+    emit CollectionCreated(_collectionIndex, msg.sender, dataRoot, _derivativeSourceNFT);
   }
 
-  function updateCollectionData(uint256 collectionId, string memory customURI, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
+  function updateCollectionData(uint256 collectionId, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
     require(!collectionFinalized[collectionId], "Finalized");
     collectionDataRoot[collectionId] = newNFTDataTreeRoot;
-    baseURI = customURI;
-    emit CollectionUpdate(collectionId, newMaxSupply, newNFTDataTreeRoot, customURI);
+    emit CollectionUpdate(collectionId, msg.sender, newMaxSupply, newNFTDataTreeRoot);
   }
 
-  // function managerUpdateCollectionData(uint256 collectionId, string memory customURI, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
-    // require(!collectionFinalized[collectionId], "Finalized");
-  //   require(!collectionFinalized[collectionId], "Finalized");
-  //   collectionDataRoot[collectionId] = newNFTDataTreeRoot;
-  //   baseURI = customURI;
-  //   emit CollectionUpdate(newMaxSupply, newNFTDataTreeRoot, customURI);
-  // }
+  function managerUpdateCollectionData(uint256 collectionId, uint256 index, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot, bytes32[] memory merkleProof) external onlyOwner {
+    require(!collectionFinalized[collectionId], "Finalized");
 
-  function updateCollectionManagers(uint256 collectionId, bytes32 collectionManagerRoot) external {
+    bytes32 _collectionManagersRoot = collectionManagersRoot[collectionId];
+    require(_collectionManagersRoot != bytes32(0), "Data Root not initialized");
+
+    bytes32 node = keccak256(abi.encodePacked(index, collectionId, msg.sender));
+    require(MerkleProof.verify(merkleProof, _collectionManagersRoot, node), 'MerkleDistributor: Invalid proof.');
+
+    collectionDataRoot[collectionId] = newNFTDataTreeRoot;
+    emit CollectionUpdate(collectionId, msg.sender, newMaxSupply, newNFTDataTreeRoot);
+  }
+
+  function updateCollectionManagers(uint256 collectionId, bytes32 _collectionManagerRoot) external {
     require(msg.sender == collectionOwner[collectionId], "Not collection owner");
-    collectionManagers[collectionId] = collectionManagerRoot; 
+    collectionManagersRoot[collectionId] = _collectionManagerRoot; 
   }
   
   function finalize(uint256 collectionId) external {
@@ -85,8 +87,9 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
 
   function nftMint(uint256 collectionId, uint256 id, uint256 price, address sourceArtist, bool privateSale, bytes32[] memory merkleProof) external payable {
     uint256 _nftId = collectionId*1e6 | id;
-    require(id < 1e6, "Above max");
     require(_exists(_nftId), "Already purchased");
+
+    require(id < 1e6, "Above max");
     require(msg.value == price, "Not enough ETH");
 
     bytes32 _dataRoot = collectionDataRoot[collectionId];
@@ -118,10 +121,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     // Rest goes to artist.
     payable(sourceArtist).sendValue(((1 gwei - derivFee - _uwulabsFee)*msg.value)/1 gwei);
 
-    // Add more to this.
-    emit Purchase(collectionId, id);
-
     _mint(sourceArtist, msg.sender, _nftId);
+
+    // Add more to this.
+    emit Purchase(collectionId, id, msg.sender, sourceArtist);
   }
 
   // Lets the owner of the NFT contract define the fee parameters.
@@ -132,86 +135,23 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     derivativeFee[_derivativeSourceNFT] = _derivFee;
   }
 
-  function setTokenCreatorPaymentAddress(address payable tokenCreatorPaymentAddress) external onlyOwner {
-    _creatorPaymentAddress = tokenCreatorPaymentAddress;
-  }
-
-  function setRoyaltyInBasisPoints(uint256 royaltyInBasisPoints) external onlyOwner {
-    _royaltyInBasisPoints = royaltyInBasisPoints;
+  function rescue(address token) external {
+    if (token == address(0)) {
+        payable(owner()).sendValue(address(this).balance);
+    } 
+    //else {
+    //     uint256 balance = IERC20Upgradeable(token).balanceOf(address(this));
+    //     uint256 uwulabs = 2500*balance/5000;
+    //     IERC20Upgradeable(token).safeTransfer(payable(UWU_LABS), uwulabs);
+    //     IERC20Upgradeable(token).safeTransfer(payable(WAIFUSION_FUND), IERC20Upgradeable(token).balanceOf(address(this)));
+    // }
   }
 
   function setBaseURI(string memory newURI) public onlyOwner {
     baseURI = newURI;
   }
-
+  
   function _baseURI() internal view virtual override returns (string memory) {
     return baseURI;
-  }
-
-  function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
-    if (
-      interfaceId == type(IGetRoyalties).interfaceId ||
-      interfaceId == type(ITokenCreator).interfaceId ||
-      interfaceId == type(ITokenCreatorPaymentAddress).interfaceId ||
-      interfaceId == type(IGetFees).interfaceId
-    ) {
-      return true;
-    }
-    return super.supportsInterface(interfaceId);
-  }
-
-  /**
-   * @notice Returns an array of recipient addresses to which royalties for secondary sales should be sent.
-   * The expected royalty amount is communicated with `getFeeBps`.
-   */
-  function getFeeRecipients(uint256 /*id*/) external view returns (address payable[] memory recipients) {
-    recipients = new address payable[](1);
-    recipients[0] = _creatorPaymentAddress;
-  }
-
-  /**
-   * @notice Returns an array of royalties to be sent for secondary sales in basis points.
-   * The expected recipients is communicated with `getFeeRecipients`.
-   */
-  function getFeeBps(
-    uint256 /* id */
-  ) external view returns (uint256[] memory feesInBasisPoints) {
-    feesInBasisPoints = new uint256[](1);
-    feesInBasisPoints[0] = _royaltyInBasisPoints;
-  }
-
-  /**
-   * @notice Returns an array of royalties to be sent for secondary sales.
-   **/
-  function getRoyalties(uint256 /*tokenId*/)
-    external
-    view
-    returns (address payable[] memory recipients, uint256[] memory feesInBasisPoints)
-  {
-    recipients = new address payable[](1);
-    recipients[0] = _creatorPaymentAddress;
-    feesInBasisPoints = new uint256[](1);
-    feesInBasisPoints[0] = _royaltyInBasisPoints;
-  }
-
-  /**
-   * @notice Returns the creator for an NFT, which is always the collection owner.
-   */
-  function tokenCreator(
-    uint256 /* tokenId */
-  ) external view returns (address payable) {
-    return payable(owner());
-  }
-
-  /**
-   * @notice Returns the desired payment address to be used for any transfers to the creator.
-   * @dev The payment address may be assigned for each individual NFT, if not defined the collection owner is returned.
-   */
-  function getTokenCreatorPaymentAddress(uint256 /* tokenId */)
-    public
-    view
-    returns (address payable)
-  {
-    return _creatorPaymentAddress;
   }
 }
