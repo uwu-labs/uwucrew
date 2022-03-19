@@ -407,8 +407,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721SimpleUpgradeable.sol": {
-      "lastModificationDate": 1647555564620,
-      "contentHash": "4c01e2e3f4199ba141a8d0122f36a4e8",
+      "lastModificationDate": 1647730863564,
+      "contentHash": "cf1f3efc1c5e6b9c1eb2902a823af12c",
       "sourceName": "contracts/tokens/ERC721SimpleUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -449,7 +449,7 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "ERC721Simple"
+        "ERC721SimpleUpgradeable"
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/Initializable.sol": {
@@ -561,46 +561,9 @@
         "IERC721Simple"
       ]
     },
-    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721URIStorage.sol": {
-      "lastModificationDate": 1646116914024,
-      "contentHash": "273a82f797757c0849fe1e6070cb9126",
-      "sourceName": "contracts/tokens/ERC721URIStorage.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./ERC721SimpleUpgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721URIStorage"
-      ]
-    },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionStatic.sol": {
-      "lastModificationDate": 1647555650444,
-      "contentHash": "68e2377df8a324c71ac614ecd7dfed59",
+      "lastModificationDate": 1647731754472,
+      "contentHash": "a48a451741390ff6e6315445a49d2457",
       "sourceName": "contracts/uwudropCollectionStatic.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -625,20 +588,9 @@
           }
         }
       },
-      "imports": [
-        "./interfaces/IRoyalties.sol",
-        "./tokens/ERC721URIStorage.sol",
-        "./utils/OwnableUpgradeable.sol",
-        "./utils/Address.sol",
-        "./utils/MerkleProof.sol",
-        "./proxy/BeaconFinalizeUtils.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "uwudropCollection"
-      ]
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/interfaces/IRoyalties.sol": {
       "lastModificationDate": 1646116914020,
@@ -824,8 +776,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionDynamic.sol": {
-      "lastModificationDate": 1647555638816,
-      "contentHash": "8da4fd497dd8f3e5dab2faccee6a02c7",
+      "lastModificationDate": 1647731750228,
+      "contentHash": "a4848a0ffbac3ca3ba03b55751227845",
       "sourceName": "contracts/uwudropCollectionDynamic.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -850,24 +802,13 @@
           }
         }
       },
-      "imports": [
-        "./interfaces/IRoyalties.sol",
-        "./tokens/ERC721URIStorage.sol",
-        "./utils/OwnableUpgradeable.sol",
-        "./utils/Address.sol",
-        "./utils/MerkleProof.sol",
-        "./proxy/BeaconFinalizeUtils.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "uwudropCollectionDynamic"
-      ]
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionFactory.sol": {
-      "lastModificationDate": 1646163030508,
-      "contentHash": "1ef2a8539a7762d3f7ccc0a890f32f93",
+      "lastModificationDate": 1647731756388,
+      "contentHash": "0f6c52f748dfb41362b6aa7fa4fa8d4e",
       "sourceName": "contracts/uwudropCollectionFactory.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -892,19 +833,9 @@
           }
         }
       },
-      "imports": [
-        "./utils/OwnableUpgradeable.sol",
-        "./utils/Create2.sol",
-        "./proxy/UpgradeableBeacon.sol",
-        "./proxy/Create2BeaconProxy.sol",
-        "./uwudropCollectionDynamic.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "uwudropCollectionFactory"
-      ]
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/utils/Create2.sol": {
       "lastModificationDate": 1646116914028,
@@ -2009,8 +1940,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropShared.sol": {
-      "lastModificationDate": 1647584368176,
-      "contentHash": "2555d5a683b912ec254590881539afce",
+      "lastModificationDate": 1647731775524,
+      "contentHash": "e99a32284597b3a9303185e10fc490af",
       "sourceName": "contracts/uwudropShared.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2037,7 +1968,7 @@
       },
       "imports": [
         "./interfaces/IRoyalties.sol",
-        "./tokens/ERC721URIStorage.sol",
+        "./tokens/ERC721URIStorageUpgradeable.sol",
         "./utils/OwnableUpgradeable.sol",
         "./utils/Address.sol",
         "./utils/MerkleProof.sol"
@@ -2047,6 +1978,43 @@
       ],
       "artifacts": [
         "uwudropShared"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721URIStorageUpgradeable.sol": {
+      "lastModificationDate": 1647731407820,
+      "contentHash": "ff1b75997f9be181eeb3f07b923ca691",
+      "sourceName": "contracts/tokens/ERC721URIStorageUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC721SimpleUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721URIStorageUpgradeable"
       ]
     }
   }

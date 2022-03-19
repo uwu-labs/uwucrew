@@ -1,12 +1,12 @@
 pragma solidity ^0.8.0;
 
 import "./interfaces/IRoyalties.sol";
-import "./tokens/ERC721URIStorage.sol";
+import "./tokens/ERC721URIStorageUpgradeable.sol";
 import "./utils/OwnableUpgradeable.sol";
 import "./utils/Address.sol";
 import "./utils/MerkleProof.sol";
 
-contract uwudropShared is OwnableUpgradeable, ERC721Simple {
+contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   using Address for address payable;
   
   string public baseURI;
@@ -35,7 +35,7 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
 
   function __uwudropShared_init(string memory _name, string memory _symbol, string memory _baseURI) external {
     __Ownable_init();
-    __ERC721Simple_init(_name, _symbol);
+    __ERC721SimpleUpgradeable_init(_name, _symbol);
     setBaseURI(_baseURI);
     uwulabsFee = 0.01 gwei;
   }
@@ -55,7 +55,17 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     emit CollectionCreated(_collectionIndex, msg.sender, dataRoot, _derivativeSourceNFT);
   }
 
-  function updateCollectionData(uint256 collectionId, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
+  // Add commmission support "mark" collection as commission friendly (maybe other contract?)
+  // Pause
+
+  function updateCollectionData(uint256 collectionId, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external {
+    require(msg.sender == collectionOwner[collectionId], "Not collection owner");
+    require(!collectionFinalized[collectionId], "Finalized");
+    collectionDataRoot[collectionId] = newNFTDataTreeRoot;
+    emit CollectionUpdate(collectionId, msg.sender, newMaxSupply, newNFTDataTreeRoot);
+  }
+
+  function adminUpdateCollectionData(uint256 collectionId, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
     require(!collectionFinalized[collectionId], "Finalized");
     collectionDataRoot[collectionId] = newNFTDataTreeRoot;
     emit CollectionUpdate(collectionId, msg.sender, newMaxSupply, newNFTDataTreeRoot);
@@ -77,6 +87,12 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
   function updateCollectionManagers(uint256 collectionId, bytes32 _collectionManagerRoot) external {
     require(msg.sender == collectionOwner[collectionId], "Not collection owner");
     collectionManagersRoot[collectionId] = _collectionManagerRoot; 
+    emit CollectionManagerUpdate(collectionId, _collectionManagerRoot);
+  }
+
+  function adminUpdateCollectionManagers(uint256 collectionId, bytes32 _collectionManagerRoot) external onlyOwner {
+    collectionManagersRoot[collectionId] = _collectionManagerRoot; 
+    emit CollectionManagerUpdate(collectionId, _collectionManagerRoot);
   }
   
   function finalize(uint256 collectionId) external {
@@ -92,10 +108,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     require(id < 1e6, "Above max");
     require(msg.value == price, "Not enough ETH");
 
-    bytes32 _dataRoot = collectionDataRoot[collectionId];
-    require(_dataRoot != bytes32(0), "Data Root not initialized");
-
     {
+      bytes32 _dataRoot = collectionDataRoot[collectionId];
+      require(_dataRoot != bytes32(0), "Data Root not initialized");
+
       address receiver = address(0);
       if (privateSale) {
         receiver = msg.sender;
@@ -129,13 +145,13 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
 
   // Lets the owner of the NFT contract define the fee parameters.
   function setDerivativeSourceFee(address _derivativeSourceNFT, uint256 _derivFee, address _derivFeeReceiver) public {
-    require(msg.sender == OwnableUpgradeable(_derivativeSourceNFT).owner());
+    require(msg.sender == OwnableUpgradeable(_derivativeSourceNFT).owner() || msg.sender == owner(), "Not NFT owner or admin");
     
     derivativeSourceReceiver[_derivativeSourceNFT] = _derivFeeReceiver;
     derivativeFee[_derivativeSourceNFT] = _derivFee;
   }
 
-  function rescue(address token) external {
+  function rescue(address token) external onlyOwner {
     if (token == address(0)) {
         payable(owner()).sendValue(address(this).balance);
     } 
@@ -151,6 +167,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721Simple {
     baseURI = newURI;
   }
   
+  function setuwulabsFee(uint256 _uwulabsFee) public onlyOwner {
+    uwulabsFee = _uwulabsFee;
+  }
+
   function _baseURI() internal view virtual override returns (string memory) {
     return baseURI;
   }

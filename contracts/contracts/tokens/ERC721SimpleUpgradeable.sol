@@ -18,7 +18,7 @@ import "./ERC721Holder.sol";
  * the Metadata extension, but not including the Enumerable extension, which is available separately as
  * {ERC721Enumerable}.
  */
-contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simple, IERC721Metadata {
+contract ERC721SimpleUpgradeable is Initializable, ContextUpgradeable, ERC165, IERC721Simple, IERC721Metadata {
     using Address for address;
     using Strings for uint256;
 
@@ -43,11 +43,11 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
     /**
      * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
      */
-    function __ERC721Simple_init(string memory name_, string memory symbol_) internal initializer {
-        __ERC721Simple_init_unchained(name_, symbol_);
+    function __ERC721SimpleUpgradeable_init(string memory name_, string memory symbol_) internal initializer {
+        __ERC721SimpleUpgradeable_init_unchained(name_, symbol_);
     }
 
-    function __ERC721Simple_init_unchained(string memory name_, string memory symbol_) internal initializer {
+    function __ERC721SimpleUpgradeable_init_unchained(string memory name_, string memory symbol_) internal initializer {
         _name = name_;
         _symbol = symbol_;
     }
@@ -117,7 +117,7 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
      * @dev See {IERC721-approve}.
      */
     function approve(address to, uint256 tokenId) public virtual override {
-        address owner = ERC721Simple.ownerOf(tokenId);
+        address owner = ERC721SimpleUpgradeable.ownerOf(tokenId);
         require(to != owner, "ERC721: approval to current owner");
 
         require(
@@ -241,7 +241,7 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
      */
     function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual returns (bool) {
         require(_exists(tokenId), "ERC721: operator query for nonexistent token");
-        address owner = ERC721Simple.ownerOf(tokenId);
+        address owner = ERC721SimpleUpgradeable.ownerOf(tokenId);
         return (spender == owner || getApproved(tokenId) == spender || isApprovedForAll(owner, spender));
     }
 
@@ -322,7 +322,7 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
      * Emits a {Transfer} event.
      */
     function _burn(uint256 tokenId) internal virtual {
-        address owner = ERC721Simple.ownerOf(tokenId);
+        address owner = ERC721SimpleUpgradeable.ownerOf(tokenId);
 
         _beforeTokenTransfer(owner, address(0), tokenId);
 
@@ -351,7 +351,7 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
         address to,
         uint256 tokenId
     ) internal virtual {
-        require(ERC721Simple.ownerOf(tokenId) == from, "ERC721: transfer of token that is not own");
+        require(ERC721SimpleUpgradeable.ownerOf(tokenId) == from, "ERC721: transfer of token that is not own");
         require(to != address(0), "ERC721: transfer to the zero address");
 
         _beforeTokenTransfer(from, to, tokenId);
@@ -373,7 +373,7 @@ contract ERC721Simple is Initializable, ContextUpgradeable, ERC165, IERC721Simpl
      */
     function _approve(address to, uint256 tokenId) internal virtual {
         _tokenApprovals[tokenId] = to;
-        emit Approval(ERC721Simple.ownerOf(tokenId), to, tokenId);
+        emit Approval(ERC721SimpleUpgradeable.ownerOf(tokenId), to, tokenId);
     }
 
     /**

@@ -8,7 +8,7 @@ import "./ERC721SimpleUpgradeable.sol";
 /**
  * @dev ERC721 token with storage based token URI management.
  */
-abstract contract ERC721URIStorage is ERC721Simple {
+abstract contract ERC721URIStorageUpgradeable is ERC721SimpleUpgradeable {
     using Strings for uint256;
 
     // Optional mapping for token URIs
