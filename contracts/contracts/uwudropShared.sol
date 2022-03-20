@@ -11,6 +11,8 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   
   string public baseURI;
 
+  uint256 constant minPrice = 0.02 ether; 
+
   uint256 public collectionIndex;
   uint256 public uwulabsFee;
 
@@ -18,7 +20,6 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   mapping(uint256 => bytes32) public collectionDataRoot;
   mapping(uint256 => address) public collectionOwner;
   
-  // maybe put in merkle tree for simplicity.
   mapping(uint256 => bytes32) public collectionManagersRoot;
 
   mapping(uint256 => address) public derivativeSourceNFT;
@@ -55,8 +56,8 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
     emit CollectionCreated(_collectionIndex, msg.sender, dataRoot, _derivativeSourceNFT);
   }
 
-  // Add commmission support "mark" collection as commission friendly (maybe other contract?)
   // Pause
+  // 
 
   function updateCollectionData(uint256 collectionId, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external {
     require(msg.sender == collectionOwner[collectionId], "Not collection owner");
@@ -101,12 +102,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
     emit Finalized(collectionId);
   }
 
-  function nftMint(uint256 collectionId, uint256 id, uint256 price, address sourceArtist, bool privateSale, address _receiver, bytes32[] memory merkleProof) external payable {
+  function nftMint(uint256 collectionId, uint256 id, address sourceArtist, bool privateSale, address _receiver, bytes32[] memory merkleProof) external payable {
     uint256 _nftId = collectionId*1e6 | id;
     require(_exists(_nftId), "Already purchased");
-
     require(id < 1e6, "Above max");
-    require(msg.value == price, "Not enough ETH");
 
     {
       bytes32 _dataRoot = collectionDataRoot[collectionId];
@@ -116,7 +115,7 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
       if (privateSale) {
         receiver = _receiver;
       }
-      bytes32 node = keccak256(abi.encodePacked(collectionId, id, price, msg.value, receiver));
+      bytes32 node = keccak256(abi.encodePacked(collectionId, id, msg.value, receiver));
       require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
     }
 
@@ -141,6 +140,24 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
 
     // Add more to this.
     emit Purchase(collectionId, id, _receiver, sourceArtist);
+  }
+
+  function updateNFT(uint256 collectionId, uint256 id, address sourceArtist, bool privateSale, address _receiver, string memory ipfsHash, bytes32[] memory merkleProof) external payable {
+    uint256 _nftId = collectionId*1e6 | id;
+    require(!_exists(_nftId), "Not purchased yet");
+    require(id < 1e6, "Above max");
+
+    bytes32 _dataRoot = collectionDataRoot[collectionId];
+    require(_dataRoot != bytes32(0), "Data Root not initialized");
+
+    address receiver = address(0);
+    if (privateSale) {
+      receiver = _receiver;
+    }
+    bytes32 node = keccak256(abi.encodePacked(collectionId, id, msg.value, receiver, ipfsHash));
+    require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
+
+    _setTokenURI(_nftId, ipfsHash);
   }
 
   // Lets the owner of the NFT contract define the fee parameters.

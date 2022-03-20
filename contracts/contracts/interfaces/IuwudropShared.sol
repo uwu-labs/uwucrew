@@ -19,7 +19,7 @@ interface IuwudropShared {
   function adminUpdateCollectionManagers(uint256 collectionId, bytes32 _collectionManagerRoot) external;
   function finalize(uint256 collectionId) external;
 
-  function nftMint(uint256 collectionId, uint256 id, uint256 price, address sourceArtist, bool privateSale, address _receiver, bytes32[] memory merkleProof) external;
+  function nftMint(uint256 collectionId, uint256 id, address sourceArtist, bool privateSale, address _receiver, bytes32[] memory merkleProof) external payable;
   function setDerivativeSourceFee(address _derivativeSourceNFT, uint256 _derivFee, address _derivFeeReceiver) external;
 
   function rescue(address token) external;

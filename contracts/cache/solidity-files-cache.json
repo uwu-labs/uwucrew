@@ -1940,8 +1940,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropShared.sol": {
-      "lastModificationDate": 1647795556574,
-      "contentHash": "baeeba76b5cd7a20b33ba598a1f0f573",
+      "lastModificationDate": 1647809412024,
+      "contentHash": "9de41ce572842ca364ab9b80d8bbedd1",
       "sourceName": "contracts/uwudropShared.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2018,8 +2018,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/interfaces/IuwudropShared.sol": {
-      "lastModificationDate": 1647795524758,
-      "contentHash": "dcb917406afb1968813127b1928e2a3a",
+      "lastModificationDate": 1647796613242,
+      "contentHash": "dac2d73954514940427e1f1b0c95bde0",
       "sourceName": "contracts/interfaces/IuwudropShared.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2053,8 +2053,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCommissions.sol": {
-      "lastModificationDate": 1647795513430,
-      "contentHash": "11754dce506b1a92d82af8768691af64",
+      "lastModificationDate": 1647809449620,
+      "contentHash": "a7c77b382563a8d2f5854c10db7b96af",
       "sourceName": "contracts/uwudropCommissions.sol",
       "solcConfig": {
         "version": "0.8.4",
