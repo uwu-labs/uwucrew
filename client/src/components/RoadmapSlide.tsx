@@ -7,18 +7,13 @@ import Image from 'next/image';
 import roadmapImage from '../assets/roadmap/roadmap.jpg';
 
 const roadmap: string[] = [
-	'- uwucrew Official Merch Shop for WET',
-	'- Additional Prizes in Waifusion Dungeon',
-	'- Built-in HODL stats for uwucrew NFTs (future rewards for longest holders!)',
-	'- Metaverse'
-];
-
-const drops: string[] = [
-	'- Mixed type drops (including airdrops) for Waifusion holders, uwucrew holders, biggest holders, burn',
-	'- Semi-realistic 1/1 Art drops by Laur',
-	'- Generative Art Collection(s) by Kiwi',
-	'- Various Artist Collaborations planned',
-	'- uwuLoot'
+	'- Dressing Room',
+	'- Waifusion',
+	'- Merch Store',
+	'- uwulabs Projects',
+	'- uwuloot',
+	'- Long Term Partnerships',
+	'- Artist Collabs'
 ];
 
 const Content = styled.div`
@@ -29,21 +24,6 @@ const Content = styled.div`
 
 	@media (max-width: 768px) {
 		flex-direction: column;
-	}
-`;
-
-const SubHeader = styled.div`
-	font-weight: 600;
-	color: var(--text-primary);
-	max-width: 70%;
-	margin-bottom: 2rem;
-	margin-top: 3rem;
-
-	font-size: 3rem;
-	line-height: 2.3rem;
-	@media (max-width: 768px) {
-		font-size: 2rem;
-		font-weight: 700;
 	}
 `;
 
@@ -99,12 +79,6 @@ const RoadmapSlide = () => {
 					<Items>
 						<List>
 							{roadmap.map((item: string) => (
-								<ListItem>{item}</ListItem>
-							))}
-						</List>
-						<List>
-							<SubHeader>Future Drops</SubHeader>
-							{drops.map((item: string) => (
 								<ListItem>{item}</ListItem>
 							))}
 						</List>
