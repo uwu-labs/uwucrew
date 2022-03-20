@@ -70,8 +70,8 @@ const ListItem = styled.div`
 	@media (max-width: 768px) {
 		font-size: 1.6rem;
 		line-height: 2rem;
-		max-width: 100%;
 		width: 100%;
+		max-width: 100%;
 	}
 `;
 
