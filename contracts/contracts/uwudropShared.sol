@@ -33,10 +33,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
 
   event DerivativeSourceFeeUpdate(address sourceNFT, uint256 derivativeFee);
 
-  function __uwudropShared_init(string memory _name, string memory _symbol, string memory _baseURI) external {
+  function __uwudropShared_init(string memory _name, string memory _symbol, string memory _URI) external {
     __Ownable_init();
     __ERC721SimpleUpgradeable_init(_name, _symbol);
-    setBaseURI(_baseURI);
+    setBaseURI(_URI);
     uwulabsFee = 0.01 gwei;
   }
 
@@ -101,7 +101,7 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
     emit Finalized(collectionId);
   }
 
-  function nftMint(uint256 collectionId, uint256 id, uint256 price, address sourceArtist, bool privateSale, bytes32[] memory merkleProof) external payable {
+  function nftMint(uint256 collectionId, uint256 id, uint256 price, address sourceArtist, bool privateSale, address _receiver, bytes32[] memory merkleProof) external payable {
     uint256 _nftId = collectionId*1e6 | id;
     require(_exists(_nftId), "Already purchased");
 
@@ -114,7 +114,7 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
 
       address receiver = address(0);
       if (privateSale) {
-        receiver = msg.sender;
+        receiver = _receiver;
       }
       bytes32 node = keccak256(abi.encodePacked(collectionId, id, price, msg.value, receiver));
       require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
@@ -137,10 +137,10 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
     // Rest goes to artist.
     payable(sourceArtist).sendValue(((1 gwei - derivFee - _uwulabsFee)*msg.value)/1 gwei);
 
-    _mint(sourceArtist, msg.sender, _nftId);
+    _mint(sourceArtist, _receiver, _nftId);
 
     // Add more to this.
-    emit Purchase(collectionId, id, msg.sender, sourceArtist);
+    emit Purchase(collectionId, id, _receiver, sourceArtist);
   }
 
   // Lets the owner of the NFT contract define the fee parameters.
