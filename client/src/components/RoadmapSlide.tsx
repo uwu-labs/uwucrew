@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
-import SaleSplit from './SaleSplit';
 import Slide from './Slide';
+import Image from 'next/image';
+
+import roadmapImage from '../assets/roadmap/roadmap.jpg';
 
 const roadmap: string[] = [
 	'- uwucrew Official Merch Shop for WET',
@@ -46,6 +48,7 @@ const SubHeader = styled.div`
 `;
 
 const Items = styled.div`
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 `;
@@ -58,7 +61,7 @@ const List = styled.div`
 const ListItem = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
-	max-width: 70%;
+	padding-right: 2rem;
 	margin-bottom: 1rem;
 	font-family: 'Roboto', sans-serif;
 
@@ -74,6 +77,15 @@ const ListItem = styled.div`
 
 const ButtonContainer = styled.div`
 	margin-top: 3rem;
+`;
+
+const RoadmapV2 = styled.div`
+	flex: 1;
+
+	@media (max-width: 768px) {
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+	}
 `;
 
 const RoadmapSlide = () => {
@@ -107,7 +119,9 @@ const RoadmapSlide = () => {
 							</Button>
 						</ButtonContainer>
 					</Items>
-					<SaleSplit />
+					<RoadmapV2>
+						<Image src={roadmapImage} alt="Roadmap V2" />
+					</RoadmapV2>
 				</Content>
 			}
 		/>
