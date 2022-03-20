@@ -112,7 +112,7 @@ const RoadmapSlide = () => {
 							<Button
 								color="var(--bg-02)"
 								onClick={() =>
-									(window as any).open('https://medium.com/@uwulabs/uwucrew-official-roadmap-v1-98462045b1b0', '_blank').focus()
+									(window as any).open('https://medium.com/@uwulabs/uwucrew-official-roadmap-v2-6fc60431a7cd', '_blank').focus()
 								}
 							>
 								More Details
