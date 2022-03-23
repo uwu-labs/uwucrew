@@ -1,6 +1,6 @@
 const { BigNumber } = require("@ethersproject/bignumber");
 const { ethers } = require("hardhat");
-import airdropInfo from "../snapshots/14296680-roadmapv2.json";
+import airdropInfo from "../snapshots/lamps-banner.json";
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -13,32 +13,27 @@ async function main() {
     "\n"
   );
   
-  let addresses = Object.keys(airdropInfo);
+  let addresses:string[] = Object.keys(airdropInfo);
   console.log(addresses.length);
-
-  const distributor = await ethers.getContractAt("nft1155Distributor", "0x86a90727e2D27E84615766255980414B15Af67F4")
+    console.log(airdropInfo)
   const nft = await ethers.getContractAt("IERC1155", "0x2953399124f0cbb46d2cbacd8a89cf0599974963");
   const id = "66450628800353115039952438590945603205850694131236567417649397736429085266024";
 
   let nonce = await ethers.provider.getTransactionCount(await deployer.getAddress(), "pending");
   console.log(nonce)
-  let batchSize = 200;
+  let batchSize = 1;
   for (let i = 0; i < addresses.length; i += batchSize) {
-    let sendAddresses = [];
-    let max = i+batchSize > addresses.length ? addresses.length : i+batchSize
-    for (let ii = i; ii < max; ii++) {
-      sendAddresses.push(addresses[ii])
-    }
-    if (sendAddresses.length == 0) {
-      continue
-    }
     console.log(i)
-    console.log(sendAddresses.length)
-    let tx = await distributor.send1155NFTs(
-      nft.address, sendAddresses, id,
+    let addr = addresses[i];
+    let tx = await nft.safeTranserFrom(
+      await deployer.getAddress(), 
+      addr,
+      airdropInfo[addr],
+      id,
+      [],
       {
         nonce: BigNumber.from(nonce),
-        gasLimit: 20100000,
+        gasLimit: 200000,
       }
     );
     await tx.wait();
