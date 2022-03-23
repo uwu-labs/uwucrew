@@ -244,38 +244,7 @@ contract ERC721SimpleUpgradeable is Initializable, ContextUpgradeable, ERC165, I
         address owner = ERC721SimpleUpgradeable.ownerOf(tokenId);
         return (spender == owner || getApproved(tokenId) == spender || isApprovedForAll(owner, spender));
     }
-
-    /**
-     * @dev Safely mints `tokenId` and transfers it to `to`.
-     *
-     * Requirements:
-     *
-     * - `tokenId` must not exist.
-     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
-     *
-     * Emits a {Transfer} event.
-     */
-    function _safeMint(address minter, address to, uint256 tokenId) internal virtual {
-        _safeMint(minter, to, tokenId, "");
-    }
-
-    /**
-     * @dev Same as {xref-ERC721-_safeMint-address-uint256-}[`_safeMint`], with an additional `data` parameter which is
-     * forwarded in {IERC721Receiver-onERC721Received} to contract recipients.
-     */
-    function _safeMint(
-        address minter,
-        address to,
-        uint256 tokenId,
-        bytes memory _data
-    ) internal virtual {
-        _mint(minter, to, tokenId);
-        require(
-            _checkOnERC721Received(address(0), to, tokenId, _data),
-            "ERC721: transfer to non ERC721Receiver implementer"
-        );
-    }
-
+    
     /**
      * @dev Mints `tokenId` and transfers it to `to`.
      *

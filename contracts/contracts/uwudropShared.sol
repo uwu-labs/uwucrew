@@ -142,19 +142,16 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
     emit Purchase(collectionId, id, _receiver, sourceArtist);
   }
 
-  function updateNFT(uint256 collectionId, uint256 id, address sourceArtist, bool privateSale, address _receiver, string memory ipfsHash, bytes32[] memory merkleProof) external payable {
+  function updateNFT(uint256 collectionId, uint256 id, address sourceArtist, address _receiver, string memory ipfsHash, bytes32[] memory merkleProof) external payable {
     uint256 _nftId = collectionId*1e6 | id;
     require(!_exists(_nftId), "Not purchased yet");
+    require(msg.sender == ownerOf(_nftId), "Not owner of NFT");
     require(id < 1e6, "Above max");
 
     bytes32 _dataRoot = collectionDataRoot[collectionId];
     require(_dataRoot != bytes32(0), "Data Root not initialized");
 
-    address receiver = address(0);
-    if (privateSale) {
-      receiver = _receiver;
-    }
-    bytes32 node = keccak256(abi.encodePacked(collectionId, id, msg.value, receiver, ipfsHash));
+    bytes32 node = keccak256(abi.encodePacked(collectionId, id, msg.value, _receiver, ipfsHash));
     require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
 
     _setTokenURI(_nftId, ipfsHash);
