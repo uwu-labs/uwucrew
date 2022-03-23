@@ -22,7 +22,7 @@ async function main() {
 		console.log(i);
 		const addr = addresses[i];
 		// @ts-expect-error JSONs as files are funky
-		const tx = await nft.safeTranserFrom(await deployer.getAddress(), addr, airdropInfo[addr], id, [], {
+		const tx = await nft.safeTranserFrom(await deployer.getAddress(), addr, id, airdropInfo[addr], [], {
 			nonce: BigNumber.from(nonce),
 			gasLimit: 200000
 		});
