@@ -7,13 +7,6 @@
         "esModuleInterop": true,
         "outDir": "dist"
     },
-    "include": [
-        "./scripts",
-        "./test",
-        "./utils",
-        "./typechain"
-    ],
-    "files": [
-        "./hardhat.config.ts"
-    ]
+	"include": ["test/", "scripts/", "utils/"],
+	"files": ["./variables.ts", "./hardhat.config.ts", "./hardhat.networks.ts", "./constants.ts"]
 }

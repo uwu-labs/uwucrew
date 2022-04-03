@@ -20,19 +20,13 @@ describe('uwudrop Test', () => {
 		signers = await ethers.getSigners();
 		[primary] = signers;
 
-    const UwudropFactory = await ethers.getContractFactory(
-      "uwudropCollectionFactory"
-    );
+		const UwudropFactory = await ethers.getContractFactory('uwudropCollectionFactory');
 		upgrades.silenceWarnings();
-    uwudropFactory = (await upgrades.deployProxy(
-      UwudropFactory,
-      [],
-      {
-        initializer: "__uwudropCollectionFactory__init__",
-				unsafeAllow: "delegatecall",
-      }
-    )) as UwudropCollectionFactory;
-    await uwudropFactory.deployed();
+		uwudropFactory = (await upgrades.deployProxy(UwudropFactory, [], {
+			initializer: '__uwudropCollectionFactory__init__',
+			unsafeAllow: ['delegatecall']
+		})) as UwudropCollectionFactory;
+		await uwudropFactory.deployed();
 	});
 
 	// //////////////////////////
@@ -44,6 +38,6 @@ describe('uwudrop Test', () => {
 	});
 
 	it('Should let someone deploy a collection', async () => {
-		await uwudropFactory.createCollection("amogus", "AMOGUS", primary.address, primary.address);
-	})
+		await uwudropFactory.createCollection('amogus', 'AMOGUS', primary.address, primary.address);
+	});
 });

@@ -5,6 +5,7 @@ import { BigNumber, Contract, Signer } from 'ethers';
 import { ethers, network } from 'hardhat';
 import type { Uwucrew, UwucrewWaveLockSale } from '../typechain-types';
 import { expectException } from '../utils/expectRevert';
+import { alchemyEthMainnet } from '../variables';
 
 chai.use(solidity);
 
@@ -26,7 +27,7 @@ describe('NFT Sale Test', () => {
 			params: [
 				{
 					forking: {
-						jsonRpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_ETH_KEY}`,
+						jsonRpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${alchemyEthMainnet}`,
 						blockNumber: 12964000
 					}
 				}
