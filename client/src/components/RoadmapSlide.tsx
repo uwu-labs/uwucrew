@@ -8,8 +8,8 @@ import roadmapImage from '../assets/roadmap/roadmap.jpg';
 
 const roadmap: string[] = [
 	'- Dressing Room',
-	'- Waifusion',
-	'- Merch Store',
+	'- Waifusion updates',
+	'- Merch',
 	'- uwulabs Projects',
 	'- uwuloot',
 	'- Long Term Partnerships',
