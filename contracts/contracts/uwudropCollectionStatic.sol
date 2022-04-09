@@ -63,7 +63,7 @@ contract uwudropCollection is OwnableUpgradeable, ERC721Simple {
     }
     bytes32 node = keccak256(abi.encodePacked(id, msg.value, receiver));
     require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
-    _mint(msg.sender, id);
+    _mint(msg.sender, msg.sender, id);
   }
   
   function withdraw() external onlyOwner {
