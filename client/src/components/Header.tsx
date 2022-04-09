@@ -136,6 +136,9 @@ const Navbar: React.FC = () => {
 				<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
 				<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
 				<NavItem onClick={() => navigateToSlide('roadmap')}>roadmap</NavItem>
+				<Link href="https://dressingroom.uwucrew.art/">
+					<PageLink>dressing room</PageLink>
+				</Link>
 				<Link href="/derivatives">
 					<PageLink>derivative gallery</PageLink>
 				</Link>
