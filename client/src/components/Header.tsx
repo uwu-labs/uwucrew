@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setSlide } from 'state/reducers/navigation';
+import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import logo from '../assets/logos/logo.svg';
-import { useRouter } from 'next/dist/client/router';
+import NavItems from './NavItems';
+import ExitButton from './ExitButton';
 
 const StyledNavbar = styled.div`
 	display: flex;
@@ -22,7 +21,7 @@ const StyledNavbar = styled.div`
 
 	@media (max-width: 768px) {
 		padding: 10px 20px;
-		justify-content: center;
+		justify-content: space-between;
 	}
 `;
 
@@ -45,7 +44,6 @@ const LineTwo = styled.div`
 	animation: ${wipe} 1s 0s ease-out forwards;
 
 	@media (max-width: 768px) {
-		width: calc(100vw - 145px - 0px);
 		display: none;
 	}
 `;
@@ -69,62 +67,48 @@ const LogoContainer = styled.div`
 	opacity: 0;
 	transform: translateY(-50px);
 	animation: ${lower} 1s 1s ease-out forwards;
+`;
+
+const Hamburger = styled.div`
+	display: none;
+	flex-direction: column;
+	width: 3.7rem;
+	height: 3rem;
+	padding: 0.3rem;
+	justify-content: space-between;
+	animation: ${lower} 1s 1s ease-out forwards;
+
+	@media (max-width: 768px) {
+		display: flex;
+	}
+`;
+
+const Line = styled.div`
+	height: 0.3rem;
+	background: var(--text-primary);
+	width: 100%;
+	border-radius: 0.2rem;
+`;
+
+const DesktopContainer = styled.div`
+	display: flex;
 
 	@media (max-width: 768px) {
 		display: none;
 	}
 `;
 
-const NavItems = styled.div`
-	display: flex;
-	align-items: center;
-	margin-left: 2rem;
-	margin-top: 0.3rem;
-
-	opacity: 0;
-	transform: translateY(-50px);
-	animation: ${lower} 1s 1s ease-out forwards;
-
-	@media (max-width: 768px) {
-		margin-left: 0;
-	}
-`;
-
-const NavItem = styled.div`
-	padding: 0 1rem;
-	font-weight: 500;
-	cursor: pointer;
-	text-transform: capitalize;
-	white-space: nowrap;
-
-	font-size: 2rem;
-	@media (max-width: 768px) {
-		font-size: 1.6rem;
-	}
-`;
-
-const PageLink = styled.div`
-	padding: 0 1rem;
-	font-weight: 500;
-	cursor: pointer;
-	text-transform: capitalize;
-	white-space: nowrap;
-
-	font-size: 2rem;
-	@media (max-width: 768px) {
-		font-size: 1.6rem;
-	}
+const Dropdown = styled.div`
+	position: fixed;
+	width: 100%;
+	padding: 3rem;
+	top: 0;
+	left: 0;
+	background: var(--bg);
 `;
 
 const Navbar: React.FC = () => {
-	const dispatch = useDispatch();
-	const router = useRouter();
-
-	const navigateToSlide = (slide: string): void => {
-		if (router.pathname !== '/') void router.replace('/');
-		dispatch(setSlide(slide));
-	};
-
+	const [menuOpen, setMenuOpen] = useState(false);
 	return (
 		<StyledNavbar>
 			<Link href="/">
@@ -132,17 +116,20 @@ const Navbar: React.FC = () => {
 					<Image src={logo} />
 				</LogoContainer>
 			</Link>
-			<NavItems>
-				<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
-				<NavItem onClick={() => navigateToSlide('roadmap')}>roadmap</NavItem>
-				<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
-				<Link href="https://dressingroom.uwucrew.art/">
-					<PageLink>dressing room</PageLink>
-				</Link>
-				<Link href="/derivatives">
-					<PageLink>derivative gallery</PageLink>
-				</Link>
-			</NavItems>
+			<DesktopContainer>
+				<NavItems />
+			</DesktopContainer>
+			<Hamburger onClick={() => setMenuOpen(true)}>
+				<Line />
+				<Line />
+				<Line />
+			</Hamburger>
+			{menuOpen && (
+				<Dropdown>
+					<NavItems />
+					<ExitButton color="black" action={() => setMenuOpen(false)} />
+				</Dropdown>
+			)}
 			<LineTwo />
 		</StyledNavbar>
 	);
