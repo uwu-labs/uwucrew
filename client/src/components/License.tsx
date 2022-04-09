@@ -1,4 +1,3 @@
-import { Utf8ErrorFuncs } from 'ethers/lib/utils';
 import styled from 'styled-components';
 
 const theCrew = [
