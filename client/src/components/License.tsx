@@ -6,7 +6,7 @@ const theCrew = [
 ];
 
 const StyledLicense = styled.div`
-	padding: 3rem 5rem;
+	padding: 1rem 5rem;
 	padding-top: 10rem;
 	width: 100%;
 	min-height: 100vh;
@@ -36,7 +36,21 @@ const Header = styled.h1`
 
 	font-size: 8rem;
 	@media (max-width: 768px) {
-		font-size: 5rem;
+		font-size: 4.5rem;
+		margin-top: 4rem;
+		line-height: 4rem;
+	}
+`;
+
+const SmallHeader = styled.h2`
+	font-weight: 600;
+	color: var(--text-primary);
+	margin-top: 5rem;
+	line-height: 3rem;
+
+	font-size: 4rem;
+	@media (max-width: 768px) {
+		font-size: 3rem;
 		margin-top: 4rem;
 	}
 `;
@@ -137,7 +151,8 @@ const License = () => {
 	return (
 		<StyledLicense>
 			<Content>
-				<Header>Holders</Header>
+				<Header>uwu art license</Header>
+				<SmallHeader>Holders</SmallHeader>
 				<Link href="http://creativecommons.org/licenses/by/4.0" target="_blank">
 					CC BY 4.0
 				</Link>
@@ -147,7 +162,7 @@ const License = () => {
 					<Li>Make derivatives, remix, or transform in any medium, even commercially</Li>
 					<Li>As long as you give proper credit to uwucrew</Li>
 				</Ul>
-				<Header>Non-holders</Header>
+				<SmallHeader>Non-holders</SmallHeader>
 				<Link href="http://creativecommons.org/licenses/by-nc/4.0" target="_blank">
 					CC BY-NC 4.0
 				</Link>
@@ -157,11 +172,11 @@ const License = () => {
 					<Li>Make derivatives, remix, or transform in any medium, but NOT commercially</Li>
 					<Li>As long as you give proper credit to uwucrew</Li>
 				</Ul>
-				<Header>uwucrew Team</Header>
+				<SmallHeader>uwucrew Team</SmallHeader>
 				<SubHeader>
 					The uwucrew team reserves rights to use all uwucrew collection NFT art and all derivative art for promotional use.
 				</SubHeader>
-				<Header>Usage with Permission</Header>
+				<SmallHeader>Usage with Permission</SmallHeader>
 				<SubHeader>
 					The owner of the NFT not only owns the art, but also the character of the NFT as well — meaning that they have the ability to
 					grant permission for others to sell derivative art that includes their character for as long as they own the original NFT.
