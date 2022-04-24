@@ -42,7 +42,7 @@ const members: TeamMemberType[] = [
 		role: 'Solidity Dev',
 		image: kiwi,
 		bio: [
-			'Kiwi is a long time developer in the crypto space, working for NFTX as a protocol lead enginer.',
+			'Kiwi is a long time developer in the crypto space, working for NFTX as a protocol lead engineer.',
 			'An avid DeFi and NFT enthusiast, Kiwi has been engaged with NFTs since March 2021.',
 			'He is responsible for the uwucrew smart contracts and image gen.'
 		],
