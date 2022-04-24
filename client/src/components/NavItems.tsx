@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
@@ -73,6 +74,9 @@ const NavItems = () => {
 			<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
 			<NavItem onClick={() => navigateToSlide('roadmap')}>roadmap</NavItem>
 			<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
+			<Link href="/license">
+				<PageLink>license</PageLink>
+			</Link>
 			<Link href="https://dressingroom.uwucrew.art/">
 				<PageLink>dressing room</PageLink>
 			</Link>
