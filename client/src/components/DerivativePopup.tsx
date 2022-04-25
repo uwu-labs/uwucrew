@@ -85,16 +85,17 @@ interface Props {
 	derivative: DerivativeType;
 	show: boolean;
 	close: () => void;
+	image: string;
 }
 
-const DerivativePopup = ({ derivative, show, close }: Props) => {
+const DerivativePopup = ({ derivative, show, close, image }: Props) => {
 	if (!show) return <></>;
 
 	return (
 		<StyledDerivativePopup>
 			<Background onClick={() => close()} />
 			<Popup>
-				<Image src={derivative.image} />
+				<Image src={image} />
 				<Sidebar>
 					<ExitButton color="black" action={close} />
 					{derivative.id && (

@@ -80,13 +80,23 @@ interface Props {
 	derivative: DerivativeType;
 }
 
+const magicImageLinkTransform = (link: string, large = false): string => {
+	// If it is a Twitter image
+	if (link.includes('https://pbs.twimg.com/media')) {
+		const coreLink = link.split('?')[0];
+		return `${coreLink}?format=jpg&name=${large ? 'large' : 'small'}`;
+	}
+
+	return link;
+};
+
 const DerivativeImage = ({ derivative }: Props) => {
 	const [popup, setPopup] = useState(false);
 
 	return (
 		<>
 			<Container>
-				<Image src={derivative.image} />
+				<Image src={magicImageLinkTransform(derivative.image)} />
 				<Overlay>
 					<OverlayBackground onClick={() => setPopup(true)} />
 					<TopRow>
@@ -111,7 +121,12 @@ const DerivativeImage = ({ derivative }: Props) => {
 					</BottomRow>
 				</Overlay>
 			</Container>
-			<DerivativePopup derivative={derivative} show={popup} close={() => setPopup(false)} />
+			<DerivativePopup
+				derivative={derivative}
+				show={popup}
+				close={() => setPopup(false)}
+				image={magicImageLinkTransform(derivative.image, true)}
+			/>
 		</>
 	);
 };
