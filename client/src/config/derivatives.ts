@@ -2348,64 +2348,56 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/SWHEATZ1",
    "image": "https://pbs.twimg.com/media/FNJZQIFVIAInoe6?format=jpg&name=small",
    "post": "https://twitter.com/SWHEATZ1/status/1500360175064018945",
-   "date": "3/6/2022",
-   "id": null
+   "date": "3/6/2022"
  },
  {
    "artistName": " TaroMilk",
    "artistLink": "https://twitter.com/TaroMoves",
    "image": "https://pbs.twimg.com/media/FNf8oTWUUAAgA5J?format=jpg&name=4096x4096",
    "post": "https://twitter.com/TaroMoves/status/1501947376688271366",
-   "date": "3/10/2022",
-   "id": null
+   "date": "3/10/2022"
  },
  {
    "artistName": "HeichanART",
    "artistLink": "https://twitter.com/HeichanART",
    "image": "https://pbs.twimg.com/media/FNfabWbagAQve-8?format=jpg&name=large",
    "post": "https://twitter.com/HeichanART/status/1501909170907324417",
-   "date": "3/10/2022",
-   "id": null
+   "date": "3/10/2022"
  },
  {
    "artistName": "RollyChan",
    "artistLink": "https://twitter.com/RollyChanArt",
    "image": "https://pbs.twimg.com/media/FNcSXxWVUAQlomj?format=jpg&name=large",
    "post": "https://twitter.com/boughtbtc/status/1501689205533011968",
-   "date": "3/9/2022",
-   "id": null
+   "date": "3/9/2022"
  },
  {
    "artistName": "RhoXifer",
    "artistLink": "https://twitter.com/RhoXifer",
    "image": "https://pbs.twimg.com/media/FNarEMlVcAECK7G?format=jpg&name=4096x4096",
    "post": "https://twitter.com/RhoXifer/status/1501578153893904391",
-   "date": "3/9/2022",
-   "id": null
+   "date": "3/9/2022"
  },
  {
    "artistName": "aintnoking",
    "artistLink": "https://twitter.com/aintnoking",
    "image": "https://pbs.twimg.com/media/FNZ3wNraUAUt-i0?format=jpg&name=900x900",
    "post": "https://twitter.com/aintnoking/status/1501521534137290759",
-   "date": "3/9/2022",
-   "id": 6214
+   "date": "3/9/2022"
  },
  {
    "artistName": "Ninegiri ",
    "artistLink": "https://twitter.com/ninegiri_",
    "image": "https://pbs.twimg.com/media/FNVfDkXWUAci930?format=jpg&name=large",
    "post": "https://twitter.com/nftThiccThighs/status/1501211272498626582",
-   "date": "3/8/2022",
-   "id": null
+   "date": "3/8/2022"
  },
  {
    "artistName": "6maker",
    "artistLink": "https://twitter.com/6maker_nft",
    "image": "https://pbs.twimg.com/media/FNTaghiVkAA5Caj?format=jpg&name=900x900",
    "post": "twitter.com/6maker_nft/status/1501064832354643969",
-   "date": "3/7/2022",
-   "id": null
+   "date": "3/7/2022"
  },
  {
    "artistName": " B Son",
@@ -2428,8 +2420,7 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/10_mi_n",
    "image": "https://pbs.twimg.com/media/FNE4Cy4agAEH6hy?format=jpg&name=900x900",
    "post": "https://twitter.com/10_mi_n/status/1500041776991989762",
-   "date": "3/5/2022",
-   "id": null
+   "date": "3/5/2022"
  },
  {
    "artistName": " lewdlily",
@@ -2452,8 +2443,7 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/Feireina",
    "image": "https://pbs.twimg.com/media/FP7UZGhXoAUaOxu?format=jpg&name=900x900",
    "post": "https://twitter.com/Feireina/status/1512880056196120576?t=Ja8DZF1CbHYrtU8Vi-Q7mQ&s=19",
-   "date": "4/9/2022",
-   "id": null
+   "date": "4/9/2022"
  },
  {
    "artistName": "AimaliceNFT",
@@ -2476,16 +2466,14 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/TAKE_N1i",
    "image": "https://pbs.twimg.com/media/FQEJUoNWYAEGqdZ?format=jpg&name=900x900",
    "post": "https://twitter.com/TAKE_N1i/status/1513502779108577281?s=20&t=3EsYhUh0UZ8pnLiz0Dyh6g",
-   "date": "4/11/2022",
-   "id": null
+   "date": "4/11/2022"
  },
  {
    "artistName": "Ninegiri ",
    "artistLink": "https://twitter.com/ninegiri_",
    "image": "https://pbs.twimg.com/media/FQDQ_pbaQAASUqa?format=jpg&name=small",
    "post": "https://twitter.com/Bclarissart/status/1513439270123442176",
-   "date": "4/11/2022",
-   "id": null
+   "date": "4/11/2022"
  },
  {
    "artistName": "SunsetTheory007",
@@ -2508,16 +2496,14 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/gkm_alice",
    "image": "https://pbs.twimg.com/media/FQHjOSnaIAALc7O?format=jpg&name=small",
    "post": "https://twitter.com/gkm_alice/status/1513740787892518914",
-   "date": "4/11/2022",
-   "id": null
+   "date": "4/11/2022"
  },
  {
    "artistName": "NeonApesYC",
    "artistLink": "https://twitter.com/NeonApesYC",
    "image": "https://pbs.twimg.com/media/FPxYaaWXEAIyuPy?format=jpg&name=large",
    "post": "https://twitter.com/nftThiccThighs/status/1512180790850904076",
-   "date": "4/7/2022",
-   "id": null
+   "date": "4/7/2022"
  },
  {
    "artistName": "SunsetTheory007",
@@ -2532,32 +2518,28 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/6maker_nft",
    "image": "https://pbs.twimg.com/media/FPm_wkdUcAYuDA3?format=jpg&name=900x900",
    "post": "https://twitter.com/6maker_nft/status/1511449996314374145",
-   "date": "4/5/2022",
-   "id": null
+   "date": "4/5/2022"
  },
  {
    "artistName": "Jules Blanc",
    "artistLink": "https://twitter.com/BlancNFT",
    "image": "https://pbs.twimg.com/media/FPw4nr1X0AMuSRi?format=jpg&name=small",
    "post": "https://twitter.com/BlancNFT/status/1512146550235013131",
-   "date": "4/7/2022",
-   "id": null
+   "date": "4/7/2022"
  },
  {
    "artistName": "RhoXifer",
    "artistLink": "https://twitter.com/RhoXifer",
    "image": "https://pbs.twimg.com/media/FPrj6HfaQAA_cxT?format=jpg&name=small",
    "post": "https://twitter.com/RhoXifer/status/1511771719815806977",
-   "date": "4/6/2022",
-   "id": null
+   "date": "4/6/2022"
  },
  {
    "artistName": "RhoXifer",
    "artistLink": "https://twitter.com/RhoXifer",
    "image": "https://pbs.twimg.com/media/FOuQhZ9VUAMqRKk?format=jpg&name=900x900",
    "post": "https://twitter.com/RhoXifer/status/1507458929944457219",
-   "date": "3/25/2022",
-   "id": null
+   "date": "3/25/2022"
  },
  {
    "artistName": "konowin777",
@@ -2572,8 +2554,7 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/__Zetsurin",
    "image": "https://pbs.twimg.com/media/FPmBaZZVQAIH3X8?format=jpg&name=small",
    "post": "twitter.com/izeeyahmon/status/1511381474255142915",
-   "date": "4/5/2022",
-   "id": null
+   "date": "4/5/2022"
  },
  {
    "artistName": "monmonNFT",
@@ -2596,8 +2577,7 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/BlancNFT",
    "image": "https://pbs.twimg.com/media/FO0EamIXwAgjwkR?format=jpg&name=4096x4096",
    "post": "twitter.com/BlancNFT/status/1507908768058777602",
-   "date": "3/26/2022",
-   "id": null
+   "date": "3/26/2022"
  },
  {
    "artistName": "seekgoliath",
@@ -2620,40 +2600,35 @@ const derivatives: DerivativeType[] = [
    "artistLink": "twitter.com/takeshi_tenma",
    "image": "https://pbs.twimg.com/media/FOgRfWSWYAE4new?format=jpg&name=900x900",
    "post": "twitter.com/takeshi_tenma/status/1506474061148442624",
-   "date": "3/22/2022",
-   "id": null
+   "date": "3/22/2022"
  },
  {
    "artistName": "FUZZ GAFF",
    "artistLink": "twitter.com/Naaa22g",
    "image": "https://pbs.twimg.com/media/FOLRbj9aUAAJkcr?format=jpg&name=900x900",
    "post": "twitter.com/Naaa22g/status/1504995632729423875",
-   "date": "3/18/2022",
-   "id": null
+   "date": "3/18/2022"
  },
  {
    "artistName": "RhoXifer",
    "artistLink": "https://twitter.com/",
    "image": "https://pbs.twimg.com/media/FOD7QcpVkAY9C8R?format=jpg&name=small",
    "post": "twitter.com/RhoXifer/status/1504479150265958414",
-   "date": "3/17/2022",
-   "id": null
+   "date": "3/17/2022"
  },
  {
    "artistName": "Takeshi Tenma",
    "artistLink": "https://twitter.com/takeshi_tenma",
    "image": "https://pbs.twimg.com/media/FOBhKZBXMAAKI7U?format=jpg&name=900x900",
    "post": "twitter.com/takeshi_tenma/status/1504309502715346948",
-   "date": "3/16/2022",
-   "id": null
+   "date": "3/16/2022"
  },
  {
    "artistName": "Scar Society",
    "artistLink": "https://twitter.com/Scar_Society",
    "image": "https://pbs.twimg.com/media/FN-xjweWQAEo985?format=jpg&name=small",
    "post": "twitter.com/Scar_Society/status/1504116038455087113",
-   "date": "3/16/2022",
-   "id": null
+   "date": "3/16/2022"
  },
  {
    "artistName": "Alice",
@@ -2668,16 +2643,14 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/Ruuwi_",
    "image": "https://pbs.twimg.com/media/FMr8TmoXMAAYKWl?format=jpg&name=small",
    "post": "twitter.com/Ruuwi_/status/1498288929107288066",
-   "date": "2/28/2022",
-   "id": null
+   "date": "2/28/2022"
  },
  {
    "artistName": "RhoXifer",
    "artistLink": "twitter.com/RhoXifer",
    "image": "https://pbs.twimg.com/media/FN088hjaMAAVwrY?format=jpg&name=small",
    "post": "twitter.com/RhoXifer/status/1503425368719769600",
-   "date": "3/14/2022",
-   "id": null
+   "date": "3/14/2022"
  },
  {
    "artistName": "Shumolly",
@@ -2700,8 +2673,7 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/6maker_nft",
    "image": "https://pbs.twimg.com/media/FNwVMeZWYAwVu1q?format=jpg&name=4096x4096",
    "post": "twitter.com/nftThiccThighs/status/1503100112863703043",
-   "date": "2/13/2022",
-   "id": null
+   "date": "2/13/2022"
  },
  {
    "artistName": "Tifa",
@@ -2748,40 +2720,35 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/BlancNFT",
    "image": "https://pbs.twimg.com/media/FQubCeGXwAArn2E?format=jpg&name=900x900",
    "post": "https://twitter.com/BlancNFT/status/1516477253089169408",
-   "date": "4/19/2022",
-   "id": null
+   "date": "4/19/2022"
  },
  {
    "artistName": "Jules Blanc",
    "artistLink": "https://twitter.com/BlancNFT",
    "image": "https://pbs.twimg.com/media/FQeF181XsAEQ2x3?format=jpg&name=900x900",
    "post": "https://twitter.com/BlancNFT/status/1515328693786263553",
-   "date": "4/16/2022",
-   "id": null
+   "date": "4/16/2022"
  },
  {
    "artistName": "Monmon",
    "artistLink": "https://twitter.com/monmonNFT",
    "image": "https://pbs.twimg.com/media/FP3w-LfaMAMfiju?format=jpg&name=900x900",
    "post": "https://twitter.com/monmonNFT/status/1512630003334369289",
-   "date": "4/8/2022",
-   "id": null
+   "date": "4/8/2022"
  },
  {
    "artistName": "pawwao ",
    "artistLink": "https://twitter.com/pawwaoart",
    "image": "https://pbs.twimg.com/media/FQ9j71EaMAA46Rx?format=jpg&name=medium",
    "post": "https://twitter.com/pawwaoart/status/1517541490930892800?s=21&t=bVk67W0zjlFoSaGwdVtAWA",
-   "date": "4/22/2022",
-   "id": null
+   "date": "4/22/2022"
  },
  {
    "artistName": "TheKakrots",
    "artistLink": "https://twitter.com/TheKakrots",
    "image": "https://pbs.twimg.com/media/FQ2wgBYVcAUL17E?format=jpg&name=4096x4096",
    "post": "https://twitter.com/Schiffanee/status/1517063208510517249",
-   "date": "4/21/2022",
-   "id": null
+   "date": "4/21/2022"
  },
  {
    "artistName": "Alice",
@@ -2804,16 +2771,14 @@ const derivatives: DerivativeType[] = [
    "artistLink": "https://twitter.com/uwualicenft",
    "image": "https://pbs.twimg.com/media/FQtVqJoakAY2clm?format=jpg&name=4096x4096",
    "post": "https://twitter.com/uwualicenft/status/1516400297115254785",
-   "date": "4/19/2022",
-   "id": null
+   "date": "4/19/2022"
  },
  {
    "artistName": "AimaliceNFT",
    "artistLink": "https://twitter.com/AimaliceNFT",
    "image": "https://pbs.twimg.com/media/FRSWhQgVcAAAws5?format=png&name=small",
    "post": "https://twitter.com/BritttanBrown/status/1519005058863489024",
-   "date": "4/26/2022",
-   "id": null
+   "date": "4/26/2022"
  },
 ];
 
