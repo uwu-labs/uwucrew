@@ -16,6 +16,7 @@ export interface DerivativeType {
 	artistLink?: string;
 	post?: string;
 	id?: number;
+	date?: string;
 }
 
 const derivatives: DerivativeType[] = [
