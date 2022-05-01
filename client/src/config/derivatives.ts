@@ -2222,7 +2222,6 @@ const derivatives: DerivativeType[] = [
     post: "https://twitter.com/Nyan_F_T/status/1488167285449580547",
     id: 3993
   },
-	[
  {
    "artistName": "SWHEATZ",
    "artistLink": "https://twitter.com/SWHEATZ1",
