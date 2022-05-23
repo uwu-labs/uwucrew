@@ -20,8 +20,6 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   mapping(uint256 => bytes32) public collectionDataRoot;
   mapping(uint256 => address) public collectionOwner;
   
-  mapping(uint256 => bytes32) public collectionManagersRoot;
-
   mapping(uint256 => address) public derivativeSourceNFT;
   mapping(address => address) public derivativeSourceReceiver;
   mapping(address => uint256) public derivativeFee;
@@ -29,7 +27,6 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   event Purchase(uint256 collectionId, uint256 id, address buyer, address sourceArtist);
   event CollectionCreated(uint256 collectionId, address who, bytes32 newNFTDataRoot, address derivativeSourceNFT);
   event CollectionUpdate(uint256 collectionId, address who, uint256 newMaxSupply, bytes32 newNFTDataRoot);
-  event CollectionManagerUpdate(uint256 collectionId, bytes32 newCollectionManagerRoot);
   event Finalized(uint256 collectionId);
 
   event DerivativeSourceFeeUpdate(address sourceNFT, uint256 derivativeFee);
@@ -72,30 +69,6 @@ contract uwudropShared is OwnableUpgradeable, ERC721URIStorageUpgradeable {
     emit CollectionUpdate(collectionId, msg.sender, newMaxSupply, newNFTDataTreeRoot);
   }
 
-  function managerUpdateCollectionData(uint256 collectionId, uint256 index, uint256 newMaxSupply, bytes32 newNFTDataTreeRoot, bytes32[] memory merkleProof) external onlyOwner {
-    require(!collectionFinalized[collectionId], "Finalized");
-
-    bytes32 _collectionManagersRoot = collectionManagersRoot[collectionId];
-    require(_collectionManagersRoot != bytes32(0), "Data Root not initialized");
-
-    bytes32 node = keccak256(abi.encodePacked(index, collectionId, msg.sender));
-    require(MerkleProof.verify(merkleProof, _collectionManagersRoot, node), 'MerkleDistributor: Invalid proof.');
-
-    collectionDataRoot[collectionId] = newNFTDataTreeRoot;
-    emit CollectionUpdate(collectionId, msg.sender, newMaxSupply, newNFTDataTreeRoot);
-  }
-
-  function updateCollectionManagers(uint256 collectionId, bytes32 _collectionManagerRoot) external {
-    require(msg.sender == collectionOwner[collectionId], "Not collection owner");
-    collectionManagersRoot[collectionId] = _collectionManagerRoot; 
-    emit CollectionManagerUpdate(collectionId, _collectionManagerRoot);
-  }
-
-  function adminUpdateCollectionManagers(uint256 collectionId, bytes32 _collectionManagerRoot) external onlyOwner {
-    collectionManagersRoot[collectionId] = _collectionManagerRoot; 
-    emit CollectionManagerUpdate(collectionId, _collectionManagerRoot);
-  }
-  
   function finalize(uint256 collectionId) external {
     require(msg.sender == collectionOwner[collectionId], "Not collection owner");
     collectionFinalized[collectionId] = true;
