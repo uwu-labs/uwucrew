@@ -1,9 +1,9 @@
 pragma solidity ^0.8.0;
 
-import "./tokens/IERC20.sol";
-import "./tokens/IERC721Enumerable.sol";
-import "./utils/Ownable.sol";
-import "./utils/ReentrancyGuard.sol";
+import "../tokens/IERC20.sol";
+import "../tokens/IERC721Enumerable.sol";
+import "../utils/Ownable.sol";
+import "../utils/ReentrancyGuard.sol";
 
 contract uwucrewBSCWaveLockSale is Ownable, ReentrancyGuard {
   address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 

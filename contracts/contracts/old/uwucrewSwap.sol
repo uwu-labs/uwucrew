@@ -44,10 +44,10 @@ pragma solidity ^0.8.0;
  @,,,,   @*@&&&&&&&&.,@,,,&  @,,,,,,,,,,,...,,@&&&&&&&@@ (, @@ &@ @&@  @    &, 
 */
 
-import "./tokens/IERC20.sol";
-import "./tokens/IERC721Enumerable.sol";
-import "./utils/Ownable.sol";
-import "./utils/ReentrancyGuard.sol";
+import "../tokens/IERC20.sol";
+import "../tokens/IERC721Enumerable.sol";
+import "../utils/Ownable.sol";
+import "../utils/ReentrancyGuard.sol";
 
 interface Minter {
   function MAX_UWU() external returns (uint256);
@@ -55,7 +55,7 @@ interface Minter {
   function owner() external returns (address);
 }
 
-contract WaveLockSale is Ownable, ReentrancyGuard {
+contract uwucrewSwap is Ownable, ReentrancyGuard {
   address public nft; 
   address public constant WAIFUSION = 0x2216d47494E516d8206B70FCa8585820eD3C4946;
   address public constant WET = 0x76280AF9D18a868a0aF3dcA95b57DDE816c1aaf2; 
@@ -68,7 +68,7 @@ contract WaveLockSale is Ownable, ReentrancyGuard {
   uint256 public amountForSwap;
   uint256 public amountSwapped;
 
-  uint256 public buyPrice = 0.006 ether;
+  uint256 public buyPrice = 0.06 ether;
   uint256 public swapPrice = 1830 * BASE;
 
   uint256 public startTime;

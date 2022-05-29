@@ -1,8 +1,8 @@
 pragma solidity ^0.8.0;
 
-import "./tokens/IERC20.sol";
-import "./tokens/IERC721Enumerable.sol";
-import "./utils/MerkleProof.sol";
+import "../tokens/IERC20.sol";
+import "../tokens/IERC721Enumerable.sol";
+import "../utils/MerkleProof.sol";
 
 interface Iuwucrew is IERC721Enumerable {
   function lastTransferTimestamp(uint256 tokenId) external view returns (uint256);
