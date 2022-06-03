@@ -19,7 +19,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -56,7 +57,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -91,7 +93,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -136,7 +139,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -171,7 +175,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -206,7 +211,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -243,7 +249,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -280,7 +287,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -315,7 +323,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -352,7 +361,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -389,7 +399,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -407,7 +418,7 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721SimpleUpgradeable.sol": {
-      "lastModificationDate": 1647555564620,
+      "lastModificationDate": 1653340928581,
       "contentHash": "4c01e2e3f4199ba141a8d0122f36a4e8",
       "sourceName": "contracts/tokens/ERC721SimpleUpgradeable.sol",
       "solcConfig": {
@@ -424,7 +435,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -470,7 +482,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -505,7 +518,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -542,7 +556,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -562,7 +577,7 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/tokens/ERC721URIStorage.sol": {
-      "lastModificationDate": 1646116914024,
+      "lastModificationDate": 1653340928585,
       "contentHash": "273a82f797757c0849fe1e6070cb9126",
       "sourceName": "contracts/tokens/ERC721URIStorage.sol",
       "solcConfig": {
@@ -579,7 +594,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -599,7 +615,7 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionStatic.sol": {
-      "lastModificationDate": 1647555650444,
+      "lastModificationDate": 1653340928585,
       "contentHash": "68e2377df8a324c71ac614ecd7dfed59",
       "sourceName": "contracts/uwudropCollectionStatic.sol",
       "solcConfig": {
@@ -616,7 +632,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -658,7 +675,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -696,7 +714,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -734,7 +753,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -769,7 +789,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -806,7 +827,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -824,7 +846,7 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionDynamic.sol": {
-      "lastModificationDate": 1647555638816,
+      "lastModificationDate": 1653340928585,
       "contentHash": "8da4fd497dd8f3e5dab2faccee6a02c7",
       "sourceName": "contracts/uwudropCollectionDynamic.sol",
       "solcConfig": {
@@ -841,7 +863,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -866,7 +889,7 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropCollectionFactory.sol": {
-      "lastModificationDate": 1646163030508,
+      "lastModificationDate": 1653340928585,
       "contentHash": "1ef2a8539a7762d3f7ccc0a890f32f93",
       "sourceName": "contracts/uwudropCollectionFactory.sol",
       "solcConfig": {
@@ -883,7 +906,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -924,7 +948,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -959,7 +984,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -998,7 +1024,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1037,7 +1064,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1072,7 +1100,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1111,7 +1140,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1149,7 +1179,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1184,7 +1215,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1221,7 +1253,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1258,7 +1291,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1293,7 +1327,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1334,7 +1369,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1374,7 +1410,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1412,7 +1449,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1452,7 +1490,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1493,7 +1532,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1531,7 +1571,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1566,7 +1607,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1604,7 +1646,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1641,7 +1684,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1678,7 +1722,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1715,7 +1760,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1750,7 +1796,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1785,7 +1832,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1805,7 +1853,7 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwudropShared.sol": {
-      "lastModificationDate": 1647557883796,
+      "lastModificationDate": 1653340928589,
       "contentHash": "b6c6cebaee74a9ff67b6d73a303c5d74",
       "sourceName": "contracts/uwudropShared.sol",
       "solcConfig": {
@@ -1822,7 +1870,8 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1845,10 +1894,10 @@
         "uwudropShared"
       ]
     },
-    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwuInsignia.sol": {
-      "lastModificationDate": 1653623065319,
-      "contentHash": "caeaa08db2f6791cad1268f497d4e848",
-      "sourceName": "contracts/uwuInsignia.sol",
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwuonchaindata.sol": {
+      "lastModificationDate": 1653886732095,
+      "contentHash": "d75516a3ea50a2f7413c91fad06387d1",
+      "sourceName": "contracts/old/uwuonchaindata.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -1863,7 +1912,261 @@
                 "evm.bytecode",
                 "evm.deployedBytecode",
                 "evm.methodIdentifiers",
-                "metadata"
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tokens/IERC20.sol",
+        "../tokens/IERC721Enumerable.sol",
+        "../utils/MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Iuwucrew",
+        "uwuLoot"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwucrewSwap.sol": {
+      "lastModificationDate": 1653886732095,
+      "contentHash": "3a84b065b97bf81aa551fc265f9a7ad5",
+      "sourceName": "contracts/old/uwucrewSwap.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tokens/IERC20.sol",
+        "../tokens/IERC721Enumerable.sol",
+        "../utils/Ownable.sol",
+        "../utils/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Minter",
+        "uwucrewSwap"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwucrewBSCWetSale.sol": {
+      "lastModificationDate": 1653886732095,
+      "contentHash": "6c87ed307b89185227fb497c53165545",
+      "sourceName": "contracts/old/uwucrewBSCWetSale.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tokens/IERC20.sol",
+        "../tokens/IERC721Enumerable.sol",
+        "../utils/Ownable.sol",
+        "../utils/ReentrancyGuard.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "uwucrewBSCWaveLockSale"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwucrewBSCClaim.sol": {
+      "lastModificationDate": 1653886732095,
+      "contentHash": "b75cbf8865e9e019ed2629e9022d9d15",
+      "sourceName": "contracts/old/uwucrewBSCClaim.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../tokens/IERC20.sol",
+        "../tokens/IERC721Enumerable.sol",
+        "../utils/Ownable.sol",
+        "../utils/ReentrancyGuard.sol",
+        "../utils/MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Minter",
+        "NFTMerkleDistributor"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/proxy/FlatMultiProxy.sol": {
+      "lastModificationDate": 1653938665919,
+      "contentHash": "f5946175d7bc0276087ef88202ccf8e7",
+      "sourceName": "contracts/proxy/FlatMultiProxy.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context",
+        "IAdminUpgradeabilityProxy",
+        "MultiProxyController",
+        "Ownable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/UwuQuestStampsUpgradeable.sol": {
+      "lastModificationDate": 1654026178668,
+      "contentHash": "670bf2c1eeac0415de471620b36117a7",
+      "sourceName": "contracts/UwuQuestStampsUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AddressUpgradeable",
+        "Context",
+        "ERC1155",
+        "ERC1155TokenReceiver",
+        "ERC1155URIStorage",
+        "Initializable",
+        "OwnableUpgradeable",
+        "Strings",
+        "UwuQuestStampsUpgradeable"
+      ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/UwuInsignia.sol": {
+      "lastModificationDate": 1654250467474,
+      "contentHash": "01e5ff4bd8d27b750ee27197a41d21f7",
+      "sourceName": "contracts/UwuInsignia.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
               ],
               "": [
                 "ast"
@@ -1890,213 +2193,7 @@
         "IERC20",
         "Ownable",
         "Strings",
-        "uwuInsignia"
-      ]
-    },
-    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwuQuestStampsUpgradeable.sol": {
-      "lastModificationDate": 1653623159352,
-      "contentHash": "f179a45600c0c9105b11a6e6868f05b4",
-      "sourceName": "contracts/uwuQuestStampsUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "AddressUpgradeable",
-        "Context",
-        "ERC1155",
-        "ERC1155TokenReceiver",
-        "ERC1155URIStorage",
-        "Initializable",
-        "OwnableUpgradeable",
-        "Strings",
-        "uwuQuestStampsUpgradeable"
-      ]
-    },
-    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwuonchaindata.sol": {
-      "lastModificationDate": 1653623035519,
-      "contentHash": "d75516a3ea50a2f7413c91fad06387d1",
-      "sourceName": "contracts/old/uwuonchaindata.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../tokens/IERC20.sol",
-        "../tokens/IERC721Enumerable.sol",
-        "../utils/MerkleProof.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Iuwucrew",
-        "uwuLoot"
-      ]
-    },
-    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwucrewSwap.sol": {
-      "lastModificationDate": 1653623042127,
-      "contentHash": "3a84b065b97bf81aa551fc265f9a7ad5",
-      "sourceName": "contracts/old/uwucrewSwap.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../tokens/IERC20.sol",
-        "../tokens/IERC721Enumerable.sol",
-        "../utils/Ownable.sol",
-        "../utils/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Minter",
-        "uwucrewSwap"
-      ]
-    },
-    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwucrewBSCWetSale.sol": {
-      "lastModificationDate": 1653623031003,
-      "contentHash": "6c87ed307b89185227fb497c53165545",
-      "sourceName": "contracts/old/uwucrewBSCWetSale.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../tokens/IERC20.sol",
-        "../tokens/IERC721Enumerable.sol",
-        "../utils/Ownable.sol",
-        "../utils/ReentrancyGuard.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "uwucrewBSCWaveLockSale"
-      ]
-    },
-    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/old/uwucrewBSCClaim.sol": {
-      "lastModificationDate": 1653623026259,
-      "contentHash": "b75cbf8865e9e019ed2629e9022d9d15",
-      "sourceName": "contracts/old/uwucrewBSCClaim.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../tokens/IERC20.sol",
-        "../tokens/IERC721Enumerable.sol",
-        "../utils/Ownable.sol",
-        "../utils/ReentrancyGuard.sol",
-        "../utils/MerkleProof.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Minter",
-        "NFTMerkleDistributor"
+        "UwuInsignia"
       ]
     }
   }

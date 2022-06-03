@@ -333,6 +333,9 @@ abstract contract ERC1155URIStorage is ERC1155 {
     // Optional mapping for token URIs
     mapping(uint256 => string) internal _tokenURIs;
 
+    // Optional base URI
+    string internal _baseURI;
+    
     /**
      * @dev See {IERC1155MetadataURI-uri}.
      *
@@ -353,7 +356,14 @@ abstract contract ERC1155URIStorage is ERC1155 {
      */
     function uri(uint256 tokenId) public view virtual override returns (string memory) {
         require(exists(tokenId), "Doesn't exist");
-        return _tokenURIs[tokenId];
+        string memory tokenURI = _tokenURIs[tokenId];
+
+        // If token URI is set, concatenate base URI and tokenURI (via abi.encodePacked).
+        return bytes(tokenURI).length > 0 ? string(abi.encodePacked(_baseURI, tokenURI)) : tokenURI;
+    }
+
+    function _setBaseURI(string memory baseURI) internal virtual {
+        _baseURI = baseURI;
     }
 
     /**
@@ -743,33 +753,38 @@ abstract contract OwnableUpgradeable is Initializable, Context {
     uint256[49] private __gap;
 }
 
-contract uwuQuestStampsUpgradeable is ERC1155URIStorage, OwnableUpgradeable {
+contract UwuQuestStampsUpgradeable is ERC1155URIStorage, OwnableUpgradeable {
 	using Strings for string;
 
 	string public constant name = "uwu Quest Stamps";
 	string public constant symbol = "UWUQS";
 
-    function __uwuQuestStampsUpgradeable_init() internal onlyInitializing {
+    function __UwuQuestStampsUpgradeable_init(string memory _baseURI) external initializer {
         __Ownable_init();
+        _setBaseURI(_baseURI);
     }
 
 	function setTokenURI(uint256 tokenId, string memory _tokenURI) external onlyOwner {
 		_setURI(tokenId, _tokenURI);
 	}
 
+	function setBaseURI(string memory newBaseURI) external onlyOwner {
+		_setBaseURI(newBaseURI);
+	}
+
+    function baseURI() external view returns (string memory) {
+        return _baseURI;
+    }
+
 	function initializeStamp(address who, uint256 tokenId, uint256 amount, string memory _tokenURI) public onlyOwner {
-		require(!exists(tokenId), "uwu insignia: Stamp already exists");
+		require(!exists(tokenId), "uwu quest: Stamp already exists");
 		_setURI(tokenId, _tokenURI);
 		_mint(who, tokenId, amount, "");
 	}
 
 	function mint(address to, uint256 id, uint256 amount) public onlyOwner {
-        require(bytes(_tokenURIs[id]).length != 0, "Not initialized");
+        require(exists(id), "Not initialized");
 		_mint(to, id, amount, "");
-	}
-
-	function burn(address to, uint256 id, uint256 amount) public onlyOwner {
-		_burn(to, id, amount);
 	}
 
 	function mintMany(address[] memory receivers, uint256[] memory ids, uint256[] memory amounts) public onlyOwner {

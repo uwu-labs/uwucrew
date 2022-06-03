@@ -1145,14 +1145,21 @@ abstract contract Ownable is Context {
     }
 }
 
-contract uwuInsignia is ERC1155URIStorage, Ownable {
+contract UwuInsignia is ERC1155URIStorage, Ownable {
 	using Strings for string;
 
 	string public name = "uwu Insignia";
 	string public symbol = "UWUI";
 
+    mapping(address => bool) public manager;
+
 	constructor(string memory uri_) ERC1155(uri_) {
 	}
+
+    modifier onlyManager() {
+        require(msg.sender == owner() || manager[msg.sender], "not manager");
+        _;
+    }
 
 	function setApprovalForAll(address /* operator */, bool /* approved */) public virtual override {
 		revert("Cannot approve, transferring not allowed");
@@ -1184,31 +1191,35 @@ contract uwuInsignia is ERC1155URIStorage, Ownable {
 		revert("Sending not allowed");
 	}
 
-	function setURI(string memory uri_) external onlyOwner {
+	function setURI(string memory uri_) external onlyManager {
 		_setURI(uri_);
 	}
 
-	function setTokenURI(uint256 tokenId, string memory _tokenURI) external onlyOwner {
+	function setManager(address who, bool managerPower) external onlyOwner {
+		manager[who] = managerPower;
+	}
+
+	function setTokenURI(uint256 tokenId, string memory _tokenURI) external onlyManager {
 		_setTokenURI(tokenId, _tokenURI);
 	}
 
-	function initializeStamp(uint256 tokenId, string memory _tokenURI) public onlyOwner {
+	function initializeStamp(uint256 tokenId, string memory _tokenURI) public onlyManager {
 		require(!exists(tokenId), "uwu insignia: Stamp already exists");
 		_mint(msg.sender, tokenId, 1, "");
 		_setTokenURI(tokenId, _tokenURI);
 	}
 
-	function mint(address to, uint256 id, uint256 amount) public onlyOwner {
-			require(bytes(_tokenURIs[id]).length != 0, "Not initialized");
+	function mint(address to, uint256 id, uint256 amount) public onlyManager {
+        require(bytes(_tokenURIs[id]).length != 0, "Not initialized");
 		_mint(to, id, amount, "");
 	}
 
-	function burn(address to, uint256 id, uint256 amount) public onlyOwner {
+	function burn(address to, uint256 id, uint256 amount) public onlyManager {
 		_burn(to, id, amount);
 	}
 
 	// Mints up to a given balance, 
-	function mintManyUpTo(address[] memory receivers, uint256[] memory ids, uint256[] memory amounts) public onlyOwner {
+	function mintManyUpTo(address[] memory receivers, uint256[] memory ids, uint256[] memory amounts) public onlyManager {
 		require(receivers.length == ids.length, "Wrong length 1");
 		require(ids.length == amounts.length, "Wrong length 2");
 		for (uint256 i; i < receivers.length; i++) {
@@ -1221,7 +1232,7 @@ contract uwuInsignia is ERC1155URIStorage, Ownable {
 		}
 	}
 
-	function burnMany(address[] memory receivers, uint256[] memory ids, uint256[] memory amounts) public onlyOwner {
+	function burnMany(address[] memory receivers, uint256[] memory ids, uint256[] memory amounts) public onlyManager {
 		require(receivers.length == ids.length, "Wrong length 1");
 		require(ids.length == amounts.length, "Wrong length 2");
 		for (uint256 i; i < receivers.length; i++) {
@@ -1229,7 +1240,7 @@ contract uwuInsignia is ERC1155URIStorage, Ownable {
 		}
 	}
 
-	function burnManyFull(address[] memory receivers, uint256[] memory ids) public onlyOwner {
+	function burnManyFull(address[] memory receivers, uint256[] memory ids) public onlyManager {
 		require(receivers.length == ids.length, "Wrong length 1");
 		for (uint256 i; i < receivers.length; i++) {
 			uint256 currentBalance = balanceOf(receivers[i], ids[i]);
@@ -1237,7 +1248,7 @@ contract uwuInsignia is ERC1155URIStorage, Ownable {
 		}
 	}
 
-	function adminTransferMany(address[] memory froms, address[] memory tos, uint256[] memory ids, uint256[] memory amounts) public onlyOwner {
+	function adminTransferMany(address[] memory froms, address[] memory tos, uint256[] memory ids, uint256[] memory amounts) public onlyManager {
 		require(froms.length == tos.length, "Wrong length 1");
 		require(tos.length == ids.length, "Wrong length 1");
 		require(ids.length == amounts.length, "Wrong length 2");
@@ -1255,7 +1266,7 @@ contract uwuInsignia is ERC1155URIStorage, Ownable {
 		uint256[] memory amounts,
 		bytes memory data
 	) internal virtual override {
-		if (operator != owner()) {
+		if (!manager[operator] || operator != owner()) {
 			revert("Sending not allowed");
 		}
 		super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
