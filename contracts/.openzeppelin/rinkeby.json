@@ -1,0 +1,135 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x94Ac42923c34362075481B055fD1f22620575B2A",
+    "txHash": "0x3c11580788119edb64dfd47c38cdfcc81b95ce24f6fa562a48c9da2fd57e18a8"
+  },
+  "proxies": [
+    {
+      "address": "0x693921eF9A57c2fd644B955b9553f7955fFF5275",
+      "txHash": "0xf1a948c6b7832011db449074d1e8585808cb96144a0ebaef9582ebc43eecc75c",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "4c75c96b1010047595f17aae321e1a1f1549c3c3db81240a5131acdf80fef2d0": {
+      "address": "0x905b45C9FE097593d8Da12FFbf9f637ae209271c",
+      "txHash": "0x7edf333ad4b669f5bed5d211133d06a8657aa71c571ed9785d9152d050c9494d",
+      "layout": {
+        "storage": [
+          {
+            "label": "_balanceOf",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "contract": "ERC1155",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:102"
+          },
+          {
+            "label": "_isApprovedForAll",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "contract": "ERC1155",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:104"
+          },
+          {
+            "label": "_tokenURIs",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_uint256,t_string_storage)",
+            "contract": "ERC1155URIStorage",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:334"
+          },
+          {
+            "label": "_baseURI",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_string_storage",
+            "contract": "ERC1155URIStorage",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:337"
+          },
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:586",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "4",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:591"
+          },
+          {
+            "label": "_owner",
+            "offset": 2,
+            "slot": "4",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:688"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:753"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(address => mapping(uint256 => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_string_storage)": {
+            "label": "mapping(uint256 => string)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}

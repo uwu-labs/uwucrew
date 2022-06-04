@@ -2,7 +2,7 @@ const { BigNumber } = require("@ethersproject/bignumber");
 const { ethers, upgrades } = require("hardhat");
 const airdropInfo1155 = require("./results.json");
 
-let stampIds = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let stampIds = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -17,34 +17,18 @@ async function main() {
   
   // const uwuQuest = await ethers.getContractAt("UwuQuestStampsUpgradeable", "0x693921eF9A57c2fd644B955b9553f7955fFF5275");
 
-  const Quest = await ethers.getContractFactory('UwuQuestStampsUpgradeable');
-  const uwuQuest = await upgrades.deployProxy(
-    Quest, 
-    [
-      "ipfs://",
-    ],
-    {
-      initializer: "__UwuQuestStampsUpgradeable_init",
-      unsafeAllow: 'delegatecall'
-    }
+  const Insignia = await ethers.getContractFactory('UwuInsignia');
+  const insignia = await Insignia.deploy(["ipfs://"]);
+  await insignia.deployed();
 
-  );
-  await uwuQuest.deployed();
+  console.log(`deployed insignia: ${insignia.address}`)
 
-  console.log(`deployed uwu quest: ${uwuQuest.address}`)
+  await insignia.setManager("0x92e9b91AA2171694d740E7066F787739CA1Af9De", true);
 
-  const MultiProxy = await ethers.getContractFactory('MultiProxyController');
-  const multiProxy = await MultiProxy.deploy(["Quest"], [uwuQuest.address]);
-  await multiProxy.deployed();
-  
-  await upgrades.admin.changeProxyAdmin(uwuQuest.address, multiProxy.address);
-
-  console.log(`deployed multi proxy manager: ${multiProxy.address}`)
-
-  for (let i = 0; i < stampIds.length; i++) {
-    await uwuQuest.setTokenURI(stampIds[i], `QmQQkCeD2EXEuuVUSH3Uu5ZSvfrHK27Z14AppSJF9z9ZJY/${stampIds[i]}.json`);
-    console.log(`Initialized Stamp #${stampIds[i]}`)
-  }
+  // for (let i = 0; i < stampIds.length; i++) {
+  //   await uwuQuest.setTokenURI(stampIds[i], `QmQQkCeD2EXEuuVUSH3Uu5ZSvfrHK27Z14AppSJF9z9ZJY/${stampIds[i]}.json`);
+  //   console.log(`Initialized Stamp #${stampIds[i]}`)
+  // }
 
   // const uwuQuest = await ethers.getContr3actAt("uwuQuestStampsUpgradeable", "0x004097675a293be8d538258ad1a6e561304048f1")
 
