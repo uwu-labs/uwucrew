@@ -15,18 +15,20 @@ async function main() {
     "\n"
   );
   
-  // const uwuQuest = await ethers.getContractAt("UwuQuestStampsUpgradeable", "0x693921eF9A57c2fd644B955b9553f7955fFF5275");
+  const insignia = await ethers.getContractAt("UwuInsignia", "0xB2630e52FAAF487d277CabE213CD56BDcA17Ca11");
 
-  const Insignia = await ethers.getContractFactory('UwuInsignia');
-  const insignia = await Insignia.deploy(["ipfs://"]);
-  await insignia.deployed();
+  // const Insignia = await ethers.getContractFactory('UwuInsignia');
+  // const insignia = await Insignia.deploy("ipfs://");
+  // await insignia.deployed();
 
-  console.log(`deployed insignia: ${insignia.address}`)
+  // console.log(`deployed insignia: ${insignia.address}`)
 
-  await insignia.setManager("0x92e9b91AA2171694d740E7066F787739CA1Af9De", true);
+  // await insignia.setManager("0x92e9b91AA2171694d740E7066F787739CA1Af9De", true);
+
+  let tx = await insignia.initializeStamp("0x354A70969F0b4a4C994403051A81C2ca45db3615", 1, "Qmaqcco7WANQPrL76UpncrSbF2NNNjmHRseDHxyK5pfukx");
+  await tx.wait()
 
   // for (let i = 0; i < stampIds.length; i++) {
-  //   await uwuQuest.setTokenURI(stampIds[i], `QmQQkCeD2EXEuuVUSH3Uu5ZSvfrHK27Z14AppSJF9z9ZJY/${stampIds[i]}.json`);
   //   console.log(`Initialized Stamp #${stampIds[i]}`)
   // }
 

@@ -2,8 +2,8 @@ import type { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import chai, { expect } from 'chai';
 import { solidity } from 'ethereum-waffle';
 import { ethers, network, upgrades } from 'hardhat';
-import type { MultiProxyController, UwuQuestStampsUpgradeable } from '../typechain-types';
-import { expectException, expectRevert } from '../utils/expectRevert';
+import type { MultiProxyController, UwuInsignia, UwuQuestStampsUpgradeable } from '../typechain-types';
+import { expectException } from '../utils/expectRevert';
 
 chai.use(solidity);
 
@@ -14,6 +14,7 @@ describe('uwu Quest Test', () => {
 	let bob: SignerWithAddress;
 	let quest: UwuQuestStampsUpgradeable;
 	let multiProxy: MultiProxyController;
+	let insignia: UwuInsignia;
 
 	before('Setup', async () => {
 		signers = await ethers.getSigners();
@@ -36,6 +37,12 @@ describe('uwu Quest Test', () => {
 		const MultiProxy = await ethers.getContractFactory('MultiProxyController');
 		multiProxy = (await MultiProxy.deploy(["Quest"], [quest.address])) as MultiProxyController;
 		await multiProxy.deployed();
+  
+		const Insignia = await ethers.getContractFactory('UwuInsignia');
+		insignia = (await Insignia.deploy("ipfs://") as UwuInsignia);
+		await insignia.deployed();
+  
+		await upgrades.admin.changeProxyAdmin(quest.address, multiProxy.address);
 	});
 
 	// //////////////////////////
@@ -52,10 +59,29 @@ describe('uwu Quest Test', () => {
 
 	it('Should let the owner initialize', async () => {
 		await quest.initializeStamp(primary.address, 0, 1, "amogus");
+		await insignia.initializeStamp(primary.address, 0, "amogus");
 	});
+
+	it('Should let the owner give manager', async () => {
+		await insignia.setManager(alice.address, true);
+	});
+
+	it('Should let the manager mint and  transfer', async () => {
+		await insignia.connect(alice).mint(alice.address, 0, 1);
+		await insignia.connect(alice).adminTransferMany([alice.address], [bob.address], [0], [1]);
+	})
+
+	it('Should not let non manager mint and transfer', async () => {
+		await insignia.connect(bob).mint(bob.address, 0, 1);
+		await expectException(insignia.connect(bob).safeTransferFrom(bob.address, alice.address, 0, 1, []), "Sending not allowed");
+	})
 
 	it('Should let the owner mint', async () => {
 		await quest.mint(alice.address, 0, 1);
+	});
+
+	it('Should let the owner upgrade', async () => {
+		await multiProxy.upgradeProxyTo(0, await multiProxy.getImpl(0));
 	});
 
 	it('Should mine some blocks', async () => {

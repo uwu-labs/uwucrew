@@ -71,49 +71,105 @@ let bidders = [
   },
   {
     addresses: [
-      "0xd8a5d498ab43ed060cb6629b97a19e3e4276dd9f",
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
+      "0x44a26d3e86851bA3d624bA0e6169e0b45948b173",
+      "0x6546184b3acc844205BF8297cb053aC48234522D",
+      "0x2D8Aed38fc8EFD32e3717353e524d1069dEf4855",
+      "0x2aE76a64472e6289Ad8D7bdB1682F2F112f6Db79",
+      "0x294ebb3f9C89BFD86d09119B3d794ab33bC7da33",
+      "0x13588FbE1ca4db24a0c1132b1B1763ceaa3E7d4C",
+      "0x1d842Fa7B6E657Ec7AA31Af4D1c0D6bCD2336dfe",
+      "0xce7EAB9f7e9b88382a99A3B9c620Ac6AB7d63328",
+      "0xC68D61757A9894f34871C0ae733AC034d9abF807",
     ],
     id: 2,
   },
   {
     addresses: [
-      "0xd8a5d498ab43ed060cb6629b97a19e3e4276dd9f",
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
+      "0x44a26d3e86851bA3d624bA0e6169e0b45948b173",
+      "0xd7AF5ea14Fad145B2D9fd57E321d7Bf8301980B5",
+      "0x7B8a6e7777793614F27799199E32E80F03d18dBe",
+      "0xC68D61757A9894f34871C0ae733AC034d9abF807",
+      "0x13588FbE1ca4db24a0c1132b1B1763ceaa3E7d4C",
+      "0xE2AF30a97881DA126be19575f55AC9c8f20A9538",
+      "0x251888b5944a7d0878e76c26fE03C409Ac111cA9",
+      "0x8E80A3c6ca902603b3b76B44a2c608d9dA0fd083",
     ],
     id: 3,
   },
   {
     addresses: [
-      "0xd8a5d498ab43ed060cb6629b97a19e3e4276dd9f",
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
+      "0x44a26d3e86851bA3d624bA0e6169e0b45948b173",
+      "0x13a9518A451EDaD79079753c89Cc7197FF3f570A",
+      "0xC68D61757A9894f34871C0ae733AC034d9abF807",
+      "0xE27ae27612881d7073814357D9CF2421092355A9",
+      "0x7B8a6e7777793614F27799199E32E80F03d18dBe",
+      "0xd3022599033430bF3fDFb6D9CE41D3CdA7E20245",
     ],
     id: 4,
   },
   {
     addresses: [
-      "0xd8a5d498ab43ed060cb6629b97a19e3e4276dd9f",
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
+      "0x44a26d3e86851bA3d624bA0e6169e0b45948b173",
+      "0x6546184b3acc844205BF8297cb053aC48234522D",
+      "0x2aE76a64472e6289Ad8D7bdB1682F2F112f6Db79",
+      "0x294ebb3f9C89BFD86d09119B3d794ab33bC7da33",
+      "0x13a9518A451EDaD79079753c89Cc7197FF3f570A",
+      "0xE27ae27612881d7073814357D9CF2421092355A9",
+      "0x42397bba6237703235e14C5A44358DebB95A838B",
+      "0xC68D61757A9894f34871C0ae733AC034d9abF807",
+      "0x08D816526BdC9d077DD685Bd9FA49F58A5Ab8e48",
     ],
     id: 5,
   },
   {
     addresses: [
-
+      "0xC68D61757A9894f34871C0ae733AC034d9abF807",
+      "0xAa13c3291AAB9b413AC762CEC85eE0c5e639307a",
+      "0x65476310506f52C8f9Ab338Fb410C3C76E746C20",
+      "0xE27ae27612881d7073814357D9CF2421092355A9",
+      "0x31A6d0EA27db941257024189A3718472d40ef663",
+      "0x13a9518A451EDaD79079753c89Cc7197FF3f570A",
+      "0x6546184b3acc844205BF8297cb053aC48234522D",
+      "0x44a26d3e86851bA3d624bA0e6169e0b45948b173",
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
     ],
     id: 6,
   },
   {
     addresses: [
-
+      "0xC68D61757A9894f34871C0ae733AC034d9abF807",
+      "0xAa13c3291AAB9b413AC762CEC85eE0c5e639307a",
+      "0x507DBac94B03Bd3303e6610eEc67F8019B58364e",
+      "0x88c9aDA911e01f3A6879a8e6066D2Da45CE8bf1b",
+      "0x2aE76a64472e6289Ad8D7bdB1682F2F112f6Db79",
+      "0x13588FbE1ca4db24a0c1132b1B1763ceaa3E7d4C",
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
     ],
     id: 7,
   },
   {
     addresses: [
-
+      "0xC68D61757A9894f34871C0ae733AC034d9abF807",
+      "0x13588FbE1ca4db24a0c1132b1B1763ceaa3E7d4C",
+      "0x53d98d7cf2E3d03Ef031fDEC197792d0c713303d",
+      "0x294ebb3f9C89BFD86d09119B3d794ab33bC7da33",
+      "0xce7EAB9f7e9b88382a99A3B9c620Ac6AB7d63328",
+      "0x44a26d3e86851bA3d624bA0e6169e0b45948b173",
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
     ],
     id: 8,
   },
   {
     addresses: [
-
+      "0xC6941e6bC40B43Aaac49Bc6c2d3C123da105991e",
+      "0x13a9518A451EDaD79079753c89Cc7197FF3f570A",
+      "0x2aE76a64472e6289Ad8D7bdB1682F2F112f6Db79",
+      "0xE27ae27612881d7073814357D9CF2421092355A9",
+      "0xB618aaCb9DcDc21Ca69D310A6fC04674D293A193",
     ],
     id: 9,
   },
@@ -186,26 +242,26 @@ function main() {
     })
   })
 
-  // bidders.forEach(({addresses, id}) => {
-  //   addresses.forEach((address) => {
-  //     let addr = address.toLowerCase();
-  //     if (!finalStampBalances[addr]) {
-  //       finalStampBalances[addr] = {}
-  //     }
-  //     if (!finalStampBalances[addr][id])
-  //       finalStampBalances[addr][id] = 0
-  //     finalStampBalances[addr][id]++
-  //     stampStats[id]++
-  //     total++
-  //   })
-  // })
+  bidders.forEach(({addresses, id}) => {
+    addresses.forEach((address) => {
+      let addr = address.toLowerCase();
+      if (!finalStampBalances[addr]) {
+        finalStampBalances[addr] = {}
+      }
+      if (!finalStampBalances[addr][id])
+        finalStampBalances[addr][id] = 0
+      finalStampBalances[addr][id]++
+      stampStats[id]++
+      total++
+    })
+  })
 
   console.log(`Total uwucrew holders: ${allAddrs.length}`);
   Object.keys(stampStats).forEach((num) => {
     console.log(`ID #${num}: ${stampStats[num]} minted to ${holders[num]} holders`)
   })
-  let totalHolders = allAddrs.length;
-  console.log(`Distributed in total ${total} stamps to ${allValidAddrs.length} uwucrew holders`);
+  let totalHolders = Object.keys(finalStampBalances).length;
+  console.log(`Distributed in total ${total} stamps to ${totalHolders} uwucrew holders`);
 
   let formattedStamps = {}
   Object.keys(finalStampBalances).forEach((key) => {

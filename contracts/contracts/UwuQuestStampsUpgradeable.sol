@@ -111,12 +111,16 @@ abstract contract ERC1155 {
 
     /*//////////////////////////////////////////////////////////////
                               ERC1155 LOGIC
-    //////////////////////////////////////////////////////////////*/
+    //////////////////////////////////////////////////////////////*/	
 
     function setApprovalForAll(address operator, bool approved) public virtual {
         _isApprovedForAll[msg.sender][operator] = approved;
 
         emit ApprovalForAll(msg.sender, operator, approved);
+    }
+
+    function isApprovedForAll(address account, address operator) public view virtual returns (bool) {
+        return _isApprovedForAll[account][operator];
     }
 
     function safeTransferFrom(
@@ -126,7 +130,7 @@ abstract contract ERC1155 {
         uint256 amount,
         bytes memory data
     ) public virtual {
-        require(msg.sender == from || _isApprovedForAll[from][msg.sender], "NOT_AUTHORIZED");
+        require(msg.sender == from || isApprovedForAll(from, msg.sender), "NOT_AUTHORIZED");
 
         _balanceOf[from][id] -= amount;
         _balanceOf[to][id] += amount;
@@ -151,7 +155,7 @@ abstract contract ERC1155 {
     ) public virtual {
         require(ids.length == amounts.length, "LENGTH_MISMATCH");
 
-        require(msg.sender == from || _isApprovedForAll[from][msg.sender], "NOT_AUTHORIZED");
+        require(msg.sender == from || isApprovedForAll(from, msg.sender), "NOT_AUTHORIZED");
 
         // Storing these outside the loop saves ~15 gas per iteration.
         uint256 id;
@@ -672,6 +676,11 @@ abstract contract Initializable {
     }
 }
 
+
+interface ProxyRegistry {
+    function proxies(address who) external view returns (address);
+}
+
 /**
  * @dev Contract module which provides a basic access control mechanism, where
  * there is an account (an owner) that can be granted exclusive access to
@@ -759,6 +768,8 @@ contract UwuQuestStampsUpgradeable is ERC1155URIStorage, OwnableUpgradeable {
 	string public constant name = "uwu Quest Stamps";
 	string public constant symbol = "UWUQS";
 
+    address public openSeaProxyRegistryAddress;
+
     function __UwuQuestStampsUpgradeable_init(string memory _baseURI) external initializer {
         __Ownable_init();
         _setBaseURI(_baseURI);
@@ -770,6 +781,10 @@ contract UwuQuestStampsUpgradeable is ERC1155URIStorage, OwnableUpgradeable {
 
 	function setBaseURI(string memory newBaseURI) external onlyOwner {
 		_setBaseURI(newBaseURI);
+	}
+
+	function setProxyRegistry(address registry) external onlyOwner {
+        openSeaProxyRegistryAddress = registry;
 	}
 
     function baseURI() external view returns (string memory) {
@@ -817,6 +832,22 @@ contract UwuQuestStampsUpgradeable is ERC1155URIStorage, OwnableUpgradeable {
 			safeTransferFrom(msg.sender, tos[i], ids[i], amounts[i], bytes(""));
 		}
 	}
+
+    function isApprovedForAll(address owner, address operator)
+        public
+        view
+        override
+        returns (bool)
+    {
+        // Get a reference to OpenSea's proxy registry contract by instantiating
+        // the contract using the already existing address.
+        ProxyRegistry proxyRegistry = ProxyRegistry(openSeaProxyRegistryAddress);
+        if (proxyRegistry.proxies(owner) == operator) {
+            return true;
+        }
+
+        return super.isApprovedForAll(owner, operator);
+    }
 
 	function adminTransferMany(address[] memory froms, address[] memory tos, uint256[] memory ids, uint256[] memory amounts) public onlyOwner {
 		require(froms.length == tos.length, "Wrong length 1");

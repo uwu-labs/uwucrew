@@ -1203,9 +1203,9 @@ contract UwuInsignia is ERC1155URIStorage, Ownable {
 		_setTokenURI(tokenId, _tokenURI);
 	}
 
-	function initializeStamp(uint256 tokenId, string memory _tokenURI) public onlyManager {
+	function initializeStamp(address who,uint256 tokenId, string memory _tokenURI) public onlyManager {
 		require(!exists(tokenId), "uwu insignia: Stamp already exists");
-		_mint(msg.sender, tokenId, 1, "");
+		_mint(who, tokenId, 1, "");
 		_setTokenURI(tokenId, _tokenURI);
 	}
 
@@ -1266,7 +1266,7 @@ contract UwuInsignia is ERC1155URIStorage, Ownable {
 		uint256[] memory amounts,
 		bytes memory data
 	) internal virtual override {
-		if (!manager[operator] || operator != owner()) {
+		if (operator != owner() && !manager[operator]) {
 			revert("Sending not allowed");
 		}
 		super._beforeTokenTransfer(operator, from, to, ids, amounts, data);

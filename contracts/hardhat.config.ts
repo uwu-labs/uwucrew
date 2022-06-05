@@ -38,7 +38,7 @@ export default {
     polygon: {
       url: "https://polygon-rpc.com",
       accounts: [process.env.DEV_PRIVKEY],
-      gasPrice: 45000000000
+      gasPrice: 60000000000
     },
 	},
 	abiExporter: {

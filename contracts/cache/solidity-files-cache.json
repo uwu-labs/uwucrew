@@ -2104,8 +2104,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/UwuQuestStampsUpgradeable.sol": {
-      "lastModificationDate": 1654249706725,
-      "contentHash": "670bf2c1eeac0415de471620b36117a7",
+      "lastModificationDate": 1654394395229,
+      "contentHash": "8246f3e2da8ac17a1e8100af3e02c452",
       "sourceName": "contracts/UwuQuestStampsUpgradeable.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2143,13 +2143,14 @@
         "ERC1155URIStorage",
         "Initializable",
         "OwnableUpgradeable",
+        "ProxyRegistry",
         "Strings",
         "UwuQuestStampsUpgradeable"
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/UwuInsignia.sol": {
-      "lastModificationDate": 1654250622300,
-      "contentHash": "24b7441957c463ad48bc2ffa68184db8",
+      "lastModificationDate": 1654394962262,
+      "contentHash": "f6bb2eba4cf3240ec9dad53cf429293b",
       "sourceName": "contracts/UwuInsignia.sol",
       "solcConfig": {
         "version": "0.8.4",

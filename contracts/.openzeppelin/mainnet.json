@@ -1,20 +1,25 @@
 {
   "manifestVersion": "3.2",
   "admin": {
-    "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "txHash": "0x0d392454926ec8c32fe247e0ec56342e73975a0fc294e2ba3fb59d9ec5290829"
+    "address": "0xB561f97171930b810D96Fd35C66a16e1aA6F0E92",
+    "txHash": "0x200d0850718e64534a15b6a36737462db571dda56563ef5169337ac355ae6f27"
   },
   "proxies": [
     {
-      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0xe249ee56258c1aceff9504c29123f4bb32df3cb55a54a69086f717d58400c544",
+      "address": "0x1fB57779494037105F869e44434f134e07b1CDF7",
+      "txHash": "0x1ee10e91758db6344267a16189e226ed4621ff5f2fa11409bba1838713be784d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xcEc3597d2fDdd38339D26D5097691Ad29330456d",
+      "txHash": "0xca416d70c7df93310956b1846a59a88a51a5485cbdd70bfb7d99e621d7fa8536",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "50bc49e3d1bdd4d97ff0a96cf0bfc4d1252984baf20395134709ab4f7aa20378": {
-      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      "txHash": "0xcc495c75e4c0609f1b075e0938236254faa295d49f22c12d9d043345fff0c68f",
+    "4c75c96b1010047595f17aae321e1a1f1549c3c3db81240a5131acdf80fef2d0": {
+      "address": "0x45E2d2C92645341f4aeEEfca9EB9B7064b883621",
+      "txHash": "0x981f9724479137586bc3f65091feeacac03a045ee08c0a4e4ea997d3f9b4f71b",
       "layout": {
         "storage": [
           {
@@ -39,7 +44,7 @@
             "slot": "2",
             "type": "t_mapping(t_uint256,t_string_storage)",
             "contract": "ERC1155URIStorage",
-            "src": "contracts/UwuQuestStampsUpgradeable.sol:338"
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:334"
           },
           {
             "label": "_baseURI",
@@ -47,7 +52,7 @@
             "slot": "3",
             "type": "t_string_storage",
             "contract": "ERC1155URIStorage",
-            "src": "contracts/UwuQuestStampsUpgradeable.sol:341"
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:337"
           },
           {
             "label": "_initialized",
@@ -55,7 +60,7 @@
             "slot": "4",
             "type": "t_uint8",
             "contract": "Initializable",
-            "src": "contracts/UwuQuestStampsUpgradeable.sol:590",
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:586",
             "retypedFrom": "bool"
           },
           {
@@ -64,7 +69,7 @@
             "slot": "4",
             "type": "t_bool",
             "contract": "Initializable",
-            "src": "contracts/UwuQuestStampsUpgradeable.sol:595"
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:591"
           },
           {
             "label": "_owner",
@@ -72,7 +77,7 @@
             "slot": "4",
             "type": "t_address",
             "contract": "OwnableUpgradeable",
-            "src": "contracts/UwuQuestStampsUpgradeable.sol:697"
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:688"
           },
           {
             "label": "__gap",
@@ -80,15 +85,7 @@
             "slot": "5",
             "type": "t_array(t_uint256)49_storage",
             "contract": "OwnableUpgradeable",
-            "src": "contracts/UwuQuestStampsUpgradeable.sol:762"
-          },
-          {
-            "label": "openSeaProxyRegistryAddress",
-            "offset": 0,
-            "slot": "54",
-            "type": "t_address",
-            "contract": "UwuQuestStampsUpgradeable",
-            "src": "contracts/UwuQuestStampsUpgradeable.sol:771"
+            "src": "contracts/UwuQuestStampsUpgradeable.sol:753"
           }
         ],
         "types": {
