@@ -11,23 +11,25 @@ async function main() {
 
 	const addresses: string[] = Object.keys(airdropInfo);
 	console.log(addresses.length);
-	console.log(airdropInfo);
 	const nft = await ethers.getContractAt('IERC1155', '0x2953399124f0cbb46d2cbacd8a89cf0599974963');
-	const id = '66450628800353115039952438590945603205850694131236567417649397736429085266024';
+	const id = '39964800108860895143807417383496998947185873909971398938362030659400978400992';
 
 	let nonce = await ethers.provider.getTransactionCount(await deployer.getAddress(), 'pending');
 	console.log(nonce);
 	const batchSize = 1;
-	for (let i = 0; i < addresses.length; i += batchSize) {
-		console.log(i);
+	for (let i = 531; i < addresses.length; i += batchSize) {
 		const addr = addresses[i];
-		// @ts-expect-error JSONs as files are funky
-		const tx = await nft.safeTranserFrom(await deployer.getAddress(), addr, id, airdropInfo[addr], [], {
+		console.log(i, addr);
+
+    // @ts-expect-error JSONs as files are funky
+		const tx = await nft.safeTransferFrom(await deployer.getAddress(), addr, id, airdropInfo[addr], [], {
 			nonce: BigNumber.from(nonce),
-			gasLimit: 200000
+			gasLimit: 500000
 		});
 		await tx.wait();
 		nonce++;
+
+    await new Promise(r => setTimeout(r, 5000));
 	}
 }
 

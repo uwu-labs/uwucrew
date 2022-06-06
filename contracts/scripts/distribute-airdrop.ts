@@ -1,6 +1,7 @@
 const { BigNumber } = require("@ethersproject/bignumber");
 const { ethers } = require("hardhat");
-const airdropInfo = require("../snapshots/4-easter-14604862.json");
+// const airdropInfo2 = require("../snapshots/waifu-12092465.json");
+const airdropInfo = require("../snapshots/lamps-explorer.json");
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -13,7 +14,8 @@ async function main() {
     "\n"
   );
   
-  const killerStamps = await ethers.getContractAt("UwuInsignia", "0x004097675a293be8d538258ad1a6e561304048f1")
+  // const airdrop = await ethers.getContractAt("Airdrop1155", "0x918eaa82ee6f07e46c82d04e34ebc352a56317c2") // uwu
+  const airdrop = await ethers.getContractAt("Airdrop1155", "0xa3b041ee6b56bccbc54a3048417d82fe67736f62") // lamps
 
   console.log("doneeee")
   let addresses = Object.keys(airdropInfo);
@@ -24,7 +26,7 @@ async function main() {
   console.log("Total to send: ", total)
 
   // ID HERE
-  let NFT_ID = 4;
+  let NFT_ID = 3;
 
   let nonce = await ethers.provider.getTransactionCount(await deployer.getAddress(), "pending");
   console.log(nonce)
@@ -35,7 +37,7 @@ async function main() {
     let sendAmounts = [];
     let max = i+batchSize > addresses.length ? addresses.length : i+batchSize
     let ids = Array(max-i).fill(NFT_ID)
-    let batchBalances = await killerStamps.balanceOfBatch(addresses.slice(i, max), ids); 
+    let batchBalances = await airdrop.balanceOfBatch(addresses.slice(i, max), ids); 
     for (let ii = i; ii < max; ii++) {
       let balance = batchBalances[ii-i]
       let extraToMint = airdropInfo[addresses[ii]] > balance;
@@ -52,11 +54,11 @@ async function main() {
     }
     console.log(i)
     console.log(sendAddresses.length)
-    let tx = await killerStamps.mintManyUpTo(
+    let tx = await airdrop.mintManyUpTo(
       sendAddresses, sendIds, sendAmounts,
       {
         nonce: BigNumber.from(nonce),
-        gasLimit: 12000000,
+        gasLimit: 10000000,
       }
     );
     await tx.wait();
