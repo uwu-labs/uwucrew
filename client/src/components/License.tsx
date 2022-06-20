@@ -1,3 +1,4 @@
+import type useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -151,7 +152,6 @@ const License = () => {
 	return (
 		<StyledLicense>
 			<Content>
-				<Header>uwu Art License</Header>
 				<SmallHeader>Holders</SmallHeader>
 				<Link href="http://creativecommons.org/licenses/by/4.0" target="_blank">
 					CC BY 4.0
@@ -194,11 +194,7 @@ const License = () => {
 					<Li>Anyone is free to copy or share in any medium</Li>
 					<Li>Anyone is free to make derivatives, remix, or transform in any medium, or use for any purpose, even commercially</Li>
 				</Ul>
-				<SubHeader>
-					We’ve picked the following 25 uwus from the uwulabs and team members’ wallets to start the uwucrew community collection a.k.a “The
-					Crew”! Once an uwucrew NFT is added to the community collection, it will never be removed. More uwus may join The Crew in the
-					future!
-				</SubHeader>
+				<SubHeader>meow</SubHeader>
 				<Uwus>
 					{theCrew.map((uwu: number) => (
 						<UwuContainer href={`https://opensea.io/assets/0xf75140376d246d8b1e5b8a48e3f00772468b3c0c/${uwu}`} target="_blank">
