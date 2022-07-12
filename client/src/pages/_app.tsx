@@ -13,6 +13,7 @@ import { ethers } from 'ethers';
 import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import { Web3ReactProvider } from '@web3-react/core';
 import Web3Automation from 'components/Web3Automation';
+import GlobalStyles from 'styles/GlobalStyles';
 config.autoAddCss = false;
 
 // ------ Tomorrow
@@ -50,6 +51,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 								rel="stylesheet"
 							></link>
 						</Head>
+						<GlobalStyles />
 						<Web3Automation />
 						<DefaultSeo {...DefaultSEOProps} />
 						<Component {...pageProps} />

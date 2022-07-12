@@ -3,7 +3,6 @@ import type { GetStaticProps, NextPage } from 'next';
 import path from 'path';
 import React from 'react';
 import styled from 'styled-components';
-import GlobalStyles from 'styles/GlobalStyles';
 import Header from '../components/Header';
 import Hero from 'components/Hero';
 import AboutSlide from 'components/AboutSlide';
@@ -20,7 +19,6 @@ const Container = styled.div`
 const IndexPage: NextPage = () => {
 	return (
 		<>
-			<GlobalStyles />
 			<Header />
 			<Container>
 				<Hero />

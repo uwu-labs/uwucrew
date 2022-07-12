@@ -83,6 +83,9 @@ const NavItems = () => {
 			<Link href="/derivatives">
 				<PageLink>derivative gallery</PageLink>
 			</Link>
+			<Link href="/quest">
+				<PageLink>quest</PageLink>
+			</Link>
 		</StyledNavItems>
 	);
 };
