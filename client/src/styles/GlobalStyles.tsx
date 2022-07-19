@@ -38,7 +38,6 @@ const GlobalStyle = createGlobalStyle`
 
     table {
         width: 100%;
-        table-layout: fixed;
     }
 
     table td, table th {
@@ -51,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.7rem ;
         line-height: 2.3rem;
     }
+
 `;
 
 const GlobalStyles = (): JSX.Element => {

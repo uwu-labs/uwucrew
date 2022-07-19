@@ -77,14 +77,14 @@ const NavItems = () => {
 			<Link href="/license">
 				<PageLink>license</PageLink>
 			</Link>
+			<Link href="/quest">
+				<PageLink>quest</PageLink>
+			</Link>
 			<Link href="https://dressingroom.uwucrew.art/">
 				<PageLink>dressing room</PageLink>
 			</Link>
 			<Link href="/derivatives">
 				<PageLink>derivative gallery</PageLink>
-			</Link>
-			<Link href="/quest">
-				<PageLink>quest</PageLink>
 			</Link>
 		</StyledNavItems>
 	);

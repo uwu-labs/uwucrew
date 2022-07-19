@@ -7,8 +7,7 @@ import forge_example from '../assets/quest/forge_example.png';
 import uwu_insignia from '../assets/quest/uwu_insignia.png';
 
 const StyledQuest = styled.div`
-	padding: 1rem 5rem;
-	padding-top: 10rem;
+	padding: 10rem;
 	width: 100%;
 	min-height: 100vh;
 	display: flex;
@@ -27,6 +26,7 @@ const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	max-width: 150em;
+	align-items: center;
 `;
 
 const Header = styled.h1`
@@ -61,6 +61,7 @@ const SubHeader = styled.div`
 	color: var(--text-primary);
 	max-width: 70%;
 	margin-top: 2rem;
+	margin-bottom: 2rem;
 	font-family: 'Roboto', sans-serif;
 
 	font-size: 1.7rem;
@@ -95,13 +96,22 @@ const Link = styled.a`
 
 const Image = styled.img`
 	margin-top: 2rem;
+	margin-bottom: 2rem;
 	max-width: 50%;
 `;
 
 const Ol = styled.ol`
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 1rem;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
 	flex-direction: column;
-	margin-left: 3rem;
+	align-items: center;
 `;
 
 const Li = styled.li`
@@ -120,15 +130,32 @@ const Li = styled.li`
 		width: 100%;
 		margin-top: 0.7rem ;
 	}
+    margin-top: 0.5rem;
+    position: relative;
+    padding-left: 2rem;
 `;
 
-const License = () => {
+const Divider = styled.hr`
+	border: 0;
+	height: 0.5rem;
+	border-radius: 99px;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	background-color: var(--bg-02);
+	width: 33rem;
+
+	@media screen and (min-width: 768px) .hr {
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+`;
+
+const Quest = () => {
 	return (
 		<StyledQuest>
 			<Content>
 				<Image src={uwu_quest.src} alt="uwucrew quest illustration" />
 				<Header>Introducing: uwu Quest!</Header>
-				<SmallHeader>About</SmallHeader>
 				<Link href="https://mirror.xyz/uwucrew.eth/_4n9TUszNT23Eiby-vGwcaZDTjGCBWmwooMG9gLCzi0" target="_blank">
 					uwu Quest
 				</Link>
@@ -148,6 +175,7 @@ const License = () => {
 					</Link>{' '}
 					for being a huge influence behind the idea of stamp quests and giving us his blessing to launch this project.
 				</SubHeader>
+				<Divider />
 				<SmallHeader>Systema Solaris Stamp Distribution</SmallHeader>
 				<SubHeader>uwu lover (5-9): 1 random stamp airdropped</SubHeader>
 				<SubHeader>uwu whale (10-19): 2 random stamps airdropped</SubHeader>
@@ -162,6 +190,7 @@ const License = () => {
 				</SubHeader>
 				<SubHeader>All airdrops will be sent out a couple hours after the last Systema Solaris auction ends.</SubHeader>
 				<SubHeader>Be on the lookout for other ways to earn stamps as well through games or events!</SubHeader>
+				<Divider />
 				<SmallHeader>Prizes and Conditions</SmallHeader>
 				<TableMarkup />
 				<SubHeader>
@@ -184,6 +213,7 @@ const License = () => {
 					prizes. More on this below!{' '}
 				</SubHeader>
 				<SubHeader> Note: prizes are only redeemable by uwucrew holders! </SubHeader>
+				<Divider />
 				<SmallHeader>Redeeming prizes through the Forge</SmallHeader>
 				<Image src={uwu_forge.src} alt="uwucrew forge illustration" />
 				<SubHeader>The Forge is the wallet where you'll send the stamps to claim your prize. Here's how that process works:</SubHeader>
@@ -195,7 +225,6 @@ const License = () => {
 						</Link>{' '}
 						or 0x6596c3BC6feF6972E70902468A662dfFe3D1F968
 					</Li>
-
 					<Li>
 						Send the etherscan transaction link along with the desired prize in the #quest-turnin channel on Discord (please check the
 						pinned messages and make sure the prize you choose is still available - channel will open up once the stamp airdrops are sent
@@ -212,6 +241,7 @@ const License = () => {
 					first time using Opensea, you will also need to confirm an additional transaction to initialize your wallet.
 				</SubHeader>
 				<Image src={forge_example.src} alt="Illustration of transferring NFTs on OpenSea" />
+				<Divider />
 				<SmallHeader>uwucrew Insignia</SmallHeader>
 				<Image src={uwu_insignia.src} alt="uwucrew Insignia illustration" />
 				<SubHeader>
@@ -229,9 +259,12 @@ const License = () => {
 					There will also be different types of Insignia in the future which can be earned through other non-quest related events and
 					achievements. Insignia holders will be given a special role on Discord and will receive special prizes and bonuses in the future!
 				</SubHeader>
+				<Link href="https://foundation.app/collection/systemasolaris" target="_blank">
+					System Solaris Collecion
+				</Link>
 			</Content>
 		</StyledQuest>
 	);
 };
 
-export default License;
+export default Quest;
