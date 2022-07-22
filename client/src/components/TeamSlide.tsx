@@ -8,7 +8,6 @@ import laur from '../assets/profiles/laur.jpg';
 import chase from '../assets/profiles/chase.jpg';
 import kiwi from '../assets/profiles/kiwi.jpg';
 import morello from '../assets/profiles/morello.jpg';
-import cat from '../assets/profiles/cat.jpg';
 import wave from '../assets/profiles/wave.jpg';
 import quantumly from '../assets/profiles/quantumly.jpg';
 import danny from '../assets/profiles/danny.jpg';
@@ -29,7 +28,7 @@ interface TeamMemberType {
 const members: TeamMemberType[] = [
 	{
 		name: 'Laur',
-		role: 'Artist',
+		role: 'Co-Founder & Artist',
 		image: laur,
 		bio: [
 			'Laur is the sole artist of uwucrew, 9670 anime-inspired avatars that aims to be inclusive and expressive.',
@@ -39,7 +38,7 @@ const members: TeamMemberType[] = [
 	},
 	{
 		name: 'Kiwi',
-		role: 'Solidity Dev',
+		role: 'Co-Founder and Dev',
 		image: kiwi,
 		bio: [
 			'Kiwi is a long time developer in the crypto space, working for NFTX as a protocol lead engineer.',
@@ -74,27 +73,6 @@ const members: TeamMemberType[] = [
 		github: 'https://github.com/chase-manning'
 	},
 	{
-		name: 'CatInKleins',
-		role: 'R&D',
-		image: cat,
-		bio: [
-			'More than anything, Cat loves his mom, ETH and NFTs.',
-			'Being an early uwu appreciator, he helped design and establish uwucrew NFT collection. Currently, Cat mostly focuses on community management, socials and events organization. Secretly a part of the uwuminati.'
-		],
-		twitter: 'https://twitter.com/CatInKleins'
-	},
-	{
-		name: '0xWave',
-		role: 'Math-wiz, waifu sommelier',
-		image: wave,
-		bio: [
-			'Software engineer and data wizard pretending to not be as degenerate as your average jpeg collector.',
-			'Community builder deeply interested in DeFi, NFTs, and their intersection.',
-			'Might respond to your bad take with a chart.'
-		],
-		twitter: 'https://twitter.com/0xWave'
-	},
-	{
 		name: 'Omar',
 		role: 'Community Support & Events',
 		image: omar,
@@ -106,24 +84,13 @@ const members: TeamMemberType[] = [
 	},
 	{
 		name: 'Danny',
-		role: 'Collaborations & Partnerships',
+		role: 'Partnerships Manager',
 		image: danny,
 		bio: [
 			'Danny is the collaborations and partnerships manager of uwucrew and assists with research and development.',
 			'He learned to study marketplace trends and valuations from MMO Free Markets and applies that to the NFT market today.'
 		],
 		twitter: 'https://twitter.com/0xMaple'
-	},
-	{
-		name: 'Quantumly',
-		role: 'Full Stack Developer',
-		image: quantumly,
-		bio: [
-			'Full Stack Developer working with JavaScript / TypeScript, React, Solidity, C#, and Elixir.',
-			'Fast learner & open source contributor.'
-		],
-		twitter: 'https://twitter.com/quantumlyy',
-		github: 'https://github.com/quantumlyy'
 	},
 	{
 		name: 'Frozen Luke',
@@ -222,7 +189,7 @@ const Role = styled.div`
 	font-size: 1.4rem;
 	font-weight: 600;
 	color: var(--text-primary);
-	margin-left: 1.5rem;
+	margin-left: 0.5rem;
 	white-space: nowrap;
 	margin-bottom: 1.5rem;
 	transform: translateY(-0.3rem);
@@ -267,7 +234,7 @@ const TeamSlide = () => {
 							<Content>
 								<Overview>
 									<NameContainer>
-										<Name>{`- ${m.name}`}</Name>
+										<Name>{`${m.name}`}</Name>
 									</NameContainer>
 									<Socials>
 										{m.github && (
