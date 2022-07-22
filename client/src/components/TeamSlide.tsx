@@ -8,8 +8,6 @@ import laur from '../assets/profiles/laur.jpg';
 import chase from '../assets/profiles/chase.jpg';
 import kiwi from '../assets/profiles/kiwi.jpg';
 import morello from '../assets/profiles/morello.jpg';
-import wave from '../assets/profiles/wave.jpg';
-import quantumly from '../assets/profiles/quantumly.jpg';
 import danny from '../assets/profiles/danny.jpg';
 import omar from '../assets/profiles/omar.jpg';
 import luke from '../assets/profiles/luke.jpg';
