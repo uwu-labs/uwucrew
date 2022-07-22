@@ -72,7 +72,7 @@ const members: TeamMemberType[] = [
 	},
 	{
 		name: 'Omar',
-		role: 'Community Support & Events',
+		role: 'Community Manager',
 		image: omar,
 		bio: [
 			'Artist turned collector, community support and events.',
