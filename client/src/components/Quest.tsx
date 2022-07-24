@@ -32,9 +32,10 @@ const Content = styled.div`
 const Header = styled.h1`
 	font-weight: 700;
 	color: var(--bg-02);
-	line-height: 6rem;
+	line-height: 8rem;
 	margin-top: 6rem;
 	margin-bottom: 6rem;
+	text-align: center;
 
 	font-size: 8rem;
 	@media (max-width: 768px) {
@@ -48,8 +49,9 @@ const Header = styled.h1`
 const SmallHeader = styled.h2`
 	font-weight: 600;
 	color: var(--text-primary);
-	margin-top: 5rem;
-	line-height: 3rem;
+	line-height: 4rem;
+	text-align: center;
+	margin: 2rem 0rem;
 
 	font-size: 4rem;
 	@media (max-width: 768px) {
