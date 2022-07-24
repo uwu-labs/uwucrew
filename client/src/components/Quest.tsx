@@ -153,20 +153,6 @@ const Divider = styled.hr`
 	}
 `;
 
-const Address = styled.p`
-	font-weight: 500;
-	color: var(--text-primary);
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.7rem;
-	line-height: 2.3rem;
-	@media (max-width: 768px) {
-		font-size: 1.6rem;
-		line-height: 2rem;
-		word-wrap: break-word;
-		width: 100%;
-	}
-`;
-
 const Quest = () => {
 	return (
 		<StyledQuest>
