@@ -4,8 +4,7 @@ import styled from 'styled-components';
 const StyledTable = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
-	max-width: 70%;
-	margin-top: 2rem;
+	margin: 4rem;
 	font-family: 'Roboto', sans-serif !important;
 
 	font-size: 1.7rem !important;

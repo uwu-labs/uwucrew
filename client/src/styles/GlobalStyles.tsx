@@ -43,10 +43,9 @@ const GlobalStyle = createGlobalStyle`
     table td, table th {
         font-weight: 500;
         color: var(--text-primary);
-        max-width: 70%;
+       
         margin-top: 2rem;
-        font-family: 'Roboto', sans-serif ;
-
+        font-family: 'Roboto', sans-serif;
         font-size: 1.7rem ;
         line-height: 2.3rem;
     }

@@ -34,12 +34,14 @@ const Header = styled.h1`
 	color: var(--bg-02);
 	line-height: 6rem;
 	margin-top: 6rem;
+	margin-bottom: 6rem;
 
 	font-size: 8rem;
 	@media (max-width: 768px) {
 		font-size: 4.5rem;
-		margin-top: 4rem;
+		margin: 3rem;
 		line-height: 4rem;
+		text-align: center;
 	}
 `;
 
@@ -52,7 +54,8 @@ const SmallHeader = styled.h2`
 	font-size: 4rem;
 	@media (max-width: 768px) {
 		font-size: 3rem;
-		margin-top: 4rem;
+		margin: 3rem;
+		text-align: center;
 	}
 `;
 
@@ -69,9 +72,7 @@ const SubHeader = styled.div`
 	@media (max-width: 768px) {
 		font-size: 1.6rem;
 		line-height: 2rem;
-		max-width: 100%;
-		width: 100%;
-		margin-top: 1.5rem;
+		margin: 2rem;
 	}
 `;
 
@@ -89,8 +90,8 @@ const Link = styled.a`
 		font-size: 1.6rem;
 		line-height: 2rem;
 		max-width: 100%;
-		width: 100%;
 		margin-top: 1.5rem;
+		text-align: center;
 	}
 `;
 
@@ -112,6 +113,9 @@ const Ol = styled.ol`
 	-ms-flex-direction: column;
 	flex-direction: column;
 	align-items: center;
+	@media (max-width: 768px) {
+		margin: 2rem;
+	}
 `;
 
 const Li = styled.li`
@@ -126,11 +130,10 @@ const Li = styled.li`
 	@media (max-width: 768px) {
 		font-size: 1.6rem;
 		line-height: 2rem;
-		max-width: 100%;
-		width: 100%;
 		margin-top: 0.7rem ;
+		text-align: center;
+		word-wrap: break-word;
 	}
-    margin-top: 0.5rem;
     position: relative;
     padding-left: 2rem;
 `;
@@ -150,18 +153,32 @@ const Divider = styled.hr`
 	}
 `;
 
+const Address = styled.p`
+	font-weight: 500;
+	color: var(--text-primary);
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.7rem;
+	line-height: 2.3rem;
+	@media (max-width: 768px) {
+		font-size: 1.6rem;
+		line-height: 2rem;
+		word-wrap: break-word;
+		width: 100%;
+	}
+`;
+
 const Quest = () => {
 	return (
 		<StyledQuest>
 			<Content>
 				<Image src={uwu_quest.src} alt="uwucrew quest illustration" />
 				<Header>Introducing: uwu Quest!</Header>
-				<Link href="https://mirror.xyz/uwucrew.eth/_4n9TUszNT23Eiby-vGwcaZDTjGCBWmwooMG9gLCzi0" target="_blank">
-					uwu Quest
-				</Link>
 				<SubHeader>
-					uwu Quest is an interactive stamp trading game heavily inspired by rwx quest! In uwu Quest, players must collect and turn in
-					specific amounts and types of stamps to win various prizes!
+					<Link href="https://mirror.xyz/uwucrew.eth/_4n9TUszNT23Eiby-vGwcaZDTjGCBWmwooMG9gLCzi0" target="_blank">
+						uwu Quest
+					</Link>{' '}
+					is an interactive stamp trading game heavily inspired by rwx quest! In uwu Quest, players must collect and turn in specific
+					amounts and types of stamps to win various prizes!
 				</SubHeader>
 				<SubHeader>
 					This first season of uwu Quest will be centered around{' '}
@@ -260,7 +277,7 @@ const Quest = () => {
 					achievements. Insignia holders will be given a special role on Discord and will receive special prizes and bonuses in the future!
 				</SubHeader>
 				<Link href="https://foundation.app/collection/systemasolaris" target="_blank">
-					System Solaris Collecion
+					Systema Solaris collection
 				</Link>
 			</Content>
 		</StyledQuest>
