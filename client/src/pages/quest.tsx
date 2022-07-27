@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
-import License from 'components/License';
+import Quest from 'components/Quest';
 
 const Container = styled.div`
 	position: relative;
@@ -11,15 +11,15 @@ const Container = styled.div`
 	flex-direction: column;
 `;
 
-const LicensePage: NextPage = () => {
+const QuestPage: NextPage = () => {
 	return (
 		<>
 			<Header />
 			<Container>
-				<License />
+				<Quest />
 			</Container>
 		</>
 	);
 };
 
-export default LicensePage;
+export default QuestPage;
