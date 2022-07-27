@@ -60,7 +60,7 @@ const StyledTable = styled.div`
 const data = [
 	{
 		prize: 'Custom Commision by Laur of any NFT you own',
-		amount: 1,
+		amount: "Claimed!",
 		condition: 'Turn in 27 stamps, 3 of each type'
 	},
 	{
@@ -79,9 +79,9 @@ const data = [
 		condition: 'Turn in 9 stamps, 1 of each type***'
 	},
 	{
-		prize: 'Any NFT in uwu quest wallet**',
+		prize: 'Any NFT in uwu Quest wallet**',
 		amount: 'While supplies last (20)',
-		condition: 'Turn in any 6 stamps (duplicates count)x'
+		condition: 'Turn in any 6 stamps (duplicates count)'
 	}
 ];
 

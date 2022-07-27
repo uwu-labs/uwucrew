@@ -168,6 +168,9 @@ const Quest = () => {
 					is an interactive stamp trading game heavily inspired by rwx quest! In uwu Quest, players must collect and turn in specific
 					amounts and types of stamps to win various prizes!
 				</SubHeader>
+				<Link href="https://opensea.io/collection/uwu-quest-stamps" target="_blank">
+					uwu Quest Stamps OpenSea Collection
+				</Link>
 				<SubHeader>
 					This first season of uwu Quest will be centered around{' '}
 					<Link href="https://mirror.xyz/uwucrew.eth/_R5xzweyufF3uUaFeTUr_vgmIJ--XPvaKNWA2ajUmXg" target="_blank">
@@ -180,20 +183,23 @@ const Quest = () => {
 					</Link>{' '}
 					for being a huge influence behind the idea of stamp quests and giving us his blessing to launch this project.
 				</SubHeader>
+				<Link href="https://foundation.app/collection/systemasolaris" target="_blank">
+					Systema Solaris Foundation NFT collection
+				</Link>
 				<Divider />
 				<SmallHeader>Systema Solaris Stamp Distribution</SmallHeader>
-				<SubHeader>uwu lover (5-9): 1 random stamp airdropped</SubHeader>
-				<SubHeader>uwu whale (10-19): 2 random stamps airdropped</SubHeader>
-				<SubHeader>uwu god (20+): 3 random stamps airdropped</SubHeader>
+				<SubHeader>Holder of 5-9 uwus (uwu Lovers): 1 random stamp airdropped</SubHeader>
+				<SubHeader>Holder of 10-19 uwus (uwu Whale): 2 random stamps airdropped</SubHeader>
+				<SubHeader>Holder of 20+ uwus (uwu God): 3 random stamps airdropped</SubHeader>
 				<SubHeader>
 					{' '}
-					Bid on{' '}
+					All Bidders on{' '}
 					<Link href="https://foundation.app/collection/systemasolaris" target="_blank">
 						Systema Solaris
 					</Link>{' '}
-					: Corresponding stamp airdropped, 1 per auction per person
+					received corresponding Quest stamp airdropped, 1 per auction per person.
 				</SubHeader>
-				<SubHeader>All airdrops will be sent out a couple hours after the last Systema Solaris auction ends.</SubHeader>
+				<SubHeader>Every artist involved also received their own Quest Stamp and 1 extra random Stamp!</SubHeader>
 				<SubHeader>Be on the lookout for other ways to earn stamps as well through games or events!</SubHeader>
 				<Divider />
 				<SmallHeader>Prizes and Conditions</SmallHeader>
@@ -211,11 +217,6 @@ const Quest = () => {
 					<Link href="https://opensea.io/uwu_quest" target="_blank">
 						uwu Quest wallet
 					</Link>{' '}
-				</SubHeader>
-				<SubHeader>
-					{' '}
-					*** Systema Solaris Insignia will be dropped in addition to turning in any of the “Turn in 9 stamps” or “Turn in 27 stamps”
-					prizes. More on this below!{' '}
 				</SubHeader>
 				<SubHeader> Note: prizes are only redeemable by uwucrew holders! </SubHeader>
 				<Divider />
@@ -258,15 +259,20 @@ const Quest = () => {
 					out, and will be linked to that wallet forever.
 				</SubHeader>
 				<SubHeader>
-					Our first Insignia will be the Systema Solaris Insignia, awarded for turning in 1 of each stamp to the forge wallet.
+					Our first Insignia was the {' '}
+					<Link href="https://vitalik.ca/general/2022/01/26/soulbound.html" target="_blank">
+					Systema Solaris Insignia
+					</Link>
+					, awarded for turning in 1 of each Systema Solaris Quest Stamp to the forge wallet.
 				</SubHeader>
 				<SubHeader>
 					There will also be different types of Insignia in the future which can be earned through other non-quest related events and
 					achievements. Insignia holders will be given a special role on Discord and will receive special prizes and bonuses in the future!
 				</SubHeader>
-				<Link href="https://foundation.app/collection/systemasolaris" target="_blank">
-					Systema Solaris collection
+				<Link href="https://opensea.io/collection/uwu-insignia" target="_blank">
+					uwu Insignia OpenSea Collection
 				</Link>
+				
 			</Content>
 		</StyledQuest>
 	);
