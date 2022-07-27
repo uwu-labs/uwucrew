@@ -60,7 +60,7 @@ const StyledTable = styled.div`
 const data = [
 	{
 		prize: 'Custom Commision by Laur of any NFT you own',
-		amount: "Claimed!",
+		amount: 'Claimed!',
 		condition: 'Turn in 27 stamps, 3 of each type'
 	},
 	{

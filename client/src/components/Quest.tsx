@@ -259,9 +259,9 @@ const Quest = () => {
 					out, and will be linked to that wallet forever.
 				</SubHeader>
 				<SubHeader>
-					Our first Insignia was the {' '}
+					Our first Insignia was the{' '}
 					<Link href="https://vitalik.ca/general/2022/01/26/soulbound.html" target="_blank">
-					Systema Solaris Insignia
+						Systema Solaris Insignia
 					</Link>
 					, awarded for turning in 1 of each Systema Solaris Quest Stamp to the forge wallet.
 				</SubHeader>
@@ -272,7 +272,6 @@ const Quest = () => {
 				<Link href="https://opensea.io/collection/uwu-insignia" target="_blank">
 					uwu Insignia OpenSea Collection
 				</Link>
-				
 			</Content>
 		</StyledQuest>
 	);
