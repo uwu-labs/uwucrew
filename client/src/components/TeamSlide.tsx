@@ -11,6 +11,7 @@ import morello from '../assets/profiles/morello.jpg';
 import danny from '../assets/profiles/danny.jpg';
 import omar from '../assets/profiles/omar.jpg';
 import luke from '../assets/profiles/luke.jpg';
+import spori from '../assets/profiles/spori.jpg';
 
 interface TeamMemberType {
 	name: string;
@@ -95,11 +96,26 @@ const members: TeamMemberType[] = [
 		role: 'Project Manager',
 		image: luke,
 		bio: [
-			'Luke is here to keep the UWU team on track in executing all their amazing ideas.',
+			'Luke is here to keep the uwu Labs team on track in executing all their amazing ideas.',
 			'He comes from the videogame world, and NFTs remind him of the early days of esports.'
 		],
 		twitter: 'https://twitter.com/LukeFrozen'
-	}
+	},
+	{
+		name: 'Spori',
+		role: 'Full Stack Dev',
+		image: spori,
+		bio: [
+			'Spori is Full Stack Engineer experienced with JavaScript / TypeScript, React, Solidity and more!',
+			'Long time anime watcher (Toonami), dabbling in and exploring the incredible world of Web3.',
+			'Embraces community and open-source knowledge!'
+		],
+		twitter: 'https://twitter.com/LukeFrozen'
+	},
+	
+
+
+
 ];
 
 const StyledContent = styled.div`

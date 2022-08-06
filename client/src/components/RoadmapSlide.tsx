@@ -9,7 +9,7 @@ import roadmapImage from '../assets/roadmap/roadmap.jpg';
 const roadmap: string[] = [
 	'- Merch',
 	'- Dressing Room',
-	'- uwu labs Family Projects',
+	'- uwu Labs Family Projects',
 	'- Artist Collabs',
 	'- Long Term Partnerships',
 	'- Waifusion updates',
