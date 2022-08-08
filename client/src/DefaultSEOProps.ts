@@ -2,8 +2,8 @@ import { DESCRIPTION, SITE_PROTOCOL } from 'core/constants';
 import type { DefaultSeoProps as DefaultSeoPropsType } from 'next-seo';
 
 export const DefaultSEOProps: DefaultSeoPropsType = {
-	titleTemplate: 'uwucrew NFT Collection | %s',
-	title: 'uwucrew',
+	titleTemplate: 'uwucrew NFTs by uwu Labs| %s',
+	title: 'uwucrew by uwu Labs',
 	description: DESCRIPTION,
 	canonical: SITE_PROTOCOL,
 	additionalMetaTags: [
@@ -16,11 +16,11 @@ export const DefaultSEOProps: DefaultSeoPropsType = {
 		{ name: 'summary', content: DESCRIPTION },
 		{ name: 'robots', content: 'archive,follow,imageindex,index,odp,snippet,translate' },
 		{ name: 'googlebot', content: 'index,follow' },
-		{ name: 'reply-to', content: 'waifusiongovernance@gmail.com' },
-		{ property: 'og:email', content: 'waifusiongovernance@gmail.com' }
+		{ name: 'reply-to', content: 'uwulabsteam@gmail.com' },
+		{ property: 'og:email', content: 'uwulabsteam@gmail.com' }
 	],
 	openGraph: {
-		title: 'uwucrew NFT Collection',
+		title: 'uwucrew NFT Collection by uwu Labs',
 		url: SITE_PROTOCOL,
 		type: 'website',
 		locale: 'en_US',
@@ -35,8 +35,8 @@ export const DefaultSEOProps: DefaultSeoPropsType = {
 		]
 	},
 	twitter: {
-		handle: '@waifusion',
-		site: '@waifusion',
+		handle: '@uwucrewnft',
+		site: '@uwucrewnft',
 		cardType: 'summary_large_image'
 	}
 };

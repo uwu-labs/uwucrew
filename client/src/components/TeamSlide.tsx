@@ -111,11 +111,7 @@ const members: TeamMemberType[] = [
 			'Embraces community and open-source knowledge!'
 		],
 		twitter: 'https://twitter.com/LukeFrozen'
-	},
-	
-
-
-
+	}
 ];
 
 const StyledContent = styled.div`
