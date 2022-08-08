@@ -30,7 +30,7 @@ const members: TeamMemberType[] = [
 		role: 'Co-Founder & Artist',
 		image: laur,
 		bio: [
-			'Laur is the sole artist of uwucrew, 9670 anime-inspired avatars that aims to be inclusive and expressive.',
+			'Laur is the sole artist of uwucrew!  Including all assets from the uwu Dressing Room!',
 			'Laur focuses on semi-realism, 2d animation and character design. She enjoys collecting 1/1 anime art and supporting the growth of NFT artists.'
 		],
 		twitter: 'https://twitter.com/fungibleartist'
@@ -41,8 +41,8 @@ const members: TeamMemberType[] = [
 		image: kiwi,
 		bio: [
 			'Kiwi is a long time developer in the crypto space, working for NFTX as a protocol lead engineer.',
-			'An avid DeFi and NFT enthusiast, Kiwi has been engaged with NFTs since March 2021.',
-			'He is responsible for the uwucrew smart contracts and image gen.'
+			'An avid DeFi and NFT enthusiast, Kiwi has been working in the crypto for over 4 years',
+			'He is responsible for the collection image generation and oversees all dev tasks.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
 		github: 'https://github.com/0xKiwi'
