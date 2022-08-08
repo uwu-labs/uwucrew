@@ -14,6 +14,7 @@ export const DefaultSEOProps: DefaultSeoPropsType = {
 		{ name: 'identifier-URL', content: SITE_PROTOCOL },
 		{ name: 'shortlink', content: SITE_PROTOCOL },
 		{ name: 'summary', content: DESCRIPTION },
+		{ name: 'keywords', content: "uwu, nft, art, uwucrew, owo, uwu art, uwu nft, uwu labs, opensea, community" },
 		{ name: 'robots', content: 'archive,follow,imageindex,index,odp,snippet,translate' },
 		{ name: 'googlebot', content: 'index,follow' },
 		{ name: 'reply-to', content: 'uwulabsteam@gmail.com' },
