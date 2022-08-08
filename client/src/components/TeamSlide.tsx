@@ -37,7 +37,7 @@ const members: TeamMemberType[] = [
 	},
 	{
 		name: 'Kiwi',
-		role: 'Co-Founder and Dev',
+		role: 'Co-Founder & Dev',
 		image: kiwi,
 		bio: [
 			'Kiwi is a long time developer in the crypto space, working for NFTX as a protocol lead engineer.',
