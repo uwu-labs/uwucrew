@@ -70,7 +70,7 @@ const ImageContainer = styled.div`
 
 const Header = styled.h1`
 	letter-spacing: 0.3rem;
-	color: var(--text-primary);
+	color: var(--bg-01);
 
 	opacity: 0;
 	transform: translateY(100%);
