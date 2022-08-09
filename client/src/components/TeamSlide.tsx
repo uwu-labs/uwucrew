@@ -40,8 +40,7 @@ const members: TeamMemberType[] = [
 		role: 'Co-Founder & Dev',
 		image: kiwi,
 		bio: [
-			'Kiwi is a long time developer in the crypto space, working for NFTX as a protocol lead engineer.',
-			'An avid DeFi and NFT enthusiast, Kiwi has been working in the crypto for over 4 years',
+			'An avid DeFi/NFT enthusiast, Kiwi is a long time developer in the crypto space, working in the industry for over 4 years!',
 			'He is responsible for the collection image generation and oversees all dev tasks.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
@@ -53,7 +52,7 @@ const members: TeamMemberType[] = [
 		image: morello,
 		bio: [
 			'Morello works on community management, partnerships, and project organization for uwucrew.',
-			'He has been paper-handing blue chip NFTs since February 2021, and has since become an avid collector of anime art.'
+			'He has been paper-handing blue chip NFTs since February 2021, and is an avid collector of anime art.'
 		],
 		linkText: 'Check out his gallery here: ',
 		link: 'https://foundation.app/@morello',
@@ -106,8 +105,8 @@ const members: TeamMemberType[] = [
 		role: 'Full Stack Dev',
 		image: spori,
 		bio: [
-			'Spori is Full Stack Engineer experienced with JavaScript / TypeScript, React, Solidity and more!',
-			'Long time anime watcher (Toonami), dabbling in and exploring the incredible world of Web3.',
+			'Spori is Full Stack Engineer experienced with TypeScript, React, Solidity and more!',
+			'Long time anime watcher, dabbling in and exploring the incredible world of Web3.',
 			'Embraces community and open-source knowledge!'
 		],
 		twitter: 'https://twitter.com/LukeFrozen'
