@@ -16,6 +16,7 @@ const Button = styled.button`
 	font-weight: 500;
 	cursor: pointer;
 	padding: 0 5rem;
+	text-transform: none;
 	pointer-events: ${(props: Props) => (props.inactive ? 'none' : 'auto')};
 	height: 5rem;
 
