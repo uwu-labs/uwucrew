@@ -76,11 +76,11 @@ const NavItems = () => {
 			<Link href="/license">
 				<PageLink>Art License</PageLink>
 			</Link>
-			<Link href="/quest">
-				<PageLink>uwu Quest</PageLink>
-			</Link>
 			<Link href="https://dressingroom.uwucrew.art/">
 				<PageLink>Dressing Room</PageLink>
+			</Link>
+			<Link href="/quest">
+				<PageLink>uwu Quest</PageLink>
 			</Link>
 			<Link href="/derivatives">
 				<PageLink>Derivative Art Gallery</PageLink>
