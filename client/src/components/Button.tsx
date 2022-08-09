@@ -14,9 +14,9 @@ const Button = styled.button`
 	color: white;
 	font-size: 2.2rem;
 	font-weight: 500;
-	text-transform: uppercase;
 	cursor: pointer;
 	padding: 0 5rem;
+	text-transform: none;
 	pointer-events: ${(props: Props) => (props.inactive ? 'none' : 'auto')};
 	height: 5rem;
 

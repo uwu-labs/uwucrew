@@ -7,13 +7,13 @@ import Image from 'next/image';
 import roadmapImage from '../assets/roadmap/roadmap.jpg';
 
 const roadmap: string[] = [
-	'- Dressing Room',
-	'- Waifusion updates',
-	'- Merch',
-	'- uwulabs Projects',
-	'- uwuloot',
-	'- Long Term Partnerships',
-	'- Artist Collabs'
+	'• Merch',
+	'• Artist Collabs',
+	'• uwucrew Dressing Room',
+	'• uwu Labs Family Projects',
+	'• Long Term Partnerships',
+	'• Waifusion updates',
+	'• uwuloot'
 ];
 
 const Content = styled.div`

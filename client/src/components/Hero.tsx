@@ -6,7 +6,7 @@ import ConnectWallet from './ConnectWallet';
 import Footer from './Footer';
 import RotatingImage from './RotatingImage';
 
-const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
+const colors: string[] = ['var(--bg-01)'];
 
 const raise = keyframes`
   from {
@@ -70,7 +70,7 @@ const ImageContainer = styled.div`
 
 const Header = styled.h1`
 	letter-spacing: 0.3rem;
-	color: var(--text-primary);
+	color: var(--bg-01);
 
 	opacity: 0;
 	transform: translateY(100%);

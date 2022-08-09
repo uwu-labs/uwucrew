@@ -36,7 +36,7 @@ const NavItem = styled.div`
 	padding: 0 1rem;
 	font-weight: 500;
 	cursor: pointer;
-	text-transform: capitalize;
+	text-transform: none;
 	white-space: nowrap;
 
 	font-size: 2rem;
@@ -50,7 +50,7 @@ const PageLink = styled.div`
 	padding: 0 1rem;
 	font-weight: 500;
 	cursor: pointer;
-	text-transform: capitalize;
+	text-transform: none;
 	white-space: nowrap;
 
 	font-size: 2rem;
@@ -71,20 +71,19 @@ const NavItems = () => {
 
 	return (
 		<StyledNavItems>
-			<NavItem onClick={() => navigateToSlide('about')}>about</NavItem>
-			<NavItem onClick={() => navigateToSlide('roadmap')}>roadmap</NavItem>
-			<NavItem onClick={() => navigateToSlide('team')}>team</NavItem>
+			<NavItem onClick={() => navigateToSlide('about')}>About</NavItem>
+			<NavItem onClick={() => navigateToSlide('team')}>Team</NavItem>
 			<Link href="/license">
-				<PageLink>license</PageLink>
-			</Link>
-			<Link href="/quest">
-				<PageLink>quest</PageLink>
+				<PageLink>Art License</PageLink>
 			</Link>
 			<Link href="https://dressingroom.uwucrew.art/">
-				<PageLink>dressing room</PageLink>
+				<PageLink>Dressing Room</PageLink>
+			</Link>
+			<Link href="/quest">
+				<PageLink>uwu Quest</PageLink>
 			</Link>
 			<Link href="/derivatives">
-				<PageLink>derivative gallery</PageLink>
+				<PageLink>Derivative Art Gallery</PageLink>
 			</Link>
 		</StyledNavItems>
 	);
