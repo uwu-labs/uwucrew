@@ -6,7 +6,7 @@ import ConnectWallet from './ConnectWallet';
 import Footer from './Footer';
 import RotatingImage from './RotatingImage';
 
-const colors: string[] = ['var(--bg-01)', 'var(--bg-02)', 'var(--bg-03)', 'var(--bg-04)', 'var(--bg-05)'];
+const colors: string[] = ['var(--bg-01)'];
 
 const raise = keyframes`
   from {
