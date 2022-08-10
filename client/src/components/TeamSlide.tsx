@@ -109,7 +109,7 @@ const members: TeamMemberType[] = [
 			'Long time anime watcher, dabbling in and exploring the incredible world of Web3.',
 			'Embraces community and open-source knowledge!'
 		],
-		twitter: 'https://twitter.com/LukeFrozen'
+		twitter: 'https://twitter.com/0xSpori'
 	}
 ];
 
