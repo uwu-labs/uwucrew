@@ -2433,6 +2433,46 @@
         "Strings",
         "UwuQuestStampsUpgradeable"
       ]
+    },
+    "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwuClaim.sol": {
+      "lastModificationDate": 1660089135410,
+      "contentHash": "df93f46265816902a3e64fc41e5089da",
+      "sourceName": "contracts/uwuClaim.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./tokens/ERC721.sol",
+        "./utils/Ownable.sol",
+        "./utils/MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "uwuClaim"
+      ]
     }
   }
 }

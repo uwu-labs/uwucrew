@@ -24,6 +24,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "ethereumjs-util": "^7.1.5",
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {
