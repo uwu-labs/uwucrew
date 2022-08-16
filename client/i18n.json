@@ -1,7 +1,9 @@
 {
     "locales": [
         "en",
-        "ja"
+        "ja",
+        "zh-CN",
+        "zh-TW"
     ],
     "defaultLocale": "en",
     "pages": {
