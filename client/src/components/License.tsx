@@ -1,54 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import useTranslation from 'next-translate/useTranslation';
+import { useRouter } from 'next/dist/client/router';
 
 const theCrew = [
 	14, 25, 35, 389, 1461, 1850, 2504, 3209, 3489, 4174, 4542, 4636, 6153, 6785, 7643, 7953, 8006, 8022, 8028, 8047, 8614, 9295, 9641, 9668, 9669
 ];
-const StyledTable = styled.div`
-	font-weight: 500;
-	color: var(--text-primary);
-	margin: 4rem;
-	font-family: 'Roboto', sans-serif !important;
-
-	font-size: 1.7rem !important;
-	line-height: 2.3rem;
-	caption-side: top;
-	border: none;
-	border-collapse: collapse;
-	/* border-collapse: separate; */
-	/* border-spacing: 5px 10px; */
-
-	caption-side: bottom;
-	/* empty-cell: show | hide;  */
-	/* empty-cell is a property of table or the cells themselves */
-
-	/* vertical-align: baseline | sub | super | text-top | 
-                text-bottom | middle | top | bottom | 
-                <percentage> | <length> */
-
-	/* tbody {
-    vertical-align: top;
-  }              */
-	td,
-	th {
-		border: none;
-	}
-	td,
-	th {
-		border: 1px solid;
-	}
-
-	td {
-		padding: 5px 10px;
-	}
-
-	caption {
-		font-size: 0.9em;
-		padding: 5px;
-		font-weight: bold;
-	}
-`;
 
 const StyledLicense = styled.div`
 	padding: 1rem 5rem;
@@ -174,37 +131,73 @@ const Ul = styled.ul`
 	flex-direction: column;
 	margin-left: 3rem;
 `;
-const fontsize = {
-	H3FONTSIZE: '2rem'
-};
 
 const H3 = styled.h3`
-	font-size: ${fontsize.H3FONTSIZE};
+	font-size: 2rem;
 	font-weight: 10000;
 	font-family: 'museo', Helvetica Neue, Helvetica, sans-serif;
 `;
 const Li = styled.li`
-	font-weight: 500;
-	color: var(--text-primary);
-	max-width: 70%;
-	margin-top: 1rem;
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.7rem;k
-	line-height: 2.3rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    max-width: 70%;
+    margin-top: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;k
+    line-height: 2.3rem;
 
-	@media (max-width: 768px) {
-		font-size: 1.6rem;
-		line-height: 2rem;
-		max-width: 100%;
-		width: 100%;
-		margin-top: 0.7rem ;
-	}
+    @media (max-width: 768px) {
+        font-size: 1.6rem;
+        line-height: 2rem;
+        max-width: 100%;
+        width: 100%;
+        margin-top: 0.7rem ;
+    }
+`;
+
+const Dropdown = styled.select`
+	border: solid 2px var(--bg-03);
+	background: white;
+	height: 3rem;
+	font-size: 1.6rem;
+	font-weight: 500;
+	padding: 0 0.5rem;
+	cursor: pointer;
 `;
 
 const License = () => {
 	const { t } = useTranslation('common');
+	const router = useRouter();
+	const [lang, setLang] = useState(router.locale);
+	const { locales } = router;
+
+	const onSelectChange = (e: { target: { value: string } }) => {
+		const locale = e.target.value;
+		setLang(locale);
+		void router.push(router.asPath, router.asPath, {
+			locale,
+			scroll: false
+		});
+	};
+
 	return (
 		<StyledLicense>
+			<Dropdown value={lang} onChange={(e) => onSelectChange(e)}>
+				{locales &&
+					locales.map((language) => (
+						<option value={language}>
+							{language === 'en'
+								? 'EN'
+								: language === 'ja'
+								? 'JA'
+								: language === 'zh-CN'
+								? 'zh-CN'
+								: language === 'zh-TW'
+								? 'zh-TW'
+								: null}
+						</option>
+					))}
+			</Dropdown>
 			<Content>
 				<Header>{t('license.header')}</Header>
 				<SubHeader>{t('license.subheader-0')}</SubHeader>
@@ -276,33 +269,6 @@ const License = () => {
 						</UwuContainer>
 					))}
 				</Uwus>
-				<StyledTable>
-					<table className="table table-striped">
-						<tbody>
-							<tr>
-								<td>
-									<Link href="https://viewblock.io/arweave/tx/xvdZPb4HZms9umq70Muyeo7ePdvMJ5lxyOGE7MQpSos" target="_blank">
-										ARWEAVE TX → xvdZPb4HZms9umq70Muyeo7ePdvMJ5lxyOGE7MQpSos
-									</Link>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<Link href="https://etherscan.io/address/0x3118c3D931Ac55F1b5C8144d985E0aA5c0362841" target="_blank">
-										ETHEREUM ADDRESS → 0x3118c3D931Ac55F1b5C8144d985E0aA5c0362841
-									</Link>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<Link href="https://mirror.xyz/uwucrew.eth/DwrrmMYgsUT0mXsMEvbWBoLtnKcW0TRKOpwUWjDbZXg" target="_blank">
-										CONTENT DIGEST → DwrrmMYgsUT0mXsMEvbWBoLtnKcW0TRKOpwUWjDbZXg
-									</Link>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</StyledTable>
 			</Content>
 		</StyledLicense>
 	);
