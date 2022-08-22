@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
 import Slide from 'components/Slide';
 import twitter from '../assets/svgs/socials/twitter-yellow.svg';

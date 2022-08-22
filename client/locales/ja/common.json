@@ -1,0 +1,67 @@
+{
+	"general": {
+		"name": "uwucrew",
+		"description": "Released on September 5th 2021, uwucrew is a woman-led NFT art collection of 9670 anime inspired avatars created by uwu Labs. We always keep it uwu with a heavy focus on empowering artists!"
+	},
+	"components": {
+		"email": {
+			"input_placeholder": "Enter email"
+		},
+		"hero": {
+			"opensea": "View on OpenSea"
+		},
+		"mint": {
+			"input_placeholder": "Enter amount (e.g. {{balance}})",
+			"errors": {
+				"no_tickets": "You do not have any uwu-tickets",
+				"invalid_number": "Invalid number",
+				"one_or_more": "Must be 1 or more",
+				"integer": "Must be an integer",
+				"balance": "You only have {{balance}} uwu-tickets",
+				"gas": "Not enough ETH to cover gas"
+			}
+		},
+		"owned": {
+			"owned": "Owned"
+		}
+	},
+	"license": {
+		"header": "uwu アートライセンス＋コミュニティコレクション",
+		"holders": "所有者",
+		"non-holders": "非所有者",
+		"smallheader-0": "uwuを維持すること",
+		"subheader-0": "本日、uwulabs は uwu アートライセンスを共有できることを嬉しく思います。これは二次創作を奨励する一方でNFTは所有者の表現であると信じ、所有者の権利を尊重するように設計されています!",
+		"subheader-1": "uwucrew NFTコレクションはこのアートライセンスに従いますが、他のプロジェクトもこのuwuライセンスを採用することをお勧めします!",
+		"subheader-2": "uwulabsでは 'uwuを維持すること' とは次のような意味であると信じています:",
+		"li-0": "アートの後ろ側にいるアーティスト(達)を尊重し適切なクレジットを提供すること",
+		"li-1": "NFTの所有者が自分のNFTをどのように表現してほしいと望んでいるかを尊重すること",
+		"li-2": "派生物を歓迎するが、商業利用にはNFTの所有権またはNFT所有者の明確な許可が必要",
+		"subheader-3": "これらを踏まえて、uwucrew のアートライセンスについて以下の通りお知らせいたします:",
+		"subheader-4": "所有するNFT(s)については以下のようなことが可能です:",
+		"li-3": "あらゆる媒体でコピーまたは共有する",
+		"li-4": "商業的であっても、いかなる媒体においても派生物の作成、リミックス、または変形を行うこと",
+		"li-5": "uwucrewに対して適切なクレジットを与える限り",
+		"subheader-5": "コレクションの中のどのNFTに対しても以下のことが可能です:",
+		"li-6": "あらゆる媒体で派生物の作成、リミックス、または変換を行うこと。ただし商用は不可",
+		"uwucrewTeam": "uwucrewチーム:",
+		"subheader-6": "uwucrewチームはすべてのuwucrewコレクションNFTアートとすべての派生アートをプロモーションのために使用する権利を有します。",
+		"subheader-7": "これはuwu アートライセンスの下でのすべてのNFTの基本的な使用ライセンスですが、同様に以下に指定したいくつかの追加条項があります。",
+		"smallheader-1": "キャラクターとしてのPFP NFTs",
+		"subheader-8": "uwuの文化として、NFTsはオンライン上のペルソナやアイデンティティを表現することができると信じています。私たちはNFTsを通して個人を表現する文化を奨励したいと考えています。",
+		"subheader-9": "uwuアートライセンスではNFTの所有者はアートだけでなくNFTのキャラクターも所有しています。つまりオリジナルのNFTを所有している限り、キャラクターを含む派生アートを他者が販売することを許可する権限を有しています。",
+		"subheader-10": "なおこの権限はNFTの所有者に対してのみ有効ですので、権限許諾後に元のNFTを売却した場合は新しい所有者に改めてキャラクターの商用利用許諾を申請する必要があります。",
+		"subheader-11": "'uwuを維持すること' の意味は二次創作物において誰かのNFTキャラクターをどのように表現するかに気を配ることです。もし誰かがそれらの二次創作表現において不快に思われるような事がされていると思ったら、いつでもNFTの所有者に許可を得ることができるということを思い出してください。",
+		"smallheader-2": "コミュニティ・コレクション",
+		"subheader-12": "ホルダーではないコミュニティのメンバーにもuwucrewに貢献する機会を与えるため、uwuライセンスに”コミュニティコレクション”という概念を導入します。これはチームが所有するNFTの小さなサブセットをCC0ライセンスのもとで提供するものです。",
+		"subheader-13": "コミュニティコレクションの uwus は何にでも使用可能です。例えば:",
+		"li-7": "uwucrew派生アートコンテストに応募して賞品を勝ち取る",
+		"li-8": "マスコットの二次創作物の描画、ミント、販売",
+		"li-9": "他のNFTコレクションにuwucrewを機能として含める",
+		"subheader-14": "コミュニティコレクションのすべてのNFTsが対象です:",
+		"li-10": "  誰でも、どのような媒体でも自由にコピー、シェアすることができます",
+		"li-11": "誰でも自由に二次創作、リミックス、あらゆる媒体での変形を商業的な目的であっても使用することができます",
+		"smallheader-3": "'ザ・クルー'",
+		"subheader-15": "uwulabsとチームメンバーのウォレットから以下の25のuwusを選び、uwucrewコミュニティコレクション通称 ”The Crew” をスタートします! 一度uwucrew NFTがコミュニティコレクションに追加されると、二度と削除されることはないでしょう。今後、さらに多くのuwucrewがThe Crewに参加する可能性があります!",
+		"subheader-16": "このライセンスは特にuwucrewに対応するものですが、他のプロジェクトもuwu アートライセンスを採用し二次創作物が豊富なアートに特化したコミュニティを促進することを期待しています! "
+	}
+}
