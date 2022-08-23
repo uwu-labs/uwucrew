@@ -15,8 +15,7 @@ export const walletConnect = new WalletConnectConnector({
 		1: `https://mainnet.infura.io/v3/${INFURA_ID}`,
 		4: `https://rinkeby.infura.io/v3/${INFURA_ID}`
 	},
-	qrcode: true,
-	pollingInterval: 12000
+	qrcode: true
 });
 
 const Content = styled.div`

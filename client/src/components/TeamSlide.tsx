@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
 import Slide from 'components/Slide';
 import twitter from '../assets/svgs/socials/twitter-yellow.svg';
@@ -109,7 +109,7 @@ const members: TeamMemberType[] = [
 			'Long time anime watcher, dabbling in and exploring the incredible world of Web3.',
 			'Embraces community and open-source knowledge!'
 		],
-		twitter: 'https://twitter.com/LukeFrozen'
+		twitter: 'https://twitter.com/0xSpori'
 	}
 ];
 

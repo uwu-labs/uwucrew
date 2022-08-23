@@ -1,0 +1,67 @@
+{
+	"general": {
+		"name": "uwucrew",
+		"description": "Released on September 5th 2021, uwucrew is a woman-led NFT art collection of 9670 anime inspired avatars created by uwu Labs. We always keep it uwu with a heavy focus on empowering artists!"
+	},
+	"components": {
+		"email": {
+			"input_placeholder": "Enter email"
+		},
+		"hero": {
+			"opensea": "View on OpenSea"
+		},
+		"mint": {
+			"input_placeholder": "Enter amount (e.g. {{balance}})",
+			"errors": {
+				"no_tickets": "You do not have any uwu-tickets",
+				"invalid_number": "Invalid number",
+				"one_or_more": "Must be 1 or more",
+				"integer": "Must be an integer",
+				"balance": "You only have {{balance}} uwu-tickets",
+				"gas": "Not enough ETH to cover gas"
+			}
+		},
+		"owned": {
+			"owned": "Owned"
+		}
+	},
+	"license": {
+		"header": "uwu艺术许可证 + 社区收藏",
+		"holders": "持有人",
+		"non-holders": "非持有者",
+		"smallheader-0": "Keeping it uwu",
+		"subheader-0": "今天，uwulabs 很高兴分享 uwu 艺术许可证。它旨在鼓励二创作品，但也尊重持有者的权利，因为我们相信他们的 NFT 是有代表着自己！",
+		"subheader-1": "uwucrew NFT 收藏将遵守此艺术许可证，但我们鼓励其他项目也采用 uwu 许可证！",
+		"subheader-2": "在 uwulabs，我们相信'keeping it uwu'意味着：",
+		"li-0": "给予适当的功劳并尊重艺术背后的艺术家",
+		"li-1": "尊重 NFT 的持有者希望他们的 NFT如何被代表",
+		"li-2": "欢迎二创作品，但需要 NFT 所有权 或 NFT 持有者的明确许可才能用于商业用途",
+		"subheader-3": "考虑到这一点，我们想宣布 uwucrew 的以下艺术许可证：",
+		"subheader-4": "对于您拥有的 NFT，您可以自由：",
+		"li-3": "在任何媒体中复制或分享",
+		"li-4": "在任何媒体中制作二创作品、重混或改变，甚至商业化",
+		"li-5": "只要你给予 uwucrew 适当的功劳",
+		"subheader-5": "对于收藏中的任何 NFT，您可以自由地",
+		"li-6": "在任何媒体中制作二创作品、重混或改变，但不得用于商业用途",
+		"uwucrewTeam": "uwucrew 团队：",
+		"subheader-6": "wucrew 团队保留使用所有 uwucrew 收藏的 NFT 艺术品和所有二创艺术品用于促销用途的权利。",
+		"subheader-7": "这是 uwu 艺术许可证下所有 NFT 的基线使用许可，但我们还在下面指定了一些附加条款。",
+		"smallheader-1": "PFP NFT 角色",
+		"subheader-8": "作为 uwu 文化的一部分，我们相信 NFT 可以代表一个人的线上角色和身份。我们希望鼓励一种通过 NFT 代表人们的文化.",
+		"subheader-9": "在 uwu 艺术许可证下，NFT 的持有者不仅拥有艺术品，还拥有 NFT 的角色 —— 这意味着他们有权授予他人出售包含其角色的二创艺术品的许可，其限于只要他们还持有着原始的 NFT。",
+		"subheader-10": "请记住，此权限仅对 NFT 的持有者有效，因此如果在获得许可后出售原始 NFT，则必须再次向新持有者请求该角色的商业使用许可。",
+		"subheader-11": "“keeping it uwu”的一部分意味着注意你如何在二创作品中代表某人的 NFT 角色。如果您认为某人对他们的代表方式感到不舒服，请记住您可以随时向 NFT 持有者请求许可！",
+		"smallheader-2": "Community Collection 社群收藏",
+		"subheader-12": "为了让我们的非持有者的社群成员们有机会为 uwucrew 做出贡献，我们在 uwu 许可证中引入了“社群收藏”的概念 —— 这是 CC0 许可证下团队拥有的 NFT 的一小部分！",
+		"subheader-13": "社群收藏 uwus 可用于任何事情，例如：",
+		"li-7": "参加uwucrew二创艺术大赛来赢得奖品",
+		"li-8": "绘制、mint,和销售 团队代表角色们(mascot吉祥物)的二创作品",
+		"li-9": "在其他 NFT 项目收藏中包含 uwucrew 作为特征(traits/features)",
+		"subheader-14": "对于社区收藏中的所有 NFT：",
+		"li-10": "任何人都可以在任何媒体上自由复制或分享",
+		"li-11": "任何人都可以自由地在任何媒体中制作二创作品、重混或改变，或用于任何目的，甚至是商业用途",
+		"smallheader-3": "'The Crew'",
+		"subheader-15": "我们从 uwulabs 和团队成员的钱包中挑选了以下 25 个 uwus 来启动 uwucrew 社群收藏，又名“The Crew”！一旦将 uwucrew NFT 添加到社群收藏中，它将永远不会被删除。未来可能会有更多的uwus加入The Crew！",
+		"subheader-16": "尽管此许可证专门针对 uwucrew，但我们希望其他项目也采用 uwu art 许可证，以鼓励一个以艺术为中心的社群，其中包含丰富的二创作品！"
+	}
+}

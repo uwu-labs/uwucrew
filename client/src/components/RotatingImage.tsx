@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import styled, { keyframes } from 'styled-components';
 import uwu01 from '../assets/girls/01.png';
 import uwu02 from '../assets/girls/02.png';
