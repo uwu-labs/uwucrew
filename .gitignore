@@ -3,3 +3,5 @@ secrets.js
 secrets.json
 
 .env
+
+contracts/scripts/results/
