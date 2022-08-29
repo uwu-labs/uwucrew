@@ -9,6 +9,8 @@ contract uwudropCommissionEscrow {
 
   IuwudropShared uwudrop;
   
+  uint256 commissionIndex;
+
   uint256 deadlineMin = 30 days;
   uint256 minPrice = 0.05 ether;
 
@@ -17,6 +19,7 @@ contract uwudropCommissionEscrow {
   }
 
   struct Commission {
+    address sourceNFT;
     uint256 price;
     address sourceArtist;
     uint64 finishDate;
@@ -28,11 +31,15 @@ contract uwudropCommissionEscrow {
   event CommissionRequested(uint256 collectionId, address requester, address sourceArtist, uint256 price, string request);
   event CommissionSettled(uint256 collectionId, uint256 id, address requester, address sourceArtist);
 
-  function requestCommission(uint256 collectionId, address sourceArtist, uint256 finishDate, string memory request) external payable {
+  function requestCommission(address sourceNFT, address sourceArtist, uint256 finishDate, string memory request) external payable {
     require(msg.value >= minPrice, "Below minimum cost");
-    Commission memory commish = Commission(msg.value, sourceArtist, uint64(finishDate + deadlineMin));
+    Commission memory commish = Commission(sourceNFT, msg.value, sourceArtist, uint64(finishDate + deadlineMin));
     commissionInfo[collectionId][msg.sender] = commish;
     emit CommissionRequested(collectionId, msg.sender, sourceArtist, msg.value, request);
+  }
+
+  function assignAndSettleCommission(uint256 id) external {
+    
   }
 
   function settleCommission(uint256 collectionId, uint256 id, address requester, bytes32[] memory merkleProof) external {
