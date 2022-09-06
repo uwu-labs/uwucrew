@@ -84,24 +84,6 @@ const LogoContainer = styled.div`
 	animation: ${raise} 1s 1.3s ease-out forwards;
 `;
 
-const Header = styled.h1`
-	letter-spacing: 0.3rem;
-	color: var(--bg-01);
-
-	opacity: 0;
-	transform: translateY(100%);
-	animation: ${raise} 1s 1.3s ease-out forwards;
-
-	font-size: 10rem;
-	line-height: 10rem;
-	margin-bottom: 3rem;
-	@media (max-width: 768px) {
-		font-size: 7.5rem;
-		line-height: 5rem;
-		margin-bottom: 2rem;
-	}
-`;
-
 const SubHeader = styled.h2`
 	font-weight: 500;
 	color: var(--text-primary);
