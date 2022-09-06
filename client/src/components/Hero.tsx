@@ -1,6 +1,8 @@
 import useTranslation from 'next-translate/useTranslation';
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import logo from '../assets/logos/logo.svg';
+import Image from 'next/image';
 import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import Footer from './Footer';
@@ -66,6 +68,20 @@ const ImageContainer = styled.div`
 		height: calc(100vw - 4rem - 2rem);
 		margin: 3rem;
 	}
+`;
+
+const LogoContainer = styled.div`
+	width: 25rem;
+	display: flex;
+	align-items: center;
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5rem;
+	cursor: pointer;
+
+	opacity: 0;
+	animation: ${raise} 1s 1.3s ease-out forwards;
 `;
 
 const Header = styled.h1`
@@ -138,7 +154,9 @@ const Hero = () => {
 					<RotatingImage color={color} activeIndex={colorIndex} />
 				</ImageContainer>
 				<TextContainer>
-					<Header>{t('general.name')}</Header>
+					<LogoContainer>
+						<Image src={logo} />
+					</LogoContainer>
 					<SubHeader>{t('general.description')}</SubHeader>
 					<ButtonContainer>
 						<Button color={color} onClick={() => (window as any).open('https://opensea.io/collection/uwucrew', '_blank').focus()}>

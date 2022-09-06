@@ -188,7 +188,7 @@ const NameContainer = styled.div`
 const Name = styled.div`
 	font-family: 'Calder Dark', sans-serif;
 	font-size: 2.6rem;
-	line-height: 1.9rem;
+	line-height: 2.6rem;
 	font-weight: 600;
 	color: var(--bg-03);
 	margin-bottom: 0.3rem;
