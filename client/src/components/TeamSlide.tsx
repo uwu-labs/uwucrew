@@ -186,6 +186,7 @@ const NameContainer = styled.div`
 `;
 
 const Name = styled.div`
+	font-family: 'Calder Dark', sans-serif;
 	font-size: 2.6rem;
 	line-height: 1.9rem;
 	font-weight: 600;
@@ -194,6 +195,7 @@ const Name = styled.div`
 `;
 
 const Role = styled.div`
+	font-family: 'Calder LC', sans-serif;
 	line-height: 1.2rem;
 	font-size: 1.4rem;
 	font-weight: 600;
@@ -211,7 +213,6 @@ const Description = styled.div`
 	line-height: 1.6rem;
 	margin-top: 0.3rem;
 	margin-bottom: 0.5rem;
-	font-family: 'Roboto', sans-serif;
 	padding: 0 0.5rem;
 	width: 100%;
 `;
@@ -223,7 +224,6 @@ const Link = styled.a`
 	line-height: 1.6rem;
 	margin-top: 0.3rem;
 	margin-bottom: 0.5rem;
-	font-family: 'Roboto', sans-serif;
 	text-decoration: underline;
 `;
 

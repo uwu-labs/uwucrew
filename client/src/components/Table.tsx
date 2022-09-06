@@ -5,7 +5,6 @@ const StyledTable = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
 	margin: 4rem;
-	font-family: 'Roboto', sans-serif !important;
 
 	font-size: 1.7rem !important;
 	line-height: 2.3rem;
@@ -19,8 +18,8 @@ const StyledTable = styled.div`
 	/* empty-cell: show | hide;  */
 	/* empty-cell is a property of table or the cells themselves */
 
-	/* vertical-align: baseline | sub | super | text-top | 
-                text-bottom | middle | top | bottom | 
+	/* vertical-align: baseline | sub | super | text-top |
+                text-bottom | middle | top | bottom |
                 <percentage> | <length> */
 
 	/* tbody {

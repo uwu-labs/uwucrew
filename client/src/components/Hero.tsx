@@ -76,7 +76,7 @@ const Header = styled.h1`
 	transform: translateY(100%);
 	animation: ${raise} 1s 1.3s ease-out forwards;
 
-	font-size: 14rem;
+	font-size: 10rem;
 	line-height: 10rem;
 	margin-bottom: 3rem;
 	@media (max-width: 768px) {
@@ -92,7 +92,6 @@ const SubHeader = styled.h2`
 	max-width: 61rem;
 	line-height: 2.3rem;
 	margin-bottom: 2rem;
-	font-family: 'Roboto', sans-serif;
 
 	opacity: 0;
 	transform: translateY(100%);

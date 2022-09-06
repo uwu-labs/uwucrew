@@ -77,7 +77,6 @@ const Error = styled.div`
 	color: red;
 	max-width: 64rem;
 	line-height: 2.3rem;
-	font-family: 'Roboto', sans-serif;
 	margin-top: 0.3rem;
 
 	font-size: 1.4rem;
