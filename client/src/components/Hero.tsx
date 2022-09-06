@@ -71,7 +71,7 @@ const ImageContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
-	width: 25rem;
+	width: 42.5rem;
 	display: flex;
 	align-items: center;
 	margin-top: 1rem;
@@ -104,6 +104,8 @@ const SubHeader = styled.h2`
 
 const ButtonContainer = styled.div`
 	margin-top: 2rem;
+	margin-left: auto;
+	margin-right: auto;
 
 	opacity: 0;
 	transform: translateY(100%);
