@@ -3,11 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: 'Como Regular';
-    src: url('/fonts/como-regular.ttf');
-  }
-
-  @font-face {
     font-family: 'Calder Dark';
     src: url('/fonts/calder-dark.ttf');
   }
@@ -32,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       color: var(--text-primary);
-      font-family: 'Como Regular', sans-serif;
+      font-family: 'Calder LC', sans-serif;
       font-size: 10px;
   }
 
