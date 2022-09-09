@@ -4,7 +4,8 @@ async function view() {
   let sepHolders = JSON.parse(await fs.readFile("./scripts/snapshot/september.json"));
   let latestHolders = JSON.parse(await fs.readFile("./scripts/snapshot/latest-holders.json"));
   
-  let matching = Object.keys(sepHolders).filter((holder) => Object.keys(latestHolders).some((address) => address == holder))
+  let holderAddrs = Object.keys(latestHolders)
+  let matching = Object.keys(sepHolders).filter((holder) => holderAddrs.some((address) => address == holder))
   console.log(matching.length)
   await fs.writeFile("./scripts/results/year-holders.json", JSON.stringify(matching))
 }
