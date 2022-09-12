@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
     src: url('/fonts/calder-lc.ttf');
   }
 
+  @font-face {
+    font-family: 'Fredoka';
+    src: url('/fonts/fredoka.ttf');
+  }
+
   :root {
     --text-primary: #000000;
     --bg: #FAE1ED;
@@ -27,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       color: var(--text-primary);
-      font-family: 'Calder LC', sans-serif;
+      font-family: 'Fredoka', sans-serif;
       font-size: 10px;
   }
 
