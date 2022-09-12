@@ -13,26 +13,26 @@ import "../utils/Address.sol";
  * An owner is able to change the implementation the beacon points to, thus upgrading the proxies that use this beacon.
  */
 contract UpgradeableBeacon is IBeacon, OwnableUpgradeable {
-    address private _childImplementation;
+    address private _implementation;
 
     /**
      * @dev Emitted when the child implementation returned by the beacon is changed.
      */
-    event Upgraded(address indexed childImplementation);
+    event Upgraded(address indexed implementation);
 
     /**
      * @dev Sets the address of the initial implementation, and the deployer account as the owner who can upgrade the
      * beacon.
      */
-    function __UpgradeableBeacon__init(address childImplementation_) public initializer {
-        _setChildImplementation(childImplementation_);
+    function __UpgradeableBeacon__init(address implementation_) public initializer {
+        _setImplementation(implementation_);
     }
 
     /**
      * @dev Returns the current child implementation address.
      */
-    function childImplementation() public view virtual override returns (address) {
-        return _childImplementation;
+    function implementation() public view virtual override returns (address) {
+        return _implementation;
     }
 
     /**
@@ -45,8 +45,8 @@ contract UpgradeableBeacon is IBeacon, OwnableUpgradeable {
      * - msg.sender must be the owner of the contract.
      * - `newChildImplementation` must be a contract.
      */
-    function upgradeChildTo(address newChildImplementation) public virtual override onlyOwner {
-        _setChildImplementation(newChildImplementation);
+    function upgradeTo(address newImplementation) public virtual override onlyOwner {
+        _setImplementation(newImplementation);
     }
 
     /**
@@ -54,11 +54,11 @@ contract UpgradeableBeacon is IBeacon, OwnableUpgradeable {
      *
      * Requirements:
      *
-     * - `newChildImplementation` must be a contract.
+     * - `newImplementation` must be a contract.
      */
-    function _setChildImplementation(address newChildImplementation) private {
-        require(Address.isContract(newChildImplementation), "UpgradeableBeacon: child implementation is not a contract");
-        _childImplementation = newChildImplementation;
-        emit Upgraded(newChildImplementation);
+    function _setImplementation(address newImplementation) private {
+        require(Address.isContract(newImplementation), "UpgradeableBeacon: child implementation is not a contract");
+        _implementation = newImplementation;
+        emit Upgraded(newImplementation);
     }
 }

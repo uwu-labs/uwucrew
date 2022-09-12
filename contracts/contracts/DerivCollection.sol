@@ -4,16 +4,15 @@ import "./interfaces/IRoyalties.sol";
 import "./tokens/ERC721URIStorageUpgradeable.sol";
 import "./utils/OwnableUpgradeable.sol";
 import "./utils/Address.sol";
+import "./utils/ECDSA.sol";
 import "./utils/MerkleProof.sol";
 
-// uwudrop Dynamic Collection 
-// This is an uwudrop collection contract aimed at dynamicly sized collections.
-// All gas costs are directed towards the collecter whereever possible.
-//
-// Derivative collections from artists (for example, uwucrew derivatives by @6MAKER) were in mind
-// when designing uwudrop dynamic collections. uwudrop allows artists to declare what the source NFT collection is, 
-// for a portion of the purchase to go towards the NFT teams proper benefactor. 
-// Charging a fee on derivatives may seem controversial, but we believe NFT teams (uwulabs) should be aligned towards
+// Deriv Collection 
+// NFT Derivatives (for example, uwucrew derivatives by @6MAKER) were in mind
+// when designing Deriv. 
+// Deriv splits derivative art per contract relating to the source NFT of the derivative art. 
+// As part of the split and shared contracts, a portion of the purchase goes towards the NFT teams proper benefactor. 
+// Charging a fee on derivatives may seem controversial, but we believe NFT teams (uwu Labs) should be aligned towards
 // the success of the artists that create and collaborate with the IP and concepts of the originating NFT.
 // 
 // Features:
@@ -24,14 +23,11 @@ import "./utils/MerkleProof.sol";
 //
 // - Private Sales: Artists can mark which NFTs are only for sale to certain people. This is a useful feature for derivative oriented collections.
 // 
-// - Safely extendable collections: Artists can extend and add more supply to the collection safely without interfering with the other NFTs.
-// 
 // - Arbitrary per NFT pricing: NFTs in each collection can be easily priced arbitarily from eachother. 
 // Each NFTs price is published as part of the data root. Some derivatives may be have more effort than others, so this is an important feature. 
 //
-// - Finalizing: In case an artist wants to make it clear that a collection can no longer be changed, they can mark the collection as finalized.
-// This locks the implementation, so no further changes can be made. (un-purchased NFTs can still be purchased even after finalizing) 
-// 
+// - Operators: Arbitrary executors allow for flexible and powerful designs to be built on top of Deriv for various use cases. 
+//
 // - Admin friendly: In case an artist is unable to access their account or does not wish to spend the gas required, 
 // an adiministrator can step in and perform the actions for them. 
 // 
@@ -45,9 +41,13 @@ contract DerivCollection is OwnableUpgradeable, ERC721URIStorageUpgradeable {
 
   address public derivFactory;
   address public derivativeSourceNFT;
-  uint256 public collectionFee;
 
-  event CollectionUpdate(uint256 newMaxSupply, bytes32 newNFTDataRoot);
+  uint256 public collectionFee;
+  address public royaltyReceiver;
+
+  mapping(bytes32 => bool) public mintedURI;
+
+  event CollectionFeeUpdate(uint256 newFee, address receiver);
   event Mint(uint256 id, string newTokenURI, uint256 price, address receiver, address txSender);
 
   function __DerivCollection_init(string memory _name, string memory _symbol, address _derivativeSourceNFT) external {
@@ -60,65 +60,90 @@ contract DerivCollection is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   function version() external pure returns (string memory) {
     return "v1.0.0";
   }
-
-  // consider global artist tree but using proxy to allow easy transfer of management if compromised
-  function update(uint256 newMaxSupply, bytes32 newNFTDataTreeRoot) external onlyOwner {
-    require(!finalized, "Finalized");
-    nftDataTreeRoot = newNFTDataTreeRoot;
-    emit CollectionUpdate(newMaxSupply, newNFTDataTreeRoot);
-  }
   
-  // Admin transfer function in case the artist's account is compromised for some reason.
-  function adminOwnerChange(address newOwner) external {
-    require(msg.sender == uwudropFactory, "Not factory");
-    transferOwnership(newOwner);
+  function setCollectionFeeAndReceiver(uint256 _newFee, address _newReceiver) external {
+    require(
+      msg.sender == OwnableUpgradeable(derivativeSourceNFT).owner() ||
+      msg.sender == OwnableUpgradeable(derivFactory).owner(), 
+      "not collection owner"
+    );
+    collectionFee = _newFee;
+    royaltyReceiver = _newReceiver;
+    emit CollectionFeeUpdate(_newFee, _newReceiver);
   }
 
 // maybe move as much storage to contract data as possible 
-  // store id per artist in factory/contract and iterate with each publish 
 
-  function nftMint(uint256 operator, address sourceArtist, bool privateSale, address _receiver, bytes32[] memory merkleProof) external payable {
-    uint256 _nftId = collectionId*1e6 | id; // collectionId*1e6 | collectionIndex;
-    require(_exists(_nftId), "Already purchased");
-    require(id < 1e6, "Above max");
+  // function merkleMint(uint256 operator, address sourceArtist, string memory _tokenURI, address _receiver, bytes32[] memory merkleProof) external payable returns (uint256) {
+  //   require(!mintedURI[keccak256(abi.encodePacked(_tokenURI))], "Already purchased"); // replace with uri check
+  //   require(msg.sender == operator, "not indicated operator");
 
+  //   // Verify truth with tree.
+  //   {
+  //     bytes32 _dataRoot = collectionDataRoot[collectionId];
+  //     require(_dataRoot != bytes32(0), "Data Root not initialized");
+
+  //     bytes32 node = keccak256(abi.encodePacked(operator, derivativeSourceNFT, msg.value, _receiver, _tokenURI));
+  //     require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
+  //   }
+
+  //   // Handle payment.
+  //   splitPayment(sourceArtist, msg.value);
+
+  //   uint256 _nftIndex = nftIndex;
+  //   ++nftIndex;
+
+  //   _mint(sourceArtist, _receiver, nftIndex);
+  //   _setTokenURI(_nftIndex, _tokenURI);
+  //   mintedURI[keccak256(abi.encodePacked(_tokenURI))] = true;
+
+  //   // Add more to this.
+  //   emit Mint(_nftIndex, _receiver, sourceArtist);
+
+  //   return _nftIndex;
+  // }
+
+
+  function signatureMint(uint256 operator, address sourceArtist, string memory _tokenURI, address _receiver, bytes memory signature) external payable returns (uint256) {
+    require(!mintedURI[keccak256(abi.encodePacked(_tokenURI))], "Already purchased"); // replace with uri check
+    require(msg.sender == operator, "not indicated operator");
+
+    // Verify signature.
     {
-      bytes32 _dataRoot = collectionDataRoot[collectionId];
-      require(_dataRoot != bytes32(0), "Data Root not initialized");
-
-      address receiver = address(0);
-      if (privateSale) {
-        receiver = _receiver;
-      }
-      bytes32 node = keccak256(abi.encodePacked(collectionId, id, msg.value, receiver));
-      require(MerkleProof.verify(merkleProof, _dataRoot, node), 'MerkleDistributor: Invalid proof.');
+      bytes32 node = ECDSA.toTypedDataHash("", abi.encodePacked(operator, derivativeSourceNFT, msg.value, _receiver, _tokenURI));
+      require(sourceArtist == ECDSA.recover(node, signature), 'Signature not made by artist');
     }
 
-    // uwulabs fee: 1%.
-    uint256 _uwulabsFee = uwulabsFee;
-    payable(owner()).sendValue((_uwulabsFee * msg.value)/1 gwei);
+    // Handle payment.
+    splitPayment(sourceArtist, msg.value);
 
-    // derivative source fee: variable.
-    address _derivativeSourceNFT = derivativeSourceNFT[collectionId];
-    uint256 derivFee;
-    if (_derivativeSourceNFT != address(0)) {
-      derivFee = derivativeFee[_derivativeSourceNFT];
-      if (derivFee > 0) {
-        payable(derivativeSourceReceiver[_derivativeSourceNFT]).sendValue((derivFee * msg.value)/1 gwei);
-      }
-    }
-
-    // Rest goes to artist.
-    payable(sourceArtist).sendValue(((1 gwei - derivFee - _uwulabsFee)*msg.value)/1 gwei);
-
-    _mint(sourceArtist, _receiver, _nftId);
+    uint256 _nftIndex = nftIndex;
+    ++nftIndex;
+    _mint(sourceArtist, _receiver, nftIndex);
+    _setTokenURI(_nftIndex, _tokenURI);
+    mintedURI[keccak256(abi.encodePacked(_tokenURI))] = true;
 
     // Add more to this.
-    emit Mint(_nftId, _receiver, sourceArtist);
+    emit Mint(_nftIndex, _receiver, sourceArtist);
+
+    return _nftIndex;
   }
 
+  function splitPayment(address _sourceArtist, uint256 _value) internal {
+    // Admin fee for uwu Labs.
+    uint256 _uwulabsFee = derivFactory.adminFee();
+    payable(owner()).sendValue((_uwulabsFee * _value)/1 gwei);
 
-  function _baseURI() internal view virtual override returns (string memory) {
-    return ""; // get base URI from factory.
+    // Collection fee: variable decided by collection.
+    uint256 _collectionFee = collectionFee;
+    if (_collectionFee > 0) {
+      payable(royaltyReceiver).sendValue((_collectionFee * _value)/1 gwei);
+    }
+
+    // Rest goes to artist of course.
+    payable(_sourceArtist).sendValue(((1 gwei - _collectionFee - _uwulabsFee)*_value)/1 gwei);
   }
+  // function _baseURI() internal view virtual override returns (string memory) {
+  //   return ""; // get base URI from factory.
+  // }
 }

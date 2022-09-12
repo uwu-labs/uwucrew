@@ -53,7 +53,7 @@ contract Create2BeaconProxy is Proxy {
      * @dev Returns the current implementation address of the associated beacon.
      */
     function _implementation() internal view virtual override returns (address) {
-        return IBeacon(_beacon()).childImplementation();
+        return IBeacon(_beacon()).implementation();
     }
 
     /**
@@ -72,7 +72,7 @@ contract Create2BeaconProxy is Proxy {
             "BeaconProxy: beacon is not a contract"
         );
         require(
-            Address.isContract(IBeacon(beacon).childImplementation()),
+            Address.isContract(IBeacon(beacon).implementation()),
             "BeaconProxy: beacon implementation is not a contract"
         );
         bytes32 slot = _BEACON_SLOT;

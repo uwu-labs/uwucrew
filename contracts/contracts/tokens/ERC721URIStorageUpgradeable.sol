@@ -43,6 +43,11 @@ abstract contract ERC721URIStorageUpgradeable is ERC721SimpleUpgradeable {
         _tokenURIs[tokenId] = _tokenURI;
     }
 
+    function _getTokenURI(uint256 tokenId) internal virtual returns (string memory) {
+        require(_exists(tokenId), "ERC721URIStorage: URI set of nonexistent token");
+        return _tokenURIs[tokenId];
+    }
+
     /**
      * @dev Destroys `tokenId`.
      * The approval is cleared when the token is burned.

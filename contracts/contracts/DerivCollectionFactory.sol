@@ -9,23 +9,28 @@ import "./DerivCollection.sol";
 // Author: 0xKiwi.
 
 // Deriv by uwulabs 
-// Deriv is a derivative art focused web3 commission platform. 
+// Deriv is a derivative art focused web3 platform. 
 //
 contract DerivCollectionFactory is OwnableUpgradeable, UpgradeableBeacon {
-    uint256 public collectionIndex;
-    uint256 public artistIndex;
+    uint256 public accountIndex;
     uint256 public adminFee;
 
-    // Sponsor support to allow certain collectors to cover gas costs for artists? Administrative?
-    mapping(address => address) public nftToRoyaltyReceiver;
-    mapping(address => address) public nftToDeriv;
+    // mapping(address => address) public nftToRoyaltyReceiver;
+    mapping(address => address) public nftToDerivCollection;
+
+    mapping(address => uint256) public ownerToDerivId;
+    mapping(uint256 => bytes32) public derivIdToRoot;
+
+    mapping(address => bool) public allowOperators;
+    
     bytes internal constant beaconCode = type(Create2BeaconProxy).creationCode;
 
     event CollectionCreated(address sourceNFT, address collectionAddr);
+    event ArtistRegistered(address who);
 
     function __DerivCollectionFactory_init() external virtual initializer {
         __Ownable_init();
-        address collectionImpl = address(new uwudropCollectionDynamic());
+        address collectionImpl = address(new DerivCollection());
         __UpgradeableBeacon__init(collectionImpl);
         adminFee = 0.03 gwei;
     }
@@ -35,34 +40,29 @@ contract DerivCollectionFactory is OwnableUpgradeable, UpgradeableBeacon {
     }
 
     function createDerivCollection(string memory name, string memory symbol, address _sourceNFT) external onlyOwner {
-        address deployedCollection = _deployDerivCollection(_collectionIndex, name, symbol, _owner, royaltyReceiver);
-        nftToDeriv[_sourceNFT] = deployedCollection;
+        require(nftToDerivCollection[_sourceNFT] == address(0), "1 deriv collection per nft");
+        address deployedCollection = _deployDerivCollection(name, symbol, _sourceNFT);
+        nftToDerivCollection[_sourceNFT] = deployedCollection;
         emit CollectionCreated(deployedCollection, _sourceNFT);
     }
 
     function collectionAddress(address _sourceNFT) public view returns (address) {
-        // Add creator address into seed here? 
-        bytes32 salt = keccak256(abi.encodePacked(_sourceNFT));
-        return Create2.computeAddress(salt, keccak256(beaconCode));
+        return nftToDerivCollection[_sourceNFT];
+    }
+
+    function registerArtist(bytes memory signature) public view returns (uint256) {
+        uint256 _accountIndex = accountIndex + 1;
+        ownerToDerivId[msg.sender] = _accountIndex;
+        accountIndex = _accountIndex;
+        return accountIndex;
     }
 
     function _deployDerivCollection(string memory name, string memory symbol, address _sourceNFT) internal returns (address) {
         // Add creator address into seed here? 
         bytes32 salt = keccak256(abi.encodePacked(_sourceNFT));
         address deployedCollection = Create2.deploy(0, salt, beaconCode);
-        DerivCollection(deployedCollection).__DerivCollection_init(name, symbol, _sourceNft);
+        DerivCollection(deployedCollection).__DerivCollection_init(name, symbol, _sourceNFT);
         return deployedCollection;
-    }
-
-    function isContract(address account) internal view returns (bool) {
-        // This method relies on extcodesize, which returns 0 for contracts in
-        // construction, since the code is only stored at the end of the
-        // constructor execution.
-
-        uint256 size;
-        // solhint-disable-next-line no-inline-assembly
-        assembly { size := extcodesize(account) }
-        return size != 0;
     }
 
     function allowedOperator(address _operator) external returns (bool) {

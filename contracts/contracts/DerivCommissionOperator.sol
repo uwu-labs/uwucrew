@@ -9,17 +9,14 @@ contract uwudropCommissionEscrow {
 
   IuwudropShared uwudrop;
   
-  uint256 commissionIndex;
-
-  uint256 deadlineMin = 30 days;
-  uint256 minPrice = 0.05 ether;
+  mapping(address => uint256) commissionIndexes;
+  mapping(uint256 => Commission) idToCommission;
 
   constructor(address _uwudrop) {
     uwudrop = IuwudropShared(_uwudrop);
   }
 
   struct Commission {
-    address sourceNFT;
     uint256 price;
     address sourceArtist;
     uint64 finishDate;

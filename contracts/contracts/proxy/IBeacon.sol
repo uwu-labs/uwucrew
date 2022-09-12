@@ -11,6 +11,6 @@ interface IBeacon {
      *
      * {BeaconProxy} will check that this address is a contract.
      */
-    function childImplementation() external view returns (address);
+    function implementation() external view returns (address);
     function upgradeChildTo(address newImplementation) external;
 }
