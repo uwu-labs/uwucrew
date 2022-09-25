@@ -257,6 +257,11 @@ async function main() {
 	const UwUCrew = await ethers.getContractFactory('uwucrew');
 	const uwucrew = (await UwUCrew.connect(primary).deploy('uwucrew', 'UWU', 9670)) as Uwucrew;
 	await uwucrew.deployed();
+	console.log("uwu deployed");
+	
+	let tx = await uwucrew.setBaseURI("https://uwulabs.mypinata.cloud/ipfs/QmaxEUs9LWYzJRWVwCe5G4m4DZzRoA7Ezvs7QkGmTR17fM/");
+	await tx.wait();
+	console.log("base uri");
 
 	const tokenIds: NumberObject[] = [];
 	for (let i = 0; i < nftxUwus.length; i++) {
@@ -282,17 +287,32 @@ async function main() {
 		tokenTree.getHexRoot()
 	)) as UwuClaim;
 	await claimContract.deployed();
+	console.log("claim deployed");
 
-	await uwucrew.connect(primary).prepareSale(primary.address);
+	tx = await claimContract.setBaseURI("https://uwulabs.mypinata.cloud/ipfs/QmaxEUs9LWYzJRWVwCe5G4m4DZzRoA7Ezvs7QkGmTR17fM/");
+	await tx.wait();
 
-	await uwucrew.connect(primary).mint(primary.address, nftxUwus[0]);
-	await uwucrew.connect(primary).mint(primary.address, nftxUwus[1]);
-	await uwucrew.connect(primary).mint(primary.address, nftxUwus[2]);
+	tx = await uwucrew.connect(primary).prepareSale(primary.address);
+	await tx.wait();
 
-	let sporiAddr = primary.address;
-	await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[3]);
-	await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[4]);
-	await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[5]);
+	tx = await uwucrew.connect(primary).mint(primary.address, nftxUwus[0]);
+	await tx.wait();
+
+	tx = await uwucrew.connect(primary).mint(primary.address, nftxUwus[1]);
+	await tx.wait();
+
+	tx = await uwucrew.connect(primary).mint(primary.address, nftxUwus[2]);
+	await tx.wait();
+
+	let sporiAddr = "0xEecA1664E299aE5B1fFCD43F98d2071eb5ABff65";
+	tx = await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[3]);
+	await tx.wait();
+
+	tx = await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[4]);
+	await tx.wait();
+	
+	tx = await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[5]);
+	await tx.wait();
 
 	console.log('uwucrew deployed to:', uwucrew.address);
 	console.log('claim contract deployed to:', claimContract.address);
