@@ -21,10 +21,7 @@ import "./utils/MerkleProof.sol";
 //  However, the artist still needs to pay gas to deploy the collection and update the tree if any NFTs are added.
 // (Gas usage may be sponsored by uwulabs)
 //
-// - Private Sales: Artists can mark which NFTs are only for sale to certain people. This is a useful feature for derivative oriented collections.
-// 
-// - Arbitrary per NFT pricing: NFTs in each collection can be easily priced arbitarily from eachother. 
-// Each NFTs price is published as part of the data root. Some derivatives may be have more effort than others, so this is an important feature. 
+// - Private Sales: Artists can mark which NFTs are only for sale to certain people. This is a useful feature for commission oriented items.
 //
 // - Operators: Arbitrary executors allow for flexible and powerful designs to be built on top of Deriv for various use cases. 
 //
@@ -48,7 +45,7 @@ contract DerivCollection is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   mapping(bytes32 => bool) public mintedURI;
 
   event CollectionFeeUpdate(uint256 newFee, address receiver);
-  event Mint(uint256 id, string newTokenURI, uint256 price, address receiver, address txSender);
+  event Mint(uint256 id, uint256 price, address sourceArtist, address receiver, address txSender);
 
   function __DerivCollection_init(string memory _name, string memory _symbol, address _derivativeSourceNFT) external {
     __Ownable_init();
@@ -88,7 +85,7 @@ contract DerivCollection is OwnableUpgradeable, ERC721URIStorageUpgradeable {
   //   }
 
   //   // Handle payment.
-  //   splitPayment(sourceArtist, msg.value);
+  //   _splitPayment(sourceArtist, msg.value);
 
   //   uint256 _nftIndex = nftIndex;
   //   ++nftIndex;
@@ -110,26 +107,59 @@ contract DerivCollection is OwnableUpgradeable, ERC721URIStorageUpgradeable {
 
     // Verify signature.
     {
-      bytes32 node = ECDSA.toTypedDataHash("", abi.encodePacked(operator, derivativeSourceNFT, msg.value, _receiver, _tokenURI));
+      uint chainId;
+      assembly {
+        chainId := chainId
+      }
+
+      bytes32 eip712DomainHash = keccak256(
+        abi.encode(
+          keccak256(
+            "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
+          ),
+          keccak256(bytes("Deriv")),
+          keccak256(bytes("1")),
+          chainId,
+          address(this)
+        )
+      );
+      
+      bytes32 hashStruct = keccak256(
+        abi.encode(
+          keccak256("set(address operator,address sourceNFT,uint value,address receiver,string tokenURI)"),
+          operator,
+          derivativeSourceNFT,
+          msg.value,
+          _receiver,
+          _tokenURI
+        )
+      );
+
+      bytes32 node = ECDSA.toTypedDataHash(eip712DomainHash, hashStruct);
       require(sourceArtist == ECDSA.recover(node, signature), 'Signature not made by artist');
     }
 
     // Handle payment.
-    splitPayment(sourceArtist, msg.value);
+    _splitPayment(sourceArtist, msg.value);
 
+    uint256 idMinted = _mint(sourceArtist, _receiver, _tokenURI);
+
+    return idMinted;
+  }
+
+  function _mint(address _sourceArtist, address _receiver, string memory _tokenURI) internal returns (uint256) {
     uint256 _nftIndex = nftIndex;
     ++nftIndex;
-    _mint(sourceArtist, _receiver, nftIndex);
+    _mint(_sourceArtist, _receiver, nftIndex);
     _setTokenURI(_nftIndex, _tokenURI);
     mintedURI[keccak256(abi.encodePacked(_tokenURI))] = true;
 
     // Add more to this.
-    emit Mint(_nftIndex, _receiver, sourceArtist);
-
+    emit Mint(_nftIndex, _msg.value, _sourceArtist, _receiver, msg.sender);
     return _nftIndex;
   }
 
-  function splitPayment(address _sourceArtist, uint256 _value) internal {
+  function _splitPayment(address _sourceArtist, uint256 _value) internal {
     // Admin fee for uwu Labs.
     uint256 _uwulabsFee = derivFactory.adminFee();
     payable(owner()).sendValue((_uwulabsFee * _value)/1 gwei);

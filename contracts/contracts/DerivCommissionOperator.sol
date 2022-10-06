@@ -7,7 +7,7 @@ import "./interfaces/IuwudropShared.sol";
 // Lets us handle commission escrow, commission deadlines, 
 contract uwudropCommissionEscrow {
 
-  IuwudropShared uwudrop;
+  IuwudropShared derivFactory;
   
   mapping(address => uint256) commissionIndexes;
   mapping(uint256 => Commission) idToCommission;
@@ -19,6 +19,7 @@ contract uwudropCommissionEscrow {
   struct Commission {
     uint256 price;
     address sourceArtist;
+    address sourceNFT;
     uint64 finishDate;
   }
 
