@@ -7,13 +7,14 @@ import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 
 export const metaMask = new InjectedConnector({
-	supportedChainIds: [1, 4]
+	supportedChainIds: [1, 4, 5]
 });
 
 export const walletConnect = new WalletConnectConnector({
 	rpc: {
 		1: `https://mainnet.infura.io/v3/${INFURA_ID}`,
-		4: `https://rinkeby.infura.io/v3/${INFURA_ID}`
+		4: `https://rinkeby.infura.io/v3/${INFURA_ID}`,
+		5: `https://goerli.infura.io/v3/${INFURA_ID}`
 	},
 	qrcode: true
 });
@@ -79,7 +80,6 @@ interface Props {
 
 const ConnectWallet = ({ show, close, color }: Props) => {
 	const { activate } = useWeb3React();
-
 	const connect = async (connector: any) => {
 		await activate(connector);
 		close();
@@ -93,7 +93,7 @@ const ConnectWallet = ({ show, close, color }: Props) => {
 			header="Connect Wallet"
 			content={
 				<Content>
-					<Label>Connect your wallet to mint uwus!</Label>
+					<Label>Connect your wallet</Label>
 					<Option onClick={() => connect(metaMask)} color={color}>
 						Metamask
 					</Option>

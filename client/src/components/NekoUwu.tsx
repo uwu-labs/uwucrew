@@ -6,6 +6,9 @@ import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import Footer from './Footer';
 import nekobox_nftx from '../assets/nekobox/nekobox_nftx.svg';
+import { selectTokenIdsHeld } from 'state/reducers/nekouwu';
+import { useSelector } from 'react-redux';
+import { UwuSearch } from './UwuSearch';
 
 const colors: string[] = ['var(--bg-01)'];
 
@@ -174,15 +177,29 @@ const ButtonContainer = styled.div`
 	}
 `;
 
-const NekoBox = () => {
-	const [connecting, setConnecting] = useState(false);
+const SearchContainer = styled.div`
+	display: flex;
+	height: 3rem;
+	opacity: 0;
+	margin: 3rem 0;
+	transform: translateY(100%);
+	animation: ${raise} 1s 1.6s ease-out forwards;
+`;
+
+const NekoUwu = () => {
+	const [connecting, setConnecting] = useState(true);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
 	colorIndexRef.current = colorIndex;
-	const { t } = useTranslation('common');
-
 	const color = colors[colorIndex % colors.length];
-
+	const { t } = useTranslation('common');
+	const tokenIds = useSelector(selectTokenIdsHeld);
+	const [searchInput, setSearchInput] = useState('');
+	const diabled = tokenIds.length === 0;
+	console.log(tokenIds, diabled);
+	const getSearchValue = (value: string) => {
+		setSearchInput(value);
+	};
 	useEffect(() => {
 		setInterval(() => {
 			setColor(colorIndexRef.current + 1);
@@ -193,26 +210,42 @@ const NekoBox = () => {
 		<StyledHero>
 			<ContentContainer color={color}>
 				<Content>
-					<ConnectWallet show={connecting} close={() => setConnecting(false)} color={color} />
 					<Header>{t('nekobox.header')}</Header>
 					<SubHeader>{t('nekobox.subheader')}</SubHeader>
-					<InputContainer>
-						<UwuLabel>#0420</UwuLabel>
-						<Input placeholder={`Insert Tip`} type="number" />
-					</InputContainer>
-					<ButtonContainer>
-						<Button color={color} onClick={() => (window as any).open('https://opensea.io/collection/uwucrew', '_blank').focus()}>
-							{t('nekobox.button')}
-						</Button>
-					</ButtonContainer>
+					{!diabled && (
+						<>
+							<InputContainer>
+								<UwuLabel>
+									{t('nekobox.ids-held')}
+									{tokenIds.map((tokenId) => `${tokenId}, `)}
+								</UwuLabel>
+								<Input placeholder={`Insert Tip`} type="number" />
+							</InputContainer>
+							<ButtonContainer>
+								<Button
+									disabled={diabled}
+									color={color}
+									onClick={() => (window as any).open('https://opensea.io/collection/uwucrew', '_blank').focus()}
+								>
+									{t('nekobox.claim')}
+								</Button>
+							</ButtonContainer>
+						</>
+					)}
+
+					<SearchContainer>
+						<SubHeader>{t('nekobox.eligibility')}</SubHeader>
+						<UwuSearch initValue={searchInput} setValue={getSearchValue} />
+					</SearchContainer>
 				</Content>
 				<ImageContainer>
 					<Image src={nekobox_nftx} />
 				</ImageContainer>
 			</ContentContainer>
+			<ConnectWallet show={connecting} close={() => setConnecting(false)} color={color} />
 			<Footer />
 		</StyledHero>
 	);
 };
 
-export default NekoBox;
+export default NekoUwu;

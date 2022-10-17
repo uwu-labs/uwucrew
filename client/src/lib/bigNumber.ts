@@ -1,5 +1,5 @@
-import { BigNumber, ethers } from 'ethers';
+import type { BigNumber } from 'ethers';
 
 export const bnToNumber = (bigNumber: BigNumber): number => {
-	return Number(ethers.utils.formatEther(bigNumber.toString()));
+	return Number(bigNumber.toString());
 };
