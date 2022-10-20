@@ -2,15 +2,26 @@ import useTranslation from 'next-translate/useTranslation';
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
-import Button from './Button';
+// import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import Footer from './Footer';
 import nekobox_nftx from '../assets/nekobox/nekobox_nftx.svg';
 import { selectTokenIdsHeld } from 'state/reducers/nekouwu';
 import { useSelector } from 'react-redux';
 import { UwuSearch } from './UwuSearch';
+import type { Web3Provider } from '@ethersproject/providers';
+import { useWeb3React } from '@web3-react/core';
 
 const colors: string[] = ['var(--bg-01)'];
+
+interface Props {
+	color: string;
+	inactive?: boolean;
+}
+
+interface ContentContainerProps {
+	color: string;
+}
 
 const raise = keyframes`
   from {
@@ -27,10 +38,6 @@ const StyledHero = styled.div`
 	position: relative;
 	overflow: hidden;
 `;
-
-interface ContentContainerProps {
-	color: string;
-}
 
 const ContentContainer = styled.div`
 	min-height: 100vh;
@@ -68,17 +75,21 @@ const ImageContainer = styled.div`
 	align-items: center;
 
 	@media (max-width: 768px) {
-		margin: 3rem 2rem;
+		margin: 6rem 3rem;
 	}
 `;
 
 const InputContainer = styled.div`
 	display: flex;
-	height: 4.5rem;
 	opacity: 0;
 	transform: translateY(100%);
 	animation: ${raise} 1s 1.6s ease-out forwards;
 	gap: 3rem;
+`;
+
+const IdContainer = styled.div`
+	display: flex;
+	flex-direction: column;
 `;
 
 const Input = styled.input`
@@ -87,7 +98,6 @@ const Input = styled.input`
 	border: solid 2px var(--bg-01);
 	transition: all 1s;
 	background: rgba(255, 255, 255, 0.5);
-	width: 21rem;
 	font-size: 1.6rem;
 	padding: 1rem;
 	color: var(--text-primary);
@@ -108,14 +118,11 @@ const Input = styled.input`
 
 const UwuLabel = styled.div`
 	height: 100%;
-	text-align: center;
-	border: solid 2px var(--bg-01);
 	transition: all 1s;
-	background: rgba(255, 255, 255, 0.5);
-	width: 21rem;
+	min-width: 3rem;
 	font-size: 1.6rem;
 	padding: 1rem;
-	color: var(--text-primary);
+	color: #0abf27;
 	-moz-appearance: textfield;
 
 	::-webkit-outer-spin-button {
@@ -124,6 +131,10 @@ const UwuLabel = styled.div`
 	::-webkit-inner-spin-button {
 		display: none;
 	}
+
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-width: fit-content;
 
 	@media (max-width: 768px) {
 		width: 100%;
@@ -163,10 +174,44 @@ const SubHeader = styled.div`
 	}
 `;
 
+const SearchContainer = styled.div`
+	display: flex;
+	opacity: 0;
+	margin: 3rem 0;
+	flex-direction: column;
+	transform: translateY(100%);
+	animation: ${raise} 1s 1.6s ease-out forwards;
+`;
+
+const Button = styled.button`
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 1s;
+	color: white;
+	font-size: 2.2rem;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 0 5rem;
+	text-transform: none;
+	pointer-events: ${(props: Props) => (props.inactive ? 'none' : 'auto')};
+	height: 5rem;
+	width: 100%;
+
+	transition: background-color 0.3s;
+	background-color: ${(props: Props) => props.color};
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
+`;
+
 const ButtonContainer = styled.div`
 	margin-top: 3rem;
 	margin-left: auto;
 	margin-right: auto;
+	width: 100%;
 
 	opacity: 0;
 	transform: translateY(100%);
@@ -177,17 +222,13 @@ const ButtonContainer = styled.div`
 	}
 `;
 
-const SearchContainer = styled.div`
-	display: flex;
-	height: 3rem;
-	opacity: 0;
-	margin: 3rem 0;
-	transform: translateY(100%);
-	animation: ${raise} 1s 1.6s ease-out forwards;
-`;
-
+/*
+	TODO: Clean up CSS common styled compontents to be imported rather than redefined. Work on Claim func
+ */
 const NekoUwu = () => {
-	const [connecting, setConnecting] = useState(true);
+	const [connecting, setConnecting] = useState(false);
+	const { account } = useWeb3React<Web3Provider>();
+	console.log(`account: ${account}`);
 	const [colorIndex, setColor] = useState(0);
 	const colorIndexRef = useRef(colorIndex);
 	colorIndexRef.current = colorIndex;
@@ -212,16 +253,19 @@ const NekoUwu = () => {
 				<Content>
 					<Header>{t('nekobox.header')}</Header>
 					<SubHeader>{t('nekobox.subheader')}</SubHeader>
-					{!diabled && (
-						<>
-							<InputContainer>
-								<UwuLabel>
-									{t('nekobox.ids-held')}
-									{tokenIds.map((tokenId) => `${tokenId}, `)}
-								</UwuLabel>
-								<Input placeholder={`Insert Tip`} type="number" />
-							</InputContainer>
-							<ButtonContainer>
+					<IdContainer>
+						<InputContainer>
+							<Input placeholder={`Insert uwu #`} type="number" />
+							<Input placeholder={`Insert Tip`} type="number" />
+						</InputContainer>
+						{account && (
+							<UwuLabel>
+								{tokenIds.map((tokenId) => `#${tokenId}, `)}
+								{t('nekobox.avaliable')}
+							</UwuLabel>
+						)}
+						<ButtonContainer>
+							{account ? (
 								<Button
 									disabled={diabled}
 									color={color}
@@ -229,10 +273,13 @@ const NekoUwu = () => {
 								>
 									{t('nekobox.claim')}
 								</Button>
-							</ButtonContainer>
-						</>
-					)}
-
+							) : (
+								<Button disabled={connecting} color={color} onClick={() => setConnecting(true)}>
+									{t('nekobox.connect')}
+								</Button>
+							)}
+						</ButtonContainer>
+					</IdContainer>
 					<SearchContainer>
 						<SubHeader>{t('nekobox.eligibility')}</SubHeader>
 						<UwuSearch initValue={searchInput} setValue={getSearchValue} />
