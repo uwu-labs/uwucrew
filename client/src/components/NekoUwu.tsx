@@ -123,6 +123,7 @@ const UwuLabel = styled.div`
 	font-size: 1.6rem;
 	padding: 1rem;
 	color: #0abf27;
+	max-width: fit-content;
 	-moz-appearance: textfield;
 
 	::-webkit-outer-spin-button {
@@ -131,10 +132,6 @@ const UwuLabel = styled.div`
 	::-webkit-inner-spin-button {
 		display: none;
 	}
-
-	overflow-x: hidden;
-	overflow-y: scroll;
-	max-width: fit-content;
 
 	@media (max-width: 768px) {
 		width: 100%;
@@ -261,7 +258,7 @@ const NekoUwu = () => {
 						{account && (
 							<UwuLabel>
 								{tokenIds.map((tokenId) => `#${tokenId}, `)}
-								{t('nekobox.avaliable')}
+								{t('nekobox.available')}
 							</UwuLabel>
 						)}
 						<ButtonContainer>

@@ -54,6 +54,8 @@ const UwuLabel = styled.div`
 	font-size: 1.6rem;
 	padding: 1rem;
 	color: #0abf27;
+	max-width: fit-content;
+
 	-moz-appearance: textfield;
 
 	::-webkit-outer-spin-button {
@@ -62,10 +64,6 @@ const UwuLabel = styled.div`
 	::-webkit-inner-spin-button {
 		display: none;
 	}
-
-	overflow-x: hidden;
-	overflow-y: scroll;
-	max-width: fit-content;
 
 	@media (max-width: 768px) {
 		width: 100%;
@@ -110,7 +108,7 @@ export const UwuSearch = (props: { setValue: (arg0: any) => void; initValue: str
 	};
 
 	const zipped = queryIds.map((x, i) => [x, idEligibility[i]]);
-	const avaliableIds = zipped.filter(([isClaimed]) => isClaimed);
+	const availableIds = zipped.filter(([isClaimed]) => isClaimed);
 	const hasIds = queryIds.length !== 0;
 
 	return (
@@ -125,8 +123,8 @@ export const UwuSearch = (props: { setValue: (arg0: any) => void; initValue: str
 			</SearchContainer>
 			{hasIds && (
 				<UwuLabel>
-					{avaliableIds.map(([id]) => `#${id}, `)}
-					{t('nekobox.avaliable')}
+					{availableIds.map(([id]) => `#${id}, `)}
+					{t('nekobox.available')}
 				</UwuLabel>
 			)}
 		</UwuSearchContainer>
