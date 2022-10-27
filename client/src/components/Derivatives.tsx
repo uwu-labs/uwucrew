@@ -147,7 +147,7 @@ const Derivatives = () => {
 					<Column>
 						{filtered
 							.filter((d: DerivativeType, index: number) => index % columns === key + (d.id || 0) - (d.id || 0))
-							.sort(() => 0.5 - Math.random())
+							.reverse()
 							.map((derivative: DerivativeType) => (
 								<DerivativeImage derivative={derivative} />
 							))}
