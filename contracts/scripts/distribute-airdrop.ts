@@ -16,8 +16,14 @@ async function main() {
   
   // TODO: MAKE SURE USING RIGHT KEY AND JSON TO DISTRO
 
+  // ASSIGN THE JSON WITH KEY-VALUE MAP OF ADDRESS: AMOUNT TO AIRDROP IT BELOW
+  // CHANGE ADDRESS BELOW AND CHANGE TOKEN ID YOU WISH TO AIRDROP BELOW
+
   const airdrop = await ethers.getContractAt("Airdrop1155", "0x918eaa82ee6f07e46c82d04e34ebc352a56317c2") // uwu
   // const airdrop = await ethers.getContractAt("Airdrop1155", "0xa3b041ee6b56bccbc54a3048417d82fe67736f62") // lamps
+
+  // ID HERE
+  let NFT_ID = 3;
 
   console.log("doneeee")
   let addresses = Object.keys(airdropInfo);
@@ -26,10 +32,7 @@ async function main() {
     total += airdropInfo[addresses[i]]
   }
   console.log("Total to send: ", total)
-
   
-  // ID HERE
-  let NFT_ID = 3;
 
   let nonce = await ethers.provider.getTransactionCount(await deployer.getAddress(), "pending");
   console.log(nonce)
