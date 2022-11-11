@@ -186,7 +186,7 @@ const NameContainer = styled.div`
 `;
 
 const Name = styled.div`
-	font-family: 'Calder Dark', sans-serif;
+	font-family: 'Fredoka', sans-serif;
 	font-size: 2.6rem;
 	line-height: 2.6rem;
 	font-weight: 600;
@@ -195,7 +195,7 @@ const Name = styled.div`
 `;
 
 const Role = styled.div`
-	font-family: 'Calder LC', sans-serif;
+	font-family: 'Fredoka', sans-serif;
 	line-height: 1.2rem;
 	font-size: 1.4rem;
 	font-weight: 600;
