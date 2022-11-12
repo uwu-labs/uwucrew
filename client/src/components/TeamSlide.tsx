@@ -10,7 +10,6 @@ import kiwi from '../assets/profiles/kiwi.jpg';
 import morello from '../assets/profiles/morello.jpg';
 import danny from '../assets/profiles/danny.jpg';
 import omar from '../assets/profiles/omar.jpg';
-import luke from '../assets/profiles/luke.jpg';
 import spori from '../assets/profiles/spori.jpg';
 
 interface TeamMemberType {
@@ -89,16 +88,6 @@ const members: TeamMemberType[] = [
 			'He learned to study marketplace trends and valuations from MMO Free Markets and applies that to the NFT market today.'
 		],
 		twitter: 'https://twitter.com/0xMaple'
-	},
-	{
-		name: 'Frozen Luke',
-		role: 'Project Manager',
-		image: luke,
-		bio: [
-			'Luke is here to keep the uwu Labs team on track in executing all their amazing ideas.',
-			'He comes from the videogame world, and NFTs remind him of the early days of esports.'
-		],
-		twitter: 'https://twitter.com/LukeFrozen'
 	},
 	{
 		name: 'Spori',
@@ -186,15 +175,17 @@ const NameContainer = styled.div`
 `;
 
 const Name = styled.div`
+	font-family: 'Fredoka', sans-serif;
 	font-size: 2.6rem;
-	line-height: 1.9rem;
+	line-height: 2.6rem;
 	font-weight: 600;
 	color: var(--bg-03);
 	margin-bottom: 0.3rem;
 `;
 
 const Role = styled.div`
-	line-height: 1.2rem;
+	font-family: 'Fredoka', sans-serif;
+	line-height: 1.4em;
 	font-size: 1.4rem;
 	font-weight: 600;
 	color: var(--text-primary);
@@ -211,7 +202,6 @@ const Description = styled.div`
 	line-height: 1.6rem;
 	margin-top: 0.3rem;
 	margin-bottom: 0.5rem;
-	font-family: 'Roboto', sans-serif;
 	padding: 0 0.5rem;
 	width: 100%;
 `;
@@ -223,7 +213,6 @@ const Link = styled.a`
 	line-height: 1.6rem;
 	margin-top: 0.3rem;
 	margin-bottom: 0.5rem;
-	font-family: 'Roboto', sans-serif;
 	text-decoration: underline;
 `;
 

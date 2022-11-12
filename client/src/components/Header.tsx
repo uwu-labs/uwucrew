@@ -4,9 +4,11 @@ import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logo from '../assets/logos/logo.svg';
+import logo from '../assets/logos/logo_bunny.svg';
 import NavItems from './NavItems';
 import ExitButton from './ExitButton';
+
+const NAVBAR_HEIGHT = '6.5rem';
 
 const StyledNavbar = styled.div`
 	display: flex;
@@ -17,7 +19,7 @@ const StyledNavbar = styled.div`
 	width: 100%;
 	z-index: 1;
 	padding: 1rem 4rem;
-	height: 6.5rem;
+	height: ${NAVBAR_HEIGHT};
 
 	@media (max-width: 768px) {
 		padding: 10px 20px;
@@ -60,7 +62,10 @@ const lower = keyframes`
 `;
 
 const LogoContainer = styled.div`
-	width: 9rem;
+	height: ${NAVBAR_HEIGHT};
+	width: 4rem;
+	display: flex;
+	align-items: center;
 	margin-top: 1rem;
 	cursor: pointer;
 

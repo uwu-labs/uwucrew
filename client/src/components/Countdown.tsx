@@ -46,7 +46,6 @@ const Number = styled.div`
 const Label = styled.div`
 	letter-spacing: 0.2rem;
 	color: var(--text-primary);
-	font-family: 'Roboto', sans-serif;
 	font-weight: 500;
 
 	font-size: 1.7rem;

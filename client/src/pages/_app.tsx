@@ -43,13 +43,6 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 
 							{/* This fixes big icons with next-seo since CSS is somehow overwritten*/}
 							<style>{dom.css()}</style>
-
-							<link rel="preconnect" href="https://fonts.googleapis.com" />
-							<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-							<link
-								href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap"
-								rel="stylesheet"
-							></link>
 						</Head>
 						<GlobalStyles />
 						<Web3Automation />

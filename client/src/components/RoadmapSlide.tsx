@@ -43,7 +43,6 @@ const ListItem = styled.div`
 	color: var(--text-primary);
 	padding-right: 2rem;
 	margin-bottom: 1rem;
-	font-family: 'Roboto', sans-serif;
 
 	font-size: 2rem;
 	line-height: 2.3rem;

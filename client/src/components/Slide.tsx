@@ -47,7 +47,7 @@ const headerAnimate = css`
 	animation: ${raise} 0.6s 0.9s ease-out forwards;
 `;
 
-const Header = styled.div`
+const Header = styled.h1`
 	font-weight: 700;
 	color: ${(props: SlideProps) => props.color};
 
@@ -70,7 +70,6 @@ const SubHeader = styled.div`
 	color: var(--text-primary);
 	max-width: 70%;
 	margin-bottom: 2rem;
-	font-family: 'Roboto', sans-serif;
 
 	font-size: 2rem;
 	line-height: 2.3rem;

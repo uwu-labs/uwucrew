@@ -1,6 +1,8 @@
 import useTranslation from 'next-translate/useTranslation';
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import logo from '../assets/logos/logo.svg';
+import Image from 'next/image';
 import Button from './Button';
 import ConnectWallet from './ConnectWallet';
 import Footer from './Footer';
@@ -68,21 +70,20 @@ const ImageContainer = styled.div`
 	}
 `;
 
-const Header = styled.h1`
-	letter-spacing: 0.3rem;
-	color: var(--bg-01);
+const LogoContainer = styled.div`
+	display: flex;
+	align-items: center;
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5rem;
+	cursor: pointer;
 
 	opacity: 0;
-	transform: translateY(100%);
 	animation: ${raise} 1s 1.3s ease-out forwards;
 
-	font-size: 14rem;
-	line-height: 10rem;
-	margin-bottom: 3rem;
-	@media (max-width: 768px) {
-		font-size: 7.5rem;
-		line-height: 5rem;
-		margin-bottom: 2rem;
+	@media (min-width: 768px) {
+		width: 42.5rem;
 	}
 `;
 
@@ -92,7 +93,6 @@ const SubHeader = styled.h2`
 	max-width: 61rem;
 	line-height: 2.3rem;
 	margin-bottom: 2rem;
-	font-family: 'Roboto', sans-serif;
 
 	opacity: 0;
 	transform: translateY(100%);
@@ -101,12 +101,14 @@ const SubHeader = styled.h2`
 	font-size: 2rem;
 	@media (max-width: 768px) {
 		font-size: 1.6rem;
-		max-width: 80vw;
+		text-align: center;
 	}
 `;
 
 const ButtonContainer = styled.div`
 	margin-top: 2rem;
+	margin-left: auto;
+	margin-right: auto;
 
 	opacity: 0;
 	transform: translateY(100%);
@@ -139,7 +141,9 @@ const Hero = () => {
 					<RotatingImage color={color} activeIndex={colorIndex} />
 				</ImageContainer>
 				<TextContainer>
-					<Header>{t('general.name')}</Header>
+					<LogoContainer>
+						<Image src={logo} />
+					</LogoContainer>
 					<SubHeader>{t('general.description')}</SubHeader>
 					<ButtonContainer>
 						<Button color={color} onClick={() => (window as any).open('https://opensea.io/collection/uwucrew', '_blank').focus()}>

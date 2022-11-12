@@ -62,7 +62,6 @@ const SubHeader = styled.div`
 	color: var(--text-primary);
 	max-width: 70%;
 	margin-top: 2rem;
-	font-family: 'Roboto', sans-serif;
 	font-size: 1.7rem;
 	line-height: 2.3rem;
 
@@ -80,7 +79,6 @@ const Link = styled.a`
 	color: var(--text-primary);
 	max-width: 70%;
 	margin-top: 2rem;
-	font-family: 'Roboto', sans-serif;
 	text-decoration: underline;
 	font-size: 1.7rem;
 	line-height: 2.3rem;
@@ -142,7 +140,6 @@ const Li = styled.li`
     color: var(--text-primary);
     max-width: 70%;
     margin-top: 1rem;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.7rem;k
     line-height: 2.3rem;
 
