@@ -71,7 +71,6 @@ const ImageContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
-	width: 42.5rem;
 	display: flex;
 	align-items: center;
 	margin-top: 1rem;
@@ -82,6 +81,10 @@ const LogoContainer = styled.div`
 
 	opacity: 0;
 	animation: ${raise} 1s 1.3s ease-out forwards;
+
+	@media (min-width: 768px) {
+		width: 42.5rem;
+	}
 `;
 
 const SubHeader = styled.h2`
@@ -98,7 +101,7 @@ const SubHeader = styled.h2`
 	font-size: 2rem;
 	@media (max-width: 768px) {
 		font-size: 1.6rem;
-		max-width: 80vw;
+		text-align: center;
 	}
 `;
 
