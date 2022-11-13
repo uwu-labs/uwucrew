@@ -68,9 +68,16 @@
 		"header": "Nekobox uwus - NFTX Edition",
 		"subheader": "All uwucrew NFTs with NFTX hoodies can claim a free derivative of their uwucrew drawn by Nekobox! You can also include an optional tip as a thank you to the uwucrew team and Nekobox!",
 		"claim": "Claim",
+		"claimed": "has been claimed!",
 		"connect": "Connect",
-		"ids-held": " available",
-		"eligibility": "Check uwu id(s): "
-		
+		"available": " available",
+		"eligibility": "Check uwu id(s): ",
+		"errors": {
+			"no_uwu": "You do not have any claimable uwus",
+			"invalid_input": "Invalid uwu id input",
+			"zero_or_more": "Must be an id of 0 but no more than 9669",
+			"integer": "Must be a valid id (#0 - #9669)",
+			"token_not_held": "You do not own this id"
+		}
 	}
 }
