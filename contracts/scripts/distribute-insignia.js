@@ -1,8 +1,7 @@
 const { BigNumber } = require("@ethersproject/bignumber");
-const { ethers, upgrades } = require("hardhat");
-const airdropInfo1155 = require("./results.json");
-
-// let stampIds = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const { ethers } = require("hardhat");
+// const airdropInfo2 = require("../snapshots/waifu-12092465.json");
+const airdropInfo = require("./results/year-holders.json");
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -15,97 +14,59 @@ async function main() {
     "\n"
   );
   
+  // TODO: MAKE SURE USING RIGHT KEY AND JSON TO DISTRO
+
   const insignia = await ethers.getContractAt("UwuInsignia", "0xB2630e52FAAF487d277CabE213CD56BDcA17Ca11");
 
-  // const Insignia = await ethers.getContractFactory('UwuInsignia');
-  // const insignia = await Insignia.deploy("ipfs://");
-  // await insignia.deployed();
-
-  // console.log(`deployed insignia: ${insignia.address}`)
-
-  // await insignia.setManager("0x92e9b91AA2171694d740E7066F787739CA1Af9De", true);
-
-  let tx = await insignia.initializeStamp("0x354A70969F0b4a4C994403051A81C2ca45db3615", 1, "Qmaqcco7WANQPrL76UpncrSbF2NNNjmHRseDHxyK5pfukx");
-  await tx.wait()
-
-  // for (let i = 0; i < stampIds.length; i++) {
-  //   console.log(`Initialized Stamp #${stampIds[i]}`)
-  // }
-
-  // const uwuQuest = await ethers.getContr3actAt("uwuQuestStampsUpgradeable", "0x004097675a293be8d538258ad1a6e561304048f1")
-
   console.log("doneeee")
+  let addresses = Object.keys(airdropInfo);
+  let total = 0;
+  for (let i = 0; i < addresses.length; i++) {
+    total += airdropInfo[addresses[i]]
+  }
+  console.log("Total to send: ", total)
 
-  return
+  
+  // ID HERE AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ID HERE
+  let NFT_ID = 0;
 
-  let addresses = Object.keys(airdropInfo1155);
-  // let total = 0;
-  // for (let i = 0; i < addresses.length; i++) {
-  //   total += airdropInfo1155[addresses[i]]
-  // }
-  // console.log("Total to send: ", total)
-  let totalCosts = BigNumber.from(0)
-  let txCount = 0;
-  // ID HERE
   let nonce = await ethers.provider.getTransactionCount(await deployer.getAddress(), "pending");
   console.log(nonce)
-  let batchSize = 45;
-  for (let i = 0; i < addresses.length; i++) {
+  let batchSize = 200;
+  for (let i = 0; i < addresses.length; i += batchSize) {
     let sendAddresses = [];
     let sendIds = [];
     let sendAmounts = [];
-
-    let start = i;
-
-    // if adding this item passes the max, do another tx
-    let max = batchSize;
-    while (sendIds.length < max) {
-      let userInfo = airdropInfo1155[addresses[i]];
-      let clonedAddresses = Array(userInfo.ids.length).fill(addresses[i])
-      sendAddresses.push(...clonedAddresses);
-      sendIds.push(...userInfo.ids);
-      sendAmounts.push(...userInfo.amounts);
-      if (i+1 == addresses.length) 
-        break
-      i++
-      userInfo = airdropInfo1155[addresses[i]];
-      max = sendAddresses.length + userInfo.ids.length > batchSize ? sendAddresses.length : batchSize;
+    let max = i+batchSize > addresses.length ? addresses.length : i+batchSize
+    let ids = Array(max-i).fill(NFT_ID)
+    for (let ii = i; ii < max; ii++) {
+      // let balance = batchBalances[ii-i]
+      // let extraToMint = airdropInfo[addresses[ii]] > balance;
+      // if (!extraToMint) {
+      //   continue
+      // }
+      // console.log(`Missed: ${addresses[ii]}: ${0} vs. ${airdropInfo[addresses[ii]]}`)
+      sendAddresses.push(addresses[ii])
+      sendIds.push(NFT_ID)
+      // sendAmounts.push(airdropInfo[addresses[ii]])
+      sendAmounts.push(1)
     }
     if (sendAddresses.length == 0) {
       continue
     }
-    // console.log(i)
-    // console.log(max)
-    // console.log(sendAddresses)
-    // console.log(sendIds)
-    // console.log(sendAmounts)
-
-    let estimate = await uwuQuest.estimateGas.mintMany(
+    console.log(i)
+    console.log(sendAddresses.length)
+    let tx = await insignia.mintManyUpTo(
       sendAddresses, sendIds, sendAmounts,
       {
         nonce: BigNumber.from(nonce),
+        gasLimit: 10000000,
       }
     );
-    let tx = await uwuQuest.mintMany(
-      sendAddresses, sendIds, sendAmounts,
-      {
-        nonce: BigNumber.from(nonce),
-        gasLimit: estimate,
-        gasPrice: 20000000000,
-      }
-    );
-
-    totalCosts = totalCosts.add(tx.gasLimit.mul(tx.gasPrice))
-    txCount++;
-    console.log(`Gas limit for sending stamps for ${sendAddresses.length} stamps: ${tx.gasLimit.toString()}`)
-    console.log(`Gas price: ${ethers.utils.formatUnits(tx.gasPrice.toString(), "gwei")} gwei`)
-    console.log(`Total fee for sending to ${i - start} holders: ${ethers.utils.formatEther(tx.gasLimit.mul(tx.gasPrice).toString())} ETH`)
     await tx.wait();
     nonce++;
-    console.log(tx.hash)
-  }
 
-  console.log(`Total fee for sending all stamps in ${txCount} transactions: ${ethers.utils.formatEther(totalCosts.toString())} ETH`)
+  }
 }
 
 main()

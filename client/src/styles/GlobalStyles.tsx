@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-family: 'Calder Dark', sans-serif;
+    font-family: 'Fredoka', sans-serif;
   }
 
   table {

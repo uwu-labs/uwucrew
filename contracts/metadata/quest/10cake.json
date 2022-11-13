@@ -1,0 +1,16 @@
+{
+  "description": "This slice of cake uwu Quest stamp was given to everyone who attended the [uwuniversary birthday party](https://opensea.io/assets/matic/0x918eaa82ee6f07e46c82d04e34ebc352a56317c2/2)!!!\n\nuwu Quest Stamps can be used in various uwu Quest recipes to redeem special prizes: [Read about uwu Quest here](https://mirror.xyz/uwucrew.eth/_4n9TUszNT23Eiby-vGwcaZDTjGCBWmwooMG9gLCzi0)",
+  "external_url": "https://dressingroom.uwucrew.art",
+  "image": "ipfs://QmWtKr9EUpCTJWFGZ23sjegZiZBhrS9CU1YKjRBZ3AaEss",
+  "name": "Slice of Cake",
+  "attributes": [
+    {
+     "trait_type": "Event",
+     "value": "uwuniversary"
+    },
+    {
+     "trait_type": "Artist",
+     "value": "laur"
+    }
+  ]
+ }
