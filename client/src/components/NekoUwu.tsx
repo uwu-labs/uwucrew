@@ -116,8 +116,8 @@ const NekoUwu = () => {
 	const { t } = useTranslation('common');
 	const [colorIndex, setColor] = useState(0);
 	const [searchInput, setSearchInput] = useState('');
-	const [claimId, setClaimId] = useState();
-	const [tipAmount, setTipAmount] = useState();
+	const [claimId, setClaimId] = useState('');
+	const [tipAmount, setTipAmount] = useState('');
 
 	const colorIndexRef = useRef(colorIndex);
 	colorIndexRef.current = colorIndex;

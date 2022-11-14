@@ -9,7 +9,7 @@ import { Contract, ethers } from 'ethers';
 import { selectTokenIdsHeld } from 'state/reducers/nekouwu';
 import { useSelector } from 'react-redux';
 import ConnectWallet from './ConnectWallet';
-import MERKLE_PROOF from '../contracts/nftxuwuproofs.json';
+import MERKLE_PROOF from '../assets/data/nftxUwuProofs.json';
 
 interface Props {
 	color: string;
@@ -28,7 +28,7 @@ const ERRORS: Errors[] = [
 	},
 	{
 		code: 'INVALID_ARGUMENT',
-		reason: 'Invalid payable amount'
+		reason: 'Invalid tip payable amount'
 	},
 	{
 		code: 'UNPREDICTABLE_GAS_LIMIT',
@@ -189,8 +189,8 @@ const parseError = (response: any) => {
 export const NekoUwuClaim = (props: {
 	setId: (arg0: any) => void;
 	setTip: (arg0: any) => void;
-	uwuId: number | undefined;
-	tip: number | undefined;
+	uwuId: string | undefined;
+	tip: string | undefined;
 	color: string;
 }) => {
 	const { t } = useTranslation('common');
@@ -201,8 +201,9 @@ export const NekoUwuClaim = (props: {
 	const { account, library } = useWeb3React<Web3Provider>();
 	const tokenIds: Array<number> = useSelector(selectTokenIdsHeld);
 	const hasUwuws = tokenIds.length !== 0;
+	const blockInvalidChar = (e: { key: string; preventDefault: () => any }) => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
-	const validate = (uwuId: number | undefined): boolean => {
+	const validate = (uwuId: string | undefined): boolean => {
 		if (!hasUwuws) {
 			setError(t('nekobox.errors.no_uwu'));
 			return false;
@@ -234,7 +235,7 @@ export const NekoUwuClaim = (props: {
 		return true;
 	};
 
-	const claim = async (contract: Contract, uwuId: number, proof: string[], tipAmount: number | undefined) => {
+	const claim = async (contract: Contract, uwuId: number, proof: string[], tipAmount: string | undefined) => {
 		const tipVal = tipAmount ? tipAmount : 0;
 		const tip = { value: ethers.utils.parseEther(`${tipVal}`) };
 		await contract
@@ -243,7 +244,7 @@ export const NekoUwuClaim = (props: {
 				receipt
 					.wait()
 					.then(() => {
-						console.log('Claim submitted'); // TODO: How do we handle a succesful reponse
+						console.log('Claim submitted');
 					})
 					.finally(() => {
 						setLoading(false);
@@ -257,7 +258,10 @@ export const NekoUwuClaim = (props: {
 	};
 	const handleClaim = async () => {
 		setLoading(true);
-		if (!validate(props.uwuId) || !library) return;
+		if (!validate(props.uwuId) || !library) {
+			setLoading(false);
+			return;
+		}
 		if (account) {
 			const id = Number(props.uwuId);
 			const strId = `${id}`;
@@ -266,6 +270,8 @@ export const NekoUwuClaim = (props: {
 				const signer = library?.getSigner(account);
 				const contract = new Contract(NEKOUWU_CONTRACT, NEKOUWU_ABI, signer);
 				await claim(contract, id, proof, props.tip);
+			} else {
+				setLoading(false);
 			}
 		}
 	};
@@ -281,6 +287,7 @@ export const NekoUwuClaim = (props: {
 						placeholder={`Insert uwu #`}
 						type="number"
 						value={props.uwuId}
+						onKeyDown={blockInvalidChar}
 						onChange={(e) => {
 							props.setId(e.target.value);
 						}}
@@ -289,10 +296,10 @@ export const NekoUwuClaim = (props: {
 						placeholder={`Insert Tip (eth)`}
 						type="number"
 						value={props.tip}
+						onKeyDown={blockInvalidChar}
 						onChange={(e) => {
 							props.setTip(e.target.value);
 						}}
-						prefix="eth"
 					/>
 				</InputContainer>
 				{account && hasUwuws && (
