@@ -819,13 +819,6 @@ const derivatives: DerivativeType[] = [
     artistLink: 'https://twitter.com/6maker_',
   },
   {
-    image: 'https://pbs.twimg.com/media/FHe9jDuaIAExZQv?format=jpg&name=medium',
-    id: 7650 & 3756,
-    post: 'https://twitter.com/Lamenthyst/status/1474858233894666240',
-    artistName: 'Lamenthyst',
-    artistLink: 'https://twitter.com/Lamenthyst',
-  },
-  {
     image: 'https://pbs.twimg.com/media/FHgQ47TXMAgrRol?format=jpg&name=small',
     id: 3209,
     post: 'https://twitter.com/xiran_art/status/1474950572818288645',
@@ -4417,6 +4410,326 @@ const derivatives: DerivativeType[] = [
     "post": "https://twitter.com/fungibleartist/status/1576719294729113600",
     "date": "10/2/2022",
     "id": 3926
+  },
+  {
+    "artistName": "seradoa",
+    "artistLink": "https://twitter.com/seradoar",
+    "image": "https://pbs.twimg.com/media/FgBo93-WIAAo8Sn?format=jpg&name=900x900",
+    "post": "https://twitter.com/uwudaonft/status/1585383166285586432",
+    "date": "10/26/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Pamiee",
+    "artistLink": "https://twitter.com/pamieecutie",
+    "image": "https://pbs.twimg.com/media/FgXb2pmaAAEqJ1-?format=jpg&name=900x900",
+    "post": "https://twitter.com/pamieecutie/status/1586916562694737920",
+    "date": "10/30/2022",
+    "id": 5868
+  },
+  {
+    "artistName": "Shibuya",
+    "artistLink": "https://twitter.com/Shibuya_Hikitz",
+    "image": "https://pbs.twimg.com/media/FgSezKkaAAEpVLH?format=jpg&name=900x900",
+    "post": "https://twitter.com/Shibuya_Hikitz/status/1586567577618509824",
+    "date": "10/29/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Jules Blank",
+    "artistLink": "https://twitter.com/BlancNFT",
+    "image": "https://pbs.twimg.com/media/FftJIyAXgAAZxuv?format=jpg&name=900x900",
+    "post": "https://twitter.com/uwudaonft/status/1583941265422532611",
+    "date": "10/22/2022",
+    "id": 8047
+  },
+  {
+    "artistName": "ArtgifB",
+    "artistLink": "twitter.com/ArtgifB",
+    "image": "https://pbs.twimg.com/media/FgBoSswXgA4Q6TS?format=jpg&name=900x900",
+    "post": "twitter.com/uwudaonft/status/1585382407754186764",
+    "date": "10/26/2022",
+    "id": 1266
+  },
+  {
+    "artistName": "Peritrago",
+    "artistLink": "twitter.com/peritrago",
+    "image": "https://pbs.twimg.com/media/FgLKmmVXkAAt5Xm?format=jpg&name=small",
+    "post": "twitter.com/peritrago/status/1586052788068397058",
+    "date": "10/28/2022",
+    "id": 5825
+  },
+  {
+    "artistName": "Pawwao",
+    "artistLink": "twitter.com/pawwaoart",
+    "image": "https://pbs.twimg.com/media/FfQga3IaMAAnc4V?format=jpg&name=large",
+    "post": "twitter.com/pawwaoart/status/1581925021727207425/photo/2",
+    "date": "10/17/2022",
+    "id": 3976
+  },
+  {
+    "artistName": "Seradoar",
+    "artistLink": "twitter.com/seradoar",
+    "image": "https://pbs.twimg.com/media/FfcNu6-X0AANm_u?format=jpg&name=small",
+    "post": "https://twitter.com/seradoar/status/1582749040999292928",
+    "date": "10/19/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "99migiy",
+    "artistLink": "twitter.com/99migiy",
+    "image": "https://pbs.twimg.com/media/FfqlWQXaUAA7mN-?format=jpg&name=900x900",
+    "post": "twitter.com/99migiy/status/1583760041081208833",
+    "date": "10/22/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Sann_sanngo",
+    "artistLink": "https://twitter.com/sann_sanngo",
+    "image": "https://pbs.twimg.com/media/FgAyylWXwAw48d5?format=png&name=900x900",
+    "post": "twitter.com/morellostorment/status/1585334676293812225",
+    "date": "10/26/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "fungibleartist",
+    "artistLink": "https://twitter.com/fungibleartist",
+    "image": "https://pbs.twimg.com/media/FggA9MyUcAEigC9?format=jpg&name=medium",
+    "post": "https://twitter.com/fungibleartist/status/1587520397557174272",
+    "date": "11/1/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Soratteyomimasu",
+    "artistLink": "https://twitter.com/soratteyomimasu",
+    "image": "https://pbs.twimg.com/media/FgWjnwDXgAAm9lb?format=jpg&name=900x900",
+    "post": "twitter.com/morellostorment/status/1586858772382859265",
+    "date": "10/30/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Yowa",
+    "artistLink": "https://twitter.com/yowayowaxx",
+    "image": "https://pbs.twimg.com/media/FgqJ7tNWAAMg-Wm?format=jpg&name=small",
+    "post": "https://twitter.com/OmarIbisa/status/1588235146708324355",
+    "date": "11/3/2022",
+    "id": 28
+  },
+  {
+    "artistName": "Ryo",
+    "artistLink": "https://twitter.com/nft_ryo",
+    "image": "https://pbs.twimg.com/media/FPJGPtJXEAE73Rh?format=jpg&name=medium",
+    "post": "https://twitter.com/HopsNFTs/status/1509346064549257216/photo/1",
+    "date": "3/30/2022",
+    "id": 2994
+  },
+  {
+    "artistName": "Aoya",
+    "artistLink": "https://twitter.com/AoyaNFT",
+    "image": "https://pbs.twimg.com/media/FMsAFGUXEAInyBI?format=jpg&name=large",
+    "post": "https://twitter.com/HopsNFTs/status/1498291393621639173/photo/1",
+    "date": "2/28/2022",
+    "id": 6929
+  },
+  {
+    "artistName": "AoUSA0328",
+    "artistLink": "https://twitter.com/AoUSA0328",
+    "image": "https://pbs.twimg.com/media/FgmUuUMXwAAmzNj?format=jpg&name=large",
+    "post": "twitter.com/morellostorment/status/1587972210349711362",
+    "date": "11/2/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "JANphotoCNX",
+    "artistLink": "twitter.com/JANphotoCNX",
+    "image": "https://pbs.twimg.com/media/FgudEcpVIAA4ann?format=jpg&name=900x900",
+    "post": "twitter.com/JANphotoCNX/status/1588536798388461569",
+    "date": "11/4/2022",
+    "id": 7159
+  },
+  {
+    "artistName": "SWHEATZ",
+    "artistLink": "https://twitter.com/SWHEATZ1",
+    "image": "https://pbs.twimg.com/media/Fgl-xLUX0AEf49W?format=jpg&name=900x900",
+    "post": "https://twitter.com/uwudaonft/status/1587941419414654981",
+    "date": "11/2/2022",
+    "id": 4542
+  },
+  {
+    "artistName": "Ninegiri",
+    "artistLink": "https://twitter.com/ninegiri_",
+    "image": "https://pbs.twimg.com/media/Fgl9AVQXwAEjq-Y?format=jpg&name=small",
+    "post": "https://twitter.com/uwudaonft/status/1587938760976728065",
+    "date": "11/2/2022",
+    "id": 4320
+  },
+  {
+    "artistName": "Feireina",
+    "artistLink": "https://twitter.com/Feireina",
+    "image": "https://pbs.twimg.com/media/Fgl8yWvXwAE4IIw?format=jpg&name=medium",
+    "post": "https://twitter.com/uwudaonft/status/1587937612341321729",
+    "date": "11/2/2022",
+    "id": 5457
+  },
+  {
+    "artistName": "Tanpopo",
+    "artistLink": "https://twitter.com/Tanpopo_NFT",
+    "image": "https://pbs.twimg.com/media/FhLP_kxaUAENykc?format=jpg&name=900x900",
+    "post": "https://twitter.com/Tanpopo_NFT/status/1590562314952278017",
+    "date": "11/9/2022",
+    "id": 4542
+  },
+  {
+    "artistName": "KRY_Peach",
+    "artistLink": "https://twitter.com/KRY_Peach",
+    "image": "https://pbs.twimg.com/media/FhTCgQIXkAM7V4m?format=jpg&name=small",
+    "post": "twitter.com/morellostorment/status/1591110581205209092",
+    "date": "11/11/2022",
+    "id": 8614
+  },
+  {
+    "artistName": "RhoXifer",
+    "artistLink": "https://twitter.com/RhoXifer",
+    "image": "https://pbs.twimg.com/media/FhMKW49UoAAe2jC?format=jpg&name=small",
+    "post": "twitter.com/RhoXifer/status/1590631932077158400",
+    "date": "11/10/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Berry_R",
+    "artistLink": "https://twitter.com/Berry_R25",
+    "image": "https://pbs.twimg.com/media/FhLbGapagAID80D?format=jpg&name=medium",
+    "post": "https://twitter.com/Berry_R25/status/1590574536394956800",
+    "date": "11/9/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "ShinoLara",
+    "artistLink": "https://twitter.com/ShinoLaraNFT",
+    "image": "https://pbs.twimg.com/media/FhTQ0N0WAAYUPG9?format=jpg&name=small",
+    "post": "https://twitter.com/uwudaonft/status/1591126235421081603",
+    "date": "11/11/2022",
+    "id": 4174
+  },
+  {
+    "artistName": "Nekobox",
+    "artistLink": "https://twitter.com/Nekoboxhime",
+    "image": "https://pbs.twimg.com/media/FhEVVh7UcAAc578?format=jpg&name=small",
+    "post": "https://twitter.com/Nekoboxhime/status/1590076615937384449",
+    "date": "11/8/2022",
+    "id": 8614
+  },
+  {
+    "artistName": "Kyokimaru",
+    "artistLink": "https://twitter.com/Kyokimaru",
+    "image": "https://pbs.twimg.com/media/FhTOgLaWABE_G_m?format=jpg&name=small",
+    "post": "https://twitter.com/uwudaonft/status/1591125299965865984",
+    "date": "11/11/2022",
+    "id": 8017
+  },
+  {
+    "artistName": "Eminnisa",
+    "artistLink": "https://twitter.com/eminnisa_NFT",
+    "image": "https://twitter.com/uwudaonft/status/1591125602429698049",
+    "post": "https://twitter.com/uwudaonft/status/1591125602429698049",
+    "date": "11/11/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Jamesmakan",
+    "artistLink": "https://twitter.com/jamesmakan",
+    "image": "https://pbs.twimg.com/media/FhTQdckXEAA1Wrx?format=jpg&name=900x900",
+    "post": "https://twitter.com/uwudaonft/status/1591125801499385856",
+    "date": "11/11/2022",
+    "id": 9669
+  },
+  {
+    "artistName": "Tsuru_oden",
+    "artistLink": "https://twitter.com/tsuru_oden",
+    "image": "https://pbs.twimg.com/media/FhpxQm7WIAMTEfP?format=jpg&name=900x900",
+    "post": "https://twitter.com/uwucrewnft/status/1592713759893901312",
+    "date": "11/15/2022",
+    "id": 3976
+  },
+  {
+    "artistName": "Seradoar",
+    "artistLink": "https://twitter.com/seradoar",
+    "image": "https://pbs.twimg.com/media/FhaMB1GWIAUz38L?format=jpg&name=900x900",
+    "post": "https://twitter.com/seradoar/status/1591613776452894720?s=20&t=_wf705tJyJ__pT9XmUQDug",
+    "date": "11/12/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Cirelwork",
+    "artistLink": "https://twitter.com/cirelwork",
+    "image": "https://pbs.twimg.com/media/FhxodyHXoAQbgV7?format=jpg&name=small",
+    "post": "https://twitter.com/morellostorment/status/1593271001047044097",
+    "date": "11/17/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Sykz",
+    "artistLink": "https://twitter.com/ChinpongR",
+    "image": "https://pbs.twimg.com/media/Fh3BvA1VQAI7kuj?format=jpg&name=900x900",
+    "post": "https://twitter.com/ChinpongR/status/1593644552027394048?s=20&t=zSRWps6Xk3PL82MxRGwQwQ",
+    "date": "11/18/2022",
+    "id": 4542
+  },
+  {
+    "artistName": "Farah",
+    "artistLink": "https://twitter.com/literallyfarah",
+    "image": "https://pbs.twimg.com/media/FhyGDaCVUAAXi89?format=png&name=small",
+    "post": "https://twitter.com/literallyfarah/status/1593305884959993857",
+    "date": "11/17/2022",
+    "id": 8172
+  },
+  {
+    "artistName": "Pluem",
+    "artistLink": "https://twitter.com/P1u3mm",
+    "image": "https://pbs.twimg.com/media/FhWqc40aAAEjxER?format=jpg&name=small",
+    "post": "twitter.com/P1u3mm/status/1591365601511231488",
+    "date": "11/12/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Ninegiri",
+    "artistLink": "https://twitter.com/ninegiri_",
+    "image": "https://cdn.discordapp.com/attachments/885010193556049950/1040384802135748618/unknown.png",
+    "post": "",
+    "date": "11/4/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Katsumi",
+    "artistLink": "twitter.com/Katsumithefox",
+    "image": "https://pbs.twimg.com/media/FhT38y7XgBMSl9F?format=jpg&name=small",
+    "post": "twitter.com/Katsumithefox/status/1591169197136314368",
+    "date": "11/11/2022",
+    "id": 2971
+  },
+  {
+    "artistName": "Sohare",
+    "artistLink": "https://twitter.com/_sohare",
+    "image": "https://pbs.twimg.com/media/FhXnx8iVIAA7H1c?format=jpg&name=900x900",
+    "post": "https://twitter.com/_sohare/status/1591432965049192448",
+    "date": "11/12/2022",
+    "id": 3209
+  },
+  {
+    "artistName": "Nobasaku",
+    "artistLink": "twitter.com/nobasaku_555",
+    "image": "https://pbs.twimg.com/media/Fhjr7hBXEAAWgAe?format=jpg&name=medium",
+    "post": "https://twitter.com/OmarIbisa/status/1592282366265159680",
+    "date": "11/14/2022",
+    "id": 28
+  },
+  {
+    "artistName": "KRY_Peach",
+    "artistLink": "twitter.com/KRY_Peach",
+    "image": "https://pbs.twimg.com/media/FhjBKUtWYAEaPQG?format=jpg&name=small",
+    "post": "https://twitter.com/morellostorment/status/1592311149084971009",
+    "date": "11/14/2022",
+    "id": 3209
   }
 ];
 
