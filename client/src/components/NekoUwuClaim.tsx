@@ -10,6 +10,7 @@ import { selectTokenIdsHeld } from 'state/reducers/nekouwu';
 import { useSelector } from 'react-redux';
 import ConnectWallet from './ConnectWallet';
 import MERKLE_PROOF from '../assets/data/nftxUwuProofs.json';
+import Button from './Button';
 
 interface Props {
 	color: string;
@@ -62,12 +63,13 @@ const InputContainer = styled.div`
 const Input = styled.input`
 	height: 100%;
 	text-align: center;
-	border: solid 2px var(--bg-01);
+	border: ${(props: Props) => (props.color ? `solid 2px ${props.color}` : 'solid 2px var(--error)')};
 	transition: all 1s;
 	background: rgba(255, 255, 255, 0.5);
 	font-size: 1.6rem;
 	padding: 1rem;
 	color: var(--text-primary);
+	flex-basis: fit-content;
 	-moz-appearance: textfield;
 
 	::-webkit-outer-spin-button {
@@ -80,30 +82,6 @@ const Input = styled.input`
 	@media (max-width: 768px) {
 		width: 100%;
 		flex: 1;
-	}
-`;
-
-const Button = styled.button`
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: all 1s;
-	color: white;
-	font-size: 2.2rem;
-	font-weight: 500;
-	cursor: pointer;
-	padding: 0 5rem;
-	text-transform: none;
-	pointer-events: ${(props: Props) => (props.inactive ? 'none' : 'auto')};
-	height: 5rem;
-	width: 100%;
-
-	transition: background-color 0.3s;
-	background-color: ${(props: Props) => props.color};
-
-	@media (max-width: 768px) {
-		width: 100%;
 	}
 `;
 
@@ -190,7 +168,7 @@ export const NekoUwuClaim = (props: {
 	setId: (arg0: any) => void;
 	setTip: (arg0: any) => void;
 	uwuId: string | undefined;
-	tip: string | undefined;
+	tip: string;
 	color: string;
 }) => {
 	const { t } = useTranslation('common');
@@ -203,13 +181,17 @@ export const NekoUwuClaim = (props: {
 	const hasUwuws = tokenIds.length !== 0;
 	const blockInvalidChar = (e: { key: string; preventDefault: () => any }) => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
-	const validate = (uwuId: string | undefined): boolean => {
+	const validate = (uwuId: string | undefined, tipAmount: string): boolean => {
 		if (!hasUwuws) {
 			setError(t('nekobox.errors.no_uwu'));
 			return false;
 		}
 		if (!uwuId) {
 			setError(t('nekobox.errors.invalid_input'));
+			return false;
+		}
+		if (!tipAmount) {
+			setError(t('nekobox.errors.invalid_tip'));
 			return false;
 		}
 		let value = -1;
@@ -258,7 +240,7 @@ export const NekoUwuClaim = (props: {
 	};
 	const handleClaim = async () => {
 		setLoading(true);
-		if (!validate(props.uwuId) || !library) {
+		if (!validate(props.uwuId, props.tip) || !library) {
 			setLoading(false);
 			return;
 		}
@@ -291,7 +273,9 @@ export const NekoUwuClaim = (props: {
 						onChange={(e) => {
 							props.setId(e.target.value);
 						}}
+						color={props.color}
 					/>
+
 					<Input
 						placeholder={`Insert Tip (eth)`}
 						type="number"
@@ -300,6 +284,7 @@ export const NekoUwuClaim = (props: {
 						onChange={(e) => {
 							props.setTip(e.target.value);
 						}}
+						color={props.color}
 					/>
 				</InputContainer>
 				{account && hasUwuws && (
@@ -310,11 +295,11 @@ export const NekoUwuClaim = (props: {
 				)}
 				<ButtonContainer>
 					{account ? (
-						<Button disabled={loading} color={props.color} onClick={handleClaim}>
+						<Button width={'100%'} disabled={loading} color={props.color} onClick={handleClaim}>
 							{loading ? 'Loading' : 'Claim'}
 						</Button>
 					) : (
-						<Button disabled={connecting} color={props.color} onClick={() => setConnecting(true)}>
+						<Button width={'100%'} disabled={connecting} color={props.color} onClick={() => setConnecting(true)}>
 							{t('nekobox.connect')}
 						</Button>
 					)}

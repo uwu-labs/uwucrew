@@ -103,6 +103,25 @@ const SubHeader = styled.div`
 	}
 `;
 
+const SearchInput = styled.div`
+	font-weight: 500;
+	color: var(--text-primary);
+	max-width: 70%;
+	margin: 3rem 0;
+	opacity: 0;
+	transform: translateY(100%);
+	animation: ${raise} 1s 1.6s ease-out forwards;
+	align-self: center;
+
+	font-size: 2rem;
+	line-height: 2.3rem;
+	@media (max-width: 768px) {
+		font-size: 1.6rem;
+		line-height: 2rem;
+		margin: 3rem;
+	}
+`;
+
 const SearchContainer = styled.div`
 	display: flex;
 	opacity: 0;
@@ -139,8 +158,8 @@ const NekoUwu = () => {
 					<SubHeader>{t('nekobox.subheader')}</SubHeader>
 					<NekoUwuClaim color={color} uwuId={claimId} setId={setClaimId} tip={tipAmount} setTip={setTipAmount} />
 					<SearchContainer>
-						<SubHeader>{t('nekobox.eligibility')}</SubHeader>
-						<UwuSearch initValue={searchInput} setValue={getSearchValue} />
+						<SearchInput>{t('nekobox.eligibility')}</SearchInput>
+						<UwuSearch initValue={searchInput} setValue={getSearchValue} color={color} />
 					</SearchContainer>
 				</Content>
 				<ImageContainer>

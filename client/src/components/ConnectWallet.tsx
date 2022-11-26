@@ -58,6 +58,7 @@ const Option = styled.button`
 	font-size: 2.2rem;
 	font-weight: 500;
 	text-transform: uppercase;
+	border-radius: 12px;
 
 	transition: background-color 0.3s;
 	background-color: ${(props: OptionProps) => props.color};

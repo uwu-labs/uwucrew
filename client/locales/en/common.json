@@ -75,6 +75,7 @@
 		"errors": {
 			"no_uwu": "You do not have any claimable uwus",
 			"invalid_input": "Invalid uwu id input",
+			"invalid_tip": "Optional tip (eth)",
 			"zero_or_more": "Must be an id of 0 but no more than 9669",
 			"integer": "Must be a valid id (#0 - #9669)",
 			"token_not_held": "You do not own this id"
