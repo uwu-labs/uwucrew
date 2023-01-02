@@ -6,7 +6,7 @@ import NEKOUWU_ABI from '../contracts/nekoUwu.json';
 import type { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React } from '@web3-react/core';
 import { Contract, ethers } from 'ethers';
-import { selectTokenIdsHeld } from 'state/reducers/nekouwu';
+import { selectTokenIdsHeld, selectTokenIdEligibility } from 'state/reducers/nekouwu';
 import { useSelector } from 'react-redux';
 import ConnectWallet from './ConnectWallet';
 import MERKLE_PROOF from '../assets/data/nftxUwuProofs.json';
@@ -164,6 +164,30 @@ const parseError = (response: any) => {
 	return errMsg.reason;
 };
 
+const mapIdEligibility = (uwuIds: Array<number>, tokenIdsEligibility: Array<boolean>) => {
+	const ids: { uwuId: number; isClaimed: boolean }[] = [];
+	uwuIds.forEach((uwuId, index) => {
+		const isClaimed = tokenIdsEligibility[index];
+		const idMap = {
+			uwuId,
+			isClaimed
+		};
+		ids.push(idMap);
+	});
+
+	return ids;
+};
+
+const getAvailableTokens = (tokenIdsMap: { uwuId: number; isClaimed: boolean }[]) => {
+	const ids: Array<number> = [];
+	tokenIdsMap.forEach((tokenIdMap: { isClaimed: any; uwuId: number }) => {
+		if (!tokenIdMap.isClaimed) {
+			ids.push(tokenIdMap.uwuId);
+		}
+	});
+	return ids;
+};
+
 export const NekoUwuClaim = (props: {
 	setId: (arg0: any) => void;
 	setTip: (arg0: any) => void;
@@ -178,7 +202,11 @@ export const NekoUwuClaim = (props: {
 	const [response, setResponse] = useState('');
 	const { account, library } = useWeb3React<Web3Provider>();
 	const tokenIds: Array<number> = useSelector(selectTokenIdsHeld);
+	const tokenIdsEligibility: Array<boolean> = useSelector(selectTokenIdEligibility);
+	const tokenIdsMap = mapIdEligibility(tokenIds, tokenIdsEligibility);
+	const availableTokenIds = getAvailableTokens(tokenIdsMap);
 	const hasUwuws = tokenIds.length !== 0;
+	const hasUnclaimedUwus = availableTokenIds.length !== 0;
 	const blockInvalidChar = (e: { key: string; preventDefault: () => any }) => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
 	const validate = (uwuId: string | undefined, tipAmount: string): boolean => {
@@ -287,9 +315,9 @@ export const NekoUwuClaim = (props: {
 						color={props.color}
 					/>
 				</InputContainer>
-				{account && hasUwuws && (
+				{account && hasUnclaimedUwus && (
 					<UwuLabel color={'var(--success)'}>
-						{tokenIds.map((tokenId) => `#${tokenId}, `)}
+						{availableTokenIds.map((uwuId: number) => `#${uwuId}, `)}
 						{t('nekobox.available')}
 					</UwuLabel>
 				)}

@@ -1,9 +1,9 @@
 import useTranslation from 'next-translate/useTranslation';
 import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Image from 'next/image';
 import Footer from './Footer';
-import nekobox_nftx from '../assets/nekobox/nekobox_nftx.svg';
+import nekobox_logo_black from '../assets/nekobox/nekobox_black.png';
+
 import { UwuSearch } from './UwuSearch';
 import { NekoUwuClaim } from './NekoUwuClaim';
 
@@ -60,6 +60,12 @@ const Content = styled.div`
 	}
 `;
 
+const Image = styled.img`
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+`;
+
 const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
@@ -70,25 +76,10 @@ const ImageContainer = styled.div`
 	}
 `;
 
-const Header = styled.h1`
-	font-weight: 700;
-	color: var(--text-primary);
-	margin: 3rem 0;
-	text-align: center;
-
-	font-size: 8rem;
-	@media (max-width: 768px) {
-		font-size: 4.5rem;
-		margin: 3rem;
-		line-height: 4rem;
-		text-align: center;
-	}
-`;
-
 const SubHeader = styled.div`
 	font-weight: 500;
 	color: var(--text-primary);
-	max-width: 70%;
+	max-width: 33%;
 	margin: 3rem 0;
 	opacity: 0;
 	transform: translateY(100%);
@@ -100,6 +91,7 @@ const SubHeader = styled.div`
 		font-size: 1.6rem;
 		line-height: 2rem;
 		margin: 3rem;
+		max-width: 70%;
 	}
 `;
 
@@ -154,7 +146,9 @@ const NekoUwu = () => {
 		<StyledHero>
 			<ContentContainer color={color}>
 				<Content>
-					<Header>{t('nekobox.header')}</Header>
+					<ImageContainer>
+						<Image src={nekobox_logo_black.src} />
+					</ImageContainer>
 					<SubHeader>{t('nekobox.subheader')}</SubHeader>
 					<NekoUwuClaim color={color} uwuId={claimId} setId={setClaimId} tip={tipAmount} setTip={setTipAmount} />
 					<SearchContainer>
@@ -162,9 +156,6 @@ const NekoUwu = () => {
 						<UwuSearch initValue={searchInput} setValue={getSearchValue} color={color} />
 					</SearchContainer>
 				</Content>
-				<ImageContainer>
-					<Image src={nekobox_nftx} />
-				</ImageContainer>
 			</ContentContainer>
 			<Footer />
 		</StyledHero>

@@ -3,10 +3,12 @@ import type { RootState } from '../index';
 
 export interface NekoUwu {
 	tokenIdsHeld: Array<number>;
+	tokenIdsAvailable: Array<boolean>;
 }
 
 export const initialState: NekoUwu = {
-	tokenIdsHeld: []
+	tokenIdsHeld: [],
+	tokenIdsAvailable: []
 };
 
 export const nekoboxSlice = createSlice({
@@ -15,12 +17,17 @@ export const nekoboxSlice = createSlice({
 	reducers: {
 		setTokenIdsHeld: (state, action: PayloadAction<Array<number>>) => {
 			state.tokenIdsHeld = action.payload;
+		},
+		setTokenIdsEligibility: (state, action: PayloadAction<Array<boolean>>) => {
+			state.tokenIdsAvailable = action.payload;
 		}
 	}
 });
 
-export const { setTokenIdsHeld } = nekoboxSlice.actions;
+export const { setTokenIdsHeld, setTokenIdsEligibility } = nekoboxSlice.actions;
 
 export const selectTokenIdsHeld = (state: RootState): Array<number> => state.nekobox.tokenIdsHeld;
+
+export const selectTokenIdEligibility = (state: RootState): Array<boolean> => state.nekobox.tokenIdsAvailable;
 
 export default nekoboxSlice.reducer;
