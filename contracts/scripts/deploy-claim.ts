@@ -1,5 +1,5 @@
 import { ethers } from 'hardhat';
-import type { Uwucrew, UwuClaim } from '../typechain-types';
+import type { UwuClaim } from '../typechain-types';
 const fs = require('fs').promises;
 
 import type { NumberObject } from "../test/utils/NumberTree";
@@ -254,15 +254,6 @@ async function main() {
 
 	console.log('deploying from: ', primary.address);
 
-	const UwUCrew = await ethers.getContractFactory('uwucrew');
-	const uwucrew = (await UwUCrew.connect(primary).deploy('uwucrew', 'UWU', 9670)) as Uwucrew;
-	await uwucrew.deployed();
-	console.log("uwu deployed");
-	
-	let tx = await uwucrew.setBaseURI("https://uwulabs.mypinata.cloud/ipfs/QmaxEUs9LWYzJRWVwCe5G4m4DZzRoA7Ezvs7QkGmTR17fM/");
-	await tx.wait();
-	console.log("base uri");
-
 	const tokenIds: NumberObject[] = [];
 	for (let i = 0; i < nftxUwus.length; i++) {
 		tokenIds.push({
@@ -283,41 +274,17 @@ async function main() {
 	const claimContract = (await Claim.connect(primary).deploy(
 		'Nekobox uwus',
 		'NEKOUWU',
-		uwucrew.address,
+		"0xf75140376d246d8b1e5b8a48e3f00772468b3c0c",
 		tokenTree.getHexRoot()
 	)) as UwuClaim;
 	await claimContract.deployed();
 	console.log("claim deployed");
 
-	tx = await claimContract.setBaseURI("https://uwulabs.mypinata.cloud/ipfs/QmaxEUs9LWYzJRWVwCe5G4m4DZzRoA7Ezvs7QkGmTR17fM/");
+	let tx = await claimContract.setBaseURI("https://uwulabs.mypinata.cloud/ipfs/QmazfpXArCXaoXKQcBnSGR9ZoKhmcNME9ywYAD9Yy2DVbU/");
 	await tx.wait();
 
-	tx = await uwucrew.connect(primary).prepareSale(primary.address);
-	await tx.wait();
-
-	tx = await uwucrew.connect(primary).mint(primary.address, nftxUwus[0]);
-	await tx.wait();
-
-	tx = await uwucrew.connect(primary).mint(primary.address, nftxUwus[1]);
-	await tx.wait();
-
-	tx = await uwucrew.connect(primary).mint(primary.address, nftxUwus[2]);
-	await tx.wait();
-
-	let sporiAddr = "0xEecA1664E299aE5B1fFCD43F98d2071eb5ABff65";
-	tx = await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[3]);
-	await tx.wait();
-
-	tx = await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[4]);
-	await tx.wait();
-	
-	tx = await uwucrew.connect(primary).mint(sporiAddr, nftxUwus[5]);
-	await tx.wait();
-
-	console.log('uwucrew deployed to:', uwucrew.address);
 	console.log('claim contract deployed to:', claimContract.address);
 
-	console.log('uwu owner:', await uwucrew.owner());
 	console.log('claim owner:', await claimContract.owner());
 }
 
