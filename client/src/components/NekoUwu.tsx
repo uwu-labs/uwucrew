@@ -71,10 +71,6 @@ const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	@media (max-width: 768px) {
-		margin: 6rem 3rem;
-	}
 `;
 
 const SubHeader = styled.div`
