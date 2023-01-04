@@ -71,10 +71,12 @@
 		"claimed": "has been claimed!",
 		"connect": "Connect",
 		"available": " available",
+		"unclaimable": " not claimable (non NFTX hoodie uwu)",
 		"eligibility": "Check uwu id(s): ",
 		"errors": {
 			"no_uwu": "You do not have any claimable uwus",
 			"invalid_input": "Invalid uwu id input",
+			"non_claimable_input": "This uwu id is not claimable (non NFTX uwu)",
 			"invalid_tip": "Optional tip (eth)",
 			"zero_or_more": "Must be an id of 0 but no more than 9669",
 			"integer": "Must be a valid id (#0 - #9669)",

@@ -139,11 +139,6 @@ const Error = styled.div`
 	margin: 3rem;
 	word-break: break-all;
 	font-size: 1.6rem;
-
-	@media (max-width: 768px) {
-		font-size: 1.2rem;
-		max-width: 80vw;
-	}
 `;
 
 const fetchProof = (strId: string) => {
@@ -178,10 +173,10 @@ const mapIdEligibility = (uwuIds: Array<number>, tokenIdsEligibility: Array<bool
 	return ids;
 };
 
-const getAvailableTokens = (tokenIdsMap: { uwuId: number; isClaimed: boolean }[]) => {
+const getClaimableTokens = (tokenIdsMap: { uwuId: number; isClaimed: boolean }[]) => {
 	const ids: Array<number> = [];
-	tokenIdsMap.forEach((tokenIdMap: { isClaimed: any; uwuId: number }) => {
-		if (!tokenIdMap.isClaimed) {
+	tokenIdsMap.forEach((tokenIdMap: { isClaimed: boolean; uwuId: number }) => {
+		if (!tokenIdMap.isClaimed && MERKLE_PROOF.hasOwnProperty(`${tokenIdMap.uwuId}`)) {
 			ids.push(tokenIdMap.uwuId);
 		}
 	});
@@ -204,9 +199,9 @@ export const NekoUwuClaim = (props: {
 	const tokenIds: Array<number> = useSelector(selectTokenIdsHeld);
 	const tokenIdsEligibility: Array<boolean> = useSelector(selectTokenIdEligibility);
 	const tokenIdsMap = mapIdEligibility(tokenIds, tokenIdsEligibility);
-	const availableTokenIds = getAvailableTokens(tokenIdsMap);
+	const claimableTokenIds = getClaimableTokens(tokenIdsMap);
 	const hasUwuws = tokenIds.length !== 0;
-	const hasUnclaimedUwus = availableTokenIds.length !== 0;
+	const hasUnclaimedUwus = claimableTokenIds.length !== 0;
 	const blockInvalidChar = (e: { key: string; preventDefault: () => any }) => ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
 	const validate = (uwuId: string | undefined, tipAmount: string): boolean => {
@@ -239,6 +234,10 @@ export const NekoUwuClaim = (props: {
 		}
 		if (!tokenIds.includes(value)) {
 			setError(t('nekobox.errors.token_not_held'));
+			return false;
+		}
+		if (!MERKLE_PROOF.hasOwnProperty(uwuId)) {
+			setError(t('nekobox.errors.non_claimable_input'));
 			return false;
 		}
 		setError('');
@@ -275,14 +274,10 @@ export const NekoUwuClaim = (props: {
 		if (account) {
 			const id = Number(props.uwuId);
 			const strId = `${id}`;
-			if (MERKLE_PROOF.hasOwnProperty(strId)) {
-				const proof = fetchProof(strId);
-				const signer = library?.getSigner(account);
-				const contract = new Contract(NEKOUWU_CONTRACT, NEKOUWU_ABI, signer);
-				await claim(contract, id, proof, props.tip);
-			} else {
-				setLoading(false);
-			}
+			const proof = fetchProof(strId);
+			const signer = library?.getSigner(account);
+			const contract = new Contract(NEKOUWU_CONTRACT, NEKOUWU_ABI, signer);
+			await claim(contract, id, proof, props.tip);
 		}
 	};
 
@@ -317,7 +312,7 @@ export const NekoUwuClaim = (props: {
 				</InputContainer>
 				{account && hasUnclaimedUwus && (
 					<UwuLabel color={'var(--success)'}>
-						{availableTokenIds.map((uwuId: number) => `#${uwuId}, `)}
+						{claimableTokenIds.map((uwuId: number) => `#${uwuId}, `)}
 						{t('nekobox.available')}
 					</UwuLabel>
 				)}
