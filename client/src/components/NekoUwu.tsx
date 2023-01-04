@@ -91,8 +91,7 @@ const SubHeader = styled.div`
 	@media (max-width: 768px) {
 		font-size: 1.6rem;
 		line-height: 2rem;
-		margin: 3rem;
-		max-width: 70%;
+		max-width: 100%;
 	}
 `;
 

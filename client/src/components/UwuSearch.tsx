@@ -38,7 +38,6 @@ const Input = styled.input`
 const SearchContainer = styled.div`
 	display: flex;
 	flex-direction: row;
-	gap: 3rem;
 	align-items: flex-end;
 	justify-content: center;
 `;
@@ -46,7 +45,6 @@ const SearchContainer = styled.div`
 const InputContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
 `;
 
 const SearchButton = styled.button`
