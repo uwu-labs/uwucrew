@@ -92,7 +92,7 @@ const RotatingImage = ({ color, activeIndex }: Props) => {
 	return (
 		<StyledImage color={color}>
 			{images.map((image: StaticImageData, index: number) => (
-				<ImageTransform transform={imageTransform(index)} opacity={opacity(index)}>
+				<ImageTransform key={index} transform={imageTransform(index)} opacity={opacity(index)}>
 					<Image priority src={image} />
 				</ImageTransform>
 			))}
