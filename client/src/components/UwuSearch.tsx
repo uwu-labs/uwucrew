@@ -196,7 +196,6 @@ export const UwuSearch = (props: { setValue: (arg0: any) => void; initValue: str
 			{hasClaimed && (
 				<UwuLabel color={'var(--success)'}>
 					{claimedIds.map(([id]) => `#${id}, `)}
-					{claimedIds.length > 1 ? 'are' : 'is'}
 					{t('nekobox.claimed')}
 				</UwuLabel>
 			)}
