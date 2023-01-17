@@ -25,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
     --bg-03: #4c96b2;
     --bg-04: #c85e75;
     --bg-05: #427e95;
+    --error: #ff6961;
+    --success: #0abf27;
   }
 
   * {

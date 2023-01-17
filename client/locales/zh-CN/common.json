@@ -63,5 +63,24 @@
 		"smallheader-3": "'The Crew'",
 		"subheader-15": "我们从 uwulabs 和团队成员的钱包中挑选了以下 25 个 uwus 来启动 uwucrew 社群收藏，又名“The Crew”！一旦将 uwucrew NFT 添加到社群收藏中，它将永远不会被删除。未来可能会有更多的uwus加入The Crew！",
 		"subheader-16": "尽管此许可证专门针对 uwucrew，但我们希望其他项目也采用 uwu art 许可证，以鼓励一个以艺术为中心的社群，其中包含丰富的二创作品！"
+	},
+	"nekobox": {
+		"header": "Nekobox uwus - NFTX Edition",
+		"subheader": "All uwucrew NFTs with NFTX hoodies can claim a free derivative of their uwucrew drawn by Nekobox! You can also include an optional tip as a thank you to the uwucrew team!",
+		"claim": "Claim",
+		"claimed": "has been claimed!",
+		"connect": "Connect",
+		"available": " available",
+		"unclaimable": " not claimable (non NFTX hoodie uwu)",
+		"eligibility": "Check uwu id(s): ",
+		"errors": {
+			"no_uwu": "You do not have any claimable uwus",
+			"invalid_input": "Invalid uwu id input",
+			"non_claimable_input": "This uwu id is not claimable (non NFTX uwu)",
+			"invalid_tip": "Optional tip (eth)",
+			"zero_or_more": "Must be an id of 0 but no more than 9669",
+			"integer": "Must be a valid id (#0 - #9669)",
+			"token_not_held": "You do not own this id"
+		}
 	}
 }

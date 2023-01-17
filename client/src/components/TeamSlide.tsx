@@ -224,8 +224,8 @@ const TeamSlide = () => {
 			header="The Team"
 			content={
 				<StyledContent>
-					{members.map((m: TeamMemberType) => (
-						<TeamMember>
+					{members.map((m: TeamMemberType, index: number) => (
+						<TeamMember key={index}>
 							<ImageContainer>
 								<Image src={m.image} />
 							</ImageContainer>

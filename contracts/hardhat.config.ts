@@ -27,6 +27,11 @@ export default {
 			url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.ALCHEMY_RINKEBY_ETH_KEY}`,
 			accounts: [process.env.DEV_PRIVKEY]
 		},
+		goerli: {
+			url: `https://eth-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_GOERLI_ETH_KEY}`,
+			accounts: [process.env.DEV_PRIVKEY],
+      gasPrice: 8000000000,
+		},
 		ethereum: {
 			url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_ETH_KEY}`,
 			accounts: [process.env.DEV_PRIVKEY]

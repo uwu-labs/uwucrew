@@ -2435,8 +2435,8 @@
       ]
     },
     "/home/kiwi/Work/Waifusion/uwucrew/contracts/contracts/uwuClaim.sol": {
-      "lastModificationDate": 1660089135410,
-      "contentHash": "df93f46265816902a3e64fc41e5089da",
+      "lastModificationDate": 1663877778015,
+      "contentHash": "1ec7f617078a63f821580f3ba21c7954",
       "sourceName": "contracts/uwuClaim.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -2464,6 +2464,7 @@
       },
       "imports": [
         "./tokens/ERC721.sol",
+        "./tokens/IERC721Enumerable.sol",
         "./utils/Ownable.sol",
         "./utils/MerkleProof.sol"
       ],

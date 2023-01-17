@@ -77,8 +77,8 @@ const RoadmapSlide = () => {
 				<Content>
 					<Items>
 						<List>
-							{roadmap.map((item: string) => (
-								<ListItem>{item}</ListItem>
+							{roadmap.map((item: string, index: number) => (
+								<ListItem key={index}>{item}</ListItem>
 							))}
 						</List>
 						<ButtonContainer>
