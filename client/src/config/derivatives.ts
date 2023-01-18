@@ -4977,7 +4977,7 @@ const derivatives: DerivativeType[] = [
       "image": "https://pbs.twimg.com/media/FksNcJGXoAAdh0w?format=jpg&name=medium",
       "post": "https://twitter.com/uwucrewnft/status/1606395266051055619",
       "date": "12/23/2022",
-      "id": "3976, 3209"
+      "id": 3976
     },
     {
       "artistName": "Sai7",
@@ -5001,7 +5001,6 @@ const derivatives: DerivativeType[] = [
       "image": "https://twitter.com/i/status/1607188980319064067",
       "post": "https://twitter.com/morellostorment/status/1607188980319064067/photo/2",
       "date": "12/25/2022",
-      "id": ""
     },
     {
       "artistName": "Kitsu",
@@ -5017,7 +5016,6 @@ const derivatives: DerivativeType[] = [
       "image": "https://pbs.twimg.com/media/Fk1A5xNXwAEbEgH?format=jpg&name=900x900",
       "post": "https://twitter.com/sky_diver_fox/status/1607013533463777280",
       "date": "12/25/2023",
-      "id": ""
     },
     {
       "artistName": "Alfraea",
@@ -5217,7 +5215,7 @@ const derivatives: DerivativeType[] = [
       "image": "https://pbs.twimg.com/media/FmPc8ynagAAdd-L?format=jpg&name=900x900",
       "post": "https://twitter.com/pawwaoart/status/1613376043469111299",
       "date": "1/11/2023",
-      "id": "3976, 3209"
+      "id": 3976
     },
     {
       "artistName": "Kafkakafka74",
