@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Footer from './Footer';
 import nekobox_logo_black from '../assets/nekobox/nekobox_black.png';
-
+import twitter from '../assets/svgs/socials/twitter.svg';
+import foundation from '../assets/svgs/socials/foundation.svg';
 import { UwuSearch } from './UwuSearch';
 import { NekoUwuClaim } from './NekoUwuClaim';
 
@@ -100,6 +101,31 @@ const SearchContainer = styled.div`
 	animation: ${raise} 1s 1.6s ease-out forwards;
 `;
 
+const Socials = styled.div`
+	margin-top: 1rem;
+	display: flex;
+	color: var(--text-primary);
+	font-size: 2.3rem;
+	font-weight: 600;
+	opacity: 0;
+	justify-content: center;
+	transform: translateY(100%);
+	animation: ${raise} 1s 1.6s ease-out forwards;
+
+	> a {
+		cursor: pointer;
+	}
+
+	@media (max-width: 768px) {
+		padding: 15px 20px;
+	}
+`;
+
+const Social = styled(Image)`
+	width: 3rem;
+	margin: 0 3rem;
+`;
+
 const NekoUwu = () => {
 	const { t } = useTranslation('common');
 	const [colorIndex, setColor] = useState(0);
@@ -126,6 +152,14 @@ const NekoUwu = () => {
 					<ImageContainer>
 						<Image src={nekobox_logo_black.src} />
 					</ImageContainer>
+					<Socials>
+						<a href="https://twitter.com/Nekoboxhime" target="_blank" rel="noreferrer">
+							<Social src={twitter.src} />
+						</a>
+						<a href="https://foundation.app/@nekobox" target="_blank" rel="noreferrer" style={{ display: 'flex' }}>
+							<Social src={foundation.src} />
+						</a>
+					</Socials>
 					<SubHeader>{t('nekobox.subheader')}</SubHeader>
 					<NekoUwuClaim color={color} uwuId={claimId} setId={setClaimId} tip={tipAmount} setTip={setTipAmount} />
 					<SearchContainer>
