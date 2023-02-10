@@ -36,7 +36,7 @@ const members: TeamMemberType[] = [
 			'Laur focuses on semi-realism, 2d animation and character design. She enjoys collecting 1/1 anime art and supporting the growth of NFT artists.'
 		],
 		twitter: 'https://twitter.com/fungibleartist',
-		fnd: "https://foundation.app/@laur"
+		fnd: 'https://foundation.app/@laur'
 	},
 	{
 		name: 'Kiwi',
