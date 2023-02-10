@@ -3,6 +3,7 @@ import Image, { StaticImageData } from 'next/image';
 import styled from 'styled-components';
 import Slide from 'components/Slide';
 import twitter from '../assets/svgs/socials/twitter-yellow.svg';
+import fnd from '../assets/svgs/socials/foundation-yellow.svg';
 import github from '../assets/svgs/socials/github-yellow.svg';
 import laur from '../assets/profiles/laur.jpg';
 import chase from '../assets/profiles/chase.jpg';
@@ -11,6 +12,7 @@ import morello from '../assets/profiles/morello.jpg';
 import danny from '../assets/profiles/danny.jpg';
 import omar from '../assets/profiles/omar.jpg';
 import spori from '../assets/profiles/spori.jpg';
+import jules from '../assets/profiles/jules.jpg';
 
 interface TeamMemberType {
 	name: string;
@@ -18,6 +20,7 @@ interface TeamMemberType {
 	bio: string[];
 	role: string;
 	twitter?: string;
+	fnd?: string;
 	github?: string;
 	linkText?: string;
 	link?: string;
@@ -32,7 +35,8 @@ const members: TeamMemberType[] = [
 			'Laur is the sole artist of uwucrew!  Including all assets from the uwu Dressing Room!',
 			'Laur focuses on semi-realism, 2d animation and character design. She enjoys collecting 1/1 anime art and supporting the growth of NFT artists.'
 		],
-		twitter: 'https://twitter.com/fungibleartist'
+		twitter: 'https://twitter.com/fungibleartist',
+		fnd: "https://foundation.app/@laur"
 	},
 	{
 		name: 'Kiwi',
@@ -43,18 +47,20 @@ const members: TeamMemberType[] = [
 			'He is responsible for the collection image generation and oversees all dev tasks.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
-		github: 'https://github.com/0xKiwi'
+		github: 'https://github.com/0xKiwi',
+		fnd: 'https://foundation.app/@Kiwi'
 	},
 	{
 		name: 'Morello',
 		role: 'Bit of everything',
 		image: morello,
 		bio: [
-			'Morello works on community management, partnerships, and project organization for uwucrew.',
+			'Morello works on community management, partnerships, and more for uwucrew.',
 			'He has been paper-handing blue chip NFTs since February 2021, and is an avid collector of anime art.'
 		],
 		linkText: 'Check out his gallery here: ',
 		link: 'https://foundation.app/@morello',
+		fnd: 'https://foundation.app/@morello',
 		twitter: 'https://twitter.com/morellostorment'
 	},
 	{
@@ -77,7 +83,8 @@ const members: TeamMemberType[] = [
 			'Artist turned collector, community support and events.',
 			'Omar is a street photographer who enjoys collecting anime inspired NFTs and helps strengthen uwucrew community engagement via event hosting, branding and fun activities.'
 		],
-		twitter: 'https://twitter.com/OmarIbisa'
+		twitter: 'https://twitter.com/OmarIbisa',
+		fnd: 'https://foundation.app/@omr'
 	},
 	{
 		name: 'Danny',
@@ -88,6 +95,17 @@ const members: TeamMemberType[] = [
 			'He learned to study marketplace trends and valuations from MMO Free Markets and applies that to the NFT market today.'
 		],
 		twitter: 'https://twitter.com/0xMaple'
+	},
+	{
+		name: 'Jules',
+		role: 'Creative Assistant',
+		image: jules,
+		bio: [
+			'Jules is an artist and designer who has a strong tendency to create cute stuff. They work on graphics and illustrations for all sorts of things in uwucrew!',
+			'As a 1/1 NFT artist since 2021, they like giving guidance to artists that are new to the space.'
+		],
+		twitter: 'https://twitter.com/BlancNFT',
+		fnd: 'https://foundation.app/@jujulesblanc'
 	},
 	{
 		name: 'Spori',
@@ -167,6 +185,7 @@ const SocialContainer = styled.a`
 	cursor: pointer;
 	transform: translateY(-0.3rem);
 	width: 2.8rem;
+	margin: auto;
 `;
 
 const NameContainer = styled.div`
@@ -235,6 +254,11 @@ const TeamSlide = () => {
 										<Name>{`${m.name}`}</Name>
 									</NameContainer>
 									<Socials>
+										{m.fnd && (
+											<SocialContainer href={m.fnd} target="_blank" rel="noreferrer">
+												<Image src={fnd} />
+											</SocialContainer>
+										)}
 										{m.github && (
 											<SocialContainer href={m.github} target="_blank" rel="noreferrer">
 												<Image src={github} />

@@ -1,14 +1,14 @@
 {
 	"general": {
 		"name": "uwucrew",
-		"description": "Released on September 5th 2021, uwucrew is a woman-led NFT art collection of 9670 anime inspired avatars created by uwu Labs. We always keep it uwu with a heavy focus on empowering artists!"
+		"description": "We help anime fans discover art and artists they love, and focus on developing collecting NFT art into a fulfilling pasttime!"
 	},
 	"components": {
 		"email": {
 			"input_placeholder": "Enter email"
 		},
 		"hero": {
-			"opensea": "View on OpenSea"
+			"opensea": "Buy on OpenSea"
 		},
 		"mint": {
 			"input_placeholder": "Enter amount (e.g. {{balance}})",
