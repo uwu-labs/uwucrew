@@ -90,8 +90,8 @@ const members: TeamMemberType[] = [
 		role: 'Creative Assistant',
 		image: jules,
 		bio: [
-			"Jules is an accomplished artist and designer, who has a strong tendency to create cute stuff. They have extensive knowledge of the NFT space, and are a valuable guide to those who are new.",
-			"Jules assists in the creative process for a variety of projects within uwucrew."
+			'Jules is an accomplished artist and designer, who has a strong tendency to create cute stuff. They have extensive knowledge of the NFT space, and are a valuable guide to those who are new.',
+			'Jules assists in the creative process for a variety of projects within uwucrew.'
 		],
 		twitter: 'https://twitter.com/BlancNFT',
 		fnd: 'https://foundation.app/@jujulesblanc'
