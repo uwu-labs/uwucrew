@@ -43,37 +43,25 @@ const members: TeamMemberType[] = [
 		role: 'Co-Founder & Dev',
 		image: kiwi,
 		bio: [
-			'An avid DeFi/NFT enthusiast, Kiwi is a long time developer in the crypto space, working in the industry for over 4 years!',
-			'He is responsible for the collection image generation and oversees all dev tasks.'
+			'An avid DeFi/NFT enthusiast, Kiwi is a long time developer in the crypto space, working in the industry for over 5 years!',
+			'He is responsible for leading the team, the uwucrew image generation, and oversees all dev tasks.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
 		github: 'https://github.com/0xKiwi',
-		fnd: 'https://foundation.app/@Kiwi'
+		fnd: 'https://foundation.app/@Kiwi_Vault'
 	},
 	{
 		name: 'Morello',
 		role: 'Bit of everything',
 		image: morello,
 		bio: [
-			'Morello works on community management, partnerships, and more for uwucrew.',
+			'Morello helps with community, partnerships, and more for uwucrew.',
 			'He has been paper-handing blue chip NFTs since February 2021, and is an avid collector of anime art.'
 		],
 		linkText: 'Check out his gallery here: ',
 		link: 'https://foundation.app/@morello',
 		fnd: 'https://foundation.app/@morello',
 		twitter: 'https://twitter.com/morellostorment'
-	},
-	{
-		name: 'Chase',
-		role: 'Front End Dev',
-		image: chase,
-		bio: [
-			'Recommended by 4 out of 5 people who recommend things.',
-			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs.',
-			'He builds the websites for uwucrew and ensures everything is looking slick online!'
-		],
-		twitter: 'https://twitter.com/chase_manning_',
-		github: 'https://github.com/chase-manning'
 	},
 	{
 		name: 'Omar',
@@ -94,18 +82,31 @@ const members: TeamMemberType[] = [
 			'Danny is the collaborations and partnerships manager of uwucrew and assists with research and development.',
 			'He learned to study marketplace trends and valuations from MMO Free Markets and applies that to the NFT market today.'
 		],
-		twitter: 'https://twitter.com/0xMaple'
+		twitter: 'https://twitter.com/0xMaple',
+		fnd: 'https://foundation.app/@0xMaple'
 	},
 	{
 		name: 'Jules',
 		role: 'Creative Assistant',
 		image: jules,
 		bio: [
-			'Jules is an artist and designer who has a strong tendency to create cute stuff. They work on graphics and illustrations for all sorts of things in uwucrew!',
-			'As a 1/1 NFT artist since 2021, they like giving guidance to artists that are new to the space.'
+			"Jules is an accomplished artist and designer, who has a strong tendency to create cute stuff. They have extensive knowledge of the NFT space, and are a valuable guide to those who are new.",
+			"Jules assists in the creative process for a variety of projects within uwucrew."
 		],
 		twitter: 'https://twitter.com/BlancNFT',
 		fnd: 'https://foundation.app/@jujulesblanc'
+	},
+	{
+		name: 'Chase',
+		role: 'Front End Dev',
+		image: chase,
+		bio: [
+			'Recommended by 4 out of 5 people who recommend things.',
+			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs.',
+			'He builds the websites for uwucrew and ensures everything is looking slick online!'
+		],
+		twitter: 'https://twitter.com/chase_manning_',
+		github: 'https://github.com/chase-manning'
 	},
 	{
 		name: 'Spori',
