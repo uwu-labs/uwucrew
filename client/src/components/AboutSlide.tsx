@@ -8,7 +8,7 @@ const AboutSlide = () => {
 			section="about"
 			header="About"
 			subHeaders={[
-				'We believe that through making collecting NFT art a fulfilling hobby, creativity can be empowered everywhere in the world with no boundaries! By fostering a positive relationship with art in our community, we can help people find creators they enjoy supporting!',
+				'We believe that through making collecting NFT art a fulfilling hobby, creativity can be empowered everywhere in the world with no boundaries! By fostering a positive relationship with art in our community, we help people find creators they enjoy supporting!',
 				'Created by uwu Labs, uwucrew released on September 5th 2021 and is an NFT art collection of 9670 anime style inspired avatars.',
 				'uwucrew NFTs are licensed under the uwu Art License, holders are free to use their NFT characters as they wish, with a portion of team-designated uwus licensed as CC0!',
 				'An interesting property of uwucrew is our unique asset generation which involves over 30 layers of hand-drawn art! In order to support various kinds of outfits and expressions, the uwucrew collection also supports multiple arm poses (even with sleeved clothes) to let us incorporate different accessories!',
