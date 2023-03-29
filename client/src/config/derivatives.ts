@@ -5754,14 +5754,6 @@ const derivatives: DerivativeType[] = [
     "id": 3209
   },
   {
-    "artistName": "Sawari",
-    "artistLink": "https://twitter.com/SawariART",
-    "image": "https://pbs.twimg.com/media/Fp-plq1XsAEsK2M?format=jpg&name=medium",
-    "post": "https://twitter.com/SawariART/status/1630213425367330823",
-    "date": "3/27/2023",
-    "id": 4542
-  },
-  {
     "artistName": "斎七(さいしち",
     "artistLink": "https://twitter.com/sai7",
     "image": "https://pbs.twimg.com/media/FqTiitlaEAAZ6US?format=jpg&name=large",
