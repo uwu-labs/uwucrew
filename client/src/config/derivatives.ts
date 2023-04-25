@@ -220,7 +220,7 @@ const derivatives: DerivativeType[] = [
     image: 'https://pbs.twimg.com/media/FFS8oX_aQAAOh1E?format=jpg&name=large',
     id: 1231,
     post: 'https://twitter.com/0TL_/status/1465003997287178243',
-    artistName: 'ã©ã’ã–ã¡ã‚ƒã‚“',
+    artistName: 'Dogeza',
     artistLink: 'https://twitter.com/0TL_'
   },
   {
@@ -850,7 +850,7 @@ const derivatives: DerivativeType[] = [
     image: 'https://pbs.twimg.com/media/FHeCw65aAAEfUnp?format=jpg&name=360x360',
     id: 5462,
     post: 'https://twitter.com/0TL_/status/1474792215612637184',
-    artistName: 'どげざちゃん/Dogeza-chan',
+    artistName: 'Dogeza',
     artistLink: 'https://twitter.com/0TL_',
   },
   {
@@ -1330,13 +1330,6 @@ const derivatives: DerivativeType[] = [
     id: 9669
   },
   {
-    artistName: "Dogeza",
-    artistLink: "https://twitter.com/0TL_",
-    image: "https://pbs.twimg.com/media/FHeCw65aAAEfUnp?format=jpg&name=4096x4096",
-    post: "https://twitter.com/0TL_/status/1474792215612637184",
-    id: 5462
-  },
-  {
     artistName: "Opi",
     artistLink: "https://twitter.com/opijpg",
     image: "https://pbs.twimg.com/media/FHjoR8bXsAQ_4gQ?format=jpg&name=4096x4096",
@@ -1776,7 +1769,7 @@ const derivatives: DerivativeType[] = [
     id: 3993
   },
   {
-    artistName: "Take_n1i",
+    artistName: "TAKE_N1i",
     artistLink: "https://twitter.com/TAKE_N1i",
     image: "https://pbs.twimg.com/media/FJimFvvakAUcVNo?format=jpg&name=medium",
     post: "https://twitter.com/TAKE_N1i/status/1484118701398175744",
@@ -2294,7 +2287,7 @@ const derivatives: DerivativeType[] = [
     "id": 5187
   },
   {
-    "artistName": " lewdlily",
+    "artistName": "lewdlily",
     "artistLink": "https://twitter.com/LewdLily66",
     "image": "https://pbs.twimg.com/media/FND6_KpVEAQ4eif?format=jpg&name=4096x4096",
     "post": "https://twitter.com/LewdLily66/status/1499974981492502532",
@@ -2302,21 +2295,21 @@ const derivatives: DerivativeType[] = [
     "id": 5013
   },
   {
-    "artistName": "SWHEATZ1",
+    "artistName": "SWHEATZ",
     "artistLink": "https://twitter.com/SWHEATZ1",
     "image": "https://pbs.twimg.com/media/FNJZQIFVIAInoe6?format=jpg&name=small",
     "post": "https://twitter.com/SWHEATZ1/status/1500360175064018945",
     "date": "3/6/2022"
   },
   {
-    "artistName": " TaroMilk",
+    "artistName": "TaroMilk",
     "artistLink": "https://twitter.com/TaroMoves",
     "image": "https://pbs.twimg.com/media/FNf8oTWUUAAgA5J?format=jpg&name=4096x4096",
     "post": "https://twitter.com/TaroMoves/status/1501947376688271366",
     "date": "3/10/2022"
   },
   {
-    "artistName": "HeichanART",
+    "artistName": "Hei",
     "artistLink": "https://twitter.com/HeichanART",
     "image": "https://pbs.twimg.com/media/FNfabWbagAQve-8?format=jpg&name=large",
     "post": "https://twitter.com/HeichanART/status/1501909170907324417",
@@ -2358,7 +2351,7 @@ const derivatives: DerivativeType[] = [
     "date": "3/7/2022"
   },
   {
-    "artistName": " B Son",
+    "artistName": "B Son",
     "artistLink": "https://twitter.com/beescozyplace",
     "image": "https://pbs.twimg.com/media/FNU4__DVkAAM9vG?format=jpg&name=large",
     "post": "https://twitter.com/beescozyplace/status/1501168727273865219",
@@ -2366,7 +2359,7 @@ const derivatives: DerivativeType[] = [
     "id": 3247
   },
   {
-    "artistName": " Hei ",
+    "artistName": "Hei",
     "artistLink": "https://twitter.com/HeichanART",
     "image": "https://pbs.twimg.com/media/FNSSNb0UcAEa6EH?format=jpg&name=small",
     "post": "https://twitter.com/HeichanART/status/1500985769862725634?s=20&t=_ji3FGzoQ_rSUkN4WlKSpw",
@@ -2374,14 +2367,14 @@ const derivatives: DerivativeType[] = [
     "id": 2920
   },
   {
-    "artistName": " 𝖙𝖔𝖒𝖎",
+    "artistName": "Tomi",
     "artistLink": "https://twitter.com/10_mi_n",
     "image": "https://pbs.twimg.com/media/FNE4Cy4agAEH6hy?format=jpg&name=900x900",
     "post": "https://twitter.com/10_mi_n/status/1500041776991989762",
     "date": "3/5/2022"
   },
   {
-    "artistName": " lewdlily",
+    "artistName": "lewdlily",
     "artistLink": "https://twitter.com/LewdLily66",
     "image": "https://pbs.twimg.com/media/FMrSjCiaUAAmmBz?format=jpg&name=small",
     "post": "https://twitter.com/LewdLily66/status/1498241328194650117?s=20&t=WPdpGA2okrCOPztTiy5Gjg",
@@ -2747,7 +2740,7 @@ const derivatives: DerivativeType[] = [
     "id": 5323
   },
   {
-    "artistName": "dogeza",
+    "artistName": "Dogeza",
     "artistLink": "https://twitter.com/0TL_",
     "image": "https://f8n-production-collection-assets.imgix.net/0x98c56480F95756b2b25d84eb69CfEB52569A13E7/1/nft.png?q=80&auto=format%2Ccompress&cs=srgb&max-w=1680&max-h=1680",
     "post": "",
@@ -3998,7 +3991,7 @@ const derivatives: DerivativeType[] = [
     "id": 28
   },
   {
-    "artistName": "SWHEATZ1",
+    "artistName": "SWHEATZ",
     "artistLink": "twitter.com/SWHEATZ1",
     "image": "https://pbs.twimg.com/media/FaSsSXbaMAAu0Jx?format=jpg&name=large",
     "post": "twitter.com/SWHEATZ1/status/1559561284852793344",
@@ -4006,7 +3999,7 @@ const derivatives: DerivativeType[] = [
     "id": 5013
   },
   {
-    "artistName": "SWHEATZ1",
+    "artistName": "SWHEATZ",
     "artistLink": "twitter.com/SWHEATZ1",
     "image": "https://pbs.twimg.com/media/FaOb-kLacAA6LbS?format=jpg&name=4096x4096",
     "post": "twitter.com/SWHEATZ1/status/1559261678491283456",
@@ -4428,7 +4421,7 @@ const derivatives: DerivativeType[] = [
     "id": 3209
   },
   {
-    "artistName": "Jules Blank",
+    "artistName": "Jules Blanc",
     "artistLink": "https://twitter.com/BlancNFT",
     "image": "https://pbs.twimg.com/media/FftJIyAXgAAZxuv?format=jpg&name=900x900",
     "post": "https://twitter.com/uwudaonft/status/1583941265422532611",
@@ -5770,7 +5763,7 @@ const derivatives: DerivativeType[] = [
     "id": 3209
   },
   {
-    "artistName": "Jules Blank",
+    "artistName": "Jules Blanc",
     "artistLink": "https://twitter.com/lilsussybakas",
     "image": "https://pbs.twimg.com/media/Fp2QSfKX0AAnG1X?format=jpg&name=900x900",
     "post": "https://twitter.com/lilsussybakas/status/1629617665013608448?s=20",
@@ -5999,6 +5992,190 @@ const derivatives: DerivativeType[] = [
     "post": "https://twitter.com/bandageNFT/status/1639944621793976321",
     "date": "3/26/2023",
     "id": 5827
+  },
+  {
+    "artistName": "いりどり",
+    "artistLink": "https://twitter.com/iridori_nabe",
+    "image": "https://pbs.twimg.com/media/Fsh27FpaEAEHV4G?format=png&name=small",
+    "post": "https://twitter.com/ChuckCharger/status/1641693638207094784",
+    "date": "3/31/2023",
+    "id": 3383
+  },
+  {
+    "artistName": "Jules Blanc",
+    "artistLink": "https://twitter.com/BlancNFT",
+    "image": "https://pbs.twimg.com/media/FsUnis4XgA0imUc?format=jpg&name=medium",
+    "post": "https://twitter.com/BlancNFT/status/1640761120490237952",
+    "date": "3/28/2023",
+    "id": 8614
+  },
+  {
+    "artistName": "Jules Blanc",
+    "artistLink": "https://twitter.com/BlancNFT",
+    "image": "https://pbs.twimg.com/media/FsauOviXoAESu5D?format=jpg&name=medium",
+    "post": "https://twitter.com/BlancNFT/status/1641190911563423749",
+    "date": "3/29/2023",
+    "id": 5825
+  },
+  {
+    "artistName": "Fujika",
+    "artistLink": "https://twitter.com/fujikart",
+    "image": "https://pbs.twimg.com/media/FsPCCsPaIAEVFJ9?format=jpg&name=medium",
+    "post": "https://twitter.com/fujikart/status/1640368044819226625",
+    "date": "3/27/2023",
+    "id": 3209
+  },
+  {
+    "artistName": "Berry_R",
+    "artistLink": "https://twitter.com/Berry_R25",
+    "image": "https://pbs.twimg.com/media/FsSFWiXaAAMcb6u?format=jpg&name=medium",
+    "post": "https://twitter.com/recomet_io/status/1640583166514851840",
+    "date": "3/28/2023",
+    "id": 4833
+  },
+  {
+    "artistName": "Takopon",
+    "artistLink": "https://twitter.com/Takopon_04",
+    "image": "https://pbs.twimg.com/media/FsJkXeOagAAabRU?format=jpg&name=medium",
+    "post": "https://twitter.com/cookunijs/status/1639984417950289921",
+    "date": "4/26/2023",
+    "id": 6804
+  },
+  {
+    "artistName": "DON",
+    "artistLink": "https://twitter.com/donstellaarte",
+    "image": "https://pbs.twimg.com/media/FsIwJlRaEAIp5wf?format=jpg&name=large",
+    "post": "https://twitter.com/donstellaarte/status/1639926170774016005",
+    "date": "3/26/2023",
+    "id": 3209
+  },
+  {
+    "artistName": "Hei",
+    "artistLink": "https://twitter.com/heichanart",
+    "image": "https://pbs.twimg.com/media/FscUbjiakAEtzj2?format=jpg&name=medium",
+    "post": "https://twitter.com/heichanart/status/1641303062399823872",
+    "date": "3/30/2023",
+    "id": 5730
+  },
+  {
+    "artistName": "Takeshi",
+    "artistLink": "https://twitter.com/takeshi_tenma",
+    "image": "https://pbs.twimg.com/media/FsCZCDkXoAEcGl3?format=jpg&name=medium",
+    "post": "https://twitter.com/takeshi_tenma/status/1639478531662008321",
+    "date": "3/25/2023",
+    "id": 8659
+  },
+  {
+    "artistName": "Tay",
+    "artistLink": "https://twitter.com/AeltyArt",
+    "image": "https://pbs.twimg.com/media/Fs9sM27WAAU2FoR?format=jpg&name=small",
+    "post": "https://twitter.com/AeltyArt/status/1643653978096377864",
+    "date": "4/5/2023",
+    "id": 8659
+  },
+  {
+    "artistName": "Lighten",
+    "artistLink": "https://twitter.com/lightenbee",
+    "image": "https://pbs.twimg.com/media/Fs5xijRX0AEBr-7?format=jpg&name=medium",
+    "post": "https://twitter.com/0xMaple/status/1643394533370019843",
+    "date": "4/4/2023",
+    "id": 5825
+  },
+  {
+    "artistName": "Jessica",
+    "artistLink": "https://twitter.com/hjolltt",
+    "image": "https://twitter.com/i/status/1642998257088602113",
+    "post": "https://twitter.com/hjolltt/status/1642998257088602113",
+    "date": "4/3/2023",
+    "id": 8614
+  },
+  {
+    "artistName": "Nekobox",
+    "artistLink": "https://twitter.com/Nekoboxhime",
+    "image": "https://pbs.twimg.com/media/Fsx5pzEaUAA9B1x?format=png&name=900x900",
+    "post": "https://twitter.com/Nekoboxhime/status/1642821733173571584",
+    "date": "4/3/2023",
+    "id": 625
+  },
+  {
+    "artistName": "Naninna",
+    "artistLink": "https://twitter.com/NaninnaTH",
+    "image": "https://pbs.twimg.com/media/FszGiP5aMAAoz0C?format=jpg&name=large",
+    "post": "https://twitter.com/NaninnaTH/status/1642906260927569922",
+    "date": "4/3/2023",
+    "id": 3209
+  },
+  {
+    "artistName": "Berry_R",
+    "artistLink": "https://twitter.com/Berry_R25",
+    "image": "https://res.cloudinary.com/recomet/image/upload/c_lfill,h_400,w_400/q_100/f_auto/v1/prod/request/orders/6Jop0hrN3yxABynvrhSH/contentFiles/7v6M9A_g6IJT-igNI-yM.jpg?_a=ATO2BAA0",
+    "post": "https://twitter.com/pskex/status/1642603139923582978",
+    "date": "4/2/2023",
+    "id": 758
+  },
+  {
+    "artistName": "kazadi777",
+    "artistLink": "https://twitter.com/Kazadi777",
+    "image": "https://pbs.twimg.com/media/FswOfztaUAAdttQ?format=jpg&name=medium",
+    "post": "https://twitter.com/Kazadi777/status/1642704414904557568",
+    "date": "4/2/2023",
+    "id": 114
+  },
+  {
+    "artistName": "Fei",
+    "artistLink": "https://twitter.com/Feireina",
+    "image": "https://pbs.twimg.com/media/Fsonqr0WwAIIre7?format=jpg&name=medium",
+    "post": "https://twitter.com/Feireina/status/1642168858327896067",
+    "date": "4/1/2023",
+    "id": 3209
+  },
+  {
+    "artistName": "wakamepiza",
+    "artistLink": "https://twitter.com/wakamepiza",
+    "image": "https://pbs.twimg.com/media/FsnVdNOagAcW3tf?format=jpg&name=large",
+    "post": "https://twitter.com/wakamepiza/status/1642079557401612289",
+    "date": "4/1/2023",
+    "id": 625
+  },
+  {
+    "artistName": "ninegiri",
+    "artistLink": "https://twitter.com/ninegiri_",
+    "image": "https://res.cloudinary.com/recomet/image/upload/q_90/f_auto/v1/prod/request/orders/IZPAWyS96nxR3RzclJjX/contentFiles/SivH3yXMnJ5fw7lxDeZV.png?_a=ATO2BAA0",
+    "post": "",
+    "date": "4/3/2023",
+    "id": 3209
+  },
+  {
+    "artistName": "6maker",
+    "artistLink": "https://twitter.com/6maker_nft",
+    "image": "https://pbs.twimg.com/media/Fsnri_FakAEtp7F?format=jpg&name=large",
+    "post": "https://twitter.com/6maker_nft/status/1642102529856270338",
+    "date": "4/1/2023",
+    "id": 4542
+  },
+  {
+    "artistName": "pawwao",
+    "artistLink": "https://twitter.com/pawwaoart",
+    "image": "https://pbs.twimg.com/media/Fs1yawIacAAB-ta?format=jpg&name=medium",
+    "post": "https://twitter.com/pawwaoart/status/1643095250376994816",
+    "date": "4/3/2023",
+    "id": 4542
+  },
+  {
+    "artistName": "RhoXifer",
+    "artistLink": "https://twitter.com/RhoXifer",
+    "image": "https://pbs.twimg.com/media/Fsy93CfaEAEwBQ7?format=jpg&name=large",
+    "post": "https://twitter.com/RhoXifer/status/1642898021498388481",
+    "date": "4/3/2023",
+    "id": 2971
+  },
+  {
+    "artistName": "Kitsu",
+    "artistLink": "https://twitter.com/sky_diver_fox",
+    "image": "https://pbs.twimg.com/media/FstbpyOXwAAXaNF?format=jpg&name=medium",
+    "post": "https://twitter.com/sky_diver_fox/status/1642511611377197056",
+    "date": "4/2/2023",
+    "id": 5013
   }
 ];
 

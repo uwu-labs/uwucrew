@@ -11,7 +11,7 @@ import kiwi from '../assets/profiles/kiwi.jpg';
 import morello from '../assets/profiles/morello.jpg';
 import danny from '../assets/profiles/danny.jpg';
 import omar from '../assets/profiles/omar.jpg';
-import spori from '../assets/profiles/spori.jpg';
+import nines from '../assets/profiles/nines.jpg';
 import jules from '../assets/profiles/jules.jpg';
 
 interface TeamMemberType {
@@ -97,6 +97,16 @@ const members: TeamMemberType[] = [
 		fnd: 'https://foundation.app/@jujulesblanc'
 	},
 	{
+		name: 'Nines',
+		role: '2D & 3D Designer',
+		image: nines,
+		bio: [
+			'Meet Nines, our resident pixel magician who has been expertly manipulating pixels for over 15 years!',
+			'With a keen eye for cool, new, and interesting techniques, Nines is our go-to guru for all things branding, promos, merch, design and everything in between.',
+		],
+		twitter: 'https://twitter.com/nine__s'
+	},
+	{
 		name: 'Chase',
 		role: 'Front End Dev',
 		image: chase,
@@ -107,17 +117,6 @@ const members: TeamMemberType[] = [
 		],
 		twitter: 'https://twitter.com/chase_manning_',
 		github: 'https://github.com/chase-manning'
-	},
-	{
-		name: 'Spori',
-		role: 'Full Stack Dev',
-		image: spori,
-		bio: [
-			'Spori is Full Stack Engineer experienced with TypeScript, React, Solidity and more!',
-			'Long time anime watcher, dabbling in and exploring the incredible world of Web3.',
-			'Embraces community and open-source knowledge!'
-		],
-		twitter: 'https://twitter.com/0xSpori'
 	}
 ];
 
