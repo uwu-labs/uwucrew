@@ -5179,7 +5179,7 @@ const derivatives: DerivativeType[] = [
     "id": 3209
   },
   {
-    "artistName": "Kafkakafka74",
+    "artistName": "Jessica",
     "artistLink": "https://twitter.com/kafkakafka74",
     "image": "https://pbs.twimg.com/media/FmDPhCsaEAAVQ-X?format=jpg&name=small",
     "post": "twitter.com/kafkakafka74/status/1612516837543272448",
@@ -5187,7 +5187,7 @@ const derivatives: DerivativeType[] = [
     "id": 5013
   },
   {
-    "artistName": "Kafkakafka74",
+    "artistName": "Jessica",
     "artistLink": "https://twitter.com/kafkakafka74",
     "image": "https://pbs.twimg.com/media/FmHnbhKaAAA___D?format=jpg&name=small",
     "post": "https://twitter.com/kafkakafka74/status/1612824606959894529",
@@ -5195,7 +5195,7 @@ const derivatives: DerivativeType[] = [
     "id": 3209
   },
   {
-    "artistName": "Kafkakafka74",
+    "artistName": "Jessica",
     "artistLink": "https://twitter.com/kafkakafka74",
     "image": "https://pbs.twimg.com/media/FmHiGmsaAAERF0H?format=jpg&name=small",
     "post": "twitter.com/kafkakafka74/status/1612818748653850627",
@@ -5211,7 +5211,7 @@ const derivatives: DerivativeType[] = [
     "id": 3976
   },
   {
-    "artistName": "Kafkakafka74",
+    "artistName": "Jessica",
     "artistLink": "https://twitter.com/kafkakafka74",
     "image": "https://pbs.twimg.com/media/FmRS2CuaMAAYN7l?format=jpg&name=small",
     "post": "https://twitter.com/kafkakafka74/status/1613505660225998850",
@@ -5219,7 +5219,7 @@ const derivatives: DerivativeType[] = [
     "id": 4292
   },
   {
-    "artistName": "Jules Blanc",
+    "artistName": "Jessica",
     "artistLink": "https://twitter.com/BlancNFT",
     "image": "https://pbs.twimg.com/media/FmJM2XaacAA1Nn9?format=jpg&name=large",
     "post": "https://twitter.com/kafkakafka74/status/1612936123470446592",
@@ -5235,7 +5235,7 @@ const derivatives: DerivativeType[] = [
     "id": 9298
   },
   {
-    "artistName": "Kafkakafka74",
+    "artistName": "Jessica",
     "artistLink": "https://twitter.com/kafkakafka74",
     "image": "https://pbs.twimg.com/media/FmdXJGpaEAEOM8P?format=jpg&name=small",
     "post": "twitter.com/kafkakafka74/status/1614354809095872512",
