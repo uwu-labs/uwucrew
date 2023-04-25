@@ -102,7 +102,7 @@ const members: TeamMemberType[] = [
 		image: nines,
 		bio: [
 			'Meet Nines, our resident pixel magician who has been expertly manipulating pixels for over 15 years!',
-			'With a keen eye for cool, new, and interesting techniques, Nines is our go-to guru for all things branding, promos, merch, design and everything in between.',
+			'With a keen eye for cool, new, and interesting techniques, Nines is our go-to guru for all things branding, promos, merch, design and everything in between.'
 		],
 		twitter: 'https://twitter.com/nine__s'
 	},
