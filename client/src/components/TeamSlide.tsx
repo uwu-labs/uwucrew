@@ -13,6 +13,7 @@ import danny from '../assets/profiles/danny.jpg';
 import omar from '../assets/profiles/omar.jpg';
 import nines from '../assets/profiles/nines.jpg';
 import jules from '../assets/profiles/jules.jpg';
+import cucurbit from '../assets/profiles/cucurbit.jpg';
 
 interface TeamMemberType {
 	name: string;
@@ -47,7 +48,6 @@ const members: TeamMemberType[] = [
 			'He is responsible for leading the team, the uwucrew image generation, and oversees all dev tasks.'
 		],
 		twitter: 'https://twitter.com/0xKiwi_',
-		github: 'https://github.com/0xKiwi',
 		fnd: 'https://foundation.app/@Kiwi_Vault'
 	},
 	{
@@ -86,6 +86,16 @@ const members: TeamMemberType[] = [
 		fnd: 'https://foundation.app/@0xMaple'
 	},
 	{
+		name: 'Nines',
+		role: '2D & 3D Designer',
+		image: nines,
+		bio: [
+			'Meet Nines, our resident pixel wizard who has been expertly manipulating pixels for over 15 years!',
+			'With a keen eye for cool, new, and interesting techniques, Nines is our go-to guru for all things branding, promos, merch, design and everything in between.'
+		],
+		twitter: 'https://twitter.com/nine__s'
+	},
+	{
 		name: 'Jules',
 		role: 'Creative Assistant',
 		image: jules,
@@ -97,14 +107,14 @@ const members: TeamMemberType[] = [
 		fnd: 'https://foundation.app/@jujulesblanc'
 	},
 	{
-		name: 'Nines',
-		role: '2D & 3D Designer',
-		image: nines,
+		name: 'Cucurbit',
+		role: 'Front End Dev',
+		image: cucurbit,
 		bio: [
-			'Meet Nines, our resident pixel wizard who has been expertly manipulating pixels for over 15 years!',
-			'With a keen eye for cool, new, and interesting techniques, Nines is our go-to guru for all things branding, promos, merch, design and everything in between.'
+			'Cucurbit is on the team to help us build out a beautiful website for any of our needs!',
+			'She is also experienced with trading, DeFi, and is constantly exploring new ways to make our websites as fun as possible!'
 		],
-		twitter: 'https://twitter.com/nine__s'
+		twitter: 'https://twitter.com/PiperCucu'
 	},
 	{
 		name: 'Chase',
@@ -113,7 +123,7 @@ const members: TeamMemberType[] = [
 		bio: [
 			'Recommended by 4 out of 5 people who recommend things.',
 			'Chase is a Front End Web3 dev who has a passion for DeFi and NFTs.',
-			'He builds the websites for uwucrew and ensures everything is looking slick online!'
+			'He helps us with sick web design techniques and ensures our websites are slick!'
 		],
 		twitter: 'https://twitter.com/chase_manning_',
 		github: 'https://github.com/chase-manning'
