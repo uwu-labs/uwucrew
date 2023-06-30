@@ -260,7 +260,7 @@ const License = () => {
 				<SubHeader>{t('license.subheader-16')}</SubHeader>
 				<Uwus>
 					{theCrew.map((uwu: number) => (
-						<UwuContainer href={`https://opensea.io/assets/0xf75140376d246d8b1e5b8a48e3f00772468b3c0c/${uwu}`} target="_blank">
+						<UwuContainer href={`https://opensea.io/assets/ethereum/0xf75140376d246d8b1e5b8a48e3f00772468b3c0c/${uwu}`} target="_blank">
 							<UwuImage src={`https://firebasestorage.googleapis.com/v0/b/uwucrew-thumbnails/o/${uwu}.png?alt=media`} />
 							<UwuText>{`uwu: #${uwu}`}</UwuText>
 						</UwuContainer>

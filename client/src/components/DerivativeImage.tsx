@@ -102,7 +102,7 @@ const DerivativeImage = ({ derivative }: Props) => {
 					<TopRow>
 						{derivative.id && (
 							<Link
-								href={`https://opensea.io/assets/0xf75140376d246d8b1e5b8a48e3f00772468b3c0c/${derivative.id}`}
+								href={`https://opensea.io/assets/ethereum/0xf75140376d246d8b1e5b8a48e3f00772468b3c0c/${derivative.id}`}
 								target="_blank"
 							>{`uwucrew #${derivative.id}`}</Link>
 						)}
