@@ -6449,8 +6449,7 @@ const derivatives: DerivativeType[] = [
 		artistLink: "https://twitter.com/ruriNFT",
 		image: "https://twitter.com/i/status/1664733465533661187",
 		post: "https://twitter.com/ruriNFT/status/1662282151071498242",
-		date: "5/26/2023",
-		id: ""
+		date: "5/26/2023"
 	},
 	{
 		artistName: "Ruri",
