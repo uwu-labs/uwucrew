@@ -21,7 +21,7 @@ async function main() {
   // let airdrop = await ethers.getContractAt("Airdrop1155", "0xa3b041ee6b56bccbc54a3048417d82fe67736f62"); // persona lamps
   // let tx1 = await airdrop.initializeAirdrop(0, "QmX92tTuRvXKgsLa5L8g8sapeqgYddinCKmkhPAHnpKGAB", {gasLimit: 160000})
   // await tx1.wait();
-  let tx2 = await airdrop.initializeAirdrop(3, "QmVXxaDhykTJB7BTBRXXTTnTfc4m9FUqeN6ikbfnm1RQww", {gasLimit: 160000})
+  let tx2 = await airdrop.initializeAirdrop(4, "QmXNPwUMbMSFN1BzXcDhGn12zqTV4o3BDhGAb5Jssr9HDg", {gasLimit: 160000})
   await tx2.wait()
   console.log("Airdrop initialized");
 }

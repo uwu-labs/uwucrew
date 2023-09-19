@@ -1,7 +1,7 @@
 const { BigNumber } = require("@ethersproject/bignumber");
 const { ethers } = require("hardhat");
 // const airdropInfo2 = require("../snapshots/waifu-12092465.json");
-const airdropInfo = require("./results/year-holders.json");
+const airdropInfo = require("../snapshots/insignias/bluebunny.json");
 
 async function main() {
   const [deployer] = await ethers.getSigners();
@@ -28,11 +28,11 @@ async function main() {
 
   
   // ID HERE AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ID HERE
-  let NFT_ID = 0;
+  let NFT_ID = 5;
 
   let nonce = await ethers.provider.getTransactionCount(await deployer.getAddress(), "pending");
   console.log(nonce)
-  let batchSize = 200;
+  let batchSize = 100;
   for (let i = 0; i < addresses.length; i += batchSize) {
     let sendAddresses = [];
     let sendIds = [];
@@ -60,7 +60,7 @@ async function main() {
       sendAddresses, sendIds, sendAmounts,
       {
         nonce: BigNumber.from(nonce),
-        gasLimit: 10000000,
+        gasLimit: 5000000,
       }
     );
     await tx.wait();

@@ -16,7 +16,10 @@ async function main() {
   await uwui.deployed();
   console.log(`Deployed to: ${uwui.address}`)
 
-  await uwui.initializeStamp("0x08d816526bdc9d077dd685bd9fa49f58a5ab8e48", 0, "QmSPk5xnSGfZe8PphRJpJju42DZjRyoFkcpQgXdDQ9Lwna", {gasLimit: 160000})
+  await uwui.initializeStamp("0x534E430ab0B423a346097236b589Dd6862d13Fc6", 5, "QmSn6r3UtGUASmBzgrukLWBbeAC1FnKUPuFMar9NYqZbM1", {gasLimit: 160000})
+
+
+  // await uwui.setTokenURI(1, "QmSGA8nh2FVWM2YgaU1K152XxYGn5CL1vnkkj6bhmVwbPW", {gasLimit: 160000})
 }
 
 main()

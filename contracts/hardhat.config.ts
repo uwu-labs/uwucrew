@@ -43,7 +43,7 @@ export default {
     polygon: {
       url: "https://polygon-rpc.com",
       accounts: [process.env.DEV_PRIVKEY],
-      gasPrice: 50000000000,
+      gasPrice: 150000000000,
 			timeout: 120000
     },
 	},
