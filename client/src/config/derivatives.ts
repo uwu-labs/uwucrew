@@ -6971,7 +6971,6 @@ const derivatives: DerivativeType[] = [
 		image: "https://pbs.twimg.com/media/F5zxAIOasAAfaaH?format=jpg&name=large",
 		post: "https://twitter.com/BShrimpWorld/status/1701499956543300036?s=20",
 		date: "9/12/23",
-		id: ""
 	},
 	{
 		artistName: "Aotakana",
