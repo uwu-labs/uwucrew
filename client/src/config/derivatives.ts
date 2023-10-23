@@ -6740,7 +6740,136 @@ const derivatives: DerivativeType[] = [
 		post: "https://twitter.com/2_kalistner/status/1675702974889467906",
 		date: "7/2/2023",
 		id: 5005
-	}
+	},
+	{
+        artistName: "MoonAbsorb",
+        artistLink: "https://twitter.com/MoonAbsorb",
+        image: "https://pbs.twimg.com/media/F5Xu-vha4AAM3iK?format=jpg&name=large",
+        post: "https://twitter.com/MoonAbsorb/status/1699527199890817278",
+        date: "10/6/23"
+    },
+    {
+        artistName: "MoonAbsorb",
+        artistLink: "https://twitter.com/MoonAbsorb",
+        image: "https://pbs.twimg.com/media/F5KLI4QbsAEIqcM?format=jpg&name=medium",
+        post: "https://twitter.com/MoonAbsorb/status/1698572999576949069",
+        date: "9/4/23",
+        id: 3209
+    },
+    {
+        artistName: "MoonAbsorb",
+        artistLink: "https://twitter.com/MoonAbsorb",
+        image: "https://pbs.twimg.com/media/F5KKtUnaYAAHNNQ?format=jpg&name=900x900",
+        post: "https://twitter.com/MoonAbsorb/status/1698572525478072608",
+        date: "9/3/23",
+        id: 8369
+    },
+    {
+        artistName: "sweetbread",
+        artistLink: "https://twitter.com/sweetbread_eth",
+        image: "https://pbs.twimg.com/media/F6HEvZJXwAA4A3g?format=jpg&name=mediumhttps://twitter.com/morellostorment/status/1702858831452127494",
+        post: "https://twitter.com/morellostorment/status/1702858831452127494",
+        date: "9/15/23",
+        id: 3209
+    },
+	{
+        artistName: "Bamuth Chen",
+        artistLink: "https://twitter.com/bamuth_Z",
+        image: "https://pbs.twimg.com/media/F6dbdI5aEAE-EGF?format=jpg&name=large",
+        post: "https://twitter.com/bamuth_Z/status/1704435714312786183",
+        date: "9/20/23"
+	},
+    {
+        artistName: "jamesmakan",
+        artistLink: "https://twitter.com/jamesmakan",
+        image: "https://pbs.twimg.com/media/F5yvqd_XgAATbPF?format=jpg&name=large",
+        post: "https://twitter.com/jamesmakan/status/1701427906717610067",
+        date: "9/11/23"
+    },
+    {
+        artistName: "Shibuya",
+        artistLink: "https://twitter.com/shibun_yan",
+        image: "https://pbs.twimg.com/media/F7tNInpWsAAJTn6?format=jpg&name=large",
+        post: "https://twitter.com/shibun_yan/status/1710045677487796491",
+        date: "10/5/23",
+        id: 3976
+    },
+    {
+        artistName: "Fei",
+        artistLink: "https://twitter.com/Feireina",
+        image: "https://pbs.twimg.com/media/F7sx_xtXYAANiv2?format=jpg&name=large",
+        post: "https://twitter.com/Feireina/status/1710015609214226446",
+        date: "10/5/23"
+    },
+    {
+        artistName: "Hikeru",
+        artistLink: "https://twitter.com/Hikeruminnft",
+        image: "https://pbs.twimg.com/media/F7nhe2jXQAAcHcL?format=jpg&name=4096x4096",
+        post: "https://twitter.com/Hikeruminnft/status/1709645548599312666",
+        date: "10/4/23",
+        id: 4542
+    },
+	{
+    
+        artistName: "Fei",
+        artistLink: "https://twitter.com/Feireina",
+        image: "https://pbs.twimg.com/media/F8MLsxwW0AEgkGm?format=jpg&name=large",
+        post: "https://twitter.com/Feireina/status/1712225732733071625",
+        date: "10/10/23"
+    },
+    {
+        artistName: "MAYURI",
+        artistLink: "https://twitter.com/MayureeArt",
+        image: "https://pbs.twimg.com/media/F2drTkHX0AAhLxI?format=jpg&name=large",
+        post: "https://twitter.com/mayureeart/status/1686435124114575374",
+        date: "9/1/23"
+    },
+    {
+        artistName: "Kura",
+        artistLink: "https://twitter.com/kura_matsuko",
+        image: "https://pbs.twimg.com/media/F3EMK92bEAABBKS?format=jpg&name=medium",
+        post: "https://twitter.com/kura_matsuko/status/1689145056249397248",
+        date: "8/9/23",
+        id: 5432
+    },
+    {
+        artistName: "bandagenft",
+        artistLink: "https://twitter.com/bandageNFT",
+        image: "https://pbs.twimg.com/media/F3C7PWCbMAEfSdR?format=jpg&name=medium",
+        post: "https://twitter.com/tubbycatsnft/status/1689055868103561218",
+        date: "8/8/23",
+        id: 3209
+    },
+    {
+        artistName: "t_w106",
+        artistLink: "https://twitter.com/t_w106",
+        image: "https://pbs.twimg.com/media/F31R9oRaYAIsDI8?format=jpg&name=medium",
+        post: "https://twitter.com/ligaratus_/status/1692600024256110830",
+        date: "8/18/2023",
+        id: 3976
+    },
+    {
+        artistName: "SWHEATZ",
+        artistLink: "https://twitter.com/SWHEATZ1",
+        image: "https://pbs.twimg.com/media/F34bNIKaEAAAh_U?format=jpg&name=large",
+        post: "https://twitter.com/SWHEATZ1/status/1692820425745870850",
+        date: "8/19/23"
+    },
+    {
+        artistName: "Sai",
+        artistLink: "https://twitter.com/sai7",
+        image: "https://pbs.twimg.com/media/F4n5jICXYAEVB5p?format=jpg&name=large",
+        post: "https://twitter.com/sai7/status/1696162058864042265",
+        date: "8/28/23",
+        id: 3654
+    },
+    {
+        artistName: "Frannyc",
+        artistLink: "https://twitter.com/BingNft",
+        image: "https://pbs.twimg.com/media/F4LxpihWsAAmhqt?format=jpg&name=medium",
+        post: "https://twitter.com/BingNft/status/1694182270423154932",
+        date: "8/22/23"
+    }
 ];
 
 export default derivatives;
