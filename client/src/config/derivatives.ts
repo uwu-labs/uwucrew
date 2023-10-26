@@ -5771,14 +5771,6 @@ const derivatives: DerivativeType[] = [
 		id: 1792
 	},
 	{
-		artistName: 'Jex Huang',
-		artistLink: 'https://twitter.com/jex_huang',
-		image: 'https://pbs.twimg.com/media/FqwIf2uaEAEAYoW?format=jpg&name=900x900',
-		post: 'https://twitter.com/jex_huang/status/1633690153092009985',
-		date: '3/8/2023',
-		id: 7812
-	},
-	{
 		artistName: '一条レイ',
 		artistLink: 'https://twitter.com/1JO_0',
 		image: 'https://pbs.twimg.com/media/Fq3xCgiaEAUAGfJ?format=jpg&name=large',
@@ -6388,14 +6380,6 @@ const derivatives: DerivativeType[] = [
 		post: "https://twitter.com/seradoar/status/1655246703824453634?s=20",
 		date: "5/7/2023",
 		id: 782
-	},
-	{
-		artistName: "Aotakana",
-		artistLink: "https://twitter.com/2_kalistner",
-		image: "https://pbs.twimg.com/media/FvvI3JkaAAAU1iY?format=jpg&name=medium",
-		post: "https://twitter.com/2_kalistner/status/1656138143605854210?s=61&t=cUBYvh-EH5RNhzqISyFYxw",
-		date: "5/9/2023",
-		id: 5005
 	},
 	{
 		artistName: "HTT",
