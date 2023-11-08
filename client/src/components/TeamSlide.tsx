@@ -103,7 +103,7 @@ const members: TeamMemberType[] = [
 			'Jules is an accomplished artist and designer, who has a strong tendency to create cute stuff. They have extensive knowledge of the NFT space, and are a valuable guide to those who are new.',
 			'Jules assists in the creative process for a variety of projects within uwucrew.'
 		],
-		twitter: 'https://twitter.com/BlancNFT',
+		twitter: 'https://twitter.com/@BlancPixels',
 		fnd: 'https://foundation.app/@jujulesblanc'
 	},
 	{
