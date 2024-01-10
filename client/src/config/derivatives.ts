@@ -7323,7 +7323,7 @@ const derivatives: DerivativeType[] = [
 	{
         artistName: "miring8",
         artistLink: "https://twitter.com/imagimiring8",
-        image: "https://pbs.twimg.com/media/GCKZiupbwAAhFi0?format=jpg&name=900x900",
+        image: "https://pbs.twimg.com/media/GCQKJZZbEAA-_x5?format=jpg&name=900x900",
         post: "https://twitter.com/imagimiring8/status/1739121235219657008",
         date: "12/24/2023",
         id: 4542
