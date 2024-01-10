@@ -7091,6 +7091,34 @@ const derivatives: DerivativeType[] = [
 		image: "https://pbs.twimg.com/media/F4LxpihWsAAmhqt?format=jpg&name=medium",
 		post: "https://twitter.com/BingNft/status/1694182270423154932",
 		date: "8/22/23"
+    },
+	{
+		artistName: "Kura",
+		artistLink: "https://twitter.com/kura_matsuko",
+		image: "https://pbs.twimg.com/media/F9Vy5sEa8AA3Awq?format=jpg&name=large",
+		post: "https://twitter.com/kura_matsuko/status/1717405187789484262",
+		date: "10/26/2023"
+    },
+	{
+		artistName: "Aotakana",
+		artistLink: "https://twitter.com/2_kalistner",
+		image: "https://pbs.twimg.com/media/F9WtoaLaIAA3kYp?format=jpg&name=large",
+		post: "https://twitter.com/2_kalistner/status/1717469749276475575",
+		date: "10/26/2023"
+    },
+	{
+		artistName: "Fei",
+		artistLink: "https://twitter.com/Feireina",
+		image: "https://pbs.twimg.com/media/F9DvSZgXgAAMD2G?format=jpg&name=large",
+		post: "https://twitter.com/Feireina/status/1716134808198246788",
+		date: "10/22/2023"
+    },
+	{
+		artistName: "Lighten",
+		artistLink: "https://twitter.com/lightenbee",
+		image: "https://pbs.twimg.com/media/F9cta4caoAAljZN?format=jpg&name=large",
+		post: "https://twitter.com/lightenbee/status/1717891730983571507",
+		date: "10/27/2023"
     }
 ];
 
