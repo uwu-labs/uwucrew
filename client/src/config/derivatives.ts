@@ -7590,7 +7590,7 @@ const derivatives: DerivativeType[] = [
         image: "https://pbs.twimg.com/media/GJDrRHJXMAAR8gf?format=jpg&name=medium",
         post: "https://twitter.com/uwucrewnft/status/1770173336368148877",
         date: "3/19/24",
-        id: "4542, 3209"
+        id: 4542
     },
     {
         artistName: "jules blanc",
@@ -7646,7 +7646,6 @@ const derivatives: DerivativeType[] = [
         image: "https://pbs.twimg.com/media/GLAOrftXgAAzU20?format=jpg&name=medium",
         post: "https://twitter.com/jamesmakan/status/1778937996445733310",
         date: "4/12/24",
-        id: 
     },
     {
         artistName: "jamesmakan",
